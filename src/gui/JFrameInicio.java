@@ -2,7 +2,9 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -22,6 +24,8 @@ public class JFrameInicio extends JFrame{
 		titulo.setHorizontalAlignment(JLabel.CENTER);
 		titulo.setVerticalAlignment(JLabel.CENTER);
 		this.add(titulo);
+		ImageIcon logo = new ImageIcon("images/logos/logoApp.png");
+		this.setIconImage(logo.getImage());
 		
 	}
 	
