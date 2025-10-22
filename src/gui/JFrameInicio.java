@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class JFrameInicio extends JFrame{
+
 
 	private static final long serialVersionUID = 1L;
 
@@ -47,12 +50,24 @@ public class JFrameInicio extends JFrame{
 		
 		this.add(panel);
 		
+		btnEntrar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				setVisible(false);
+			}
+			
+			
+		});
+		
 	}
 	
+
 	public static void main(String[] args) {
 		JFrameInicio jfi = new JFrameInicio();
 		jfi.setVisible(true);
-	}
+			}
 	
 	
 
