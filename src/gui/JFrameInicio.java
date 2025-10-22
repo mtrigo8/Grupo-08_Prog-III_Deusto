@@ -35,5 +35,6 @@ public class JFrameInicio extends JFrame{
 	}
 	
 	
+	//hola
 
 }
