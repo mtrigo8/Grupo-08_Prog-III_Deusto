@@ -32,12 +32,7 @@ public class JFrameInicio extends JFrame{
 		this.add(titulo);
 		ImageIcon logo = new ImageIcon("images/logos/logoApp.png");
 		this.setIconImage(logo.getImage());
-		
-		
-		
-
-        
-      
+	
 	}
 	
 	public static void main(String[] args) {
@@ -106,3 +101,4 @@ public class JFrameInicio extends JFrame{
     }
 	
 }
+
