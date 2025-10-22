@@ -33,7 +33,8 @@ public class JFrameInicio extends JFrame{
 		JFrameInicio jfi = new JFrameInicio();
 		jfi.setVisible(true);
 	}
-	
+	//hoal
+	//hola2
 	
 
 }
