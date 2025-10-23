@@ -7,33 +7,38 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Image;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.File;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class JFrameInicio extends JFrame{
+import domain.Liga;
+
+public class JFrameInicio extends JFramePadre{
 
 
 	private static final long serialVersionUID = 1L;
 
-	public JFrameInicio() {
-		this.setSize(1000, 600);
-		this.setTitle("Nombre_App");
-		this.getContentPane().setBackground(Color.orange);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setLocationRelativeTo(null);
-		this.setResizable(false);
+	public JFrameInicio(ArrayList<Liga> ligas) {
+		super();
 		
 		//Parte mejorada mediante el uso de Claude 4.5 debido a un error en mi codigo original
 		// Crear panel con GridBagLayout para centrar elementos
-		JPanel panel = new JPanel(new GridBagLayout());
-		panel.setBackground(Color.orange);
+		JPanel panel = super.panel;
 		GridBagConstraints gbc = new GridBagConstraints();
 		
 		// Configurar el título
-		JLabel titulo = new JLabel("Bienvenido a Nombre_App");
+		JLabel titulo = new JLabel("Bienvenido a FutGoat");
 		titulo.setFont(new Font("Arial", Font.BOLD, 30));
 		gbc.gridx = 0;
 		gbc.gridy = 0;
@@ -43,6 +48,8 @@ public class JFrameInicio extends JFrame{
 		// Crear y configurar el botón
 		JButton btnEntrar = new JButton("Entrar");
 		btnEntrar.setFont(new Font("Arial", Font.PLAIN, 18));
+		btnEntrar.setPreferredSize(new java.awt.Dimension(100, 60));
+		btnEntrar.setBackground(Color.red);
 		gbc.gridx = 0;
 		gbc.gridy = 1;
 		gbc.insets = new Insets(0, 0, 0, 0);
@@ -55,20 +62,83 @@ public class JFrameInicio extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				JFrameSeleccionarLigas jfs = new JFrameSeleccionarLigas(ligas);
 				setVisible(false);
+				jfs.setVisible(true);
 			}
+			
 			
 			
 		});
 		
-	}
+		
 	
-
-	public static void main(String[] args) {
-		JFrameInicio jfi = new JFrameInicio();
-		jfi.setVisible(true);
+		
+		
+		
+			this.addWindowListener(new WindowListener() {
+			
+			@Override
+			public void windowOpened(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
 			}
-	
+			
+			@Override
+			public void windowIconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowDeiconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowDeactivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowClosing(WindowEvent e) {
+				// TODO Auto-generated method stub
+				reproducirSonido("audio/gagaga.wav");
+			}
+			
+			@Override
+			public void windowClosed(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowActivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		
+	}
+	private static void reproducirSonido(String ruta) {
+        try {
+            File archivoSonido = new File(ruta);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(archivoSonido);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }}
 	
 
-}
+	
+
+	
+
+
+
