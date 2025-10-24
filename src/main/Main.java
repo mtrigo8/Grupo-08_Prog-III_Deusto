@@ -16,6 +16,7 @@ public class Main {
 		JFrameInicio jfi = new JFrameInicio(ligas);
 		jfi.setVisible(true);
 			}
+	//ga ga
 	}
 
 
