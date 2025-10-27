@@ -39,6 +39,8 @@ public class JFrameInicio extends JFramePadre{
 		
 		// Configurar el título
 		JLabel titulo = new JLabel("Bienvenido a FutGoat");
+		titulo.setOpaque(true);
+		titulo.setBackground(Color.white);
 		titulo.setFont(new Font("Arial", Font.BOLD, 30));
 		gbc.gridx = 0;
 		gbc.gridy = 0;

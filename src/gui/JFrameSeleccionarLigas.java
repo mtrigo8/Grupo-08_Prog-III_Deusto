@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -29,6 +31,8 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 		
 		// Configurar el título
 		JLabel titulo = new JLabel("Seleccione una liga");
+		titulo.setOpaque(true);
+		titulo.setBackground(Color.white);
 		titulo.setFont(new Font("Arial", Font.BOLD, 30));
 		gbc.gridx = 0;
 		gbc.gridy = -1;
@@ -44,6 +48,15 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 			botonLiga.setFont(new Font("Arial", Font.PLAIN, 18));
 			botonLiga.setPreferredSize(new java.awt.Dimension(100, 100));
 			botonLiga.setIcon(iconoAjustado);
+			botonLiga.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					JFrameLiga jfl = new JFrameLiga();
+					setVisible(false);
+					jfl.setVisible(true);
+				}});
 			botones.add(botonLiga);
 		}
 		gbc.gridx = 0;
@@ -53,5 +66,8 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 		
 		
 		this.add(panel);
+		
+		
 } 
+	
 }
