@@ -1,10 +1,12 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -43,17 +45,17 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 		botones.setOpaque(false);
 		for (Liga liga : ligas) {
 			ImageIcon iconoLiga = new ImageIcon("images/ligas/" + liga.getNombre() + ".png");
-			ImageIcon iconoAjustado = new ImageIcon(iconoLiga.getImage().getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH));
+			ImageIcon iconoAjustado = new ImageIcon(iconoLiga.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
 			JButton botonLiga = new JButton();
 			botonLiga.setFont(new Font("Arial", Font.PLAIN, 18));
-			botonLiga.setPreferredSize(new java.awt.Dimension(100, 100));
+			botonLiga.setPreferredSize(new Dimension(100, 100));
 			botonLiga.setIcon(iconoAjustado);
 			botonLiga.addActionListener(new ActionListener() {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
-					JFrameLiga jfl = new JFrameLiga();
+					JFrameLiga jfl = new JFrameLiga(liga);
 					setVisible(false);
 					jfl.setVisible(true);
 				}});
