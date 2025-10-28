@@ -49,7 +49,7 @@ public class JFrameInicio extends JFramePadre {
                 jfs.setVisible(true);
             }
         });
-
+        super.botonAtras.setVisible(false); //ya que es la ventana principal el boton de atras no es util poeque no cierra la app
         // --- Posicionar componentes inicialmente ---
         posicionarComponentes();
     }
