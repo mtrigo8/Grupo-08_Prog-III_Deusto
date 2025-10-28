@@ -10,6 +10,8 @@ public class Partido {
 	private int golesLocal;
 	private int golesVisitante;
 	private LocalDate fecha;
+	private Equipo equipoGanador;
+	private Equipo equipoPerdedor;
 	
 	public Partido(Equipo equipoLocal, Equipo equipoVisitante, int golesLocal, int golesVisitante, LocalDate fecha) {
 		super();
@@ -18,6 +20,21 @@ public class Partido {
 		this.golesLocal = golesLocal;
 		this.golesVisitante = golesVisitante;
 		this.fecha = fecha;
+	}
+	
+	public void actualizacionPuntos() {
+		if (this.golesLocal > this.golesVisitante ) {
+			this.equipoLocal.setPuntos(this.equipoLocal.getPuntos()+3);
+		}else if (this.golesLocal < this.golesVisitante) {
+			this.equipoVisitante.setPuntos(this.equipoVisitante.getPuntos()+3);
+		}else {
+			this.equipoLocal.setPuntos(this.equipoLocal.getPuntos()+1);
+			this.equipoLocal.setPuntos(this.equipoLocal.getPuntos()+1);
+		}
+	}
+	public void actualizarGoles() {
+		equipoLocal.setGoles(equipoLocal.getGoles()+golesLocal-golesVisitante);
+		equipoVisitante.setGoles(equipoVisitante.getGoles()-golesLocal+golesVisitante);
 	}
 
 	public Equipo getEquipoLocal() {
