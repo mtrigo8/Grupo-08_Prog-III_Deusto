@@ -33,30 +33,31 @@ public class JFrameInicio extends JFramePadre{
 	public JFrameInicio(ArrayList<Liga> ligas) {
 		super();
 		
+		usoBotonAtras();
+		
 		//Parte mejorada mediante el uso de Claude 4.5 debido a un error en mi codigo original
 		// Crear panel con GridBagLayout para centrar elementos
 		JPanel panel = super.panel;
-		GridBagConstraints gbc = new GridBagConstraints();
 		
 		// Configurar el título
 		JLabel titulo = new JLabel("Bienvenido a FutGoat");
+		titulo.setFont(new Font("Arial", Font.BOLD, 30));
 		titulo.setOpaque(true);
 		titulo.setBackground(Color.white);
-		titulo.setFont(new Font("Arial", Font.BOLD, 30));
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.insets = new Insets(0, 0, 20, 0); // Espacio debajo del título
-		panel.add(titulo, gbc);
+		Dimension size = titulo.getPreferredSize();
+		int anchoT = size.width;
+		int altoT = size.height;
+		titulo.setBounds(300 - (anchoT/2), 200 - (altoT/2), anchoT, altoT);
+		panel.add(titulo);
 		
 		// Crear y configurar el botón
 		JButton btnEntrar = new JButton("Entrar");
 		btnEntrar.setFont(new Font("Arial", Font.BOLD, 18));
-		btnEntrar.setPreferredSize(new Dimension(100, 60));
 		btnEntrar.setBackground(new Color(80, 187, 212));
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.insets = new Insets(0, 0, 0, 0);
-		panel.add(btnEntrar, gbc);
+		int anchoB = 100;
+		int altoB = 50;
+		btnEntrar.setBounds(500 - (anchoB/2), 400 - (altoB/2), anchoB, altoB);
+		panel.add(btnEntrar);
 		
 		this.add(panel);
 		
@@ -70,6 +71,18 @@ public class JFrameInicio extends JFramePadre{
 				jfs.setVisible(true);
 			}		
 		});		
+	}
+
+	@Override
+	public void usoBotonAtras() {
+		// TODO Auto-generated method stub
+		super.botonAtras.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				setVisible(false);
+			}});
 	}	
  }
 	

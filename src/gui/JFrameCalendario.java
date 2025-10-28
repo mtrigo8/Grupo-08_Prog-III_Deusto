@@ -27,6 +27,12 @@ public class JFrameCalendario extends JFramePadre {
 		
 		super.panel.add(table);
 	}
+
+	@Override
+	public void usoBotonAtras() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 

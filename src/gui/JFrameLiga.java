@@ -23,21 +23,22 @@ public class JFrameLiga extends JFramePadre {
 		super();
 		
 		JPanel panel = super.panel;
-		GridBagConstraints gbc = new GridBagConstraints();
 		
 		JLabel ligaT = new JLabel(liga.getNombre(), JLabel.CENTER);
 		ligaT.setFont(new Font("Arial", Font.BOLD, 30));
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.insets = new Insets(50, 0, 5, 0); // Espacio debajo del título
-		panel.add(ligaT, gbc);
+		Dimension sizeL = ligaT.getPreferredSize();
+		int anchoL = sizeL.width;
+		int altoL = sizeL.height;
+		ligaT.setBounds(300 - (anchoL/2), 200 - (altoL/2), anchoL, altoL);
+		panel.add(ligaT);
 		
 		JLabel titulo = new JLabel("Seleccione una opcion");
 		titulo.setFont(new Font("Arial", Font.BOLD, 30));
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.insets = new Insets(0, 0, 60, 0); // Espacio debajo del título
-		panel.add(titulo, gbc);
+		Dimension sizeT = titulo.getPreferredSize();
+		int anchoT = sizeT.width;
+		int altoT = sizeT.height;
+		ligaT.setBounds(300 - (anchoT/2), 200 - (altoT/2), anchoT, altoT);
+		panel.add(titulo);
 		
 		JPanel botones = new JPanel(new GridLayout(2, 3));
 		botones.setOpaque(false);
@@ -76,12 +77,20 @@ public class JFrameLiga extends JFramePadre {
 			botones.add(label);
 		}
 		
-		gbc.gridx = 0;
-		gbc.gridy = 2;
-		gbc.insets = new Insets(0, 0, 0, 0);
-		panel.add(botones, gbc);
+
+		Dimension sizeB = botones.getPreferredSize();
+		int anchoB = sizeB.width;
+		int altoB = sizeB.height;
+		ligaT.setBounds(300 - (anchoB/2), 200 - (altoB/2), anchoB, altoB);
+		panel.add(botones);
 		
 		this.add(panel);
+	}
+
+	@Override
+	public void usoBotonAtras() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
