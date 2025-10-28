@@ -8,7 +8,7 @@ public class Jugador {
 	private TipoPosicion posicion;
 	private Equipo equipo;
 	private String nacionalidad;
-		
+	private int edad;	
 public enum TipoPosicion {
 	DELANTERO,
 	MEDIOCAMPISTA,
@@ -16,14 +16,16 @@ public enum TipoPosicion {
 	PORTERO
 }
 
-public Jugador(String nombre, int numeroCamiseta, TipoPosicion posicion, Equipo equipo, String nacionalidad) {
+public Jugador(String nombre, int numeroCamiseta, TipoPosicion posicion, Equipo equipo, String nacionalidad,int edad) {
 	super();
 	this.nombre = nombre;
 	this.numeroCamiseta = numeroCamiseta;
 	this.posicion = posicion;
 	this.equipo = equipo;
 	this.nacionalidad = nacionalidad;
-}
+	this. edad= edad;
+	}
+
 
 public String getNombre() {
 	return nombre;
@@ -64,7 +66,12 @@ public String getNacionalidad() {
 public void setNacionalidad(String nacionalidad) {
 	this.nacionalidad = nacionalidad;
 }
-
+public int getEdad() {
+	return edad;
+}
+public void setEdad(int edad) {
+	this.edad = edad;
+}
 @Override
 public int hashCode() {
 	return Objects.hash(equipo, nombre);

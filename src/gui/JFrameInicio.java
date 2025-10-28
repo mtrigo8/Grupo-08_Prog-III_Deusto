@@ -67,75 +67,10 @@ public class JFrameInicio extends JFramePadre{
 				JFrameSeleccionarLigas jfs = new JFrameSeleccionarLigas(ligas);
 				setVisible(false);
 				jfs.setVisible(true);
-			}
-			
-			
-			
-		});
-		
-		
-	
-		
-		
-		
-			this.addWindowListener(new WindowListener() {
-			
-			@Override
-			public void windowOpened(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void windowIconified(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void windowDeiconified(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void windowDeactivated(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void windowClosing(WindowEvent e) {
-				// TODO Auto-generated method stub
-				reproducirSonido("audio/gagaga.wav");
-			}
-			
-			@Override
-			public void windowClosed(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void windowActivated(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-		
-		
-	}
-	private static void reproducirSonido(String ruta) {
-        try {
-            File archivoSonido = new File(ruta);
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(archivoSonido);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioStream);
-            clip.start();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }}
+			}		
+		});		
+	}	
+ }
 	
 
 	
