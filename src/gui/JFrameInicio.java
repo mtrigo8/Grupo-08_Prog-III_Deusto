@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -49,9 +50,9 @@ public class JFrameInicio extends JFramePadre{
 		
 		// Crear y configurar el botón
 		JButton btnEntrar = new JButton("Entrar");
-		btnEntrar.setFont(new Font("Arial", Font.PLAIN, 18));
-		btnEntrar.setPreferredSize(new java.awt.Dimension(100, 60));
-		btnEntrar.setBackground(Color.red);
+		btnEntrar.setFont(new Font("Arial", Font.BOLD, 18));
+		btnEntrar.setPreferredSize(new Dimension(100, 60));
+		btnEntrar.setBackground(new Color(80, 187, 212));
 		gbc.gridx = 0;
 		gbc.gridy = 1;
 		gbc.insets = new Insets(0, 0, 0, 0);
