@@ -33,7 +33,7 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 		
 		this.ligas = ligas;
 		JButton botonAtras=super.botonAtras;
-		JPanel panel= new JPanel();
+		JPanel panel= new JPanel();//he creado nuevo panel en vez de llamar al padre para quitar logo de fondo y como al hacerlo se quitaba el boton de "atras" he tenido q hacerlo super
 		panel.setBackground(new Color(255, 195, 0));
 		panel.setOpaque(true);
 		panel.setLayout(null); // Desactivar el layout manager
