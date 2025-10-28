@@ -1,93 +1,86 @@
 package gui;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.Image;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
+import java.awt.*;
+import java.awt.event.*;
 import java.util.ArrayList;
-
-import javax.swing.JButton;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import domain.Liga;
 
-public class JFrameInicio extends JFramePadre{
+public class JFrameInicio extends JFramePadre {
 
+    private static final long serialVersionUID = 1L;
 
-	private static final long serialVersionUID = 1L;
+    private JLabel titulo;
+    private JButton btnEntrar;
 
-	public JFrameInicio(ArrayList<Liga> ligas) {
-		super();
-		
-		usoBotonAtras();
-		
-		//Parte mejorada mediante el uso de Claude 4.5 debido a un error en mi codigo original
-		// Crear panel con GridBagLayout para centrar elementos
-		JPanel panel = super.panel;
-		
-		// Configurar el título
-		JLabel titulo = new JLabel("Bienvenido a FutGoat");
-		titulo.setFont(new Font("Arial", Font.BOLD, 30));
-		titulo.setOpaque(true);
-		titulo.setBackground(Color.white);
-		Dimension size = titulo.getPreferredSize();
-		int anchoT = size.width;
-		int altoT = size.height;
-		titulo.setBounds(300 - (anchoT/2), 200 - (altoT/2), anchoT, altoT);
-		panel.add(titulo);
-		
-		// Crear y configurar el botón
-		JButton btnEntrar = new JButton("Entrar");
-		btnEntrar.setFont(new Font("Arial", Font.BOLD, 18));
-		btnEntrar.setBackground(new Color(80, 187, 212));
-		int anchoB = 100;
-		int altoB = 50;
-		btnEntrar.setBounds(500 - (anchoB/2), 400 - (altoB/2), anchoB, altoB);
-		panel.add(btnEntrar);
-		
-		this.add(panel);
-		
-		btnEntrar.addActionListener(new ActionListener() {
+    public JFrameInicio(ArrayList<Liga> ligas) {
+        super();
+        usoBotonAtras();
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				JFrameSeleccionarLigas jfs = new JFrameSeleccionarLigas(ligas);
-				setVisible(false);
-				jfs.setVisible(true);
-			}		
-		});		
-	}
+        JPanel panel = super.panel;
+        panel.setLayout(null);
 
-	@Override
-	public void usoBotonAtras() {
-		// TODO Auto-generated method stub
-		super.botonAtras.addActionListener(new ActionListener() {
+        // --- Crear Título ---
+        titulo = new JLabel("Bienvenido a FutGoat", SwingConstants.CENTER);
+        titulo.setFont(new Font("Arial", Font.BOLD, 36));
+        titulo.setForeground(new Color(122, 122, 122));
+        titulo.setOpaque(false);
+        panel.add(titulo);
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				setVisible(false);
-			}});
-	}	
- }
-	
+        // --- Crear Botón Entrar ---
+        btnEntrar = new JButton("Entrar");
+        btnEntrar.setFont(new Font("Arial", Font.BOLD, 20));
+        btnEntrar.setBackground(new Color(80, 187, 212));
+        btnEntrar.setFocusPainted(false);
+        panel.add(btnEntrar);
 
-	
+        this.add(panel);
+
+        // Acción del botón
+        btnEntrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrameSeleccionarLigas jfs = new JFrameSeleccionarLigas(ligas);
+                setVisible(false);
+                jfs.setVisible(true);
+            }
+        });
+
+        // --- Posicionar componentes inicialmente ---
+        posicionarComponentes();
+    }
+
+    //Funcion creada con ayuda de ChatGPT para arreglar un error en el posicionamiento de los componentes al ejecutar
+    private void posicionarComponentes() {
+        int ancho = getWidth();
+        int alto = getHeight();
+
+        // Tamaños preferidos
+        int anchoTitulo = (int) (ancho * 0.8);
+        int altoTitulo = 60;
+
+        int anchoBoton = (int) (ancho * 0.2);
+        int altoBoton = 60;
+
+        // Posiciones relativas
+        int xTitulo = (ancho - anchoTitulo) / 2;
+        int yTitulo = (int) (alto * 0.25);
+
+        int xBoton = (ancho - anchoBoton) / 2;
+        int yBoton = (int) (alto * 0.55);
+
+        // Asignar posiciones
+        titulo.setBounds(xTitulo, yTitulo, anchoTitulo, altoTitulo);
+        btnEntrar.setBounds(xBoton, yBoton, anchoBoton, altoBoton);
+    }
+
+    @Override
+    public void usoBotonAtras() {
+        super.botonAtras.addActionListener(e -> setVisible(false));
+    }
+}
+
 
 	
 
