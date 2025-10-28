@@ -10,15 +10,19 @@ import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import domain.Liga;
+
 public abstract class JFramePadre extends JFrame {
 	protected JPanel panel;
 	protected JButton botonAtras;
+	protected ArrayList<Liga> ligas;
 	
 	private static final long serialVersionUID = 1L;
 

@@ -1,5 +1,6 @@
 package gui;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Vector;
 
@@ -10,10 +11,13 @@ import javax.swing.table.DefaultTableModel;
 import domain.Liga;
 
 public class JFrameCalendario extends JFramePadre {
+	private Liga liga;
 	private static final long serialVersionUID = 1L;
 
-	public JFrameCalendario(Liga liga) {
+	public JFrameCalendario(ArrayList<Liga> ligas, Liga liga) {
 		super();
+		this.liga = liga;
+		this.ligas = ligas;
 		Vector<String> columnNames = new Vector<String>(Arrays.asList("Fecha", "Equipo Local", "Equipo Visitante", "Resultado"));
 		JTable table = new JTable(new DefaultTableModel(new Vector<Vector<Object>>(), columnNames));
 		//Se modifica el modelo de selección de la tabla para que se pueda selecciona únicamente una fila
@@ -24,14 +28,18 @@ public class JFrameCalendario extends JFramePadre {
 		});
 		
 		
-		
+		table.setBounds(50, 50, table.getWidth(), table.getHeight());
 		super.panel.add(table);
 	}
 
 	@Override
 	public void usoBotonAtras() {
 		// TODO Auto-generated method stub
-		
+		botonAtras.addActionListener(e -> {
+			setVisible(false);
+			JFrameLiga jfl = new JFrameLiga(ligas, liga);
+			jfl.setVisible(true);
+		});
 	}
 	
 	

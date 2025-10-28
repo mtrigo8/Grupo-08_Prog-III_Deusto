@@ -21,7 +21,7 @@ import javax.swing.JPanel;
 import domain.Liga;
 
 public class JFrameSeleccionarLigas extends JFramePadre{
-	ArrayList<Liga> ligas;
+	
 	private static final long serialVersionUID = 1L;
 	
 	public JFrameSeleccionarLigas(ArrayList<Liga> ligas) {
@@ -56,7 +56,7 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 			botonLiga.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					JFrameLiga jfl = new JFrameLiga(liga);
+					JFrameLiga jfl = new JFrameLiga(ligas, liga);
 					setVisible(false);
 					jfl.setVisible(true);
 				}

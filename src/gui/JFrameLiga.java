@@ -8,6 +8,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,79 +19,116 @@ import domain.Liga;
 
 public class JFrameLiga extends JFramePadre {
 	private static final long serialVersionUID = 1L;
+	private Liga liga;
+	private JLabel titulo;
+	private JPanel botones;
+	private JLabel ligaT;
 
-	public JFrameLiga(Liga liga) {
+	public JFrameLiga(ArrayList<Liga> ligas, Liga liga) {
 		super();
-		
+        usoBotonAtras();
+
+        this.ligas = ligas;
+        this.liga = liga;
 		JPanel panel = super.panel;
-		
-		JLabel ligaT = new JLabel(liga.getNombre(), JLabel.CENTER);
-		ligaT.setFont(new Font("Arial", Font.BOLD, 30));
-		Dimension sizeL = ligaT.getPreferredSize();
-		int anchoL = sizeL.width;
-		int altoL = sizeL.height;
-		ligaT.setBounds(300 - (anchoL/2), 200 - (altoL/2), anchoL, altoL);
-		panel.add(ligaT);
-		
-		JLabel titulo = new JLabel("Seleccione una opcion");
-		titulo.setFont(new Font("Arial", Font.BOLD, 30));
-		Dimension sizeT = titulo.getPreferredSize();
-		int anchoT = sizeT.width;
-		int altoT = sizeT.height;
-		ligaT.setBounds(300 - (anchoT/2), 200 - (altoT/2), anchoT, altoT);
-		panel.add(titulo);
-		
-		JPanel botones = new JPanel(new GridLayout(2, 3));
-		botones.setOpaque(false);
-		
-		String[] contenidos = {"calendario", "equipo", "clasificacion"};
-		for (String contenido : contenidos) {
-			ImageIcon iconoLiga = new ImageIcon("images/logos/" + contenido + ".png");
-			ImageIcon iconoAjustado = new ImageIcon(iconoLiga.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH));
-			JButton boton = new JButton();
-			boton.setPreferredSize(new Dimension(200, 200));
-			boton.setIcon(iconoAjustado);
-			boton.addActionListener(e -> {
-				switch (contenido) {
-					case "calendario":
-						setVisible(false);
-						JFrameCalendario jfca = new JFrameCalendario(liga);
-						jfca.setVisible(true);
-						break;
-					case "equipo":
-						setVisible(false);
-						//JFrameCalendario jfe = new JFrameEquipos(liga);
-						//jfe.setVisible(true);
-						break;
-					case "clasificacion":
-						setVisible(false);
-						//JFrameCalendario jfcl = new JFrameClasificacion(liga);
-						//jfcl.setVisible(true);
-						break;
-				}
-			});
-			botones.add(boton);
-		}
-		for (String contenido : contenidos) {
-			JLabel label = new JLabel(contenido.toUpperCase(), JLabel.CENTER);
-			label.setFont(new Font("Arial", Font.BOLD, 18));
-			botones.add(label);
-		}
+        panel.setLayout(null); 
+
+        // --- Título de la liga ---
+        ligaT = new JLabel(liga.getNombre(), JLabel.CENTER);
+        ligaT.setFont(new Font("Arial", Font.BOLD, 30));
+        panel.add(ligaT);
+
+        // --- Subtítulo ---
+        titulo = new JLabel("Seleccione una opción", JLabel.CENTER);
+        titulo.setFont(new Font("Arial", Font.BOLD, 25));
+        panel.add(titulo);
+
+        // --- Panel de botones ---
+        botones = new JPanel(new GridLayout(2, 3, 10, 10)); 
+        botones.setOpaque(false);
+
+        String[] contenidos = {"calendario", "equipo", "clasificacion"};
+        for (String contenido : contenidos) {
+            ImageIcon iconoLiga = new ImageIcon("images/logos/" + contenido + ".png");
+            ImageIcon iconoAjustado = new ImageIcon(iconoLiga.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH));
+            JButton boton = new JButton();
+            boton.setPreferredSize(new Dimension(150, 150));
+            boton.setIcon(iconoAjustado);
+            boton.addActionListener(e -> {
+                switch (contenido) {
+                    case "calendario":
+                        setVisible(false);
+                        JFrameCalendario jfca = new JFrameCalendario(this.ligas, this.liga);
+                        jfca.setVisible(true);
+                        break;
+                    case "equipo":
+                        setVisible(false);
+                        // JFrameEquipos jfe = new JFrameEquipos(liga);
+                        // jfe.setVisible(true);
+                        break;
+                    case "clasificacion":
+                        setVisible(false);
+                        // JFrameClasificacion jfcl = new JFrameClasificacion(liga);
+                        // jfcl.setVisible(true);
+                        break;
+                }
+            });
+            botones.add(boton);
+        }
+
+        // Etiquetas debajo de los botones
+        for (String contenido : contenidos) {
+            JLabel label = new JLabel(contenido.toUpperCase(), JLabel.CENTER);
+            label.setFont(new Font("Arial", Font.BOLD, 18));
+            botones.add(label);
+        }
 		
 
-		Dimension sizeB = botones.getPreferredSize();
-		int anchoB = sizeB.width;
-		int altoB = sizeB.height;
-		ligaT.setBounds(300 - (anchoB/2), 200 - (altoB/2), anchoB, altoB);
+		
 		panel.add(botones);
 		
 		this.add(panel);
+		
+		posicionarComponentes();
+		
+		
+
 	}
+	//Funcion cambiada por chatgpt para que quede mas bonito y mejor cuadrado
+	private void posicionarComponentes() {
+		int ancho = getWidth();
+        int alto = getHeight();
+
+        // --- Liga (nombre principal) ---
+        int anchoLiga = (int) (ancho * 0.8);
+        int altoLiga = 50;
+        int xLiga = (ancho - anchoLiga) / 2;
+        int yLiga = (int) (alto * 0.10);
+        ligaT.setBounds(xLiga, yLiga, anchoLiga, altoLiga);
+
+        // --- Subtítulo ---
+        int anchoTitulo = (int) (ancho * 0.8);
+        int altoTitulo = 40;
+        int xTitulo = (ancho - anchoTitulo) / 2;
+        int yTitulo = (int) (alto * 0.25);
+        titulo.setBounds(xTitulo, yTitulo, anchoTitulo, altoTitulo);
+
+        // --- Panel de botones ---
+        int anchoBotones = (int) (ancho * 0.8);
+        int altoBotones = (int) (alto * 0.45);
+        int xBotones = (ancho - anchoBotones) / 2;
+        int yBotones = (int) (alto * 0.40);
+        botones.setBounds(xBotones, yBotones, anchoBotones, altoBotones);
+    }
 
 	@Override
 	public void usoBotonAtras() {
 		// TODO Auto-generated method stub
-		
+		botonAtras.addActionListener(e -> {
+			JFrameSeleccionarLigas jfsl = new JFrameSeleccionarLigas(ligas);
+			jfsl.setVisible(true);
+			setVisible(false);
+		});
 	}
 
 }
