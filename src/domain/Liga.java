@@ -8,6 +8,8 @@ public class Liga {
 	private String pais;
 	private int numeroEquipos;
 	private ArrayList<Equipo> equipos;
+	private int jornada;
+	private ArrayList<ArrayList<Partido>> calendario;
 	
 	public Liga(String nombre, String pais, int numeroEquipos, ArrayList<Equipo> equipos) {
 		super();
@@ -52,6 +54,22 @@ public class Liga {
 	@Override
 	public int hashCode() {
 		return Objects.hash(nombre, pais);
+	}
+
+	public int getJornada() {
+		return jornada;
+	}
+
+	public void setJornada(int jornada) {
+		this.jornada = jornada;
+	}
+
+	public ArrayList<ArrayList<Partido>> getCalendario() {
+		return calendario;
+	}
+
+	public void setCalendario(ArrayList<ArrayList<Partido>> calendario) {
+		this.calendario = calendario;
 	}
 
 	@Override
