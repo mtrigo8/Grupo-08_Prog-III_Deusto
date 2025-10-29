@@ -11,9 +11,11 @@ public class Equipo {
 	private int anyoFundacion;
 	private int titulos;
 	private String estadio;
+	private String	nombrePNGEquipo;
+	private int partidosjugados;
 	
 	public Equipo(String nombre, String ciudad, Liga liga, int anyoFundacion, int titulos,
-			String estadio) {
+			String estadio, String nombrePNGEquipo) {
 		super();
 		this.jugadores = new ArrayList<Jugador>();
 		this.nombre = nombre;
@@ -22,8 +24,16 @@ public class Equipo {
 		this.anyoFundacion = anyoFundacion;
 		this.titulos = titulos;
 		this.estadio = estadio;
+		this.nombrePNGEquipo = nombrePNGEquipo;
 	}
-
+	public int getPartidosJugados() {
+		return this.partidosjugados;
+	}
+	
+	
+	public void actualizarPartidos() {
+		this.partidosjugados+=1;
+	}
 	public ArrayList<Jugador> getJugadores() {
 		return jugadores;
 	}
@@ -79,7 +89,9 @@ public class Equipo {
 	public void setEstadio(String estadio) {
 		this.estadio = estadio;
 	}
-
+	public String getNombrePNGEquipo () {
+		return nombrePNGEquipo;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(liga, nombre);

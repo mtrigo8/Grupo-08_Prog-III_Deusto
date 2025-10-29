@@ -1,20 +1,35 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.EventObject;
 import java.util.Vector;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.CellEditorListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
 
 import domain.Equipo;
 import domain.Liga;
@@ -25,6 +40,7 @@ public class JFrameListaEquipos extends JFramePadre {
 	private JTextField filtradoNombre;
 	private JTable tablaEquipos;
 	private DefaultTableModel modeloDatosEquipos;
+	private JButton botonEquipo;
 	
 	public JFrameListaEquipos (Liga liga) {
 		JPanel panel = super.panel;
@@ -36,13 +52,35 @@ public class JFrameListaEquipos extends JFramePadre {
 		//Panel donde aparece la barra buscadora
 		panelFiltro.add(new JLabel("Filtrado por nombre: "));
 		panelFiltro.add(filtradoNombre);
+		//Se define el funcionamiento del filtro de texto
+		DocumentListener listenerFiltrar = new DocumentListener() {
+			
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				// TODO Auto-generated method stub
+				cargarEquiposTablaFiltro(filtradoNombre.getText());
+			}
+			
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				// TODO Auto-generated method stub
+				cargarEquiposTablaFiltro(filtradoNombre.getText());
+			}
+			
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				// TODO Auto-generated method stub
+				cargarEquiposTablaFiltro(filtradoNombre.getText());
+			}
+		};
+		//Aplicar listener
+		this.filtradoNombre.getDocument().addDocumentListener(listenerFiltrar);
 		
 		//Añadir panel y boton 
 		panel.add(BorderLayout.NORTH, panelFiltro);
 		panel.add(botonAtras);
 		//Dar funcionalidad a botonAtras
 		usoBotonAtras();
-		
 		//Inicializar las tablas con los equipos
 		inicializarTabla();
 		cargarEquiposTabla();
@@ -57,19 +95,113 @@ public class JFrameListaEquipos extends JFramePadre {
 	private void inicializarTabla() {
 		Vector<String> cabezeraEquipos = new Vector<String>(Arrays.asList("ESCUDO", "NOMBRE"));
 		modeloDatosEquipos = new DefaultTableModel(new Vector<Vector<Object>>(), cabezeraEquipos);
-		this.tablaEquipos = new JTable(this.modeloDatosEquipos);
-		this.tablaEquipos.setRowHeight(40);
+		this.tablaEquipos = new JTable(this.modeloDatosEquipos) {
+			public boolean isCellEditable(int row, int column){
+				return true;
+			}
+		};
+		
+		
 		//Crear tableCellRenderer
+		TableCellRenderer cellRenderer = (table, value, isSelected, hasFocus, row, column) -> 	{
+			
+			//Renderizar imagen en base del nombre del equipo
+			
+			if (column == 0) {//MODIFICACIONES EN LA COLUMNA DE IMAGENES
+				JLabel result = new JLabel(value.toString());
+				String nombrePNG = (String) value;	
+				String nombreLiga;
+				if (liga.getNombre().equals("LaLiga")) {
+					nombreLiga = "laLiga";
+				}else {
+					nombreLiga = liga.getNombre().toLowerCase();
+				}
+				String ruta = "images/equipos/"+nombreLiga+"/"+nombrePNG+".png";
+				
+				//Modificar tamaño de la imagen
+				int alturaObjetivo = table.getRowHeight(row);
+				ImageIcon imagenOriginal = null;
+				try {
+					imagenOriginal = new ImageIcon(ruta);
+				} catch (Exception e) {
+					System.err.println("No se ha encontrado el archivo: "+ruta);
+				}
+				ImageIcon imagenModificada = escalarIcono(imagenOriginal, alturaObjetivo);
+				//Insertar Imagen
+				result.setIcon(imagenModificada);		
+				result.setText(null);	
+				return result;
+			}else {	//MODIFICACIONES EN LA COLUMNA DEL NOMBRE 
+				return (Component) value;
+			}
+			
+			
+			
+		};
+		//Crear cellEditor
 		
-		
+		//Establecer el cellRenderer como Render por defecto
+		this.tablaEquipos.setDefaultRenderer(Object.class, cellRenderer);
+		//Cambiar el ancho de la columna de los escudos
+		TableColumn columnaEscudo = tablaEquipos.getColumnModel().getColumn(0);
+		columnaEscudo.setPreferredWidth(50);
+		columnaEscudo.setMaxWidth(50);
+		columnaEscudo.setMinWidth(50);
+		//Se establece la altura de la columna
+		this.tablaEquipos.setRowHeight(40);
+		//Se modifica el  modelo de seleccion para que solamente se pueda seleccionar una fila
+		this.tablaEquipos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 	}
+	
 	private void cargarEquiposTabla() {
 		//Borrar datos
 		this.modeloDatosEquipos.setRowCount(0);
 		//Añadir uno a uno al modelo de datos
+		for (Equipo eq: liga.getEquipos()) {
+			botonEquipo = new JButton();
+			botonEquipo.setText(eq.getNombre());
+			//Funcionalidad de abrir la ventana del equipo al boton;
+			botonEquipo.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					//JFrameEquipo jfe = new JFrameEquipo (eq);
+					//jfe.setVisible(true);
+					setVisible(false);
+					System.out.println("Abrir ventana de equipo: "+eq.getNombre());
+				}
+			});
+			this.modeloDatosEquipos.addRow(new Object[] {eq.getNombrePNGEquipo(),botonEquipo});
+		}
+	}
+
+	//Funcion creada con CHAT-GPT para modificar el tamaño de la imagen a la altura de la columna
+	private ImageIcon escalarIcono(ImageIcon icon, int targetHeight) {
+	    if (icon == null || icon.getImage() == null || icon.getIconHeight() <= 0) {
+	        return null; // Devuelve nulo si la imagen original es inválida
+	    }
+
+	    if (icon.getIconHeight() == targetHeight) {
+	        return icon; // Ya tiene el tamaño correcto
+	    }
+
+	    Image originalImage = icon.getImage();
+	    
+	    // Escala la imagen (el -1 en el ancho mantiene la proporción)
+	    Image scaledImage = originalImage.getScaledInstance(-1, targetHeight, Image.SCALE_SMOOTH);
+
+	    return new ImageIcon(scaledImage);
+	}
+	//Cargar los equipos teniendo en cuenta el contenido en el JTextField filtradoNombre
+	private void cargarEquiposTablaFiltro (String filtro) {
+		//Borrar los equipos existentes
+		modeloDatosEquipos.setRowCount(0);
 		for (Equipo e: liga.getEquipos()) {
-			this.modeloDatosEquipos.addRow(new Object[] {null, e.getNombre()});
+			if (e.getNombre().toLowerCase().contains(filtro.toLowerCase())) {
+				botonEquipo = new JButton(e.getNombre());
+				this.modeloDatosEquipos.addRow(new Object[] {e.getNombrePNGEquipo(),botonEquipo });
+			}
 		}
 	}
 	
