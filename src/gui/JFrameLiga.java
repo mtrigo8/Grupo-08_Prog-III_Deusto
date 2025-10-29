@@ -68,8 +68,8 @@ public class JFrameLiga extends JFramePadre {
                         break;
                     case "clasificacion":
                         setVisible(false);
-                        // JFrameClasificacion jfcl = new JFrameClasificacion(liga);
-                        // jfcl.setVisible(true);
+                        JFrameClasificacion jfcl = new JFrameClasificacion(this.ligas,this.liga);
+                        jfcl.setVisible(true);
                         break;
                 }
             });
