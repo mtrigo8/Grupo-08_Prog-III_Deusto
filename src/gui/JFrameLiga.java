@@ -63,8 +63,8 @@ public class JFrameLiga extends JFramePadre {
                         break;
                     case "equipo":
                         setVisible(false);
-                        // JFrameEquipos jfe = new JFrameEquipos(liga);
-                        // jfe.setVisible(true);
+                        JFrameListaEquipos jfe = new JFrameListaEquipos(liga);
+                        jfe.setVisible(true);
                         break;
                     case "clasificacion":
                         setVisible(false);

@@ -44,6 +44,7 @@ public class JFrameCalendario extends JFramePadre {
 		table.setBounds(0, 100, 1000, 400);
 		panel.add(scrollPane);
 		this.add(panel);
+		usoBotonAtras();
 		}
 			
 		
