@@ -74,7 +74,7 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 		
 		// Calcular tamaño del panel de botones según número de ligas
 		int numLigas = ligas.size();
-		int anchoBotones = 100; // 110px por botón (100 + margen) + padding
+		int anchoBotones = 100;
 		int altoBotones = (numLigas*100)-10;
 		
 		botones.setBounds((1000 - anchoBotones) / 2, 150, anchoBotones, altoBotones); // Centrado
