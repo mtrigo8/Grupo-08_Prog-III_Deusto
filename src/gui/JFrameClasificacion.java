@@ -10,6 +10,7 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
+import domain.Equipo;
 import domain.Liga;
 import domain.Partido;
 
@@ -18,10 +19,12 @@ public class JFrameClasificacion extends JFramePadre {
 	private int jornadaSeleccionada = 1;
 	private Liga liga;
 	private static final long serialVersionUID = 1L;
+	private int pos;
 	
 	public JFrameClasificacion(ArrayList<Liga> ligas, Liga liga) {
 		super();
-		Collections.sort(liga.getEquipos());
+		ArrayList<Equipo> clasificacion = liga.getEquipos();
+		Collections.sort(clasificacion);
 		this.liga = liga;
 		this.ligas = ligas;
 		Vector<String> columnNames = new Vector<String>(Arrays.asList("Pos", "Equipo", "Pts", "PJ", "DG"));
@@ -36,12 +39,18 @@ public class JFrameClasificacion extends JFramePadre {
 		table.getSelectionModel().addListSelectionListener(e -> {
 			
 		});
-		for (Partido partido : this.liga.getCalendario().get(jornadaSeleccionada - 1)) {
-			mDatTab.addRow(new Object[] {});
+		for (Equipo equipo : clasificacion) {
+			String posicion =  Integer.toString(pos);
+			String puntos = Integer.toString(equipo.getPuntos());
+			String partidos = Integer.toString(equipo.getPartidosJugados());
+			String goles = Integer.toString(equipo.getGoles());
+			mDatTab.addRow(new Object[] {posicion, equipo.getNombre(), puntos, partidos, goles});
+			pos++;
 			}
 		table.setBounds(0, 100, 1000, 400);
 		panel.add(scrollPane);
 		this.add(panel);
+		usoBotonAtras();
 		}
 		
 	

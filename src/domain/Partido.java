@@ -35,6 +35,8 @@ public class Partido {
 	public void actualizarGoles() {
 		equipoLocal.setGoles(equipoLocal.getGoles()+golesLocal-golesVisitante);
 		equipoVisitante.setGoles(equipoVisitante.getGoles()-golesLocal+golesVisitante);
+		equipoLocal.actualizarPartidos();
+		equipoVisitante.actualizarPartidos();
 	}
 
 	public Equipo getEquipoLocal() {

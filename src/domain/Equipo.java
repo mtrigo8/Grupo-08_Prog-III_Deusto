@@ -13,6 +13,7 @@ public class Equipo implements Comparable<Equipo> {
 	private String estadio;
 	private int puntos;
 	private int goles;
+	private int partidosjugados;
 	public Equipo(String nombre, String ciudad, Liga liga, int anyoFundacion, int titulos,
 			String estadio) {
 		super();
@@ -23,6 +24,14 @@ public class Equipo implements Comparable<Equipo> {
 		this.anyoFundacion = anyoFundacion;
 		this.titulos = titulos;
 		this.estadio = estadio;
+	}
+	public int getPartidosJugados() {
+		return this.partidosjugados;
+	}
+	
+	
+	public void actualizarPartidos() {
+		this.partidosjugados+=1;
 	}
 	public int getGoles() {
 		return this.goles;
