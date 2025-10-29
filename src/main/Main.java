@@ -7,6 +7,7 @@ import java.util.Date;
 import domain.Equipo;
 import domain.Liga;
 import domain.Partido;
+import gui.JFrameClasificacion;
 import gui.JFrameInicio;
 
 public class Main {
@@ -67,7 +68,6 @@ public class Main {
 		ligas.add(laLiga);
 		ligas.add(premier);
 		ligas.add(bundesliga);
-		
 		JFrameInicio jfi = new JFrameInicio(ligas);
 		jfi.setVisible(true);	
 	for (Liga liga : ligas) {

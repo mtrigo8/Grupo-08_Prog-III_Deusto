@@ -19,20 +19,21 @@ public class JFrameClasificacion extends JFramePadre {
 	private int jornadaSeleccionada = 1;
 	private Liga liga;
 	private static final long serialVersionUID = 1L;
-	private int pos;
+	private int pos = 1;
 	
 	public JFrameClasificacion(ArrayList<Liga> ligas, Liga liga) {
 		super();
-		ArrayList<Equipo> clasificacion = liga.getEquipos();
-		Collections.sort(clasificacion);
 		this.liga = liga;
 		this.ligas = ligas;
+		ArrayList<Equipo> clasificacion = this.liga.getEquipos();
+		Collections.sort(clasificacion);
 		Vector<String> columnNames = new Vector<String>(Arrays.asList("Pos", "Equipo", "Pts", "PJ", "DG"));
 		DefaultTableModel mDatTab = new DefaultTableModel(new Vector<Vector<Object>>(), columnNames);
 		JTable table = new JTable(mDatTab);
 		table.setRowHeight(30);
-		JScrollPane scrollPane = new JScrollPane(table);
+		
 		table.getTableHeader().setReorderingAllowed(false);
+		panel.setLayout(null);
 		//Se modifica el modelo de selección de la tabla para que se pueda selecciona únicamente una fila
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		//Se define el comportamiento el evento de selección de una fila de la tabla
@@ -47,9 +48,13 @@ public class JFrameClasificacion extends JFramePadre {
 			mDatTab.addRow(new Object[] {posicion, equipo.getNombre(), puntos, partidos, goles});
 			pos++;
 			}
-		table.setBounds(0, 100, 1000, 400);
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBounds(0, 100, 1000, 400);
 		panel.add(scrollPane);
 		this.add(panel);
+		this.setSize(1000,600);
+		this.setVisible(true);
+		table.setVisible(true);
 		usoBotonAtras();
 		}
 		
