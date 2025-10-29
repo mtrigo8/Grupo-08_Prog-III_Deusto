@@ -3,7 +3,7 @@ package domain;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Equipo {
+public class Equipo implements Comparable<Equipo> {
 	private ArrayList<Jugador> jugadores;
 	private String nombre;
 	private String ciudad;
@@ -12,8 +12,11 @@ public class Equipo {
 	private int titulos;
 	private String estadio;
 	private String	nombrePNGEquipo;
-	private int partidosjugados;
+	private int partidosJugados;
 	
+	private int puntos;
+	private int goles;
+
 	public Equipo(String nombre, String ciudad, Liga liga, int anyoFundacion, int titulos,
 			String estadio, String nombrePNGEquipo) {
 		super();
@@ -27,13 +30,32 @@ public class Equipo {
 		this.nombrePNGEquipo = nombrePNGEquipo;
 	}
 	public int getPartidosJugados() {
-		return this.partidosjugados;
+		return this.partidosJugados;
 	}
 	
 	
 	public void actualizarPartidos() {
-		this.partidosjugados+=1;
+		this.partidosJugados+=1;
 	}
+
+	public int getGoles() {
+		return this.goles;
+	}
+	
+	
+	public void setGoles(int goles) {
+		this.goles = goles;
+	}
+	public int getPuntos() {
+		return this.puntos;
+	}
+	
+	
+	public void setPuntos(int puntos) {
+		this.puntos = puntos;
+	}
+
+
 	public ArrayList<Jugador> getJugadores() {
 		return jugadores;
 	}
@@ -107,6 +129,11 @@ public class Equipo {
 			return false;
 		Equipo other = (Equipo) obj;
 		return Objects.equals(liga, other.liga) && Objects.equals(nombre, other.nombre);
+	}
+	@Override
+	public int compareTo(Equipo o) {
+		// TODO Auto-generated method stub
+		 return Integer.compare(o.puntos, this.puntos);
 	}
 	
 	

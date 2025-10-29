@@ -2,28 +2,32 @@ package gui;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Vector;
 
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
+import domain.Equipo;
 import domain.Liga;
 import domain.Partido;
 
-public class JFrameCalendario extends JFramePadre {
+public class JFrameClasificacion extends JFramePadre {
+
 	private int jornadaSeleccionada = 1;
 	private Liga liga;
 	private static final long serialVersionUID = 1L;
-
-	public JFrameCalendario(ArrayList<Liga> ligas, Liga liga) {
+	private int pos;
+	
+	public JFrameClasificacion(ArrayList<Liga> ligas, Liga liga) {
 		super();
+		ArrayList<Equipo> clasificacion = liga.getEquipos();
+		Collections.sort(clasificacion);
 		this.liga = liga;
 		this.ligas = ligas;
-		JPanel panel = super.panel;
-		Vector<String> columnNames = new Vector<String>(Arrays.asList("Fecha", "Equipo Local", "Equipo Visitante", "Resultado"));
+		Vector<String> columnNames = new Vector<String>(Arrays.asList("Pos", "Equipo", "Pts", "PJ", "DG"));
 		DefaultTableModel mDatTab = new DefaultTableModel(new Vector<Vector<Object>>(), columnNames);
 		JTable table = new JTable(mDatTab);
 		table.setRowHeight(30);
@@ -35,32 +39,40 @@ public class JFrameCalendario extends JFramePadre {
 		table.getSelectionModel().addListSelectionListener(e -> {
 			
 		});
-		for (Partido partido : this.liga.getCalendario().get(jornadaSeleccionada - 1)) {
-			String golLocal = Integer.toString(partido.getGolesLocal());
-			String golVisitante = Integer.toString(partido.getGolesVisitante());
-			String resultado = golLocal + " - " + golVisitante;
-			mDatTab.addRow(new Object[] {partido.getFecha().toString(), partido.getEquipoLocal().getNombre(), partido.getEquipoVisitante().getNombre(), resultado});
+		for (Equipo equipo : clasificacion) {
+			String posicion =  Integer.toString(pos);
+			String puntos = Integer.toString(equipo.getPuntos());
+			String partidos = Integer.toString(equipo.getPartidosJugados());
+			String goles = Integer.toString(equipo.getGoles());
+			mDatTab.addRow(new Object[] {posicion, equipo.getNombre(), puntos, partidos, goles});
+			pos++;
 			}
 		table.setBounds(0, 100, 1000, 400);
 		panel.add(scrollPane);
 		this.add(panel);
 		usoBotonAtras();
 		}
-			
 		
-		
-				
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public void usoBotonAtras() {
-		// TODO Auto-generated method stub
 		botonAtras.addActionListener(e -> {
 			setVisible(false);
-			JFrameLiga jfl = new JFrameLiga(ligas, liga);
-			jfl.setVisible(true);
+			JFrameLiga jfl1 = new JFrameLiga(ligas, liga);
+			jfl1.setVisible(true);
 		});
+		
 	}
-	
-	
 
 }
