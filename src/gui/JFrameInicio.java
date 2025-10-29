@@ -24,15 +24,18 @@ public class JFrameInicio extends JFramePadre {
         // --- Crear Título ---
         titulo = new JLabel("Bienvenido a FutGoat", SwingConstants.CENTER);
         titulo.setFont(new Font("Arial", Font.BOLD, 36));
-        titulo.setForeground(new Color(122, 122, 122));
+        titulo.setForeground(new Color(33, 33, 33));
         titulo.setOpaque(false);
         panel.add(titulo);
 
         // --- Crear Botón Entrar ---
         btnEntrar = new JButton("Entrar");
         btnEntrar.setFont(new Font("Arial", Font.BOLD, 20));
-        btnEntrar.setBackground(new Color(80, 187, 212));
+        btnEntrar.setBackground(new Color(0, 74, 153));
         btnEntrar.setFocusPainted(false);
+        btnEntrar.setForeground(Color.WHITE);
+        btnEntrar.setBorderPainted(false);
+        
         panel.add(btnEntrar);
 
         this.add(panel);
@@ -46,7 +49,7 @@ public class JFrameInicio extends JFramePadre {
                 jfs.setVisible(true);
             }
         });
-
+        super.botonAtras.setVisible(false); //ya que es la ventana principal el boton de atras no es util poeque no cierra la app
         // --- Posicionar componentes inicialmente ---
         posicionarComponentes();
     }
@@ -65,10 +68,10 @@ public class JFrameInicio extends JFramePadre {
 
         // Posiciones relativas
         int xTitulo = (ancho - anchoTitulo) / 2;
-        int yTitulo = (int) (alto * 0.25);
+        int yTitulo = (int) (alto * 0.08);
 
         int xBoton = (ancho - anchoBoton) / 2;
-        int yBoton = (int) (alto * 0.55);
+        int yBoton = (int) (alto * 0.78);
 
         // Asignar posiciones
         titulo.setBounds(xTitulo, yTitulo, anchoTitulo, altoTitulo);

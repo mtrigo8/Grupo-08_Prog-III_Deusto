@@ -56,7 +56,7 @@ public abstract class JFramePadre extends JFrame {
         panel.setLayout(null);
 		panel.paintComponents(getGraphics());
 		panel.setBackground(Color.orange);
-		JButton botonAtras = new JButton();
+		JButton botonAtras = new JButton(); //Creo que si eliminas el JButton que ya esta declarado en la clase y eliminas la linea 65 funciona
 		ImageIcon iconoAtras = new ImageIcon("images/logos/atras.png");
 		ImageIcon iconoAjustadoAtras = new ImageIcon(iconoAtras.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		botonAtras.setIcon(iconoAjustadoAtras);
@@ -64,5 +64,6 @@ public abstract class JFramePadre extends JFrame {
 		botonAtras.setBounds(10, 10, 60, 50);
 		this.botonAtras = botonAtras;
         panel.add(botonAtras);
+        
 }
 }
