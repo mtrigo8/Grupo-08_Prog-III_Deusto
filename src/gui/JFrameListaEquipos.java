@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.EventObject;
 import java.util.Vector;
 
+import javax.swing.AbstractCellEditor;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -97,7 +98,8 @@ public class JFrameListaEquipos extends JFramePadre {
 		modeloDatosEquipos = new DefaultTableModel(new Vector<Vector<Object>>(), cabezeraEquipos);
 		this.tablaEquipos = new JTable(this.modeloDatosEquipos) {
 			public boolean isCellEditable(int row, int column){
-				return true;
+				return column == 1;
+				
 			}
 		};
 		
@@ -138,7 +140,9 @@ public class JFrameListaEquipos extends JFramePadre {
 			
 			
 		};
-		//Crear cellEditor
+		//Crear tableCellEditor para que la celda funcione como un JButton
+		TableColumn botonColumn = this.tablaEquipos.getColumnModel().getColumn(1);
+	    botonColumn.setCellEditor(new ComponentCellEditor());
 		
 		//Establecer el cellRenderer como Render por defecto
 		this.tablaEquipos.setDefaultRenderer(Object.class, cellRenderer);
@@ -223,4 +227,38 @@ public class JFrameListaEquipos extends JFramePadre {
 		});
 	}
 
+}
+//Clase generada con chat-gpt para dar la funcionalidad a los botones
+class ComponentCellEditor extends AbstractCellEditor implements TableCellEditor{
+	private Component component;
+	@Override
+    public Component getTableCellEditorComponent(JTable table, Object value,
+                                                 boolean isSelected, int row, int column) {
+        // 'value' es el componente (nuestro JButton) que guardamos en el modelo
+        this.component = (Component) value;
+        return this.component;
+    }
+
+    @Override
+    public Object getCellEditorValue() {
+        // No necesitamos devolver un valor de edición, así que null está bien.
+        // O podrías devolver el 'component' si quisieras.
+        return null; 
+    }
+    
+    /**
+     * Esta es la parte crucial. Sobrescribimos este método para que,
+     * cuando se haga clic en el botón, el listener del botón se ejecute
+     * inmediatamente SIN necesidad de un segundo clic.
+     */
+    @Override
+    public boolean isCellEditable(java.util.EventObject e) {
+        // Si el evento es un clic del ratón, empieza a editar (activar el botón)
+        if (e instanceof java.awt.event.MouseEvent) {
+            // (MouseEvent) e).getClickCount() == 1 ... puedes añadir más lógica
+            return true;
+        }
+        return false;
+    }
+	
 }
