@@ -173,8 +173,8 @@ public class JFrameListaEquipos extends JFramePadre {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
-					//JFrameEquipo jfe = new JFrameEquipo (eq);
-					//jfe.setVisible(true);
+					JFramePlantilla jfp = new JFramePlantilla (ligas, liga, eq, JFrameListaEquipos.this);
+					jfp.setVisible(true);
 					setVisible(false);
 					System.out.println("Abrir ventana de equipo: "+eq.getNombre());
 				}

@@ -44,7 +44,7 @@ public class JFrameClasificacion extends JFramePadre {
 				for(Equipo eq: clasificacion) {
 					if (equiposeleccion.equals(eq.getNombre())) {
 						setVisible(false);
-						JFramePlantilla jfp = new JFramePlantilla(ligas, liga, eq);
+						JFramePlantilla jfp = new JFramePlantilla(ligas, liga, eq, this);
 						jfp.setVisible(true);
 					}
 				}
