@@ -50,7 +50,7 @@ public class JFrameLiga extends JFramePadre {
 
         String[] contenidos = {"calendario", "equipo", "clasificacion"};
         for (String contenido : contenidos) {
-            ImageIcon iconoLiga = new ImageIcon("images/logos/" + contenido + ".png");
+            ImageIcon iconoLiga = new ImageIcon("resources/images/logos/" + contenido + ".png");
             ImageIcon iconoAjustado = new ImageIcon(iconoLiga.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH));
             JButton boton = new JButton();
             boton.setPreferredSize(new Dimension(150, 150));

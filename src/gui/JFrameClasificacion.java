@@ -61,15 +61,6 @@ public class JFrameClasificacion extends JFramePadre {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@Override
 	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
 		botonAtras.addActionListener(e -> {

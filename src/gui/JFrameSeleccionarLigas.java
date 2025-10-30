@@ -54,7 +54,7 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 		botones.setOpaque(false);
 		
 		for (Liga liga : this.ligas) {
-			ImageIcon iconoLiga = new ImageIcon("images/ligas/" + liga.getNombre() + ".png");
+			ImageIcon iconoLiga = new ImageIcon("resources/images/ligas/" + liga.getNombre() + ".png");
 			ImageIcon iconoAjustado = new ImageIcon(iconoLiga.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
 			JButton botonLiga = new JButton();
 			botonLiga.setFont(new Font("Arial", Font.PLAIN, 18));

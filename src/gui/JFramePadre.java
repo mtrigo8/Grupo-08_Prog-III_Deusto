@@ -35,12 +35,12 @@ public abstract class JFramePadre extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
-		ImageIcon logo = new ImageIcon("images/logos/logoApp.png");
+		ImageIcon logo = new ImageIcon("resources/images/logos/logoApp.png");
 		this.setIconImage(logo.getImage());
 		//Parte sugerida por Claude 4.5 para el fondo de pantalla debido a un error de programacion mio al inetntar que ser reescribiera la funcion de pintado
 		panel = new JPanel() {
             private static final long serialVersionUID = 1L;
-            private Image imagenFondo = new ImageIcon("images/logos/logoApp.png").getImage();
+            private Image imagenFondo = new ImageIcon("resources/images/logos/logoApp.png").getImage();
            
             
             @Override
@@ -57,7 +57,7 @@ public abstract class JFramePadre extends JFrame {
 		panel.paintComponents(getGraphics());
 		panel.setBackground(Color.orange);
 		JButton botonAtras = new JButton(); //Creo que si eliminas el JButton que ya esta declarado en la clase y eliminas la linea 65 funciona
-		ImageIcon iconoAtras = new ImageIcon("images/logos/atras.png");
+		ImageIcon iconoAtras = new ImageIcon("resources/images/logos/atras.png");
 		ImageIcon iconoAjustadoAtras = new ImageIcon(iconoAtras.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		botonAtras.setIcon(iconoAjustadoAtras);
 		botonAtras.setBackground(new Color(80, 187, 212));

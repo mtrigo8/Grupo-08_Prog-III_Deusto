@@ -119,7 +119,7 @@ public class JFrameListaEquipos extends JFramePadre {
 				}else {
 					nombreLiga = liga.getNombre().toLowerCase();
 				}
-				String ruta = "images/equipos/"+nombreLiga+"/"+nombrePNG+".png";
+				String ruta = "resources/images/equipos/"+nombreLiga+"/"+nombrePNG+".png";
 				
 				//Modificar tamaño de la imagen
 				int alturaObjetivo = table.getRowHeight(row);
