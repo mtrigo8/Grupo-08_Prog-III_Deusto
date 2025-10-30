@@ -8,7 +8,7 @@ public class Jugador {
 	private TipoPosicion posicion;
 	private Equipo equipo;
 	private String nacionalidad;
-	private int edad;	
+	private int edad;
 public enum TipoPosicion {
 	DELANTERO,
 	MEDIOCAMPISTA,
@@ -93,8 +93,6 @@ public boolean equals(Object obj) {
 public String toString() {
 	return "Jugador " + nombre + " con el numero de camiseta " + numeroCamiseta + " es " + posicion + " en el equipo " + equipo ;
 }
-
-
 
 
 }
