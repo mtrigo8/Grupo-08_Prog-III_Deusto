@@ -23,7 +23,7 @@ public abstract class JFramePadre extends JFrame {
 	protected JPanel panel;
 	protected JButton botonAtras;
 	protected ArrayList<Liga> ligas;
-	
+	protected Image imagenFondo;
 	private static final long serialVersionUID = 1L;
 
 	public abstract void usoBotonAtras(ArrayList<Liga> ligas, Liga liga); //Implemnta en cada clase hija su uso del boton atras
@@ -37,19 +37,21 @@ public abstract class JFramePadre extends JFrame {
 		this.setResizable(false);
 		ImageIcon logo = new ImageIcon("resources/images/logos/logoApp.png");
 		this.setIconImage(logo.getImage());
+		//inicializo la imagen de fondo por defecto con el logo
+		this.imagenFondo = new ImageIcon("resources/images/logos/logoApp.png").getImage();
 		//Parte sugerida por Claude 4.5 para el fondo de pantalla debido a un error de programacion mio al inetntar que ser reescribiera la funcion de pintado
 		panel = new JPanel() {
             private static final long serialVersionUID = 1L;
-            private Image imagenFondo = new ImageIcon("resources/images/logos/logoApp.png").getImage();
+         
            
             
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                if (imagenFondo != null) {
+                if (JFramePadre.this.imagenFondo != null) {
                 	int x = (getWidth() - 600) / 2;
                     int y = (getHeight() - 600) / 2;
-                    g.drawImage(imagenFondo, x, y, 600, 600, this);
+                    g.drawImage(JFramePadre.this.imagenFondo, x, y, 600, 600, this);
                 }
             }
         };
@@ -65,5 +67,14 @@ public abstract class JFramePadre extends JFrame {
 		this.botonAtras = botonAtras;
         panel.add(botonAtras);
         
+}
+ //permite a las clases hijas cambiar la foto de fondo y en caso de no poner ninguna ruta de foto pone el logo de la app
+ protected void setImagenDeFondo(String ruta) {
+     if (ruta == null) {
+         this.imagenFondo = null;
+     } else {
+         this.imagenFondo = new ImageIcon(ruta).getImage();
+     }
+     panel.repaint(); 
 }
 }
