@@ -38,7 +38,17 @@ public class JFrameClasificacion extends JFramePadre {
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		//Se define el comportamiento el evento de selección de una fila de la tabla
 		table.getSelectionModel().addListSelectionListener(e -> {
-			
+			int equiposelec = table.getSelectedRow();
+			if (equiposelec != -1) {
+				String equiposeleccion = (String) table.getValueAt(equiposelec, 1);
+				for(Equipo eq: clasificacion) {
+					if (equiposeleccion.equals(eq.getNombre())) {
+						setVisible(false);
+						JFramePlantilla jfp = new JFramePlantilla(ligas, liga, eq);
+						jfp.setVisible(true);
+					}
+				}
+			}
 		});
 		for (Equipo equipo : clasificacion) {
 			String posicion =  Integer.toString(pos);
@@ -55,23 +65,14 @@ public class JFrameClasificacion extends JFramePadre {
 		this.setSize(1000,600);
 		this.setVisible(true);
 		table.setVisible(true);
-		usoBotonAtras();
+		usoBotonAtras(ligas, liga);
 		}
 		
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@Override
-	public void usoBotonAtras() {
+	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
 		botonAtras.addActionListener(e -> {
 			setVisible(false);
 			JFrameLiga jfl1 = new JFrameLiga(ligas, liga);
