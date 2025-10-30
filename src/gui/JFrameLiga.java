@@ -25,6 +25,7 @@ public class JFrameLiga extends JFramePadre {
 	private JLabel ligaT;
 	private ArrayList<Liga> ligas;
 
+
 	public JFrameLiga(ArrayList<Liga> ligas, Liga liga) {
 		super();
         usoBotonAtras(ligas, null);
@@ -33,15 +34,37 @@ public class JFrameLiga extends JFramePadre {
         this.liga = liga;
 		JPanel panel = super.panel;
         panel.setLayout(null); 
-
+        Color colorFondo = new Color (255,195,0);
+        Color colorLetra= Color.BLACK;
+        
+        switch (liga.getNombre()) {
+        case "Premier":
+        	colorFondo = new Color(55, 0, 60); 
+        	colorLetra = Color.WHITE;
+			break;
+		case "Bundesliga":
+			colorFondo = new Color(208, 1, 27); 
+			colorLetra = Color.WHITE;
+			break;
+		case "LaLiga": 
+			colorFondo = new Color(235, 235, 235); 
+			colorLetra = Color.BLACK;
+			break;
+        }
+        panel.setBackground(colorFondo);
+        
+        setImagenDeFondo(null);
+        
         // --- Título de la liga ---
         ligaT = new JLabel(liga.getNombre(), JLabel.CENTER);
         ligaT.setFont(new Font("Arial", Font.BOLD, 30));
+        	ligaT.setForeground(colorLetra);
         panel.add(ligaT);
 
         // --- Subtítulo ---
         titulo = new JLabel("Seleccione una opción", JLabel.CENTER);
         titulo.setFont(new Font("Arial", Font.BOLD, 25));
+        	titulo.setForeground(colorLetra);
         panel.add(titulo);
 
         // --- Panel de botones ---
@@ -81,6 +104,7 @@ public class JFrameLiga extends JFramePadre {
         for (String contenido : contenidos) {
             JLabel label = new JLabel(contenido.toUpperCase(), JLabel.CENTER);
             label.setFont(new Font("Arial", Font.BOLD, 18));
+            label.setForeground(colorLetra);
             botones.add(label);
         }
 		
@@ -99,7 +123,7 @@ public class JFrameLiga extends JFramePadre {
 	private void posicionarComponentes() {
 		int ancho = getWidth();
         int alto = getHeight();
-
+        
         // --- Liga (nombre principal) ---
         int anchoLiga = (int) (ancho * 0.8);
         int altoLiga = 50;
