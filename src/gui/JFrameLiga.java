@@ -27,7 +27,6 @@ public class JFrameLiga extends JFramePadre {
 
 	public JFrameLiga(ArrayList<Liga> ligas, Liga liga) {
 		super();
-		this.ligas = ligas;
         usoBotonAtras(ligas, null);
 
         this.ligas = ligas;

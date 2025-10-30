@@ -53,7 +53,7 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 		JPanel botones = new JPanel(new GridLayout(3,1,10,10));
 		botones.setOpaque(false);
 		
-		for (Liga liga : ligas) {
+		for (Liga liga : this.ligas) {
 			ImageIcon iconoLiga = new ImageIcon("images/ligas/" + liga.getNombre() + ".png");
 			ImageIcon iconoAjustado = new ImageIcon(iconoLiga.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
 			JButton botonLiga = new JButton();
