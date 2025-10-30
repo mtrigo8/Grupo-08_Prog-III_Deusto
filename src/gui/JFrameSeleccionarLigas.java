@@ -23,6 +23,7 @@ import javax.swing.SwingConstants;
 import domain.Liga;
 
 public class JFrameSeleccionarLigas extends JFramePadre{
+	private ArrayList<Liga> ligas;
 	
 	private static final long serialVersionUID = 1L;
 	
