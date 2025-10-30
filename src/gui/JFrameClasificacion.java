@@ -55,7 +55,7 @@ public class JFrameClasificacion extends JFramePadre {
 		this.setSize(1000,600);
 		this.setVisible(true);
 		table.setVisible(true);
-		usoBotonAtras();
+		usoBotonAtras(ligas, liga);
 		}
 		
 	
@@ -71,7 +71,7 @@ public class JFrameClasificacion extends JFramePadre {
 	
 	
 	@Override
-	public void usoBotonAtras() {
+	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
 		botonAtras.addActionListener(e -> {
 			setVisible(false);
 			JFrameLiga jfl1 = new JFrameLiga(ligas, liga);

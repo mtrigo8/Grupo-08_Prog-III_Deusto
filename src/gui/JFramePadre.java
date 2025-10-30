@@ -26,7 +26,7 @@ public abstract class JFramePadre extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 
-	public abstract void usoBotonAtras(); //Implemnta en cada clase hija su uso del boton atras
+	public abstract void usoBotonAtras(ArrayList<Liga> ligas, Liga liga); //Implemnta en cada clase hija su uso del boton atras
 	
  public JFramePadre() {
 	 this.setSize(1000, 600);

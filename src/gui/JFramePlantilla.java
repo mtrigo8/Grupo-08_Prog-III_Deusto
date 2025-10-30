@@ -16,9 +16,17 @@ import domain.Jugador.TipoPosicion;
 import domain.Liga;
 
 public class JFramePlantilla extends JFramePadre {
+	
+	private static final long serialVersionUID = 1L;
+	private ArrayList<Liga> ligas;
 	private Liga liga;
 	
-	public JFramePlantilla(Equipo equipo) {
+	public JFramePlantilla(ArrayList<Liga> ligas, Liga liga, Equipo equipo) {
+		
+		super();
+		this.ligas = ligas;
+		this.liga = liga;
+		
 		HashMap<String,ArrayList<Jugador>> jugadorPorPos = new HashMap<>(); 
 		for (Jugador jugador : equipo.getJugadores()) {
 			String posicion = jugador.getPosicion().toString();
@@ -50,6 +58,7 @@ public class JFramePlantilla extends JFramePadre {
 			this.setSize(1000,600);
 			this.setVisible(true);
 			table.setVisible(true);
+			usoBotonAtras(ligas, liga);
 		}
 		
 	}
@@ -63,11 +72,11 @@ public class JFramePlantilla extends JFramePadre {
 	
 	
 	@Override
-	public void usoBotonAtras() {
+	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
 		// TODO Auto-generated method stub
 		botonAtras.addActionListener(e -> {
 			setVisible(false);
-			JFrameListaEquipos fle = new JFrameListaEquipos(liga);
+			JFrameListaEquipos fle = new JFrameListaEquipos(ligas, liga);
 			fle.setVisible(true);
 		});
 		

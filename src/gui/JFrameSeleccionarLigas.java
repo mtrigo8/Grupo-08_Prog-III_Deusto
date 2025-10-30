@@ -30,7 +30,7 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 	public JFrameSeleccionarLigas(ArrayList<Liga> ligas) {
 		super();
 		
-		usoBotonAtras(); //Llama al metodo para usar el boton atras
+		usoBotonAtras(ligas, null); //Llama al metodo para usar el boton atras
 		
 		this.ligas = ligas;
 		JButton botonAtras=super.botonAtras;
@@ -84,7 +84,7 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 	//Codigo cambiado parcialmente apartir de lo creado por nosotros para cambiar del uso de gridBagCOntraits el 
 
 	@Override
-	public void usoBotonAtras() {
+	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
 		// TODO Auto-generated method stub
 		super.botonAtras.addActionListener(new ActionListener() {
 

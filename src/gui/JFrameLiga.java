@@ -23,10 +23,12 @@ public class JFrameLiga extends JFramePadre {
 	private JLabel titulo;
 	private JPanel botones;
 	private JLabel ligaT;
+	private ArrayList<Liga> ligas;
 
 	public JFrameLiga(ArrayList<Liga> ligas, Liga liga) {
 		super();
-        usoBotonAtras();
+		this.ligas = ligas;
+        usoBotonAtras(ligas, null);
 
         this.ligas = ligas;
         this.liga = liga;
@@ -63,7 +65,7 @@ public class JFrameLiga extends JFramePadre {
                         break;
                     case "equipo":
                         setVisible(false);
-                        JFrameListaEquipos jfe = new JFrameListaEquipos(liga);
+                        JFrameListaEquipos jfe = new JFrameListaEquipos(ligas, liga);
                         jfe.setVisible(true);
                         break;
                     case "clasificacion":
@@ -122,7 +124,7 @@ public class JFrameLiga extends JFramePadre {
     }
 
 	@Override
-	public void usoBotonAtras() {
+	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
 		// TODO Auto-generated method stub
 		botonAtras.addActionListener(e -> {
 			JFrameSeleccionarLigas jfsl = new JFrameSeleccionarLigas(ligas);
