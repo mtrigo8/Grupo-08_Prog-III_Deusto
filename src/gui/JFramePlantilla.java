@@ -16,6 +16,10 @@ import domain.Jugador.TipoPosicion;
 import domain.Liga;
 
 public class JFramePlantilla extends JFramePadre {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Liga liga;
 	
 	public JFramePlantilla(Equipo equipo) {
@@ -50,6 +54,7 @@ public class JFramePlantilla extends JFramePadre {
 			this.setSize(1000,600);
 			this.setVisible(true);
 			table.setVisible(true);
+			usoBotonAtras();
 		}
 		
 	}
@@ -67,7 +72,7 @@ public class JFramePlantilla extends JFramePadre {
 		// TODO Auto-generated method stub
 		botonAtras.addActionListener(e -> {
 			setVisible(false);
-			JFrameListaEquipos fle = new JFrameListaEquipos(liga);
+			JFrameClasificacion fle = new JFrameClasificacion(ligas, liga);
 			fle.setVisible(true);
 		});
 		
