@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EventObject;
 import java.util.Vector;
@@ -42,7 +43,9 @@ public class JFrameListaEquipos extends JFramePadre {
 	private DefaultTableModel modeloDatosEquipos;
 	private JButton botonEquipo;
 	
-	public JFrameListaEquipos (Liga liga) {
+	public JFrameListaEquipos (ArrayList<Liga> ligas, Liga liga) {
+		this.liga = liga;
+		this.ligas = ligas;
 		JPanel panel = super.panel;
 		panel.setLayout(new BorderLayout());
 		this.liga = liga;
@@ -80,7 +83,7 @@ public class JFrameListaEquipos extends JFramePadre {
 		panel.add(BorderLayout.NORTH, panelFiltro);
 		panel.add(botonAtras);
 		//Dar funcionalidad a botonAtras
-		usoBotonAtras();
+		usoBotonAtras(ligas, liga);
 		//Inicializar las tablas con los equipos
 		inicializarTabla();
 		cargarEquiposTabla();
@@ -116,7 +119,7 @@ public class JFrameListaEquipos extends JFramePadre {
 				}else {
 					nombreLiga = liga.getNombre().toLowerCase();
 				}
-				String ruta = "images/equipos/"+nombreLiga+"/"+nombrePNG+".png";
+				String ruta = "resources/images/equipos/"+nombreLiga+"/"+nombrePNG+".png";
 				
 				//Modificar tamaño de la imagen
 				int alturaObjetivo = table.getRowHeight(row);
@@ -206,7 +209,7 @@ public class JFrameListaEquipos extends JFramePadre {
 	}
 	
 	@Override
-	public void usoBotonAtras() {
+	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
 		// TODO Auto-generated method stub
 		super.botonAtras.addActionListener(new ActionListener() {
 			

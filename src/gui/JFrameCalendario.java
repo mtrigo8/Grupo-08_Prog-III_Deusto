@@ -44,7 +44,7 @@ public class JFrameCalendario extends JFramePadre {
 		table.setBounds(0, 100, 1000, 400);
 		panel.add(scrollPane);
 		this.add(panel);
-		usoBotonAtras();
+		usoBotonAtras(ligas, liga);
 		}
 			
 		
@@ -52,7 +52,7 @@ public class JFrameCalendario extends JFramePadre {
 				
 
 	@Override
-	public void usoBotonAtras() {
+	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
 		// TODO Auto-generated method stub
 		botonAtras.addActionListener(e -> {
 			setVisible(false);

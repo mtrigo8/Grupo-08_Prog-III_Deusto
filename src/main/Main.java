@@ -50,7 +50,7 @@ public class Main {
 		Equipo bayernMunich = new Equipo("Bayern Munich", "Múnich", null, 1900, 34, "Allianz Arena","bayernmunchen");
 		Equipo borussiaDortmund = new Equipo("Borussia Dortmund", "Dortmund", null, 1909, 5, "Signal Iduna Park","borussiadortmund");
 		Equipo rbLeipzig = new Equipo("RB Leipzig", "Leipzig", null, 2009, 0, "Red Bull Arena","rbleipzig");
-		Equipo bayerLeverkusen = new Equipo("Bayer Leverkusen", "Leverkusen", null, 1904, 1, "BayArena","bayernleverkusen");
+		Equipo bayerLeverkusen = new Equipo("Bayer Leverkusen", "Leverkusen", null, 1904, 1, "BayArena","bayerleverkusen");
 		Equipo borussiaMonchengladbach = new Equipo("Borussia Mönchengladbach", "Mönchengladbach", null, 1900, 5, "Borussia-Park","bmonchengladbach");
 
 		ArrayList<Equipo> bundesligaEquipos = new ArrayList<>();

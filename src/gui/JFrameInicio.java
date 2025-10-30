@@ -8,6 +8,7 @@ import javax.swing.*;
 import domain.Liga;
 
 public class JFrameInicio extends JFramePadre {
+	private ArrayList<Liga> ligas;
 
     private static final long serialVersionUID = 1L;
 
@@ -16,7 +17,8 @@ public class JFrameInicio extends JFramePadre {
 
     public JFrameInicio(ArrayList<Liga> ligas) {
         super();
-        usoBotonAtras();
+        this.ligas = ligas;
+        usoBotonAtras(ligas, null);
 
         JPanel panel = super.panel;
         panel.setLayout(null);
@@ -79,7 +81,7 @@ public class JFrameInicio extends JFramePadre {
     }
 
     @Override
-    public void usoBotonAtras() {
+    public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
         super.botonAtras.addActionListener(e -> setVisible(false));
     }
 }

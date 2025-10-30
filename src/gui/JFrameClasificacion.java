@@ -44,7 +44,7 @@ public class JFrameClasificacion extends JFramePadre {
 				for(Equipo eq: clasificacion) {
 					if (equiposeleccion.equals(eq.getNombre())) {
 						setVisible(false);
-						JFramePlantilla jfp = new JFramePlantilla(eq);
+						JFramePlantilla jfp = new JFramePlantilla(ligas, liga, eq);
 						jfp.setVisible(true);
 					}
 				}
@@ -65,24 +65,14 @@ public class JFrameClasificacion extends JFramePadre {
 		this.setSize(1000,600);
 		this.setVisible(true);
 		table.setVisible(true);
-		usoBotonAtras();
-		
+		usoBotonAtras(ligas, liga);
 		}
 		
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@Override
-	public void usoBotonAtras() {
+	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
 		botonAtras.addActionListener(e -> {
 			setVisible(false);
 			JFrameLiga jfl1 = new JFrameLiga(ligas, liga);

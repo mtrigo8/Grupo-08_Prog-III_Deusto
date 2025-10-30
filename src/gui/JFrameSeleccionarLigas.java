@@ -30,7 +30,7 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 	public JFrameSeleccionarLigas(ArrayList<Liga> ligas) {
 		super();
 		
-		usoBotonAtras(); //Llama al metodo para usar el boton atras
+		usoBotonAtras(ligas, null); //Llama al metodo para usar el boton atras
 		
 		this.ligas = ligas;
 		JButton botonAtras=super.botonAtras;
@@ -53,8 +53,8 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 		JPanel botones = new JPanel(new GridLayout(3,1,10,10));
 		botones.setOpaque(false);
 		
-		for (Liga liga : ligas) {
-			ImageIcon iconoLiga = new ImageIcon("images/ligas/" + liga.getNombre() + ".png");
+		for (Liga liga : this.ligas) {
+			ImageIcon iconoLiga = new ImageIcon("resources/images/ligas/" + liga.getNombre() + ".png");
 			ImageIcon iconoAjustado = new ImageIcon(iconoLiga.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
 			JButton botonLiga = new JButton();
 			botonLiga.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -84,7 +84,7 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 	//Codigo cambiado parcialmente apartir de lo creado por nosotros para cambiar del uso de gridBagCOntraits el 
 
 	@Override
-	public void usoBotonAtras() {
+	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
 		// TODO Auto-generated method stub
 		super.botonAtras.addActionListener(new ActionListener() {
 
