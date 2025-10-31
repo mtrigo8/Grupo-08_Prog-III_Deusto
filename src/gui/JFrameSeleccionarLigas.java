@@ -65,7 +65,7 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 			botonLiga.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					JFrameLiga jfl = new JFrameLiga(ligas, liga);
+					JFrameLiga jfl = new JFrameLiga(ligas, liga, JFrameSeleccionarLigas.this);
 					setVisible(false);
 					jfl.setVisible(true);
 				}

@@ -20,11 +20,13 @@ public class JFrameClasificacion extends JFramePadre {
 	private Liga liga;
 	private static final long serialVersionUID = 1L;
 	private int pos = 1;
+	private JFramePadre ventanaAnterior;
 	
-	public JFrameClasificacion(ArrayList<Liga> ligas, Liga liga) {
+	public JFrameClasificacion(ArrayList<Liga> ligas, Liga liga, JFramePadre ventanaAnterior) {
 		super();
 		this.liga = liga;
 		this.ligas = ligas;
+		this.ventanaAnterior = ventanaAnterior;
 		ArrayList<Equipo> clasificacion = this.liga.getEquipos();
 		Collections.sort(clasificacion);
 		Vector<String> columnNames = new Vector<String>(Arrays.asList("Pos", "Equipo", "Pts", "PJ", "DG"));
@@ -75,8 +77,7 @@ public class JFrameClasificacion extends JFramePadre {
 	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
 		botonAtras.addActionListener(e -> {
 			setVisible(false);
-			JFrameLiga jfl1 = new JFrameLiga(ligas, liga);
-			jfl1.setVisible(true);
+			ventanaAnterior.setVisible(true);
 		});
 		
 	}

@@ -24,12 +24,14 @@ public class JFrameLiga extends JFramePadre {
 	private JPanel botones;
 	private JLabel ligaT;
 	private ArrayList<Liga> ligas;
+	private JFramePadre ventanaAnterior;
 
 
-	public JFrameLiga(ArrayList<Liga> ligas, Liga liga) {
+	public JFrameLiga(ArrayList<Liga> ligas, Liga liga, JFramePadre ventanaAnterior) {
 		super();
+		
         usoBotonAtras(ligas, null);
-
+        this.ventanaAnterior = ventanaAnterior;
         this.ligas = ligas;
         this.liga = liga;
 		JPanel panel = super.panel;
@@ -82,17 +84,17 @@ public class JFrameLiga extends JFramePadre {
                 switch (contenido) {
                     case "calendario":
                         setVisible(false);
-                        JFrameCalendario jfca = new JFrameCalendario(this.ligas, this.liga);
+                        JFrameCalendario jfca = new JFrameCalendario(this.ligas, this.liga,this);
                         jfca.setVisible(true);
                         break;
                     case "equipo":
                         setVisible(false);
-                        JFrameListaEquipos jfe = new JFrameListaEquipos(ligas, liga);
+                        JFrameListaEquipos jfe = new JFrameListaEquipos(ligas, liga,this);
                         jfe.setVisible(true);
                         break;
                     case "clasificacion":
                         setVisible(false);
-                        JFrameClasificacion jfcl = new JFrameClasificacion(this.ligas,this.liga);
+                        JFrameClasificacion jfcl = new JFrameClasificacion(this.ligas,this.liga,this);
                         jfcl.setVisible(true);
                         break;
                 }
@@ -150,9 +152,8 @@ public class JFrameLiga extends JFramePadre {
 	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
 		// TODO Auto-generated method stub
 		botonAtras.addActionListener(e -> {
-			JFrameSeleccionarLigas jfsl = new JFrameSeleccionarLigas(ligas);
-			jfsl.setVisible(true);
 			setVisible(false);
+			ventanaAnterior.setVisible(true);
 		});
 	}
 

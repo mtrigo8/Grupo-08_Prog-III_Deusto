@@ -43,10 +43,12 @@ public class JFrameListaEquipos extends JFramePadre {
 	private JTable tablaEquipos;
 	private DefaultTableModel modeloDatosEquipos;
 	private JButton botonEquipo;
+	private JFramePadre ventanaAnterior;
 	
-	public JFrameListaEquipos (ArrayList<Liga> ligas, Liga liga) {
+	public JFrameListaEquipos (ArrayList<Liga> ligas, Liga liga, JFramePadre ventanaAnterior) {
 		this.liga = liga;
 		this.ligas = ligas;
+		this.ventanaAnterior = ventanaAnterior;
 		JPanel panel = super.panel;
 		panel.setLayout(new BorderLayout());
 		this.liga = liga;
@@ -220,11 +222,11 @@ public class JFrameListaEquipos extends JFramePadre {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//Regreso a la ventana de liga
-				JFrameLiga jfl = new JFrameLiga(ligas, liga);
 				//Desaparece la ventana ListaEquipos
 				setVisible(false);
-				//Aparece ventana Liga
-				jfl.setVisible(true);
+				//Aparece ventana anterior
+				ventanaAnterior.setVisible(true);
+				
 				
 			}
 		});

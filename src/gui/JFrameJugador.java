@@ -24,12 +24,14 @@ public class JFrameJugador extends JFramePadre {
 
 	private JPanel panelAtributos;//las estadisticas, edad o lo que sea
 	private JPanel panelNombre;//irá arriba como lo mas importante
+	private JFramePadre ventanaAnterior;
 	
-	public JFrameJugador(ArrayList<Liga> ligas, Liga liga, Jugador jugador) {
+	public JFrameJugador(ArrayList<Liga> ligas, Liga liga, Jugador jugador, JFramePadre ventanaAnterior) {
 		super();
 		this.jugador = jugador;
 		this.ligas = ligas; 
 		this.liga = liga;
+		this.ventanaAnterior = ventanaAnterior;
 		JPanel panel = super.panel;
 		setImagenDeFondo(null);
 		
@@ -157,7 +159,7 @@ public static void main(String[] args) {
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				JFrameJugador ventanaPrueba = new JFrameJugador(
-					todasLasLigas, ligaPrueba, jugadorPrueba
+					todasLasLigas, ligaPrueba, jugadorPrueba,null
 				);
 				ventanaPrueba.setVisible(true);
 			}
