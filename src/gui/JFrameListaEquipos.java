@@ -117,12 +117,7 @@ public class JFrameListaEquipos extends JFramePadre {
 			if (column == 0) {//MODIFICACIONES EN LA COLUMNA DE IMAGENES
 				JLabel result = new JLabel(value.toString());
 				String nombrePNG = (String) value;	
-				String nombreLiga;
-				if (liga.getNombre().equals("LaLiga")) {
-					nombreLiga = "laLiga";
-				}else {
-					nombreLiga = liga.getNombre().toLowerCase();
-				}
+				String nombreLiga  = liga.getNombre().toLowerCase();
 				String ruta = "resources/images/equipos/"+nombreLiga+"/"+nombrePNG+".png";
 				
 				//Modificar tamaño de la imagen
@@ -175,17 +170,22 @@ public class JFrameListaEquipos extends JFramePadre {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
-					JFramePlantilla jfp = new JFramePlantilla (ligas, liga, eq, JFrameListaEquipos.this);
-					jfp.setVisible(true);
+					//JFramePlantilla jfp = new JFramePlantilla (ligas, liga, eq, JFrameListaEquipos.this);
+					//jfp.setVisible(true);
 					setVisible(false);
-					System.out.println("Abrir ventana de equipo: "+eq.getNombre());
+					
+					JFrameEquipo jfe = new JFrameEquipo(ligas, liga, eq, JFrameListaEquipos.this);
+					jfe.setVisible(true);
+					//System.out.println("Abrir ventana de equipo: "+eq.getNombre());
 				}
 			});
 			this.modeloDatosEquipos.addRow(new Object[] {eq.getNombrePNGEquipo(),botonEquipo});
 		}
 	}
 
-	//Funcion creada con CHAT-GPT para modificar el tamaño de la imagen a la altura de la columna
+	//IAG
+	//Funcion que modifica el tamaño de la imagen a la altura de la celda
+	
 	private ImageIcon escalarIcono(ImageIcon icon, int targetHeight) {
 	    if (icon == null || icon.getImage() == null || icon.getIconHeight() <= 0) {
 	        return null; // Devuelve nulo si la imagen original es inválida
@@ -233,6 +233,7 @@ public class JFrameListaEquipos extends JFramePadre {
 	}
 
 }
+//IAG
 //Clase generada con chat-gpt para dar la funcionalidad a los botones
 class ComponentCellEditor extends AbstractCellEditor implements TableCellEditor{
 	private Component component;
