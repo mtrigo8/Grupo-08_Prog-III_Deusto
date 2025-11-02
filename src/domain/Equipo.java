@@ -1,10 +1,13 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
+import domain.Jugador.TipoPosicion;
+
 public class Equipo implements Comparable<Equipo> {
-	private ArrayList<Jugador> jugadores;
+	private HashMap<TipoPosicion, ArrayList<Jugador>> jugadores;
 	private String nombre;
 	private String ciudad;
 	private Liga liga;
@@ -20,7 +23,7 @@ public class Equipo implements Comparable<Equipo> {
 	public Equipo(String nombre, String ciudad, Liga liga, int anyoFundacion, int titulos,
 			String estadio, String nombrePNGEquipo) {
 		super();
-		this.jugadores = new ArrayList<Jugador>();
+		this.jugadores = new HashMap<TipoPosicion, ArrayList<Jugador>>();
 		this.nombre = nombre;
 		this.ciudad = ciudad;
 		this.liga = liga;
@@ -56,12 +59,14 @@ public class Equipo implements Comparable<Equipo> {
 	}
 
 
-	public ArrayList<Jugador> getJugadores() {
+	public HashMap<TipoPosicion, ArrayList<Jugador>> getJugadores() {
 		return jugadores;
 	}
 
-	public void setJugadores(ArrayList<Jugador> jugadores) {
-		this.jugadores = jugadores;
+	public void anyadirJugador(Jugador jugador) {
+		ArrayList<Jugador> jp = this.jugadores.get(jugador.getPosicion());
+		jp.add(jugador);
+		this.jugadores.put(jugador.getPosicion(), jp);
 	}
 
 	public String getNombre() {

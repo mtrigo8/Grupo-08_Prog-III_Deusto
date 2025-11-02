@@ -31,7 +31,7 @@ public class JFrameClasificacion extends JFramePadre {
 		DefaultTableModel mDatTab = new DefaultTableModel(new Vector<Vector<Object>>(), columnNames);
 		JTable table = new JTable(mDatTab);
 		table.setRowHeight(30);
-		
+		table.setDefaultEditor(Object.class, null);
 		table.getTableHeader().setReorderingAllowed(false);
 		panel.setLayout(null);
 		//Se modifica el modelo de selección de la tabla para que se pueda selecciona únicamente una fila
