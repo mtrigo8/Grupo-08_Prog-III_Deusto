@@ -27,16 +27,10 @@ public class JFramePlantilla extends JFramePadre {
 		this.ligas = ligas;
 		this.liga = liga;
 		
-		HashMap<String,ArrayList<Jugador>> jugadorPorPos = new HashMap<>(); 
-		for (Jugador jugador : equipo.getJugadores()) {
-			String posicion = jugador.getPosicion().toString();
-			if (!(jugadorPorPos.keySet().contains(posicion))){
-				jugadorPorPos.put(posicion, new ArrayList<Jugador>());
-			}
-			jugadorPorPos.get(posicion).add(jugador);
-		}
-		for(String clave : jugadorPorPos.keySet()) {
-			Vector<String> columnNames = new Vector<String>(Arrays.asList(clave, "Nombre"));
+		
+		
+		for(TipoPosicion clave : equipo.getJugadores().keySet()) {
+			Vector<String> columnNames = new Vector<String>(Arrays.asList(clave.toString(), "Nombre"));
 			DefaultTableModel mDatTab = new DefaultTableModel(new Vector<Vector<Object>>(), columnNames);
 			JTable table = new JTable(mDatTab);
 			table.setRowHeight(30);
@@ -48,7 +42,7 @@ public class JFramePlantilla extends JFramePadre {
 			table.getSelectionModel().addListSelectionListener(e -> {
 				
 			});
-			for (Jugador jug : jugadorPorPos.get(clave)) {
+			for (Jugador jug : equipo.getJugadores().get(clave)) {
 				mDatTab.addRow(new Object[] {clave, jug.getNombre()});
 				}
 			JScrollPane scrollPane = new JScrollPane(table);
