@@ -25,9 +25,13 @@ public abstract class JFramePadre extends JFrame {
 	protected ArrayList<Liga> ligas;
 	protected Image imagenFondo;
 	private static final long serialVersionUID = 1L;
+	protected JFramePadre framePrevio;
 
-	public abstract void usoBotonAtras(ArrayList<Liga> ligas, Liga liga); //Implemnta en cada clase hija su uso del boton atras
-	
+	public void usoBotonAtras(JFramePadre frameAnterior) { //Implemnta en cada clase hija su uso del boton atras
+	this.setVisible(false);
+	frameAnterior.setVisible(true);
+	}
+		
  public JFramePadre() {
 	 this.setSize(1000, 600);
 		this.setTitle("FutGoat");

@@ -27,10 +27,11 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 	
 	private static final long serialVersionUID = 1L;
 	
-	public JFrameSeleccionarLigas(ArrayList<Liga> ligas) {
+	public JFrameSeleccionarLigas(ArrayList<Liga> ligas, JFramePadre frameP) {
 		super();
+		super.framePrevio = frameP;
 		
-		usoBotonAtras(ligas, null); //Llama al metodo para usar el boton atras
+		usoBotonAtras(super.framePrevio); //Llama al metodo para usar el boton atras
 		
 		this.ligas = ligas;
 		JPanel panel = super.panel;
@@ -65,7 +66,7 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 			botonLiga.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					JFrameLiga jfl = new JFrameLiga(ligas, liga, JFrameSeleccionarLigas.this);
+					JFrameLiga jfl = new JFrameLiga(liga, JFrameSeleccionarLigas.this);
 					setVisible(false);
 					jfl.setVisible(true);
 				}
@@ -83,19 +84,8 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 	}
 	//Codigo cambiado parcialmente apartir de lo creado por nosotros para cambiar del uso de gridBagCOntraits el 
 
-	@Override
-	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
-		// TODO Auto-generated method stub
-		super.botonAtras.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				JFrameInicio jfi = new JFrameInicio(ligas);
-				setVisible(false);
-				jfi.setVisible(true);
-			}});
+	
 		
 	} 
 	
-}
+

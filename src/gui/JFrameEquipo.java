@@ -24,6 +24,7 @@ import javax.swing.table.DefaultTableModel;
 import domain.Equipo;
 import domain.Jugador;
 import domain.Liga;
+import domain.Jugador.TipoPosicion;
 
 public class JFrameEquipo extends JFramePadre{
 	private ArrayList<Liga> ligas;
@@ -32,11 +33,9 @@ public class JFrameEquipo extends JFramePadre{
 	private JFramePadre ventanaAnterior;
 
 	
-	public JFrameEquipo(ArrayList<Liga>ligas, Liga liga, Equipo equipo, JFramePadre ventanaAnterior) {
-		this.ligas = ligas;
-		this.liga = liga;
+	public JFrameEquipo(Equipo equipo, JFramePadre ventanaAnterior) {
 		this.equipo = equipo;
-		this.ventanaAnterior = ventanaAnterior;
+		super.framePrevio = ventanaAnterior;
 		
 		JPanel mainPanel = super.panel;
 		mainPanel.setLayout(new BorderLayout());
@@ -85,7 +84,7 @@ public class JFrameEquipo extends JFramePadre{
 		panelPrincipal.add(panelInformacion, BorderLayout.WEST);
 		
 		
-		usoBotonAtras(ligas, liga);
+		usoBotonAtras(super.framePrevio);
 		add(mainPanel);		
 
 	}
@@ -112,19 +111,35 @@ public class JFrameEquipo extends JFramePadre{
 		panel.add(liga);
 		panel.add(nombreEstadio);
 		
-	}
-	@Override
-	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
-		// TODO Auto-generated method stub
-		super.botonAtras.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				setVisible(false);
-				ventanaAnterior.setVisible(true);
-			}
-		});
-	}
+		//Apartir de aqui es todo lo hecho en plantilla que se ha borrado
+		for(TipoPosicion clave : equipo.getJugadores().keySet()) {
+			Vector<String> columnNames = new Vector<String>(Arrays.asList(clave.toString(), "Nombre"));
+		}
+		panel.setLayout(null);
+		this.add(panel);
+		usoBotonAtras(super.framePrevio);
+		for(TipoPosicion clave : equipo.getJugadores().keySet()) {
+			Vector<String> columnNames = new Vector<String>(Arrays.asList(clave.toString(), "Nombre"));
+			DefaultTableModel mDatTab = new DefaultTableModel(new Vector<Vector<Object>>(), columnNames);
+			JTable table = new JTable(mDatTab);
+			table.setRowHeight(30);
+			table.getTableHeader().setReorderingAllowed(false);
 
+			//Se modifica el modelo de selección de la tabla para que se pueda selecciona únicamente una fila
+			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+			//Se define el comportamiento el evento de selección de una fila de la tabla
+			table.getSelectionModel().addListSelectionListener(e1 -> {
+				
+			});
+			for (Jugador jug : equipo.getJugadores().get(clave)) {
+				mDatTab.addRow(new Object[] {clave, jug.getNombre()});
+				}
+			JScrollPane scrollPane = new JScrollPane(table);
+			scrollPane.setBounds(0, 100, 1000, 400);
+			panel.add(scrollPane);
+			this.setSize(1000,600);
+			this.setVisible(true);
+			table.setVisible(true);
+		
+	}}
 }

@@ -23,16 +23,13 @@ public class JFrameLiga extends JFramePadre {
 	private JLabel titulo;
 	private JPanel botones;
 	private JLabel ligaT;
-	private ArrayList<Liga> ligas;
-	private JFramePadre ventanaAnterior;
 
 
-	public JFrameLiga(ArrayList<Liga> ligas, Liga liga, JFramePadre ventanaAnterior) {
+	public JFrameLiga(Liga liga, JFramePadre ventanaAnterior) {
 		super();
 		
-        usoBotonAtras(ligas, null);
-        this.ventanaAnterior = ventanaAnterior;
-        this.ligas = ligas;
+        super.framePrevio = ventanaAnterior;
+        usoBotonAtras(super.framePrevio);
         this.liga = liga;
 		JPanel panel = super.panel;
         panel.setLayout(null); 
@@ -84,17 +81,17 @@ public class JFrameLiga extends JFramePadre {
                 switch (contenido) {
                     case "calendario":
                         setVisible(false);
-                        JFrameCalendario jfca = new JFrameCalendario(this.ligas, this.liga,this);
+                        JFrameCalendario jfca = new JFrameCalendario( this.liga, this);
                         jfca.setVisible(true);
                         break;
                     case "equipo":
                         setVisible(false);
-                        JFrameListaEquipos jfe = new JFrameListaEquipos(ligas, liga,this);
+                        JFrameListaEquipos jfe = new JFrameListaEquipos(liga, this);
                         jfe.setVisible(true);
                         break;
                     case "clasificacion":
                         setVisible(false);
-                        JFrameClasificacion jfcl = new JFrameClasificacion(this.ligas,this.liga,this);
+                        JFrameClasificacion jfcl = new JFrameClasificacion(this.liga, this);
                         jfcl.setVisible(true);
                         break;
                 }
@@ -148,13 +145,6 @@ public class JFrameLiga extends JFramePadre {
         botones.setBounds(xBotones, yBotones, anchoBotones, altoBotones);
     }
 
-	@Override
-	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
-		// TODO Auto-generated method stub
-		botonAtras.addActionListener(e -> {
-			setVisible(false);
-			ventanaAnterior.setVisible(true);
-		});
-	}
+	
 
 }

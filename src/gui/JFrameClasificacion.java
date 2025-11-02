@@ -20,13 +20,11 @@ public class JFrameClasificacion extends JFramePadre {
 	private Liga liga;
 	private static final long serialVersionUID = 1L;
 	private int pos = 1;
-	private JFramePadre ventanaAnterior;
 	
-	public JFrameClasificacion(ArrayList<Liga> ligas, Liga liga, JFramePadre ventanaAnterior) {
+	public JFrameClasificacion(Liga liga, JFramePadre ventanaAnterior) {
 		super();
 		this.liga = liga;
-		this.ligas = ligas;
-		this.ventanaAnterior = ventanaAnterior;
+		super.framePrevio = ventanaAnterior;
 		ArrayList<Equipo> clasificacion = this.liga.getEquipos();
 		Collections.sort(clasificacion);
 		Vector<String> columnNames = new Vector<String>(Arrays.asList("Pos", "Equipo", "Pts", "PJ", "DG"));
@@ -46,7 +44,7 @@ public class JFrameClasificacion extends JFramePadre {
 				for(Equipo eq: clasificacion) {
 					if (equiposeleccion.equals(eq.getNombre())) {
 						setVisible(false);
-						JFramePlantilla jfp = new JFramePlantilla(ligas, liga, eq, this);
+						JFrameEquipo jfp = new JFrameEquipo(eq, this);
 						jfp.setVisible(true);
 					}
 				}
@@ -67,19 +65,12 @@ public class JFrameClasificacion extends JFramePadre {
 		this.setSize(1000,600);
 		this.setVisible(true);
 		table.setVisible(true);
-		usoBotonAtras(ligas, liga);
+		usoBotonAtras(super.framePrevio);
 		}
 		
 	
 	
 	
-	@Override
-	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
-		botonAtras.addActionListener(e -> {
-			setVisible(false);
-			ventanaAnterior.setVisible(true);
-		});
-		
-	}
+
 
 }

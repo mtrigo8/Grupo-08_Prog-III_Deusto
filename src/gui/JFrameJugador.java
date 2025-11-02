@@ -26,12 +26,10 @@ public class JFrameJugador extends JFramePadre {
 	private JPanel panelNombre;//irá arriba como lo mas importante
 	private JFramePadre ventanaAnterior;
 	
-	public JFrameJugador(ArrayList<Liga> ligas, Liga liga, Jugador jugador, JFramePadre ventanaAnterior) {
+	public JFrameJugador(Jugador jugador, JFramePadre ventanaAnterior) {
 		super();
 		this.jugador = jugador;
-		this.ligas = ligas; 
-		this.liga = liga;
-		this.ventanaAnterior = ventanaAnterior;
+		super.framePrevio = ventanaAnterior;
 		JPanel panel = super.panel;
 		setImagenDeFondo(null);
 		
@@ -109,6 +107,7 @@ public class JFrameJugador extends JFramePadre {
 		panel.add(panelAtributos);
 		this.setContentPane(panel);
 		posicionarComponentes();
+		usoBotonAtras(super.framePrevio);
 		
 	}
 	private void posicionarComponentes() {
@@ -127,43 +126,4 @@ public class JFrameJugador extends JFramePadre {
 		panelAtributos.setBounds(xAtributos, yAtributos, anchoAtributos, altoAtributos);
 
 	}
-	@Override
-	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
-		// TODO Auto-generated method stub
-		
-	}
-	//credo por ia para ver si funciona o no la ventana independientemente
-public static void main(String[] args) {
-		
-		// 1. --- Simular los datos del Main.java ---
-		TipoPosicion posPrueba = TipoPosicion.DELANTERO; 
-		
-		// Usar el constructor completo de Equipo
-		Equipo equipoPrueba = new Equipo("Manchester United", "Manchester", null, 1878, 20, "Old Trafford","manchesterunited");
-		
-		// Usar el constructor completo de Jugador
-		// (¡Asegúrate de que este constructor existe en tu clase Jugador!)
-		Jugador jugadorPrueba = new Jugador(
-			"Marcus Rashford", 10, posPrueba, equipoPrueba, "Inglaterra", 27
-		);
-		
-		// Usar el constructor completo de Liga
-		ArrayList<Equipo> equiposPrueba = new ArrayList<>();
-		equiposPrueba.add(equipoPrueba);
-		Liga ligaPrueba = new Liga("Premier", "Inglaterra", 20, equiposPrueba);
-		
-		ArrayList<Liga> todasLasLigas = new ArrayList<>();
-		todasLasLigas.add(ligaPrueba);
-
-		// 2. --- Ejecutar la ventana ---
-		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				JFrameJugador ventanaPrueba = new JFrameJugador(
-					todasLasLigas, ligaPrueba, jugadorPrueba,null
-				);
-				ventanaPrueba.setVisible(true);
-			}
-		});
-	}
-
 }

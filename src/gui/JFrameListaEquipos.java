@@ -43,12 +43,10 @@ public class JFrameListaEquipos extends JFramePadre {
 	private JTable tablaEquipos;
 	private DefaultTableModel modeloDatosEquipos;
 	private JButton botonEquipo;
-	private JFramePadre ventanaAnterior;
 	
-	public JFrameListaEquipos (ArrayList<Liga> ligas, Liga liga, JFramePadre ventanaAnterior) {
+	public JFrameListaEquipos (Liga liga, JFramePadre ventanaAnterior) {
 		this.liga = liga;
-		this.ligas = ligas;
-		this.ventanaAnterior = ventanaAnterior;
+		super.framePrevio = ventanaAnterior;
 		JPanel panel = super.panel;
 		panel.setLayout(new BorderLayout());
 		this.liga = liga;
@@ -86,7 +84,7 @@ public class JFrameListaEquipos extends JFramePadre {
 		panel.add(BorderLayout.NORTH, panelFiltro);
 		panel.add(botonAtras);
 		//Dar funcionalidad a botonAtras
-		usoBotonAtras(ligas, liga);
+		usoBotonAtras(super.framePrevio);
 		//Inicializar las tablas con los equipos
 		inicializarTabla();
 		cargarEquiposTabla();
@@ -174,7 +172,7 @@ public class JFrameListaEquipos extends JFramePadre {
 					//jfp.setVisible(true);
 					setVisible(false);
 					
-					JFrameEquipo jfe = new JFrameEquipo(ligas, liga, eq, JFrameListaEquipos.this);
+					JFrameEquipo jfe = new JFrameEquipo(eq, JFrameListaEquipos.this);
 					jfe.setVisible(true);
 					//System.out.println("Abrir ventana de equipo: "+eq.getNombre());
 				}
@@ -214,23 +212,7 @@ public class JFrameListaEquipos extends JFramePadre {
 		}
 	}
 	
-	@Override
-	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
-		// TODO Auto-generated method stub
-		super.botonAtras.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//Regreso a la ventana de liga
-				//Desaparece la ventana ListaEquipos
-				setVisible(false);
-				//Aparece ventana anterior
-				ventanaAnterior.setVisible(true);
-				
-				
-			}
-		});
-	}
+	
 
 }
 //IAG

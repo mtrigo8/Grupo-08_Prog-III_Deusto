@@ -17,8 +17,9 @@ public class JFrameInicio extends JFramePadre {
 
     public JFrameInicio(ArrayList<Liga> ligas) {
         super();
+        super.framePrevio = null;
         this.ligas = ligas;
-        usoBotonAtras(ligas, null);
+        usoBotonAtras(super.framePrevio);
 
         JPanel panel = super.panel;
         panel.setLayout(null);
@@ -46,7 +47,7 @@ public class JFrameInicio extends JFramePadre {
         btnEntrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrameSeleccionarLigas jfs = new JFrameSeleccionarLigas(ligas);
+                JFrameSeleccionarLigas jfs = new JFrameSeleccionarLigas(ligas , JFrameInicio.this);
                 setVisible(false);
                 jfs.setVisible(true);
             }
@@ -80,10 +81,6 @@ public class JFrameInicio extends JFramePadre {
         btnEntrar.setBounds(xBoton, yBoton, anchoBoton, altoBoton);
     }
 
-    @Override
-    public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
-        super.botonAtras.addActionListener(e -> setVisible(false));
-    }
 }
 
 

@@ -17,19 +17,16 @@ public class JFrameCalendario extends JFramePadre {
 	private int jornadaSeleccionada = 1;
 	private Liga liga;
 	private static final long serialVersionUID = 1L;
-	private JFramePadre ventanaAnterior;
 
-	public JFrameCalendario(ArrayList<Liga> ligas, Liga liga, JFramePadre ventanaAnterior) {
+	public JFrameCalendario(Liga liga, JFramePadre ventanaAnterior) {
 		super();
-		this.ventanaAnterior = ventanaAnterior;
+		super.framePrevio = ventanaAnterior;
 		this.liga = liga;
-		this.ligas = ligas;
 		JPanel panel = super.panel;
 		Vector<String> columnNames = new Vector<String>(Arrays.asList("Fecha", "Equipo Local", "Equipo Visitante", "Resultado"));
 		DefaultTableModel mDatTab = new DefaultTableModel(new Vector<Vector<Object>>(), columnNames);
 		JTable table = new JTable(mDatTab);
 		table.setRowHeight(30);
-		JScrollPane scrollPane = new JScrollPane(table);
 		table.getTableHeader().setReorderingAllowed(false);
 		//Se modifica el modelo de selección de la tabla para que se pueda selecciona únicamente una fila
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -43,25 +40,17 @@ public class JFrameCalendario extends JFramePadre {
 			String resultado = golLocal + " - " + golVisitante;
 			mDatTab.addRow(new Object[] {partido.getFecha().toString(), partido.getEquipoLocal().getNombre(), partido.getEquipoVisitante().getNombre(), resultado});
 			}
-		table.setBounds(0, 100, 1000, 400);
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBounds(0, 100, 1000, 400);
 		panel.add(scrollPane);
 		this.add(panel);
-		usoBotonAtras(ligas, liga);
+		usoBotonAtras(super.framePrevio);
 		}
 			
 		
 		
 				
 
-	@Override
-	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
-		// TODO Auto-generated method stub
-		botonAtras.addActionListener(e -> {
-			setVisible(false);
-			ventanaAnterior.setVisible(true);
-		});
-	}
-	
 	
 
 }
