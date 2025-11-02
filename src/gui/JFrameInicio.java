@@ -17,7 +17,6 @@ public class JFrameInicio extends JFramePadre {
 
     public JFrameInicio(ArrayList<Liga> ligas) {
         super();
-        super.framePrevio = null;
         this.ligas = ligas;
         usoBotonAtras(super.framePrevio);
 
@@ -79,6 +78,9 @@ public class JFrameInicio extends JFramePadre {
         // Asignar posiciones
         titulo.setBounds(xTitulo, yTitulo, anchoTitulo, altoTitulo);
         btnEntrar.setBounds(xBoton, yBoton, anchoBoton, altoBoton);
+    }
+    @Override
+	public void usoBotonAtras(JFramePadre framePrevio) {
     }
 
 }

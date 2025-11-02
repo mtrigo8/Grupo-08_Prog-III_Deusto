@@ -28,8 +28,10 @@ public abstract class JFramePadre extends JFrame {
 	protected JFramePadre framePrevio;
 
 	public void usoBotonAtras(JFramePadre frameAnterior) { //Implemnta en cada clase hija su uso del boton atras
-	this.setVisible(false);
+		botonAtras.addActionListener(e -> {
+	setVisible(false);
 	frameAnterior.setVisible(true);
+		});
 	}
 		
  public JFramePadre() {
