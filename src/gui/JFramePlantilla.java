@@ -31,28 +31,18 @@ public class JFramePlantilla extends JFramePadre {
 		super();
 		this.ligas = ligas;
 		this.liga = liga;
-<<<<<<< HEAD
 		
 		
 		
 		for(TipoPosicion clave : equipo.getJugadores().keySet()) {
 			Vector<String> columnNames = new Vector<String>(Arrays.asList(clave.toString(), "Nombre"));
-=======
 		this.ventanaAnterior = ventanaAnterior;
-		HashMap<String,ArrayList<Jugador>> jugadorPorPos = new HashMap<>(); 
-		for (Jugador jugador : equipo.getJugadores()) {
-			String posicion = jugador.getPosicion().toString();
-			if (!(jugadorPorPos.keySet().contains(posicion))){
-				jugadorPorPos.put(posicion, new ArrayList<Jugador>());
-			}
-			jugadorPorPos.get(posicion).add(jugador);
 		}
 		panel.setLayout(null);
 		this.add(panel);
 		usoBotonAtras(ligas, liga);
-		for(String clave : jugadorPorPos.keySet()) {
-			Vector<String> columnNames = new Vector<String>(Arrays.asList(clave, "Nombre"));
->>>>>>> refs/remotes/master/master
+		for(TipoPosicion clave : equipo.getJugadores().keySet()) {
+			Vector<String> columnNames = new Vector<String>(Arrays.asList(clave.toString(), "Nombre"));
 			DefaultTableModel mDatTab = new DefaultTableModel(new Vector<Vector<Object>>(), columnNames);
 			JTable table = new JTable(mDatTab);
 			table.setRowHeight(30);
