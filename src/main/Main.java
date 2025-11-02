@@ -14,14 +14,20 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		ArrayList<Liga> ligas = new ArrayList<Liga>();
+		Liga laLiga = new Liga("LaLiga", "España", 20, null);
+		Liga premier = (new Liga("Premier", "Inglaterra", 20, null));
+		Liga bundesliga = (new Liga("Bundesliga", "Alemania", 20, null));
+		ligas.add(laLiga);
+		ligas.add(premier);
+		ligas.add(bundesliga);
 		//Ejemplos generados con IA
 		// ====== LaLiga ======
-		Equipo fcBarcelona = new Equipo("FC Barcelona", "Barcelona", null, 1899, 27, "Spotify Camp Nou","barcelona");
-		Equipo realMadrid = new Equipo("Real Madrid", "Madrid", null, 1902, 36, "Santiago Bernabéu","realmadrid");
-		Equipo atleticoMadrid = new Equipo("Atlético de Madrid", "Madrid", null, 1903, 11, "Cívitas Metropolitano","atlmadrid");
-		Equipo sevillaFC = new Equipo("Sevilla FC", "Sevilla", null, 1890, 1, "Ramón Sánchez-Pizjuán","sevilla");
-		Equipo realSociedad = new Equipo("Real Sociedad", "San Sebastián", null, 1909, 2, "Reale Arena","realsociedad");
+		Equipo fcBarcelona = new Equipo("FC Barcelona", "Barcelona", laLiga, 1899, 27, "Spotify Camp Nou","barcelona");
+		Equipo realMadrid = new Equipo("Real Madrid", "Madrid", laLiga, 1902, 36, "Santiago Bernabéu","realmadrid");
+		Equipo atleticoMadrid = new Equipo("Atlético de Madrid", "Madrid", laLiga, 1903, 11, "Cívitas Metropolitano","atlmadrid");
+		Equipo sevillaFC = new Equipo("Sevilla FC", "Sevilla", laLiga, 1890, 1, "Ramón Sánchez-Pizjuán","sevilla");
+		Equipo realSociedad = new Equipo("Real Sociedad", "San Sebastián", laLiga, 1909, 2, "Reale Arena","realsociedad");
 
 		ArrayList<Equipo> laLigaEquipos = new ArrayList<>();
 		laLigaEquipos.add(fcBarcelona);
@@ -30,13 +36,13 @@ public class Main {
 		laLigaEquipos.add(sevillaFC);
 		laLigaEquipos.add(realSociedad);
 
-
+		laLiga.setEquipos(laLigaEquipos);
 		// ====== Premier League ======
-		Equipo manchesterUnited = new Equipo("Manchester United", "Manchester", null, 1878, 20, "Old Trafford","manchesterunited");
-		Equipo manchesterCity = new Equipo("Manchester City", "Manchester", null, 1880, 10, "Etihad Stadium","manchestercity");
-		Equipo liverpoolFC = new Equipo("Liverpool FC", "Liverpool", null, 1892, 19, "Anfield","liverpool");
-		Equipo chelseaFC = new Equipo("Chelsea FC", "Londres", null, 1905, 6, "Stamford Bridge","chelsea");
-		Equipo arsenalFC = new Equipo("Arsenal FC", "Londres", null, 1886, 13, "Emirates Stadium","arsenal");
+		Equipo manchesterUnited = new Equipo("Manchester United", "Manchester", premier, 1878, 20, "Old Trafford","manchesterunited");
+		Equipo manchesterCity = new Equipo("Manchester City", "Manchester", premier, 1880, 10, "Etihad Stadium","manchestercity");
+		Equipo liverpoolFC = new Equipo("Liverpool FC", "Liverpool", premier, 1892, 19, "Anfield","liverpool");
+		Equipo chelseaFC = new Equipo("Chelsea FC", "Londres", premier, 1905, 6, "Stamford Bridge","chelsea");
+		Equipo arsenalFC = new Equipo("Arsenal FC", "Londres", premier, 1886, 13, "Emirates Stadium","arsenal");
 
 		ArrayList<Equipo> premierLeagueEquipos = new ArrayList<>();
 		premierLeagueEquipos.add(manchesterUnited);
@@ -44,14 +50,15 @@ public class Main {
 		premierLeagueEquipos.add(liverpoolFC);
 		premierLeagueEquipos.add(chelseaFC);
 		premierLeagueEquipos.add(arsenalFC);
-
+		
+		premier.setEquipos(premierLeagueEquipos);
 
 		// ====== Bundesliga ======
-		Equipo bayernMunich = new Equipo("Bayern Munich", "Múnich", null, 1900, 34, "Allianz Arena","bayernmunchen");
-		Equipo borussiaDortmund = new Equipo("Borussia Dortmund", "Dortmund", null, 1909, 5, "Signal Iduna Park","borussiadortmund");
-		Equipo rbLeipzig = new Equipo("RB Leipzig", "Leipzig", null, 2009, 0, "Red Bull Arena","rbleipzig");
-		Equipo bayerLeverkusen = new Equipo("Bayer Leverkusen", "Leverkusen", null, 1904, 1, "BayArena","bayerleverkusen");
-		Equipo borussiaMonchengladbach = new Equipo("Borussia Mönchengladbach", "Mönchengladbach", null, 1900, 5, "Borussia-Park","bmonchengladbach");
+		Equipo bayernMunich = new Equipo("Bayern Munich", "Múnich", bundesliga, 1900, 34, "Allianz Arena","bayernmunchen");
+		Equipo borussiaDortmund = new Equipo("Borussia Dortmund", "Dortmund", bundesliga, 1909, 5, "Signal Iduna Park","borussiadortmund");
+		Equipo rbLeipzig = new Equipo("RB Leipzig", "Leipzig", bundesliga, 2009, 0, "Red Bull Arena","rbleipzig");
+		Equipo bayerLeverkusen = new Equipo("Bayer Leverkusen", "Leverkusen", bundesliga, 1904, 1, "BayArena","bayerleverkusen");
+		Equipo borussiaMonchengladbach = new Equipo("Borussia Mönchengladbach", "Mönchengladbach", bundesliga, 1900, 5, "Borussia-Park","bmonchengladbach");
 
 		ArrayList<Equipo> bundesligaEquipos = new ArrayList<>();
 		bundesligaEquipos.add(bayernMunich);
@@ -59,15 +66,11 @@ public class Main {
 		bundesligaEquipos.add(rbLeipzig);
 		bundesligaEquipos.add(bayerLeverkusen);
 		bundesligaEquipos.add(borussiaMonchengladbach);
+		
+		bundesliga.setEquipos(bundesligaEquipos);
 		//
 		
-		ArrayList<Liga> ligas = new ArrayList<Liga>();
-		Liga laLiga = new Liga("LaLiga", "España", 20, laLigaEquipos);
-		Liga premier = (new Liga("Premier", "Inglaterra", 20, premierLeagueEquipos));
-		Liga bundesliga = (new Liga("Bundesliga", "Alemania", 20, bundesligaEquipos));
-		ligas.add(laLiga);
-		ligas.add(premier);
-		ligas.add(bundesliga);
+		
 		JFrameInicio jfi = new JFrameInicio(ligas);
 		jfi.setVisible(true);	
 	for (Liga liga : ligas) {

@@ -17,9 +17,11 @@ public class JFrameCalendario extends JFramePadre {
 	private int jornadaSeleccionada = 1;
 	private Liga liga;
 	private static final long serialVersionUID = 1L;
+	private JFramePadre ventanaAnterior;
 
-	public JFrameCalendario(ArrayList<Liga> ligas, Liga liga) {
+	public JFrameCalendario(ArrayList<Liga> ligas, Liga liga, JFramePadre ventanaAnterior) {
 		super();
+		this.ventanaAnterior = ventanaAnterior;
 		this.liga = liga;
 		this.ligas = ligas;
 		JPanel panel = super.panel;
@@ -56,8 +58,7 @@ public class JFrameCalendario extends JFramePadre {
 		// TODO Auto-generated method stub
 		botonAtras.addActionListener(e -> {
 			setVisible(false);
-			JFrameLiga jfl = new JFrameLiga(ligas, liga);
-			jfl.setVisible(true);
+			ventanaAnterior.setVisible(true);
 		});
 	}
 	

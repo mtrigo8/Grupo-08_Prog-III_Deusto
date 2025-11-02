@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Vector;
 
+import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -16,26 +17,47 @@ import domain.Jugador.TipoPosicion;
 import domain.Liga;
 
 public class JFramePlantilla extends JFramePadre {
-	
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Liga> ligas;
 	private Liga liga;
+	private JFramePadre ventanaAnterior;
 	
-	public JFramePlantilla(ArrayList<Liga> ligas, Liga liga, Equipo equipo) {
+	
+	public JFramePlantilla(ArrayList<Liga> ligas, Liga liga, Equipo equipo, JFramePadre ventanaAnterior) {
 		
 		super();
 		this.ligas = ligas;
 		this.liga = liga;
+<<<<<<< HEAD
 		
 		
 		
 		for(TipoPosicion clave : equipo.getJugadores().keySet()) {
 			Vector<String> columnNames = new Vector<String>(Arrays.asList(clave.toString(), "Nombre"));
+=======
+		this.ventanaAnterior = ventanaAnterior;
+		HashMap<String,ArrayList<Jugador>> jugadorPorPos = new HashMap<>(); 
+		for (Jugador jugador : equipo.getJugadores()) {
+			String posicion = jugador.getPosicion().toString();
+			if (!(jugadorPorPos.keySet().contains(posicion))){
+				jugadorPorPos.put(posicion, new ArrayList<Jugador>());
+			}
+			jugadorPorPos.get(posicion).add(jugador);
+		}
+		panel.setLayout(null);
+		this.add(panel);
+		usoBotonAtras(ligas, liga);
+		for(String clave : jugadorPorPos.keySet()) {
+			Vector<String> columnNames = new Vector<String>(Arrays.asList(clave, "Nombre"));
+>>>>>>> refs/remotes/master/master
 			DefaultTableModel mDatTab = new DefaultTableModel(new Vector<Vector<Object>>(), columnNames);
 			JTable table = new JTable(mDatTab);
 			table.setRowHeight(30);
 			table.getTableHeader().setReorderingAllowed(false);
-			panel.setLayout(null);
+
 			//Se modifica el modelo de selección de la tabla para que se pueda selecciona únicamente una fila
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			//Se define el comportamiento el evento de selección de una fila de la tabla
@@ -48,11 +70,10 @@ public class JFramePlantilla extends JFramePadre {
 			JScrollPane scrollPane = new JScrollPane(table);
 			scrollPane.setBounds(0, 100, 1000, 400);
 			panel.add(scrollPane);
-			this.add(panel);
 			this.setSize(1000,600);
 			this.setVisible(true);
 			table.setVisible(true);
-			usoBotonAtras(ligas, liga);
+			
 		}
 		
 	}
@@ -70,10 +91,8 @@ public class JFramePlantilla extends JFramePadre {
 		// TODO Auto-generated method stub
 		botonAtras.addActionListener(e -> {
 			setVisible(false);
-			JFrameListaEquipos fle = new JFrameListaEquipos(ligas, liga);
-			fle.setVisible(true);
+			ventanaAnterior.setVisible(true);
 		});
-		
 	}
 
 }

@@ -24,24 +24,49 @@ public class JFrameLiga extends JFramePadre {
 	private JPanel botones;
 	private JLabel ligaT;
 	private ArrayList<Liga> ligas;
+	private JFramePadre ventanaAnterior;
 
-	public JFrameLiga(ArrayList<Liga> ligas, Liga liga) {
+
+	public JFrameLiga(ArrayList<Liga> ligas, Liga liga, JFramePadre ventanaAnterior) {
 		super();
+		
         usoBotonAtras(ligas, null);
-
+        this.ventanaAnterior = ventanaAnterior;
         this.ligas = ligas;
         this.liga = liga;
 		JPanel panel = super.panel;
         panel.setLayout(null); 
-
+        Color colorFondo = new Color (255,195,0);
+        Color colorLetra= Color.BLACK;
+        
+        switch (liga.getNombre()) {
+        case "Premier":
+        	colorFondo = new Color(55, 0, 60); 
+        	colorLetra = Color.WHITE;
+			break;
+		case "Bundesliga":
+			colorFondo = new Color(208, 1, 27); 
+			colorLetra = Color.WHITE;
+			break;
+		case "LaLiga": 
+			colorFondo = new Color(235, 235, 235); 
+			colorLetra = Color.BLACK;
+			break;
+        }
+        panel.setBackground(colorFondo);
+        
+        setImagenDeFondo(null);
+        
         // --- Título de la liga ---
         ligaT = new JLabel(liga.getNombre(), JLabel.CENTER);
         ligaT.setFont(new Font("Arial", Font.BOLD, 30));
+        	ligaT.setForeground(colorLetra);
         panel.add(ligaT);
 
         // --- Subtítulo ---
         titulo = new JLabel("Seleccione una opción", JLabel.CENTER);
         titulo.setFont(new Font("Arial", Font.BOLD, 25));
+        	titulo.setForeground(colorLetra);
         panel.add(titulo);
 
         // --- Panel de botones ---
@@ -59,17 +84,17 @@ public class JFrameLiga extends JFramePadre {
                 switch (contenido) {
                     case "calendario":
                         setVisible(false);
-                        JFrameCalendario jfca = new JFrameCalendario(this.ligas, this.liga);
+                        JFrameCalendario jfca = new JFrameCalendario(this.ligas, this.liga,this);
                         jfca.setVisible(true);
                         break;
                     case "equipo":
                         setVisible(false);
-                        JFrameListaEquipos jfe = new JFrameListaEquipos(ligas, liga);
+                        JFrameListaEquipos jfe = new JFrameListaEquipos(ligas, liga,this);
                         jfe.setVisible(true);
                         break;
                     case "clasificacion":
                         setVisible(false);
-                        JFrameClasificacion jfcl = new JFrameClasificacion(this.ligas,this.liga);
+                        JFrameClasificacion jfcl = new JFrameClasificacion(this.ligas,this.liga,this);
                         jfcl.setVisible(true);
                         break;
                 }
@@ -81,6 +106,7 @@ public class JFrameLiga extends JFramePadre {
         for (String contenido : contenidos) {
             JLabel label = new JLabel(contenido.toUpperCase(), JLabel.CENTER);
             label.setFont(new Font("Arial", Font.BOLD, 18));
+            label.setForeground(colorLetra);
             botones.add(label);
         }
 		
@@ -99,7 +125,7 @@ public class JFrameLiga extends JFramePadre {
 	private void posicionarComponentes() {
 		int ancho = getWidth();
         int alto = getHeight();
-
+        
         // --- Liga (nombre principal) ---
         int anchoLiga = (int) (ancho * 0.8);
         int altoLiga = 50;
@@ -126,9 +152,8 @@ public class JFrameLiga extends JFramePadre {
 	public void usoBotonAtras(ArrayList<Liga> ligas, Liga liga) {
 		// TODO Auto-generated method stub
 		botonAtras.addActionListener(e -> {
-			JFrameSeleccionarLigas jfsl = new JFrameSeleccionarLigas(ligas);
-			jfsl.setVisible(true);
 			setVisible(false);
+			ventanaAnterior.setVisible(true);
 		});
 	}
 
