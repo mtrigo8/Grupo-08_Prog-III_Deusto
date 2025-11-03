@@ -36,7 +36,7 @@ public class JFrameEquipo extends JFramePadre{
 	public JFrameEquipo(Equipo equipo, JFramePadre ventanaAnterior) {
 		this.equipo = equipo;
 		super.framePrevio = ventanaAnterior;
-		
+		this.liga = equipo.getLiga();
 		JPanel mainPanel = super.panel;
 		mainPanel.setLayout(new BorderLayout());
 		//Cargar el icono
