@@ -1,10 +1,12 @@
 package gui;
 
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Vector;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -25,7 +27,11 @@ public class JFrameCalendario extends JFramePadre {
 		JPanel panel = super.panel;
 		Vector<String> columnNames = new Vector<String>(Arrays.asList("Fecha", "Equipo Local", "Equipo Visitante", "Resultado"));
 		DefaultTableModel mDatTab = new DefaultTableModel(new Vector<Vector<Object>>(), columnNames);
-		JTable table = new JTable(mDatTab);
+		JTable table = new JTable(mDatTab) {
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			};
+		};
 		table.setRowHeight(30);
 		table.getTableHeader().setReorderingAllowed(false);
 		//Se modifica el modelo de selección de la tabla para que se pueda selecciona únicamente una fila
@@ -41,6 +47,8 @@ public class JFrameCalendario extends JFramePadre {
 			mDatTab.addRow(new Object[] {partido.getFecha().toString(), partido.getEquipoLocal().getNombre(), partido.getEquipoVisitante().getNombre(), resultado});
 			}
 		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setVerticalScrollBar(new JScrollBar());
+		scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(25, 30));
 		scrollPane.setBounds(0, 100, 1000, 400);
 		panel.add(scrollPane);
 		this.add(panel);

@@ -77,7 +77,7 @@ public class Main {
 		ArrayList<ArrayList<Partido>> calendario = new ArrayList<ArrayList<Partido>>();
 		for (int i = 1; i <= 38; i++) {
 			ArrayList<Partido> jornada = new ArrayList<Partido>();
-			for (int j = 1; j <= 10; j++) {
+			for (int j = 1; j <= 20; j++) {
 				Partido partido = new Partido(fcBarcelona, realMadrid, 0, 0, LocalDate.now());
 				jornada.add(partido);
 			}

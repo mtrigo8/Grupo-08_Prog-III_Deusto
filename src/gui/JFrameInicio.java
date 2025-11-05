@@ -51,11 +51,11 @@ public class JFrameInicio extends JFramePadre {
                 jfs.setVisible(true);
             }
         });
-        super.botonAtras.setVisible(false); //ya que es la ventana principal el boton de atras no es util poeque no cierra la app
-        // --- Posicionar componentes inicialmente ---
+        super.botonAtras.setVisible(false);
         posicionarComponentes();
     }
-
+    
+    //GUI
     //Funcion creada con ayuda de ChatGPT para arreglar un error en el posicionamiento de los componentes al ejecutar
     private void posicionarComponentes() {
         int ancho = getWidth();
