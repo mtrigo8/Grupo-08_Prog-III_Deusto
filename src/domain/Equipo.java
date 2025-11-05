@@ -64,9 +64,10 @@ public class Equipo implements Comparable<Equipo> {
 	}
 
 	public void anyadirJugador(Jugador jugador) {
-		ArrayList<Jugador> jp = this.jugadores.get(jugador.getPosicion());
-		jp.add(jugador);
-		this.jugadores.put(jugador.getPosicion(), jp);
+		if (!jugadores.containsKey(jugador.getPosicion())) {
+			jugadores.put(jugador.getPosicion(), new ArrayList<Jugador>());
+		}
+		jugadores.get(jugador.getPosicion()).add(jugador);
 	}
 
 	public String getNombre() {
@@ -101,11 +102,11 @@ public class Equipo implements Comparable<Equipo> {
 		this.anyoFundacion = anyoFundacion;
 	}
 
-	public int gettitulos() {
+	public int getTitulos() {
 		return titulos;
 	}
 
-	public void settitulos(int titulos) {
+	public void setTitulos(int titulos) {
 		this.titulos = titulos;
 	}
 

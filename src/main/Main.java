@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import domain.Equipo;
+import domain.Jugador;
+import domain.Jugador.TipoPosicion;
 import domain.Liga;
 import domain.Partido;
 import gui.JFrameClasificacion;
@@ -24,6 +26,7 @@ public class Main {
 		//GUI
 		// ====== LaLiga ======
 		Equipo fcBarcelona = new Equipo("FC Barcelona", "Barcelona", laLiga, 1899, 27, "Spotify Camp Nou","barcelona");
+		fcBarcelona.anyadirJugador(new Jugador("Negreira", 0, TipoPosicion.DELANTERO, fcBarcelona, "España", 0));
 		Equipo realMadrid = new Equipo("Real Madrid", "Madrid", laLiga, 1902, 36, "Santiago Bernabéu","realmadrid");
 		Equipo atleticoMadrid = new Equipo("Atlético de Madrid", "Madrid", laLiga, 1903, 11, "Cívitas Metropolitano","atlmadrid");
 		Equipo sevillaFC = new Equipo("Sevilla FC", "Sevilla", laLiga, 1890, 1, "Ramón Sánchez-Pizjuán","sevilla");
