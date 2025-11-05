@@ -21,7 +21,7 @@ public class Main {
 		ligas.add(laLiga);
 		ligas.add(premier);
 		ligas.add(bundesliga);
-		//Ejemplos generados con IA
+		//GUI
 		// ====== LaLiga ======
 		Equipo fcBarcelona = new Equipo("FC Barcelona", "Barcelona", laLiga, 1899, 27, "Spotify Camp Nou","barcelona");
 		Equipo realMadrid = new Equipo("Real Madrid", "Madrid", laLiga, 1902, 36, "Santiago Bernabéu","realmadrid");

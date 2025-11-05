@@ -27,6 +27,8 @@ public class JFrameLiga extends JFramePadre {
 
 	public JFrameLiga(Liga liga, JFramePadre ventanaAnterior) {
 		super();
+		// Implementar el logo de la liga como fondo de pantalla
+		super.setImagenDeFondo("resources/images/ligas/"+liga.getNombre().toLowerCase()+".png");
 		
         super.framePrevio = ventanaAnterior;
         usoBotonAtras(super.framePrevio);
@@ -51,7 +53,7 @@ public class JFrameLiga extends JFramePadre {
 			break;
         }
         panel.setBackground(colorFondo);
-        
+        panel.setOpaque(true);
         setImagenDeFondo(null);
         
         // --- Título de la liga ---

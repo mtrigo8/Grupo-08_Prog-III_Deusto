@@ -31,9 +31,12 @@ public class JFrameEquipo extends JFramePadre{
 	private Liga liga;
 	private Equipo equipo;
 	private JFramePadre ventanaAnterior;
-
+	private DefaultTableModel modeloDatosJugador;
+	private JTable tablaJugadores;
+	private HashMap<Jugador.TipoPosicion,ArrayList<Jugador>> listaJugadores;
 	
 	public JFrameEquipo(Equipo equipo, JFramePadre ventanaAnterior) {
+		this.listaJugadores = equipo.getJugadores();
 		this.equipo = equipo;
 		super.framePrevio = ventanaAnterior;
 		this.liga = equipo.getLiga();
@@ -74,7 +77,7 @@ public class JFrameEquipo extends JFramePadre{
 		//Crear panel de la plantilla
 		JPanel panelPlantilla = new JPanel();
 		//Cargar datos del equipo
-		inicializarPanelInformacion(equipo, panelInformacion);
+	//	inicializarPanelInformacion(equipo, panelInformacion);
 		//Redimensionar la ventana
 		panelInformacion.setPreferredSize(new Dimension(250,200));
 		panelInformacion.setBackground(Color.BLACK);
@@ -82,12 +85,38 @@ public class JFrameEquipo extends JFramePadre{
 		
 		//Añadir ventana
 		panelPrincipal.add(panelInformacion, BorderLayout.WEST);
-		
+		inicializarTablas();
+		cargarJugadores();
+		panelPlantilla.add(tablaJugadores);
+		panelPrincipal.add(panelPlantilla, BorderLayout.EAST);
 		
 		usoBotonAtras(super.framePrevio);
 		add(mainPanel);		
 
 	}
+	private void inicializarTablas() {
+		Vector <String> cabeceraJugador = new Vector<String>(Arrays.asList("POS", "NOMBRE", "NACIONALIDAD","EDAD","NUMERO CAMISETA" ));
+		this.modeloDatosJugador = new DefaultTableModel(new  Vector<Vector<Object>>(), cabeceraJugador);
+		this.tablaJugadores = new JTable(this.modeloDatosJugador) {
+			public boolean isCellEditable (int row, int column) {
+				return false;
+			}
+		};
+	}
+	private void cargarJugadores() {
+		this.modeloDatosJugador.setRowCount(0);
+		ArrayList <Jugador> jugadoresPorPosicion = null;
+		for(Jugador.TipoPosicion pos : listaJugadores.keySet()) {
+			jugadoresPorPosicion = listaJugadores.get(pos);
+			jugadoresPorPosicion.forEach(j -> this.modeloDatosJugador
+					.addRow(new Object[] {String.valueOf(j.getPosicion()), j.getNombre(), j.getNacionalidad(),
+							String.valueOf(j.getEdad()), String.valueOf(j.getNumeroCamiseta())})
+					);
+			}
+		}	
+}
+
+	/*
 	//Funcion que inicializa los datos del equipo al panel de Informacion
 	public void inicializarPanelInformacion (Equipo e, JPanel panel) {
 		
@@ -110,6 +139,8 @@ public class JFrameEquipo extends JFramePadre{
 		panel.add(nombreCiudad);
 		panel.add(liga);
 		panel.add(nombreEstadio);
+		
+		
 		
 		//Apartir de aqui es todo lo hecho en plantilla que se ha borrado
 		for(TipoPosicion clave : equipo.getJugadores().keySet()) {
@@ -142,4 +173,4 @@ public class JFrameEquipo extends JFramePadre{
 			table.setVisible(true);
 		
 	}}
-}
+	*/
