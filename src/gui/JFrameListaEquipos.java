@@ -215,7 +215,7 @@ public class JFrameListaEquipos extends JFramePadre {
 	
 
 }
-//IAG
+//GUI
 //Clase generada con chat-gpt para dar la funcionalidad a los botones
 class ComponentCellEditor extends AbstractCellEditor implements TableCellEditor{
 	private Component component;
