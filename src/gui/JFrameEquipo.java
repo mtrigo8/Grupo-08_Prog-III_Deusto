@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +17,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Vector;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -42,7 +45,17 @@ public class JFrameEquipo extends JFramePadre{
 	private HashMap<Jugador.TipoPosicion,ArrayList<Jugador>> listaJugadores;
 	private JScrollPane scrollJugadores;
 	private JPanel panelInformacion;
-	
+	private Color colorFondo;
+	private Color colorPanelInfo;
+	private Color colorTextoInfo;
+	private Color colorTextoValores;
+	private Color colorCabeceraTabla;
+	private Color colorTextoCabecera;
+	private Color colorFondoTabla;
+	private Color colorFondoTablaAlterno;
+	private Color colorTextoTabla;
+	private Color colorSeleccion;
+	private Color colorTextoSeleccion;
 	public JFrameEquipo(Equipo equipo, JFramePadre ventanaAnterior) {
 		this.listaJugadores = equipo.getJugadores();
 		this.equipo = equipo;
@@ -50,8 +63,65 @@ public class JFrameEquipo extends JFramePadre{
 		this.liga = equipo.getLiga();
 		JPanel mainPanel = super.panel;
 		mainPanel.setLayout(new BorderLayout());
-		this.inicializarTablas();
-		this.cargarJugadores();
+		
+	    setImagenDeFondo(null);
+        String nombreLiga = liga.getNombre();
+        if (nombreLiga.equals("Premier")) {
+        colorFondo = new Color(55, 0, 60); 
+        colorPanelInfo = new Color(45, 0, 50); 
+        colorTextoInfo = Color.WHITE;
+        colorTextoValores = Color.WHITE;
+        colorCabeceraTabla = new Color(30, 0, 35); 
+        colorTextoCabecera = Color.WHITE;
+        colorFondoTabla = colorFondo;
+        colorFondoTablaAlterno = new Color(65, 10, 70); 
+        colorTextoTabla = Color.WHITE;
+        colorSeleccion = new Color(230, 230, 230); 
+        colorTextoSeleccion = Color.BLACK;
+
+    } else if (nombreLiga.equals("Bundesliga")) {
+    	colorFondo = new Color(208, 1, 27); 
+        colorPanelInfo = new Color(180, 1, 20); 
+        colorTextoInfo = Color.WHITE;
+        colorTextoValores = Color.WHITE;
+        colorCabeceraTabla = new Color(100, 0, 10); 
+        colorTextoCabecera = Color.WHITE;
+        colorFondoTabla = colorFondo;
+        colorFondoTablaAlterno = new Color(218, 10, 37); 
+        colorTextoTabla = Color.WHITE;
+        colorSeleccion = new Color(255, 255, 255); 
+        colorTextoSeleccion = Color.BLACK;
+        
+    } else if (nombreLiga.equals("LaLiga")) {
+    	
+    	colorFondo = new Color(235, 235, 235); 
+    	colorPanelInfo = new Color(245, 245, 245); 
+    	colorTextoInfo = new Color(23, 58, 100); 
+    	colorTextoValores = Color.BLACK;
+        colorCabeceraTabla = new Color(23, 58, 100); 
+        colorTextoCabecera = Color.WHITE;
+        colorFondoTabla = Color.WHITE;
+        colorFondoTablaAlterno = new Color(245, 245, 245);
+        colorTextoTabla = Color.BLACK;
+        colorSeleccion = colorCabeceraTabla; 
+        colorTextoSeleccion = Color.WHITE;
+        
+    } else {
+    	
+    	colorFondo = new Color(30, 30, 30);
+        colorPanelInfo = new Color(40, 40, 40);
+        colorTextoInfo = Color.WHITE;
+        colorTextoValores = Color.WHITE;
+        colorCabeceraTabla = new Color(20, 20, 20);
+        colorTextoCabecera = Color.WHITE;
+        colorFondoTabla = colorFondo;
+        colorFondoTablaAlterno = new Color(50, 50, 50);
+        colorTextoTabla = Color.WHITE;
+        colorSeleccion = Color.LIGHT_GRAY;
+        colorTextoSeleccion = Color.BLACK;
+    }
+        
+    mainPanel.setBackground(colorFondo);
 		//Cargar el icono
 		String ruta = "resources/images/equipos/"+liga.getNombre().toLowerCase()+"/"+equipo.getNombrePNGEquipo().toLowerCase()+".png";
 		ImageIcon escudoOriginal = null;
@@ -63,7 +133,7 @@ public class JFrameEquipo extends JFramePadre{
 		}
 		//Crear un label donde aparecera el escudo y un panel que lo contenga
 		JPanel panelEscudo = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		
+		panelEscudo.setOpaque(false);
 		//Modificar tamaño de imagen
 		int ANCHO_MAXIMO = 100;
 		ImageIcon escudoEscalado;
@@ -81,32 +151,35 @@ public class JFrameEquipo extends JFramePadre{
 		mainPanel.add(panelEscudo, BorderLayout.NORTH);
 		//Crear panel contenedor de la informacion y alineaciones
 		JPanel panelPrincipal = new JPanel(new BorderLayout());
+		panelPrincipal.setOpaque(false);
 		mainPanel.add(panelPrincipal, BorderLayout.CENTER);
 		//Crear panel de informacion
 		this.panelInformacion = new JPanel();
+		panelInformacion.setOpaque(false);
+		panelInformacion.setBackground(colorPanelInfo);
 		panelInformacion.setBorder(new EmptyBorder(15, 15, 15, 15));
-		//Crear Scroll panel de la plantilla
-		
-		this.scrollJugadores = new JScrollPane(this.tablaJugadores);
-		
+		//Redimensionar la ventana
+		panelInformacion.setPreferredSize(new Dimension(350,250));
 		//Cargar datos del equipo
 		inicializarPanelInformacion(equipo, panelInformacion);
-		//Redimensionar la ventana
-		panelInformacion.setPreferredSize(new Dimension(250,200));
-		panelInformacion.setBackground(Color.WHITE);
-		panelInformacion.setForeground(Color.BLACK);	
+				
 		//Añadir ventana
 		panelPrincipal.add(panelInformacion, BorderLayout.WEST);
 		inicializarTablas();
 		cargarJugadores();
+		//Crear Scroll panel de la plantilla
 		
-		panelPrincipal.add(scrollJugadores);
+		this.scrollJugadores = new JScrollPane(this.tablaJugadores);
+		scrollJugadores.getViewport().setBackground(colorFondoTabla);
+		// no me gusta sin borde scrollJugadores.setBorder(BorderFactory.createEmptyBorder());
+		
+		panelPrincipal.add(scrollJugadores,BorderLayout.CENTER);
 		
 		usoBotonAtras(super.framePrevio);
 		add(mainPanel);		
-
+		this.setContentPane(mainPanel);
 	}
-	private void inicializarTablas() {
+	private void inicializarTablas()  {
 		Vector <String> cabeceraJugador = new Vector<String>(Arrays.asList("POS", "NOMBRE", "NACIONALIDAD","EDAD","NUMERO CAMISETA" ));
 		this.modeloDatosJugador = new DefaultTableModel(new  Vector<Vector<Object>>(), cabeceraJugador);
 		
@@ -116,6 +189,15 @@ public class JFrameEquipo extends JFramePadre{
 			}		
 		};
 		this.tablaJugadores.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		this.tablaJugadores.setRowHeight(25);
+		tablaJugadores.setBackground(colorFondoTabla);
+		tablaJugadores.setForeground(colorTextoTabla);
+		//personalizar el header
+		tablaJugadores.getTableHeader().setBackground(colorCabeceraTabla);
+		tablaJugadores.getTableHeader().setForeground(colorTextoCabecera);
+		tablaJugadores.getTableHeader().setFont(new Font("Arial", Font.BOLD,14));
+		//para que ocupe toda la ventan la tabla
+		tablaJugadores.setFillsViewportHeight(true);
 		//Añadir listener a la tabla para que abra el JFrame de jugador
 		TableCellRenderer miCellRenderer = new TableCellRenderer() {
 			
@@ -123,19 +205,21 @@ public class JFrameEquipo extends JFramePadre{
 			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
 					int row, int column) {
 				JLabel result = new JLabel(value.toString());
+				result.setOpaque(true);
+				result.setHorizontalAlignment(SwingConstants.CENTER);
 				//Alternar color por columnas
 				Color colorFondo;
 				if (row % 2 == 0) {
-					colorFondo = new Color(240,248,255);
+					result.setBackground(colorFondoTabla);
+					result.setForeground(colorTextoTabla);
 				}else {
-					colorFondo = new Color(245, 245, 245);
+					result.setBackground(colorFondoTablaAlterno);
+					result.setForeground(colorTextoTabla);
 				}
-				result.setBackground(colorFondo);
-				result.setOpaque(true);
-				result.setHorizontalAlignment(SwingConstants.CENTER);
+				
 				if (isSelected) {
-					result.setBackground(table.getSelectionBackground());
-					result.setForeground(table.getSelectionForeground());
+					result.setBackground(colorSeleccion);
+	                result.setForeground(colorTextoSeleccion);
 				}
 				return result;
 				
@@ -179,13 +263,29 @@ public class JFrameEquipo extends JFramePadre{
 	
 	//Funcion que inicializa los datos del equipo al panel de Informacion
 	public void inicializarPanelInformacion (Equipo e, JPanel panel) {
+		panel.setLayout(new GridLayout(6, 2, 5, 10));
 		//Carga la informacion del equipo
-		String[] informacion = extraerInformacion(e);
-		JLabel label;
+		String[] informacion= {
+				"Nombre:",
+				"Ciudad:",
+				"Liga:",
+				"Estadio:",
+				"Año de fundación:",
+				"Titulos:",
+	};
+		String[] valores = extraerInformacion(e);
 		//Por cada pieza de informacion crea un label y lo añade al panel
-		for (String inf : informacion) {
-			label = new JLabel(inf);
-			panel.add(label);
+		for (int i=0; i<informacion.length;i++) {
+			JLabel labelinfo=new JLabel(informacion[i]);
+			labelinfo.setForeground(colorTextoInfo);
+			labelinfo.setFont(new Font("Arial",Font.BOLD, 14));
+			labelinfo.setHorizontalAlignment(JLabel.CENTER);
+			panel.add(labelinfo);
+			JLabel labelvalor= new JLabel (valores[i]);
+			labelvalor.setForeground(colorTextoValores);
+			labelvalor.setFont(new Font("Arial",Font.PLAIN,14));
+			labelvalor.setHorizontalAlignment(JLabel.LEFT);
+			panel.add(labelvalor);
 		}
 	}
 	//Crea un array con la informacion del equipo
