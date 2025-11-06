@@ -2,11 +2,14 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -19,7 +22,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 import domain.Equipo;
 import domain.Jugador;
@@ -34,6 +40,8 @@ public class JFrameEquipo extends JFramePadre{
 	private DefaultTableModel modeloDatosJugador;
 	private JTable tablaJugadores;
 	private HashMap<Jugador.TipoPosicion,ArrayList<Jugador>> listaJugadores;
+	private JScrollPane scrollJugadores;
+	private JPanel panelInformacion;
 	
 	public JFrameEquipo(Equipo equipo, JFramePadre ventanaAnterior) {
 		this.listaJugadores = equipo.getJugadores();
@@ -42,6 +50,8 @@ public class JFrameEquipo extends JFramePadre{
 		this.liga = equipo.getLiga();
 		JPanel mainPanel = super.panel;
 		mainPanel.setLayout(new BorderLayout());
+		this.inicializarTablas();
+		this.cargarJugadores();
 		//Cargar el icono
 		String ruta = "resources/images/equipos/"+liga.getNombre().toLowerCase()+"/"+equipo.getNombrePNGEquipo().toLowerCase()+".png";
 		ImageIcon escudoOriginal = null;
@@ -73,22 +83,24 @@ public class JFrameEquipo extends JFramePadre{
 		JPanel panelPrincipal = new JPanel(new BorderLayout());
 		mainPanel.add(panelPrincipal, BorderLayout.CENTER);
 		//Crear panel de informacion
-		JPanel panelInformacion = new JPanel();
-		//Crear panel de la plantilla
-		JPanel panelPlantilla = new JPanel();
+		this.panelInformacion = new JPanel();
+		panelInformacion.setBorder(new EmptyBorder(15, 15, 15, 15));
+		//Crear Scroll panel de la plantilla
+		
+		this.scrollJugadores = new JScrollPane(this.tablaJugadores);
+		
 		//Cargar datos del equipo
-	//	inicializarPanelInformacion(equipo, panelInformacion);
+		inicializarPanelInformacion(equipo, panelInformacion);
 		//Redimensionar la ventana
 		panelInformacion.setPreferredSize(new Dimension(250,200));
-		panelInformacion.setBackground(Color.BLACK);
-		panelInformacion.setForeground(Color.WHITE);
-		
+		panelInformacion.setBackground(Color.WHITE);
+		panelInformacion.setForeground(Color.BLACK);	
 		//Añadir ventana
 		panelPrincipal.add(panelInformacion, BorderLayout.WEST);
 		inicializarTablas();
 		cargarJugadores();
-		panelPlantilla.add(tablaJugadores);
-		panelPrincipal.add(panelPlantilla, BorderLayout.EAST);
+		
+		panelPrincipal.add(scrollJugadores);
 		
 		usoBotonAtras(super.framePrevio);
 		add(mainPanel);		
@@ -97,12 +109,60 @@ public class JFrameEquipo extends JFramePadre{
 	private void inicializarTablas() {
 		Vector <String> cabeceraJugador = new Vector<String>(Arrays.asList("POS", "NOMBRE", "NACIONALIDAD","EDAD","NUMERO CAMISETA" ));
 		this.modeloDatosJugador = new DefaultTableModel(new  Vector<Vector<Object>>(), cabeceraJugador);
+		
 		this.tablaJugadores = new JTable(this.modeloDatosJugador) {
 			public boolean isCellEditable (int row, int column) {
 				return false;
+			}		
+		};
+		this.tablaJugadores.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		//Añadir listener a la tabla para que abra el JFrame de jugador
+		TableCellRenderer miCellRenderer = new TableCellRenderer() {
+			
+			@Override
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+					int row, int column) {
+				JLabel result = new JLabel(value.toString());
+				//Alternar color por columnas
+				Color colorFondo;
+				if (row % 2 == 0) {
+					colorFondo = new Color(240,248,255);
+				}else {
+					colorFondo = new Color(245, 245, 245);
+				}
+				result.setBackground(colorFondo);
+				result.setOpaque(true);
+				result.setHorizontalAlignment(SwingConstants.CENTER);
+				if (isSelected) {
+					result.setBackground(table.getSelectionBackground());
+					result.setForeground(table.getSelectionForeground());
+				}
+				return result;
+				
 			}
 		};
+		
+		this.tablaJugadores.setDefaultRenderer(Object.class, miCellRenderer);
+		
+		tablaJugadores.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked (MouseEvent e) {
+				tablaJugadores.repaint();
+				if (e.getClickCount() == 2) {
+					int row = tablaJugadores.rowAtPoint(e.getPoint());
+					Jugador jugador = conseguirJugador(row);
+					try {
+						JFrameJugador jfj = new JFrameJugador(jugador, ventanaAnterior);
+						jfj.setVisible(true);
+					} catch (Exception e2) {
+						// TODO: handle exception
+					}
+				}
+			}
+		});
 	}
+	
+
 	private void cargarJugadores() {
 		this.modeloDatosJugador.setRowCount(0);
 		ArrayList <Jugador> jugadoresPorPosicion = null;
@@ -114,63 +174,66 @@ public class JFrameEquipo extends JFramePadre{
 					);
 			}
 		}	
-}
 
-	/*
+
+	
 	//Funcion que inicializa los datos del equipo al panel de Informacion
 	public void inicializarPanelInformacion (Equipo e, JPanel panel) {
-		
-		JLabel nombreEquipo = null;
-		JLabel nombreCiudad = null;
-		JLabel liga = null;
-		JLabel nombreEstadio = null;
-		try {
-			nombreEquipo = new JLabel(e.getNombre());
-			nombreCiudad = new JLabel(e.getCiudad());
-			liga = new JLabel(e.getLiga().getNombre());
-		//	JLabel anyoFundacion = new JLabel(e.getAnyoFundacion());
-			nombreEstadio = new JLabel(e.getEstadio());
-		} catch (Exception e2) {
-			// TODO: handle exception
+		//Carga la informacion del equipo
+		String[] informacion = extraerInformacion(e);
+		JLabel label;
+		//Por cada pieza de informacion crea un label y lo añade al panel
+		for (String inf : informacion) {
+			label = new JLabel(inf);
+			panel.add(label);
 		}
-	
-		panel.setLayout(new FlowLayout());
-		panel.add(nombreEquipo);
-		panel.add(nombreCiudad);
-		panel.add(liga);
-		panel.add(nombreEstadio);
+	}
+	//Crea un array con la informacion del equipo
+	public String[] extraerInformacion (Equipo e) {
+		return new String[] {
+				e.getNombre(),
+				e.getCiudad(),
+				e.getLiga().getNombre(),
+				e.getEstadio(),
+				String.valueOf(e.getAnyoFundacion()),
+				String.valueOf(e.getTitulos())
+		};
+	}
+	//Formato de los labels de informacion
+	public void modificarLabel (JLabel label) {
 		
-		
-		
-		//Apartir de aqui es todo lo hecho en plantilla que se ha borrado
-		for(TipoPosicion clave : equipo.getJugadores().keySet()) {
-			Vector<String> columnNames = new Vector<String>(Arrays.asList(clave.toString(), "Nombre"));
-		}
-		panel.setLayout(null);
-		this.add(panel);
-		usoBotonAtras(super.framePrevio);
-		for(TipoPosicion clave : equipo.getJugadores().keySet()) {
-			Vector<String> columnNames = new Vector<String>(Arrays.asList(clave.toString(), "Nombre"));
-			DefaultTableModel mDatTab = new DefaultTableModel(new Vector<Vector<Object>>(), columnNames);
-			JTable table = new JTable(mDatTab);
-			table.setRowHeight(30);
-			table.getTableHeader().setReorderingAllowed(false);
+	}
 
-			//Se modifica el modelo de selección de la tabla para que se pueda selecciona únicamente una fila
-			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-			//Se define el comportamiento el evento de selección de una fila de la tabla
-			table.getSelectionModel().addListSelectionListener(e1 -> {
-				
-			});
-			for (Jugador jug : equipo.getJugadores().get(clave)) {
-				mDatTab.addRow(new Object[] {clave, jug.getNombre()});
-				}
-			JScrollPane scrollPane = new JScrollPane(table);
-			scrollPane.setBounds(0, 100, 1000, 400);
-			panel.add(scrollPane);
-			this.setSize(1000,600);
-			this.setVisible(true);
-			table.setVisible(true);
+	//Devolver jugador seleccionado teniendo en cuenta todos las posibles excepciones
+	 public Jugador conseguirJugador (int row) {
+		 Jugador resultado = null;
+		 
+		 
+		 //validar seleccion
+		 System.out.println("row = " + row);
+		 if (row < 0) {	//Hay un error la fila seleccionada aparece como -1
+			 System.err.println("No hay fila seleccionada");
+			 return resultado;
+		 }
+		 //Obtener posicion
+		 String posicionString = (String) tablaJugadores.getValueAt(row, 0);
+		 TipoPosicion posicion = TipoPosicion.valueOf(posicionString);
+		 //Obtener nombre del jugador
+		 String nomJugadorBuscar = (String) tablaJugadores.getValueAt(row, 1);
+		 
+		 ArrayList<Jugador> posiblesJugadores = this.listaJugadores.get(posicion);
+		 if (posiblesJugadores == null) {
+			 System.err.println("No hay jugadores en esta posicion");
+			 return resultado;
+		 }
+		 
+		 for (Jugador j : posiblesJugadores) {
+			 if(j.getNombre().equals(nomJugadorBuscar)) {
+				 resultado = j;
+				 break;
+			 }
+		 }		 
+		 return resultado;
+	 }
+}
 		
-	}}
-	*/
