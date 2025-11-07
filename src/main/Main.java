@@ -3,6 +3,7 @@ package main;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.TreeMap;
 
 import domain.Equipo;
 import domain.Jugador;
@@ -77,15 +78,19 @@ public class Main {
 		JFrameInicio jfi = new JFrameInicio(ligas);
 		jfi.setVisible(true);	
 	for (Liga liga : ligas) {
-		ArrayList<ArrayList<Partido>> calendario = new ArrayList<ArrayList<Partido>>();
+		TreeMap<Integer, ArrayList<Partido>> calendario = new TreeMap<Integer, ArrayList<Partido>>();
 		for (int i = 1; i <= 38; i++) {
 			ArrayList<Partido> jornada = new ArrayList<Partido>();
+			int numJornada = i;
 			for (int j = 1; j <= 20; j++) {
-				Partido partido = new Partido(fcBarcelona, realMadrid, 0, 0, LocalDate.now());
+				Partido partido = new Partido(fcBarcelona, realMadrid, 0, 0, LocalDate.now(), numJornada);
 				jornada.add(partido);
+				}
+			if (!calendario.containsKey(i)) {
+				calendario.put(i, new ArrayList<Partido>());
 			}
-			calendario.add(jornada);
-	}
+			calendario.get(i).addAll(jornada);
+		}
 		liga.setCalendario(calendario);
 	}
 	}

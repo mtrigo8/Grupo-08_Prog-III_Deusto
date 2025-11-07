@@ -12,14 +12,16 @@ public class Partido {
 	private LocalDate fecha;
 	private Equipo equipoGanador;
 	private Equipo equipoPerdedor;
+	private int jornada;
 	
-	public Partido(Equipo equipoLocal, Equipo equipoVisitante, int golesLocal, int golesVisitante, LocalDate fecha) {
+	public Partido(Equipo equipoLocal, Equipo equipoVisitante, int golesLocal, int golesVisitante, LocalDate fecha, int jornada) {
 		super();
 		this.equipoLocal = equipoLocal;
 		this.equipoVisitante = equipoVisitante;
 		this.golesLocal = golesLocal;
 		this.golesVisitante = golesVisitante;
 		this.fecha = fecha;
+		this.jornada = jornada;
 	}
 	
 	public void actualizacionPuntos() {
@@ -67,10 +69,16 @@ public class Partido {
 		return golesVisitante;
 	}
 
+	public void setJornada(int jornada) {
+		this.jornada = jornada;
+	}
+	public int getJornada() {
+		return jornada;
+	}
+
 	public void setGolesVisitante(int golesVisitante) {
 		this.golesVisitante = golesVisitante;
 	}
-
 	public LocalDate getFecha() {
 		return fecha;
 	}
@@ -81,7 +89,7 @@ public class Partido {
 
 	@Override
 	public String toString() {
-		return equipoLocal.getNombre() + " " + golesLocal + " - " + golesVisitante + " " + equipoVisitante.getNombre() + " (" + fecha + ")";
+		return jornada + "-" + equipoLocal.getNombre() + " " + golesLocal + " - " + golesVisitante + " " + equipoVisitante.getNombre() + " (" + fecha + ")";
 	}
 
 	@Override
