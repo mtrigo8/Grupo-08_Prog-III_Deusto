@@ -172,12 +172,19 @@ public class JFrameEquipo extends JFramePadre{
 		this.scrollJugadores = new JScrollPane(this.tablaJugadores);
 		scrollJugadores.getViewport().setBackground(colorFondoTabla);
 		// no me gusta sin borde scrollJugadores.setBorder(BorderFactory.createEmptyBorder());
-		
 		panelPrincipal.add(scrollJugadores,BorderLayout.CENTER);
-		
-		usoBotonAtras(super.framePrevio);
+		//Añadir boton atras nuevo
+		usoBotonAtras(ventanaAnterior);
 		add(mainPanel);		
 		this.setContentPane(mainPanel);
+	}
+	@Override
+	public void usoBotonAtras (JFramePadre frameAnterior) {
+		botonAtras.addActionListener(e ->{
+			setVisible(false);
+			JFrameListaEquipos jfle = new JFrameListaEquipos(liga, frameAnterior.framePrevio);
+			jfle.setVisible(true);
+		});
 	}
 	private void inicializarTablas()  {
 		Vector <String> cabeceraJugador = new Vector<String>(Arrays.asList("POS", "NOMBRE", "NACIONALIDAD","EDAD","NUMERO CAMISETA" ));
@@ -299,10 +306,6 @@ public class JFrameEquipo extends JFramePadre{
 				String.valueOf(e.getAnyoFundacion()),
 				String.valueOf(e.getTitulos())
 		};
-	}
-	//Formato de los labels de informacion
-	public void modificarLabel (JLabel label) {
-		
 	}
 
 	//Devolver jugador seleccionado teniendo en cuenta todos las posibles excepciones

@@ -209,10 +209,23 @@ public class JFrameListaEquipos extends JFramePadre {
 	private void cargarEquiposTablaFiltro (String filtro) {
 		//Borrar los equipos existentes
 		modeloDatosEquipos.setRowCount(0);
-		for (Equipo e: liga.getEquipos()) {
-			if (e.getNombre().toLowerCase().contains(filtro.toLowerCase())) {
-				botonEquipo = new JButton(e.getNombre());
-				this.modeloDatosEquipos.addRow(new Object[] {e.getNombrePNGEquipo(),botonEquipo });
+		for (Equipo eq: liga.getEquipos()) {
+			if (eq.getNombre().toLowerCase().contains(filtro.toLowerCase())) {
+				botonEquipo = new JButton(eq.getNombre());
+				botonEquipo.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						// TODO Auto-generated method stub
+						//JFramePlantilla jfp = new JFramePlantilla (ligas, liga, eq, JFrameListaEquipos.this);
+						//jfp.setVisible(true);
+						setVisible(false);
+						
+						JFrameEquipo jfe = new JFrameEquipo(eq, JFrameListaEquipos.this);
+						jfe.setVisible(true);
+						//System.out.println("Abrir ventana de equipo: "+eq.getNombre());
+					}
+				});
+				this.modeloDatosEquipos.addRow(new Object[] {eq.getNombrePNGEquipo(),botonEquipo });
 			}
 		}
 	}
