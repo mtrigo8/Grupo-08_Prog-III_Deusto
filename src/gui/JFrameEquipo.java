@@ -238,6 +238,7 @@ public class JFrameEquipo extends JFramePadre{
 					try {
 						JFrameJugador jfj = new JFrameJugador(jugador, ventanaAnterior);
 						jfj.setVisible(true);
+						setVisible(false);
 					} catch (Exception e2) {
 						// TODO: handle exception
 					}
