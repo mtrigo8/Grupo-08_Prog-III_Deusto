@@ -53,10 +53,38 @@ public class JFrameInicio extends JFramePadre {
         });
         super.botonAtras.setVisible(false);
         posicionarComponentes();
+        //Crear listener para entrar en el siguente frame introduciendo enter
+    
+        KeyListener kLEntrarAplicacion = new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				if (e.getKeyCode() == KeyEvent.VK_ENTER ) {
+					JFrameSeleccionarLigas jfs = new JFrameSeleccionarLigas(ligas , JFrameInicio.this);
+	                setVisible(false);
+	                jfs.setVisible(true);
+				}
+			}
+		};
+		btnEntrar.addKeyListener(kLEntrarAplicacion);
     }
     
-    //GUI
+    
     //Funcion creada con ayuda de ChatGPT para arreglar un error en el posicionamiento de los componentes al ejecutar
+    //IAG
     private void posicionarComponentes() {
         int ancho = getWidth();
         int alto = getHeight();
@@ -82,6 +110,7 @@ public class JFrameInicio extends JFramePadre {
     @Override
 	public void usoBotonAtras(JFramePadre framePrevio) {
     }
+    
 
 }
 
