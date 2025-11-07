@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -56,6 +57,11 @@ public class JFrameListaEquipos extends JFramePadre {
 		//Panel donde aparece la barra buscadora
 		panelFiltro.add(new JLabel("Filtrado por nombre: "));
 		panelFiltro.add(filtradoNombre);
+		
+		//Crear un panel arriba para añadir el boton y el filtrado por texto
+		JPanel topPanel = new JPanel(new BorderLayout());
+		topPanel.add(panelFiltro);
+		topPanel.add(botonAtras, BorderLayout.WEST);
 		//Se define el funcionamiento del filtro de texto
 		DocumentListener listenerFiltrar = new DocumentListener() {
 			
@@ -81,8 +87,8 @@ public class JFrameListaEquipos extends JFramePadre {
 		this.filtradoNombre.getDocument().addDocumentListener(listenerFiltrar);
 		
 		//Añadir panel y boton 
-		panel.add(BorderLayout.NORTH, panelFiltro);
-		panel.add(botonAtras);
+		panel.add(BorderLayout.NORTH, topPanel);
+
 		//Dar funcionalidad a botonAtras
 		usoBotonAtras(super.framePrevio);
 		//Inicializar las tablas con los equipos
@@ -130,14 +136,13 @@ public class JFrameListaEquipos extends JFramePadre {
 				//Insertar Imagen
 				result.setIcon(imagenModificada);		
 				result.setText(null);	
+				result.setHorizontalAlignment(JLabel.CENTER);
 				return result;
 			}else {	//MODIFICACIONES EN LA COLUMNA DEL NOMBRE 
 				return (Component) value;
-			}
-			
-			
-			
+			}			
 		};
+
 		//Crear tableCellEditor para que la celda funcione como un JButton
 		TableColumn botonColumn = this.tablaEquipos.getColumnModel().getColumn(1);
 	    botonColumn.setCellEditor(new ComponentCellEditor());
@@ -146,9 +151,9 @@ public class JFrameListaEquipos extends JFramePadre {
 		this.tablaEquipos.setDefaultRenderer(Object.class, cellRenderer);
 		//Cambiar el ancho de la columna de los escudos
 		TableColumn columnaEscudo = tablaEquipos.getColumnModel().getColumn(0);
-		columnaEscudo.setPreferredWidth(50);
-		columnaEscudo.setMaxWidth(50);
-		columnaEscudo.setMinWidth(50);
+		columnaEscudo.setPreferredWidth(75);
+		columnaEscudo.setMaxWidth(75);
+		columnaEscudo.setMinWidth(75);
 		//Se establece la altura de la columna
 		this.tablaEquipos.setRowHeight(40);
 		//Se modifica el  modelo de seleccion para que solamente se pueda seleccionar una fila
