@@ -32,6 +32,8 @@ public class Main {
 		Equipo atleticoMadrid = new Equipo("Atlético de Madrid", "Madrid", laLiga, 1903, 11, "Cívitas Metropolitano","atlmadrid");
 		Equipo sevillaFC = new Equipo("Sevilla FC", "Sevilla", laLiga, 1890, 1, "Ramón Sánchez-Pizjuán","sevilla");
 		Equipo realSociedad = new Equipo("Real Sociedad", "San Sebastián", laLiga, 1909, 2, "Reale Arena","realsociedad");
+		Equipo egeala = new Equipo("Egeala", "San Sebastián", laLiga, 1909, 2, "Reale Arena","realsociedad");
+		
 
 		ArrayList<Equipo> laLigaEquipos = new ArrayList<>();
 		laLigaEquipos.add(fcBarcelona);
@@ -39,6 +41,7 @@ public class Main {
 		laLigaEquipos.add(atleticoMadrid);
 		laLigaEquipos.add(sevillaFC);
 		laLigaEquipos.add(realSociedad);
+		laLigaEquipos.add(egeala);
 
 		laLiga.setEquipos(laLigaEquipos);
 		// ====== Premier League ======

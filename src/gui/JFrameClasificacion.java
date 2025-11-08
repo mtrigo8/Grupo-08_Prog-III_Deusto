@@ -1,14 +1,24 @@
 package gui;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Vector;
 
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+
+import com.sun.jdi.Value;
 
 import domain.Equipo;
 import domain.Liga;
@@ -27,6 +37,16 @@ public class JFrameClasificacion extends JFramePadre {
 		super.framePrevio = ventanaAnterior;
 		ArrayList<Equipo> clasificacion = this.liga.getEquipos();
 		Collections.sort(clasificacion);
+		JPanel norte = new JPanel(new GridLayout(2,1));
+		JLabel titulo = new JLabel("CLASIFICACIÓN");
+		JLabel nomLiga = new JLabel(this.liga.getNombre());
+		nomLiga.setFont(new Font("Arial", Font.BOLD, 20));
+		nomLiga.setHorizontalAlignment(0);
+		titulo.setFont(new Font("Arial", Font.BOLD, 30));
+		titulo.setHorizontalAlignment(0);
+		norte.setOpaque(false);
+		norte.add(titulo);
+		norte.add(nomLiga);
 		Vector<String> columnNames = new Vector<String>(Arrays.asList("Pos", "Equipo", "Pts", "PJ", "DG"));
 		DefaultTableModel mDatTab = new DefaultTableModel(new Vector<Vector<Object>>(), columnNames);
 		JTable table = new JTable(mDatTab);
@@ -60,12 +80,52 @@ public class JFrameClasificacion extends JFramePadre {
 			}
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBounds(0, 100, 1000, 400);
-		panel.add(scrollPane);
+		scrollPane.setOpaque(false);
+		scrollPane.getViewport().setOpaque(false); //IAG
+		panel.add(scrollPane, BorderLayout.CENTER);
 		this.add(panel);
+		this.add(norte, BorderLayout.NORTH);
 		this.setSize(1000,600);
 		this.setVisible(true);
 		table.setVisible(true);
 		usoBotonAtras(super.framePrevio);
+		
+		TableCellRenderer cellrenderer = new TableCellRenderer() {
+			
+			@Override
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+					int row, int column) {
+				
+				// TODO Auto-generated method stub
+				JLabel result = new JLabel(value.toString());
+				result.setOpaque(true);
+				if (row == 0 && column == 0) {
+					result.setBackground(new Color(255,251,0));
+				}else if (row>0 && row<=3 && column == 0) {
+					result.setBackground(new Color(56,69,255));
+				}else if (row>3 && row <= 5 && column == 0) {
+					result.setBackground(new Color(252,136,0));
+				}else if (row>= 17 && column == 0) {
+					result.setBackground(new Color(255,0,0));
+					
+				}else if (column == 0) {
+					result.setBackground(new Color(115,111,111));
+				}else {
+					result.setBackground(Color.WHITE);
+				}
+				
+				return result;
+			}
+		};
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		table.getTableHeader().setOpaque(false);
+		table.getColumnModel().getColumn(0).setPreferredWidth(30);   // Pos
+		table.getColumnModel().getColumn(0).setPreferredWidth(200);   // Pos
+		table.getColumnModel().getColumn(2).setPreferredWidth(50);   // Pts
+		table.getColumnModel().getColumn(3).setPreferredWidth(50);   // PJ
+		table.getColumnModel().getColumn(4).setPreferredWidth(50);// DG
+		table.setDefaultRenderer(Object.class, cellrenderer);
+		
 		}
 		
 	
