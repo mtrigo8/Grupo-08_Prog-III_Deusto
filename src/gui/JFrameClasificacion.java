@@ -3,13 +3,16 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Vector;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -38,8 +41,8 @@ public class JFrameClasificacion extends JFramePadre {
 		ArrayList<Equipo> clasificacion = this.liga.getEquipos();
 		Collections.sort(clasificacion);
 		JPanel norte = new JPanel(new GridLayout(2,1));
-		JLabel titulo = new JLabel("CLASIFICACIÓN");
-		JLabel nomLiga = new JLabel(this.liga.getNombre());
+		JLabel titulo = new JLabel("CLASIFICACIÓN", JLabel.CENTER);
+		JLabel nomLiga = new JLabel(this.liga.getNombre(), JLabel.CENTER);
 		nomLiga.setFont(new Font("Arial", Font.BOLD, 20));
 		nomLiga.setHorizontalAlignment(0);
 		titulo.setFont(new Font("Arial", Font.BOLD, 30));
@@ -47,6 +50,9 @@ public class JFrameClasificacion extends JFramePadre {
 		norte.setOpaque(false);
 		norte.add(titulo);
 		norte.add(nomLiga);
+		norte.setBounds(350, 40, 300, 60);
+		crearLeyenda();
+		
 		Vector<String> columnNames = new Vector<String>(Arrays.asList("Pos", "Equipo", "Pts", "PJ", "DG"));
 		DefaultTableModel mDatTab = new DefaultTableModel(new Vector<Vector<Object>>(), columnNames);
 		JTable table = new JTable(mDatTab);
@@ -79,12 +85,11 @@ public class JFrameClasificacion extends JFramePadre {
 			pos++;
 			}
 		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(0, 100, 1000, 400);
+		scrollPane.setBounds(280, 150, 442, 300);
 		scrollPane.setOpaque(false);
-		scrollPane.getViewport().setOpaque(false); //IAG
-		panel.add(scrollPane, BorderLayout.CENTER);
+		panel.add(scrollPane);
+		panel.add(norte);
 		this.add(panel);
-		this.add(norte, BorderLayout.NORTH);
 		this.setSize(1000,600);
 		this.setVisible(true);
 		table.setVisible(true);
@@ -99,10 +104,13 @@ public class JFrameClasificacion extends JFramePadre {
 				// TODO Auto-generated method stub
 				JLabel result = new JLabel(value.toString());
 				result.setOpaque(true);
+				if (column != 1) { 
+				    result.setHorizontalAlignment(JLabel.CENTER);
+				}
 				if (row == 0 && column == 0) {
 					result.setBackground(new Color(255,251,0));
 				}else if (row>0 && row<=3 && column == 0) {
-					result.setBackground(new Color(56,69,255));
+					result.setBackground(new Color(27, 125, 242));
 				}else if (row>3 && row <= 5 && column == 0) {
 					result.setBackground(new Color(252,136,0));
 				}else if (row>= 17 && column == 0) {
@@ -119,17 +127,37 @@ public class JFrameClasificacion extends JFramePadre {
 		};
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.getTableHeader().setOpaque(false);
-		table.getColumnModel().getColumn(0).setPreferredWidth(30);   // Pos
-		table.getColumnModel().getColumn(0).setPreferredWidth(200);   // Pos
-		table.getColumnModel().getColumn(2).setPreferredWidth(50);   // Pts
-		table.getColumnModel().getColumn(3).setPreferredWidth(50);   // PJ
-		table.getColumnModel().getColumn(4).setPreferredWidth(50);// DG
+		table.getColumnModel().getColumn(0).setPreferredWidth(60);   // Pos
+		table.getColumnModel().getColumn(1).setPreferredWidth(200);   // Nom
+		table.getColumnModel().getColumn(2).setPreferredWidth(60);   // Pts
+		table.getColumnModel().getColumn(3).setPreferredWidth(60);   // PJ
+		table.getColumnModel().getColumn(4).setPreferredWidth(60);// DG
 		table.setDefaultRenderer(Object.class, cellrenderer);
 		
 		}
 		
 	
-	
+	private void crearLeyenda() {
+		Color[] colores = {new Color(255,251,0), new Color(27, 125, 242), new Color(252,136,0), new Color(255,0,0)};
+		String[] textos = {"CAMPEON", "CHAMPIONS LEAGUE", "EUROPA LEAGUE", "DESCENSO"};
+		String[] logos = {"resources/images/logos/campeon.png", "resources/images/logos/champions.png", "resources/images/logos/europa.png", "resources/images/logos/descenso.png"};
+		JPanel colors = new JPanel(new GridLayout(4, 1));
+		JPanel texts = new JPanel(new GridLayout(4, 1));
+		for (int i = 0; i < 4; i++) {
+			ImageIcon icono = new ImageIcon(logos[i]);
+			ImageIcon iconoAjustado = new ImageIcon(icono.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+			JLabel color = new JLabel(iconoAjustado);
+			color.setBackground(colores[i]);
+			color.setOpaque(true);
+			JLabel texto = new JLabel(textos[i]);
+			colors.add(color);
+			texts.add(texto);
+		}
+		panel.add(colors);
+		colors.setBounds(50, 455, 25, 100);
+		panel.add(texts);
+		texts.setBounds(75, 455, 150, 100);
+	}
 	
 
 
