@@ -10,10 +10,10 @@ public class Jugador {
 	private String nacionalidad;
 	private int edad;
 public enum TipoPosicion {
-	DELANTERO,
-	MEDIOCAMPISTA,
-	DEFENSOR,
-	PORTERO
+	PORTERO, 
+	DEFENSA,
+	CENTROCAMPISTA, 
+	DELANTERO
 }
 
 public Jugador(String nombre, int numeroCamiseta, TipoPosicion posicion, Equipo equipo, String nacionalidad,int edad) {
