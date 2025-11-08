@@ -57,30 +57,30 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 		panel.add(titulo);
 		
 		// Panel de botones
-		botones = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		
+        botones = new JPanel(new GridLayout(1, 3, 10, 10)); 
+		botones.setOpaque(false);
 		for (Liga liga : this.ligas) {
 			
 			
 			ImageIcon iconoLiga = new ImageIcon("resources/images/ligas/" + liga.getNombre() + ".png");
-			ImageIcon iconoAjustado = new ImageIcon(iconoLiga.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+			ImageIcon iconoAjustado = new ImageIcon(iconoLiga.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH));
 			//Cambiar tamaño del boton al pasar el raton por encima
-			double aumento = 1.2;
+			double aumento = 1.5;
 			int nuevoAlto = (int) (iconoAjustado.getIconHeight() * aumento);
 			int nuevoAncho = (int) (iconoAjustado.getIconWidth() * aumento);
 			ImageIcon iconoAumentado = escalarIcono(iconoAjustado, nuevoAncho, nuevoAlto);
 			JButton botonLiga = new JButton();
-			//Aumentar tamaño de los botones
-			botonLiga.setPreferredSize(new Dimension(iconoAumentado.getIconWidth(), iconoAumentado.getIconHeight()));
-			
+			//Establecer tamaño de los botones
+			botonLiga.setPreferredSize(new Dimension(150, 150));
+			//Establecer el icono de la liga
 			botonLiga.setIcon(iconoAjustado);
+			//Borrar el fondo del boton
 			botonLiga.setContentAreaFilled(false);
+			//Borrar el borde del boton
 			botonLiga.setBorderPainted(false);
-			
 			//Añadir el icono aumentado cuando el raton lo pasa por encima
 			botonLiga.setRolloverIcon(iconoAumentado);
-			
-			
+			//Añadir funcionalidad a los botones
 			botonLiga.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -90,15 +90,15 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 				}
 			});
 			
-			botones.setBounds(300, 200, 400, 200); // x, y, width, height
 			botones.add(botonLiga);
 			
 		}
 		//poner el fondo del panel botones transparente
-		botones.setOpaque(false);
-		// Calcular tamaño del panel de botones según número de ligas
+
+		// Añadir el panel de botones al panel principal
 		panel.add(botones);
 		
+		posicionarComponentes();
 	}
 	//Codigo cambiado parcialmente apartir de lo creado por nosotros para cambiar del uso de gridBagCOntraits el 
 	//IAG Chat gpt
@@ -118,7 +118,17 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 
         return new ImageIcon(imgEscalada);
     }
-		
+	private void posicionarComponentes () {
+		int ancho = getWidth();
+        int alto = getHeight();
+        
+		// --- Panel de botones ---
+        int anchoBotones = (int) (ancho * 0.8);
+        int altoBotones = (int) (alto * 0.45);
+        int xBotones = (ancho - anchoBotones) / 2;
+        int yBotones = (int) (alto * 0.3);
+        botones.setBounds(xBotones, yBotones, anchoBotones, altoBotones);
+	}
 	} 
 	
 

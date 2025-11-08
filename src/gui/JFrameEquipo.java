@@ -182,8 +182,12 @@ public class JFrameEquipo extends JFramePadre{
 	public void usoBotonAtras (JFramePadre frameAnterior) {
 		botonAtras.addActionListener(e ->{
 			setVisible(false);
-			JFrameListaEquipos jfle = new JFrameListaEquipos(liga, frameAnterior.framePrevio);
-			jfle.setVisible(true);
+			if (frameAnterior.getClass().equals(JFrameCalendario.class)) {
+				frameAnterior.setVisible(true);
+			}else {
+				JFrameListaEquipos jfle = new JFrameListaEquipos(liga, frameAnterior.framePrevio);
+				jfle.setVisible(true);
+			}
 		});
 	}
 	private void inicializarTablas()  {
@@ -243,7 +247,7 @@ public class JFrameEquipo extends JFramePadre{
 					int row = tablaJugadores.rowAtPoint(e.getPoint());
 					Jugador jugador = conseguirJugador(row);
 					try {
-						JFrameJugador jfj = new JFrameJugador(jugador, ventanaAnterior);
+						JFrameJugador jfj = new JFrameJugador(jugador, JFrameEquipo.this);
 						jfj.setVisible(true);
 						setVisible(false);
 					} catch (Exception e2) {
@@ -314,7 +318,6 @@ public class JFrameEquipo extends JFramePadre{
 		 
 		 
 		 //validar seleccion
-		 System.out.println("row = " + row);
 		 if (row < 0) {	//Hay un error la fila seleccionada aparece como -1
 			 System.err.println("No hay fila seleccionada");
 			 return resultado;

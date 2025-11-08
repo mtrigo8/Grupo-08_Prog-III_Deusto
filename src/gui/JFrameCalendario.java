@@ -27,6 +27,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
+import domain.Equipo;
 import domain.Liga;
 import domain.Partido;
 
@@ -49,23 +50,26 @@ public class JFrameCalendario extends JFramePadre {
 		iniciarizarCalendario();
 		cargarCalendario();
 		//Filtrar por jornada
-		
+		//Crear el comboBox con todas las jornadas
 		seleccionarJornada = new JComboBox<>();
 		for (int i=0; i <=liga.getCalendario().size(); i++) {
 			seleccionarJornada.addItem(i);
 		}
-
+		//Añadir el listener al combo Box para que se filtren las jornadas
 		seleccionarJornada.addActionListener(e -> {
 			Integer jornada = (int) seleccionarJornada.getSelectedItem();
 			cargarCalendarioFiltro(jornada);
 		});
+		//Crear un panel para añadir el boton atras y el combo box
 		JPanel panelNorte = new JPanel(new BorderLayout()); 
-	
+		//Añadir boton atras a la izquierda
 		panelNorte.add(botonAtras, BorderLayout.WEST);
+		//Crear un panel auxiliar para que el combo box no ocupe toda la parte superior de la pantalla
 		JPanel panelNorteCentro = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		panelNorteCentro.add(new JLabel("Seleccionar Jornada"));
 		panelNorteCentro.add(seleccionarJornada);
 		panelNorte.add(panelNorteCentro);
+		//Establecer altura de las filas
 		tablaCalendario.setRowHeight(30);
 		tablaCalendario.getTableHeader().setReorderingAllowed(false);
 		//Se modifica el modelo de selección de la tabla para que se pueda selecciona únicamente una fila
@@ -77,7 +81,7 @@ public class JFrameCalendario extends JFramePadre {
 		this.scrollPane = new JScrollPane(tablaCalendario);
 		this.scrollPane.setVerticalScrollBar(new JScrollBar());
 		this.scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(25, 30));
-		this.scrollPane.setBounds(0, 100, 1000, 400);
+
 		
 		
 		panel.add(panelNorte, BorderLayout.NORTH);
@@ -150,6 +154,37 @@ public class JFrameCalendario extends JFramePadre {
 		};
 		tablaCalendario.addMouseMotionListener(miMouseMotionListener);
 		tablaCalendario.addMouseListener(miMouseAdapter);
+		
+		//Crear listener para acceder a los equipos a traves de la tabla
+		tablaCalendario.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked (MouseEvent e) {
+				tablaCalendario.repaint();
+				if(e.getClickCount() == 2) {
+					int row = tablaCalendario.rowAtPoint(e.getPoint());
+					int column = tablaCalendario.columnAtPoint(e.getPoint());
+					
+					String nombreEquipo =(String) tablaCalendario.getValueAt(row, column);				
+					Equipo equipoEncontrado = null;
+					
+					for (Equipo eq : liga.getEquipos()) {
+						if (eq.getNombre().equals(nombreEquipo)) {
+							equipoEncontrado = eq;
+							break;
+						}
+					}
+					try {
+						JFrameEquipo jfe = new JFrameEquipo(equipoEncontrado, JFrameCalendario.this);
+						jfe.setVisible(true);
+						setVisible(false);
+					} catch (Exception e2) {
+						System.err.println("El valor del equipo es null");
+					}
+				}
+			}
+			
+		
+		});
 		
 	}
 			
