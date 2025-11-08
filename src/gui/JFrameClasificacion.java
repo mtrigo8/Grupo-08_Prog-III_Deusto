@@ -85,7 +85,7 @@ public class JFrameClasificacion extends JFramePadre {
 			pos++;
 			}
 		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(280, 150, 442, 300);
+		scrollPane.setBounds(270, 150, 460, 300);
 		scrollPane.setOpaque(false);
 		panel.add(scrollPane);
 		panel.add(norte);
