@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.EventObject;
 import java.util.List;
+import java.util.Random;
 import java.util.Vector;
 import javax.swing.Action;
 import javax.swing.AbstractAction;
@@ -23,6 +24,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
@@ -50,7 +52,7 @@ public class JFrameListaEquipos extends JFramePadre {
 	private JTable tablaEquipos;
 	private DefaultTableModel modeloDatosEquipos;
 	private JButton botonEquipo;
-	
+	private Random random= new Random();
 	public JFrameListaEquipos (Liga liga, JFramePadre ventanaAnterior) {
 		this.liga = liga;
 		super.framePrevio = ventanaAnterior;
@@ -123,6 +125,7 @@ public class JFrameListaEquipos extends JFramePadre {
 		this.add(panel);
 		
 		//Definimos la combinación de teclas (Ctrl+F)
+		KeyStroke ctrlQ = KeyStroke.getKeyStroke(KeyEvent.VK_Q,KeyEvent.CTRL_DOWN_MASK);
 		KeyStroke ctrlF = KeyStroke.getKeyStroke(KeyEvent.VK_F,KeyEvent.CTRL_DOWN_MASK);//IAG el primer ejemplo
 		KeyStroke ctrl1 = KeyStroke.getKeyStroke(KeyEvent.VK_1,KeyEvent.CTRL_DOWN_MASK);
 		KeyStroke ctrl2 = KeyStroke.getKeyStroke(KeyEvent.VK_2,KeyEvent.CTRL_DOWN_MASK);
@@ -134,13 +137,71 @@ public class JFrameListaEquipos extends JFramePadre {
         String accionOrdenAlfabetico_des = "sortOrdenAlf_des";
         String accionOrdenTitulos_asc="sortOrdenTit_asc";
         String accionOrdenTitulos_des="sortOrdenTit_des";
-
+        String accionQuiz= "actionQuiz";
         // 3. Creamos la acción que se ejecutará: poner el foco en el buscador IAG
         Action accion = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 filtradoNombre.requestFocusInWindow();
             }
+        };
+        Action accionJuego = new AbstractAction() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				int tipoPregunta = random.nextInt(4);
+				List<Equipo> listadeEquipos= liga.getEquipos();
+				int indice= random.nextInt(listadeEquipos.size());
+				Equipo equipo= listadeEquipos.get(indice);
+				String pregunta= "";
+				String respuesta= "";
+				
+				if (tipoPregunta==1) {
+					pregunta= "¿Cuántos títulos tiene el "+ equipo.getNombre() +"?";
+					respuesta= String.valueOf(equipo.getTitulos());
+				}else if (tipoPregunta==2) {
+					pregunta= "¿En qué estadio juega el "+ equipo.getNombre() +"?";
+					respuesta=equipo.getEstadio();
+					
+				}else if (tipoPregunta==3) {
+					pregunta= "¿En qué año se fundó el "+ equipo.getNombre() +"?";
+					respuesta=String.valueOf(equipo.getAnyoFundacion());
+					
+				}else {
+					pregunta= "¿En qué ciudad juega el "+ equipo.getNombre() +"?";
+					respuesta=equipo.getCiudad();
+				}
+				//IAG para crear respuestacorrecta
+				String respuestaUsuario= JOptionPane.showInputDialog(
+						JFrameListaEquipos.this,
+						pregunta,
+						"¡Quiz!",
+						JOptionPane.QUESTION_MESSAGE
+						);
+				if (respuestaUsuario != null) {
+					//esto esta en la de los comics
+					if(respuestaUsuario.equals(respuesta)) {
+						JOptionPane.showMessageDialog(
+								JFrameListaEquipos.this, 
+								"¡CORRECTO!",
+								"¡Felicidades!",
+								JOptionPane.INFORMATION_MESSAGE
+							);
+					}else {
+						JOptionPane.showMessageDialog(
+								JFrameListaEquipos.this,
+								"¡INCORRECTO!",
+								"La respuesta correcta era: "+ respuesta,
+								JOptionPane.ERROR_MESSAGE
+								);
+								
+					}
+				}
+			}
+			
+					
+        	
         };
         Action accionAlf_asc= new AbstractAction() {
 
@@ -183,12 +244,14 @@ public class JFrameListaEquipos extends JFramePadre {
         panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(ctrl2, accionOrdenAlfabetico_des);
         panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(ctrl3, accionOrdenTitulos_asc);
         panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(ctrl4, accionOrdenTitulos_des);
+        panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(ctrlQ, accionQuiz);
         // Vinculamos el nombre de la acción ("focusFilterAction") con la acción real (el código a ejecutar) IAG
         panel.getActionMap().put(accionFoco, accion);
         panel.getActionMap().put(accionOrdenAlfabetico_asc, accionAlf_asc);
         panel.getActionMap().put(accionOrdenAlfabetico_des, accionAlf_des);
         panel.getActionMap().put(accionOrdenTitulos_asc, accionTit_asc);
         panel.getActionMap().put(accionOrdenTitulos_des, accionTit_des);
+        panel.getActionMap().put(accionQuiz, accionJuego);
 	}
 	private void inicializarTabla() {
 		Vector<String> cabezeraEquipos = new Vector<String>(Arrays.asList("ESCUDO", "NOMBRE"));
