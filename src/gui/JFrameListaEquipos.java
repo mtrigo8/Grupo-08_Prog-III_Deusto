@@ -124,21 +124,21 @@ public class JFrameListaEquipos extends JFramePadre {
 		panel.add(BorderLayout.CENTER, scrollPaneEquipos);
 		this.add(panel);
 		
-		//Definimos la combinación de teclas (Ctrl+F)
+		//IAG para todos los pasos del primer boton, los 5 pasos : 1. Definimos la combinación de teclas
 		KeyStroke ctrlQ = KeyStroke.getKeyStroke(KeyEvent.VK_Q,KeyEvent.CTRL_DOWN_MASK);
-		KeyStroke ctrlF = KeyStroke.getKeyStroke(KeyEvent.VK_F,KeyEvent.CTRL_DOWN_MASK);//IAG el primer ejemplo
+		KeyStroke ctrlF = KeyStroke.getKeyStroke(KeyEvent.VK_F,KeyEvent.CTRL_DOWN_MASK);
 		KeyStroke ctrl1 = KeyStroke.getKeyStroke(KeyEvent.VK_1,KeyEvent.CTRL_DOWN_MASK);
 		KeyStroke ctrl2 = KeyStroke.getKeyStroke(KeyEvent.VK_2,KeyEvent.CTRL_DOWN_MASK);
 		KeyStroke ctrl3 = KeyStroke.getKeyStroke(KeyEvent.VK_3,KeyEvent.CTRL_DOWN_MASK);
 		KeyStroke ctrl4 = KeyStroke.getKeyStroke(KeyEvent.VK_4,KeyEvent.CTRL_DOWN_MASK);
-		//Definimos un nombre único para esta acción (es un simple String)
+		//2. Definimos un nombre único para esta acción (es un simple String)
         String accionFoco = "focusFilterAction";
         String accionOrdenAlfabetico_asc = "sortOrdenAlf_asc";
         String accionOrdenAlfabetico_des = "sortOrdenAlf_des";
         String accionOrdenTitulos_asc="sortOrdenTit_asc";
         String accionOrdenTitulos_des="sortOrdenTit_des";
         String accionQuiz= "actionQuiz";
-        // 3. Creamos la acción que se ejecutará: poner el foco en el buscador IAG
+        // 3. Creamos la acción que se ejecutará:
         Action accion = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -158,7 +158,7 @@ public class JFrameListaEquipos extends JFramePadre {
 				String respuesta= "";
 				
 				if (tipoPregunta==1) {
-					pregunta= "¿Cuántos títulos tiene el "+ equipo.getNombre() +"?";
+					pregunta= "¿Cuántos títulos de liga tiene el "+ equipo.getNombre() +"?";
 					respuesta= String.valueOf(equipo.getTitulos());
 				}else if (tipoPregunta==2) {
 					pregunta= "¿En qué estadio juega el "+ equipo.getNombre() +"?";
@@ -180,8 +180,10 @@ public class JFrameListaEquipos extends JFramePadre {
 						JOptionPane.QUESTION_MESSAGE
 						);
 				if (respuestaUsuario != null) {
+					String respuestaUsuarioValida= respuestaUsuario.toLowerCase().replace("\\s", "");
+					String respuestaValida= respuesta.toLowerCase().replace("\\s", "");
 					//esto esta en la de los comics
-					if(respuestaUsuario.equals(respuesta)) {
+					if(respuestaUsuarioValida.equals(respuestaValida)) {
 						JOptionPane.showMessageDialog(
 								JFrameListaEquipos.this, 
 								"¡CORRECTO!",
@@ -237,7 +239,7 @@ public class JFrameListaEquipos extends JFramePadre {
 				
 			}
         };
-     //Vinculamos la tecla (Ctrl+F) con el nombre de la acción ("focusFilterAction") IAG
+     //4. Vinculamos la tecla (Ctrl+F) con el nombre de la acción ("focusFilterAction") 
         // Usamos WHEN_IN_FOCUSED_WINDOW para que funcione en cualquier parte de la ventana
         panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(ctrlF, accionFoco);
         panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(ctrl1, accionOrdenAlfabetico_asc);
@@ -245,7 +247,7 @@ public class JFrameListaEquipos extends JFramePadre {
         panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(ctrl3, accionOrdenTitulos_asc);
         panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(ctrl4, accionOrdenTitulos_des);
         panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(ctrlQ, accionQuiz);
-        // Vinculamos el nombre de la acción ("focusFilterAction") con la acción real (el código a ejecutar) IAG
+        //5. Vinculamos el nombre de la acción ("focusFilterAction") con la acción real (el código a ejecutar)
         panel.getActionMap().put(accionFoco, accion);
         panel.getActionMap().put(accionOrdenAlfabetico_asc, accionAlf_asc);
         panel.getActionMap().put(accionOrdenAlfabetico_des, accionAlf_des);
