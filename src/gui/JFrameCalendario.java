@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +18,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Vector;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultCellEditor;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -112,11 +116,56 @@ public class JFrameCalendario extends JFramePadre {
 					result.setBackground(new Color(144,213,255));
 					result.setForeground(Color.BLACK);
 				}
+				if (row % 2 == 0) {
+					result.setBackground(new Color(196, 207, 196));
+				}
 				result.setOpaque(true);
 				return result;
 			}
 		};
-		
+		TableCellRenderer headerRenderer = new TableCellRenderer() {
+			
+			@Override
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+					int row, int column) {
+				// TODO Auto-generated method stub
+				JLabel result = new JLabel(value.toString());
+				result.setHorizontalAlignment(JLabel.CENTER);
+				result.setFont(new Font("Arial", Font.BOLD, 15));
+				result.setOpaque(true);
+				if (result.getText().equals("Jornada")) {
+					result.setText("J");
+				}
+				//Poner espacios a los lados
+				result.setBorder(BorderFactory.createEmptyBorder(8, 10, 8, 10));
+				Color colorFondo = table.getBackground();
+				Color colorLetra = Color.WHITE;
+				switch (liga.getNombre()) {
+				case "LaLiga":
+					colorFondo = new Color(235, 235, 235);
+					colorLetra = Color.BLACK;
+					break;
+				case "Bundesliga":
+					colorFondo = new Color(208, 1, 27);
+					break;
+				case "Premier":
+					colorFondo = new Color(55, 0, 60); 
+				}
+				result.setBackground(colorFondo);
+				result.setForeground(colorLetra);
+				if (column == 2) {
+					ImageIcon icono = new ImageIcon("resources/images/logos/local.png");
+					ImageIcon iconoAjustado = new ImageIcon(icono.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
+					result.setIcon(iconoAjustado);
+				}else if (column == 3){
+					ImageIcon icono = new ImageIcon("resources/images/logos/avion.png");
+					ImageIcon iconoAjustado = new ImageIcon(icono.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
+					result.setIcon(iconoAjustado);
+				}
+				return result;
+			}
+		};
+		this.tablaCalendario.getTableHeader().setDefaultRenderer(headerRenderer);
 		
 		tablaCalendario.setDefaultRenderer(Object.class, calendarioRenderer);
 		//Definir anchura de la columna Jornada
@@ -185,6 +234,7 @@ public class JFrameCalendario extends JFramePadre {
 			
 		
 		});
+		
 		
 	}
 			

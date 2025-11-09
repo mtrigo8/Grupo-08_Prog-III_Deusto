@@ -263,6 +263,7 @@ public class JFrameListaEquipos extends JFramePadre {
 				return column == 1;
 				
 			}
+			
 		};
 		
 		
@@ -362,7 +363,7 @@ public class JFrameListaEquipos extends JFramePadre {
 						// TODO Auto-generated method stub
 						//JFramePlantilla jfp = new JFramePlantilla (ligas, liga, eq, JFrameListaEquipos.this);
 						//jfp.setVisible(true);
-						setVisible(false);
+						dispose();
 						
 						JFrameEquipo jfe = new JFrameEquipo(eq, JFrameListaEquipos.this);
 						jfe.setVisible(true);

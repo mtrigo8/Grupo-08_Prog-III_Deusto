@@ -8,10 +8,12 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -56,6 +58,8 @@ public class JFrameEquipo extends JFramePadre{
 	private Color colorTextoTabla;
 	private Color colorSeleccion;
 	private Color colorTextoSeleccion;
+	private int filaJugador = -1;
+	
 	public JFrameEquipo(Equipo equipo, JFramePadre ventanaAnterior) {
 		this.listaJugadores = equipo.getJugadores();
 		this.equipo = equipo;
@@ -184,6 +188,8 @@ public class JFrameEquipo extends JFramePadre{
 			setVisible(false);
 			if (frameAnterior.getClass().equals(JFrameCalendario.class)) {
 				frameAnterior.setVisible(true);
+			}else if (frameAnterior.getClass().equals(JFrameClasificacion.class)) {
+				frameAnterior.setVisible(true);
 			}else {
 				JFrameListaEquipos jfle = new JFrameListaEquipos(liga, frameAnterior.framePrevio);
 				jfle.setVisible(true);
@@ -256,6 +262,7 @@ public class JFrameEquipo extends JFramePadre{
 				}
 			}
 		});
+		
 	}
 	
 
