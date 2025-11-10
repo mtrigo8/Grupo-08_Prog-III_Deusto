@@ -120,6 +120,8 @@ public class JFrameClasificacion extends JFramePadre {
 					result.setBackground(new Color(115,111,111));
 				}else {
 					result.setBackground(Color.WHITE);
+				} if (row == 16 && column == 0 && liga.getNombre().equals("Bundesliga")) {
+					result.setBackground(new Color(255,0,0));
 				}
 				
 				return result;

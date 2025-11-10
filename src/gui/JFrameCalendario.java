@@ -95,7 +95,7 @@ public class JFrameCalendario extends JFramePadre {
 		usoBotonAtras(super.framePrevio);
 		}
 	public void iniciarizarCalendario () {
-		Vector<String> columnNames = new Vector<String>(Arrays.asList("Jornada", "Fecha", "Equipo Local", "Equipo Visitante", "Resultado"));
+		Vector<String> columnNames = new Vector<String>(Arrays.asList("Jornada", "Fecha", "Equipo Local", "Equipo Visitante", "Result"));
 		mDatTab = new DefaultTableModel(new Vector<Vector<Object>>(), columnNames);
 		tablaCalendario = new JTable(mDatTab) {
 			public boolean isCellEditable(int row, int column) {

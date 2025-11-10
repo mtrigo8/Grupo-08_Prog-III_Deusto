@@ -120,6 +120,7 @@ public class JFrameLiga extends JFramePadre {
 		
 
 	}
+	//IAG
 	//Funcion cambiada por chatgpt para que quede mas bonito y mejor cuadrado
 	private void posicionarComponentes() {
 		int ancho = getWidth();
