@@ -3,6 +3,7 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -37,13 +38,14 @@ import domain.Liga;
 import domain.Partido;
 
 public class JFrameCalendario extends JFramePadre {
-	private int jornadaSeleccionada = -1;
+	
 	private Liga liga;
 	private static final long serialVersionUID = 1L;
 	private DefaultTableModel  mDatTab;
 	private JTable tablaCalendario;
 	private JScrollPane scrollPane;
 	private int filaCalendario = -1;
+	private int columnaCalendario = -1;
 	private JComboBox<Integer> seleccionarJornada;
 	private HashMap<String, ImageIcon> mapaEscudos;
 	
@@ -82,10 +84,9 @@ public class JFrameCalendario extends JFramePadre {
 		tablaCalendario.getTableHeader().setReorderingAllowed(false);
 		//Se modifica el modelo de selección de la tabla para que se pueda selecciona únicamente una fila
 		tablaCalendario.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		//Se define el comportamiento el evento de selección de una fila de la tabla
-		tablaCalendario.getSelectionModel().addListSelectionListener(e -> {
-			
-		});
+		
+		
+		
 		this.scrollPane = new JScrollPane(tablaCalendario);
 		this.scrollPane.setVerticalScrollBar(new JScrollBar());
 		this.scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(25, 30));
@@ -128,6 +129,7 @@ public class JFrameCalendario extends JFramePadre {
 				if(filaCalendario != -1 && row == filaCalendario){
 					result.setBackground(new Color(144,213,255));
 					result.setForeground(Color.BLACK);
+					result.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 				}
 				result.setOpaque(true);
 				return result;
@@ -193,7 +195,14 @@ public class JFrameCalendario extends JFramePadre {
 				// TODO Auto-generated method stub
 				Point puntoRaton = new Point(e.getX(), e.getY());
 				filaCalendario = tablaCalendario.rowAtPoint(puntoRaton);
-
+				
+				//Cambiar el cursor si se encuentra en las columnas 2 y 3
+				columnaCalendario = tablaCalendario.columnAtPoint(puntoRaton);
+				if (columnaCalendario == 2 || columnaCalendario == 3) {
+					tablaCalendario.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+				}else {
+					tablaCalendario.setCursor(getCursor());
+				}
 				tablaCalendario.repaint();
 				
 			}

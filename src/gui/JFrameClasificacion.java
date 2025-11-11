@@ -3,6 +3,7 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -59,6 +60,8 @@ public class JFrameClasificacion extends JFramePadre {
 		table.setRowHeight(30);
 		table.setDefaultEditor(Object.class, null);
 		table.getTableHeader().setReorderingAllowed(false);
+		//Modificar cursor en  la tabla
+		table.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.setLayout(null);
 		//Se modifica el modelo de selección de la tabla para que se pueda selecciona únicamente una fila
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -124,6 +127,7 @@ public class JFrameClasificacion extends JFramePadre {
 					result.setBackground(new Color(255,0,0));
 				}
 				
+				
 				return result;
 			}
 		};
@@ -161,6 +165,6 @@ public class JFrameClasificacion extends JFramePadre {
 		texts.setBounds(75, 455, 150, 100);
 	}
 	
-
+	
 
 }

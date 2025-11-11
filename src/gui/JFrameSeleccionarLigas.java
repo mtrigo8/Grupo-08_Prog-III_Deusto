@@ -65,7 +65,7 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 			ImageIcon iconoLiga = new ImageIcon("resources/images/ligas/" + liga.getNombre() + ".png");
 			ImageIcon iconoAjustado = new ImageIcon(iconoLiga.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH));
 			//Cambiar tamaño del boton al pasar el raton por encima
-			double aumento = 1.5;
+			double aumento = 1.3;
 			int nuevoAlto = (int) (iconoAjustado.getIconHeight() * aumento);
 			int nuevoAncho = (int) (iconoAjustado.getIconWidth() * aumento);
 			ImageIcon iconoAumentado = escalarIcono(iconoAjustado, nuevoAncho, nuevoAlto);
@@ -93,7 +93,7 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 			botones.add(botonLiga);
 			
 		}
-		//poner el fondo del panel botones transparente
+
 
 		// Añadir el panel de botones al panel principal
 		panel.add(botones);

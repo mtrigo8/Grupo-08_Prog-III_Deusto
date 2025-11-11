@@ -4,12 +4,18 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.RenderingHints;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -73,12 +79,24 @@ public class JFrameLiga extends JFramePadre {
         String[] contenidos = {"calendario", "equipo", "clasificacion"};
         for (String contenido : contenidos) {
             ImageIcon iconoLiga = new ImageIcon("resources/images/logos/" + contenido + ".png");
-            ImageIcon iconoAjustado = new ImageIcon(iconoLiga.getImage().getScaledInstance(135, 135, Image.SCALE_SMOOTH));
-            JButton boton = new JButton();
+            ImageIcon iconoAjustado = new ImageIcon(iconoLiga.getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH));
+            //Cambiar tamaño de la imagen al poner el raton encima
+            double aumento = 1.2;
+            int nuevoAlto = (int) (iconoAjustado.getIconHeight() * aumento);
+			int nuevoAncho = (int) (iconoAjustado.getIconWidth() * aumento);
+			ImageIcon iconoAumentado = escalarIcono(iconoAjustado, nuevoAncho, nuevoAlto);
+            //Crear boton
+			JButton boton = new JButton();
             boton.setPreferredSize(new Dimension(150, 150));
+            boton.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
             boton.setIcon(iconoAjustado);
+            //Borrar el fondo del boton y el borde
             boton.setContentAreaFilled(false);
             boton.setBorderPainted(false);
+            
+            //Añadir nuevo icono al pasar con el raton por encima
+            boton.setRolloverIcon(iconoAumentado);
+            
             boton.addActionListener(e -> {
                 switch (contenido) {
                     case "calendario":
@@ -147,7 +165,22 @@ public class JFrameLiga extends JFramePadre {
         int yBotones = (int) (alto * 0.40);
         botones.setBounds(xBotones, yBotones, anchoBotones, altoBotones);
     }
+	//IAG: Chat GPT funcion para cambiar tamaño de la imagen
+	public static ImageIcon escalarIcono(ImageIcon icono, int ancho, int alto) {
+        Image img = icono.getImage();
+        
+        // Creamos un BufferedImage con las nuevas dimensiones y transparencia
+        BufferedImage imgEscalada = new BufferedImage(ancho, alto, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = imgEscalada.createGraphics();
 
-	
+        // Configura las opciones de renderizado para alta calidad (interpolación)
+        g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        
+        // Dibuja la imagen original en el BufferedImage escalándola
+        g2d.drawImage(img, 0, 0, ancho, alto, null);
+        g2d.dispose(); // Libera recursos gráficos
+
+        return new ImageIcon(imgEscalada);
+    }
 
 }
