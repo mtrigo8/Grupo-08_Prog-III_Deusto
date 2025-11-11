@@ -73,13 +73,16 @@ public class JFrameInicio extends JFramePadre {
 			public void keyPressed(KeyEvent e) {
 				// TODO Auto-generated method stub
 				if (e.getKeyCode() == KeyEvent.VK_ENTER ) {
+					
 					JFrameSeleccionarLigas jfs = new JFrameSeleccionarLigas(ligas , JFrameInicio.this);
 	                setVisible(false);
 	                jfs.setVisible(true);
 				}
 			}
 		};
-		btnEntrar.addKeyListener(kLEntrarAplicacion);
+	
+		panel.addKeyListener(kLEntrarAplicacion);
+		
     }
     
     

@@ -65,9 +65,12 @@ public abstract class JFramePadre extends JFrame {
      		@Override
      		public void keyPressed(KeyEvent e) {
      			// TODO Auto-generated method stub
+     			
      			if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-     				setVisible(false);
-     				framePrevio.setVisible(true);
+     				if (framePrevio != null) {
+	     				setVisible(false);
+	     				framePrevio.setVisible(true);
+     				}
      			}
      		}
      	};

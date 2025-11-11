@@ -16,6 +16,7 @@ import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
@@ -36,7 +37,7 @@ import domain.Liga;
 import domain.Partido;
 
 public class JFrameCalendario extends JFramePadre {
-	private int jornadaSeleccionada = 1;
+	private int jornadaSeleccionada = -1;
 	private Liga liga;
 	private static final long serialVersionUID = 1L;
 	private DefaultTableModel  mDatTab;
@@ -44,6 +45,7 @@ public class JFrameCalendario extends JFramePadre {
 	private JScrollPane scrollPane;
 	private int filaCalendario = -1;
 	private JComboBox<Integer> seleccionarJornada;
+	private HashMap<String, ImageIcon> mapaEscudos;
 	
 	public JFrameCalendario(Liga liga, JFramePadre ventanaAnterior) {
 		super();
@@ -53,6 +55,8 @@ public class JFrameCalendario extends JFramePadre {
 		panel.setLayout(new BorderLayout());
 		iniciarizarCalendario();
 		cargarCalendario();
+		//Cargar los escudos tan solo una vez
+		cargarEscudos();
 		//Filtrar por jornada
 		//Crear el comboBox con todas las jornadas
 		seleccionarJornada = new JComboBox<>();
@@ -111,13 +115,19 @@ public class JFrameCalendario extends JFramePadre {
 				JLabel result = new JLabel(value.toString());
 				result.setHorizontalAlignment(JLabel.CENTER);
 				
-				//Cambiar color de fondo
-				if(filaCalendario != -1 && row == filaCalendario){
-					result.setBackground(new Color(144,213,255));
-					result.setForeground(Color.BLACK);
+				ImageIcon escudo = mapaEscudos.get(result.getText());
+				try {
+					result.setIcon(escudo);
+				} catch (Exception e) {
+					System.err.println("No se encontro el escudo del equipo: "+result.getText());
 				}
 				if (row % 2 == 0) {
 					result.setBackground(new Color(196, 207, 196));
+				}
+				//Cambiar color de fondo segun la posicion del raton
+				if(filaCalendario != -1 && row == filaCalendario){
+					result.setBackground(new Color(144,213,255));
+					result.setForeground(Color.BLACK);
 				}
 				result.setOpaque(true);
 				return result;
@@ -245,6 +255,7 @@ public class JFrameCalendario extends JFramePadre {
 			jornada.forEach(p -> this.mDatTab
 					.addRow(new Object[] {String.valueOf(p.getJornada()), p.getFecha().toString(), p.getEquipoLocal().getNombre(), p.getEquipoVisitante().getNombre(), 
 							String.valueOf(p.getGolesLocal())+" - "+ String.valueOf(p.getGolesVisitante())}));
+			
 		}
 		
 	}
@@ -259,9 +270,12 @@ public class JFrameCalendario extends JFramePadre {
 						String.valueOf(p.getGolesLocal())+" - "+ String.valueOf(p.getGolesVisitante())}));
 		}
 		}
-	
-				
-
-	
-
+	public void cargarEscudos () {
+		mapaEscudos = new HashMap<String, ImageIcon>();
+		for (Equipo e : liga.getEquipos()) {
+			ImageIcon escudo = new ImageIcon("resources/images/equipos/"+liga.getNombre()+"/"+e.getNombrePNGEquipo()+".png");
+			ImageIcon escudoAjustado = new ImageIcon(escudo.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
+			mapaEscudos.put(e.getNombre(), escudoAjustado);
+		}
+	}
 }
