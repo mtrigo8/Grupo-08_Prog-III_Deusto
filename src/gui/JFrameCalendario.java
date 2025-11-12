@@ -78,7 +78,7 @@ public class JFrameCalendario extends JFramePadre {
 		JPanel panelNorteCentro = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		panelNorteCentro.add(new JLabel("Seleccionar Jornada"));
 		panelNorteCentro.add(seleccionarJornada);
-		panelNorteCentro.setBackground(new Color(193, 98, 0));
+		panelNorteCentro.setBackground(new Color(241, 154, 62));
 		panelNorteCentro.setOpaque(true);
 		panelNorte.add(panelNorteCentro);
 		//Establecer altura de las filas

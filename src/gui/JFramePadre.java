@@ -101,7 +101,7 @@ public abstract class JFramePadre extends JFrame {
 		ImageIcon iconoAtras = new ImageIcon("resources/images/logos/atras.png");
 		ImageIcon iconoAjustadoAtras = new ImageIcon(iconoAtras.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		botonAtras.setIcon(iconoAjustadoAtras);
-		botonAtras.setBackground(new Color(241, 154, 62));
+		botonAtras.setBackground(new Color(239, 71, 111));
 		botonAtras.setBounds(10, 10, 60, 50);
 		botonAtras.setFocusable(false);
 		this.botonAtras = botonAtras;
