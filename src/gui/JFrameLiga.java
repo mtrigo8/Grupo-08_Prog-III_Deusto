@@ -40,23 +40,9 @@ public class JFrameLiga extends JFramePadre {
         usoBotonAtras(super.framePrevio);
         this.liga = liga;
 		JPanel panel = super.panel;
-        panel.setLayout(null); 
-        Color colorFondo = new Color (255,195,0);
+        panel.setLayout(null);
         Color colorLetra= Color.BLACK;
-        String nombreLiga = liga.getNombre();
-        if (nombreLiga.equals("Premier")) {
-        	colorFondo = new Color(55, 0, 60); 
-            colorLetra= Color.WHITE;
-            
-        } else if (nombreLiga.equals("Bundesliga")) {
-            colorFondo = new Color(208, 1, 27);
-            colorLetra = Color.WHITE;
-            
-        } else if (nombreLiga.equals("LaLiga")) {
-            colorFondo = new Color(235, 235, 235); 
-            colorLetra = Color.BLACK;
-        }
-        panel.setBackground(colorFondo);
+        
         panel.setOpaque(true);
         setImagenDeFondo(null);
         

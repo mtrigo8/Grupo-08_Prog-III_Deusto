@@ -78,6 +78,8 @@ public class JFrameCalendario extends JFramePadre {
 		JPanel panelNorteCentro = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		panelNorteCentro.add(new JLabel("Seleccionar Jornada"));
 		panelNorteCentro.add(seleccionarJornada);
+		panelNorteCentro.setBackground(new Color(193, 98, 0));
+		panelNorteCentro.setOpaque(true);
 		panelNorte.add(panelNorteCentro);
 		//Establecer altura de las filas
 		tablaCalendario.setRowHeight(30);
@@ -123,7 +125,9 @@ public class JFrameCalendario extends JFramePadre {
 					System.err.println("No se encontro el escudo del equipo: "+result.getText());
 				}
 				if (row % 2 == 0) {
-					result.setBackground(new Color(196, 207, 196));
+					result.setBackground(new Color(171, 237, 198));
+				} else if (row % 2 == 1) {
+					result.setBackground(new Color(152, 217, 194));
 				}
 				//Cambiar color de fondo segun la posicion del raton
 				if(filaCalendario != -1 && row == filaCalendario){
@@ -150,21 +154,7 @@ public class JFrameCalendario extends JFramePadre {
 				}
 				//Poner espacios a los lados
 				result.setBorder(BorderFactory.createEmptyBorder(8, 10, 8, 10));
-				Color colorFondo = table.getBackground();
-				Color colorLetra = Color.WHITE;
-				switch (liga.getNombre()) {
-				case "LaLiga":
-					colorFondo = new Color(235, 235, 235);
-					colorLetra = Color.BLACK;
-					break;
-				case "Bundesliga":
-					colorFondo = new Color(208, 1, 27);
-					break;
-				case "Premier":
-					colorFondo = new Color(55, 0, 60); 
-				}
-				result.setBackground(colorFondo);
-				result.setForeground(colorLetra);
+				result.setBackground(new Color(185, 255, 183));
 				if (column == 2) {
 					ImageIcon icono = new ImageIcon("resources/images/logos/local.png");
 					ImageIcon iconoAjustado = new ImageIcon(icono.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));

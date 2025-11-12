@@ -1,3 +1,4 @@
+
 package gui;
 
 import java.awt.Color;
@@ -40,7 +41,6 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 		this.ligas = ligas;
 		JPanel panel = super.panel;
 		
-		panel.setBackground(new Color(255, 195, 0));
 		setImagenDeFondo(null);
 		panel.setOpaque(true);
 		panel.setLayout(null); // Desactivar el layout manager

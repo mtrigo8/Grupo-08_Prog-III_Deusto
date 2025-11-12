@@ -40,7 +40,7 @@ public abstract class JFramePadre extends JFrame {
  public JFramePadre() {
 	 this.setSize(1000, 600);
 		this.setTitle("FutGoat");
-		this.getContentPane().setBackground(Color.orange);
+		this.getContentPane().setBackground(new Color(152, 217, 194));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
@@ -93,7 +93,7 @@ public abstract class JFramePadre extends JFrame {
         };
         panel.setLayout(null);
 		panel.paintComponents(getGraphics());
-		panel.setBackground(Color.orange);
+		panel.setBackground(new Color(152, 217, 194));
 		panel.addKeyListener(esclistener);
 		panel.setFocusable(true); //IAG
 		panel.requestFocusInWindow(); //IAG
@@ -101,7 +101,7 @@ public abstract class JFramePadre extends JFrame {
 		ImageIcon iconoAtras = new ImageIcon("resources/images/logos/atras.png");
 		ImageIcon iconoAjustadoAtras = new ImageIcon(iconoAtras.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		botonAtras.setIcon(iconoAjustadoAtras);
-		botonAtras.setBackground(new Color(80, 187, 212));
+		botonAtras.setBackground(new Color(241, 154, 62));
 		botonAtras.setBounds(10, 10, 60, 50);
 		botonAtras.setFocusable(false);
 		this.botonAtras = botonAtras;

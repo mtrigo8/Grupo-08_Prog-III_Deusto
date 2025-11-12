@@ -33,9 +33,9 @@ public class JFrameInicio extends JFramePadre {
         // --- Crear Botón Entrar ---
         btnEntrar = new JButton("Entrar");
         btnEntrar.setFont(new Font("Arial", Font.BOLD, 20));
-        btnEntrar.setBackground(new Color(0, 74, 153));
+        btnEntrar.setBackground(new Color(185, 255, 183));
         btnEntrar.setFocusPainted(false);
-        btnEntrar.setForeground(Color.WHITE);
+        btnEntrar.setForeground(Color.BLACK);
         btnEntrar.setBorderPainted(false);
         
         panel.add(btnEntrar);

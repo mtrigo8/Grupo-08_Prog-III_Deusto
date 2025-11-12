@@ -3,6 +3,7 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -256,7 +257,7 @@ public class JFrameListaEquipos extends JFramePadre {
         panel.getActionMap().put(accionQuiz, accionJuego);
 	}
 	private void inicializarTabla() {
-		Vector<String> cabezeraEquipos = new Vector<String>(Arrays.asList("ESCUDO", "NOMBRE"));
+		Vector<String> cabezeraEquipos = new Vector<String>(Arrays.asList("ESCUDO", "NOMBRE", "TITULOS"));
 		modeloDatosEquipos = new DefaultTableModel(new Vector<Vector<Object>>(), cabezeraEquipos);
 		this.tablaEquipos = new JTable(this.modeloDatosEquipos) {
 			public boolean isCellEditable(int row, int column){
@@ -269,34 +270,45 @@ public class JFrameListaEquipos extends JFramePadre {
 		
 		//Crear tableCellRenderer
 		TableCellRenderer cellRenderer = (table, value, isSelected, hasFocus, row, column) -> 	{
-			
-			//Renderizar imagen en base del nombre del equipo
-			
-			if (column == 0) {//MODIFICACIONES EN LA COLUMNA DE IMAGENES
-				JLabel result = new JLabel(value.toString());
-				String nombrePNG = (String) value;	
-				String nombreLiga  = liga.getNombre().toLowerCase();
-				String ruta = "resources/images/equipos/"+nombreLiga+"/"+nombrePNG+".png";
-				
-				//Modificar tamaño de la imagen
-				int alturaObjetivo = table.getRowHeight(row);
-				ImageIcon imagenOriginal = null;
-				try {
-					imagenOriginal = new ImageIcon(ruta);
-				} catch (Exception e) {
-					System.err.println("No se ha encontrado el archivo: "+ruta);
-				}
-				ImageIcon imagenModificada = escalarIcono(imagenOriginal, alturaObjetivo);
-				//Insertar Imagen
-				result.setIcon(imagenModificada);		
-				result.setText(null);	
-				result.setHorizontalAlignment(JLabel.CENTER);
-				return result;
-			}else {	//MODIFICACIONES EN LA COLUMNA DEL NOMBRE 
-				return (Component) value;
-			}			
+		    
+		    //Renderizar imagen en base del nombre del equipo
+		    
+		    if (column == 0) {//MODIFICACIONES EN LA COLUMNA DE IMAGENES
+		        JLabel result = new JLabel(value.toString());
+		        String nombrePNG = (String) value;	
+		        String nombreLiga  = liga.getNombre().toLowerCase();
+		        String ruta = "resources/images/equipos/"+nombreLiga+"/"+nombrePNG+".png";
+		        
+		        //Modificar tamaño de la imagen
+		        int alturaObjetivo = table.getRowHeight(row);
+		        ImageIcon imagenOriginal = null;
+		        try {
+		            imagenOriginal = new ImageIcon(ruta);
+		        } catch (Exception e) {
+		            System.err.println("No se ha encontrado el archivo: "+ruta);
+		        }
+		        ImageIcon imagenModificada = escalarIcono(imagenOriginal, alturaObjetivo);
+		        //Insertar Imagen
+		        result.setIcon(imagenModificada);		
+		        result.setText(null);	
+		        result.setHorizontalAlignment(JLabel.CENTER);
+		        return result;
+		    }else if (column == 1) {	//MODIFICACIONES EN LA COLUMNA DEL NOMBRE 
+		        return (Component) value;
+		    } else if (column == 2){
+		        JLabel result1 = new JLabel(value.toString(), JLabel.CENTER);
+		        result1.setFont(new Font("Arial", Font.BOLD, 16
+		        		
+		        		));
+		        return result1;
+		    }
+		    
+		    // Return por defecto para cualquier otra columna
+		    return new JLabel(value != null ? value.toString() : "");
 		};
 
+		this.tablaEquipos.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		
 		//Crear tableCellEditor para que la celda funcione como un JButton
 		TableColumn botonColumn = this.tablaEquipos.getColumnModel().getColumn(1);
 	    botonColumn.setCellEditor(new ComponentCellEditor());
@@ -306,8 +318,13 @@ public class JFrameListaEquipos extends JFramePadre {
 		//Cambiar el ancho de la columna de los escudos
 		TableColumn columnaEscudo = tablaEquipos.getColumnModel().getColumn(0);
 		columnaEscudo.setPreferredWidth(75);
-		columnaEscudo.setMaxWidth(75);
-		columnaEscudo.setMinWidth(75);
+		
+		TableColumn columnaBtn = tablaEquipos.getColumnModel().getColumn(1);
+		columnaBtn.setPreferredWidth(this.getWidth() - 193);
+		
+		TableColumn columnaTitulos = tablaEquipos.getColumnModel().getColumn(2);
+		columnaTitulos.setPreferredWidth(75); // Ajusta el valor según tus necesidades
+
 		//Se establece la altura de la columna
 		this.tablaEquipos.setRowHeight(40);
 		//Se modifica el  modelo de seleccion para que solamente se pueda seleccionar una fila
@@ -370,7 +387,7 @@ public class JFrameListaEquipos extends JFramePadre {
 						//System.out.println("Abrir ventana de equipo: "+eq.getNombre());
 					}
 				});
-				this.modeloDatosEquipos.addRow(new Object[] {eq.getNombrePNGEquipo(),botonEquipo });
+				this.modeloDatosEquipos.addRow(new Object[] {eq.getNombrePNGEquipo(), botonEquipo, eq.getTitulos()});
 			}
 		}
 	}
