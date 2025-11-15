@@ -260,6 +260,7 @@ public class JFrameListaEquipos extends JFramePadre {
         panel.getActionMap().put(accionOrdenTitulos_asc, accionTit_asc);
         panel.getActionMap().put(accionOrdenTitulos_des, accionTit_des);
         panel.getActionMap().put(accionQuiz, accionJuego);
+        this.tablaEquipos.addMouseMotionListener(mousemotlist);
 	}
 	private void inicializarTabla() {
 		Vector<String> cabezeraEquipos = new Vector<String>(Arrays.asList("ESCUDO", "NOMBRE", "TITULOS"));
@@ -272,7 +273,7 @@ public class JFrameListaEquipos extends JFramePadre {
 			
 		};
 		
-		
+
 		//Crear tableCellRenderer
 		TableCellRenderer cellRenderer = (table, value, isSelected, hasFocus, row, column) -> 	{
 		    
@@ -333,9 +334,27 @@ public class JFrameListaEquipos extends JFramePadre {
 		this.tablaEquipos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 	}
 
-
-
-
+	
+	MouseMotionListener mousemotlist = new MouseMotionListener() {
+		
+		@Override
+		public void mouseMoved(MouseEvent e) {
+			// TODO Auto-generated method stub
+			int col = tablaEquipos.columnAtPoint(e.getPoint());
+	        if (col == 1) {
+	            tablaEquipos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	        } else {
+	            tablaEquipos.setCursor(Cursor.getDefaultCursor());
+	        }
+		}
+		
+		@Override
+		public void mouseDragged(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+	};
+    
 	
 	
 	//IAG
@@ -397,6 +416,7 @@ public class JFrameListaEquipos extends JFramePadre {
 			}
 		}
 	}
+	
 	
 	
 
