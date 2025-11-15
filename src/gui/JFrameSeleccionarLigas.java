@@ -2,6 +2,7 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -70,6 +71,7 @@ public class JFrameSeleccionarLigas extends JFramePadre{
 			int nuevoAncho = (int) (iconoAjustado.getIconWidth() * aumento);
 			ImageIcon iconoAumentado = escalarIcono(iconoAjustado, nuevoAncho, nuevoAlto);
 			JButton botonLiga = new JButton();
+			botonLiga.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			//Establecer tamaño de los botones
 			botonLiga.setPreferredSize(new Dimension(150, 150));
 			//Establecer el icono de la liga

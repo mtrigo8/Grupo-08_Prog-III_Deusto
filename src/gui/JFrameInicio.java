@@ -43,6 +43,7 @@ public class JFrameInicio extends JFramePadre {
         this.add(panel);
 
         // Acción del botón
+        btnEntrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnEntrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -82,7 +83,7 @@ public class JFrameLiga extends JFramePadre {
             
             //Añadir nuevo icono al pasar con el raton por encima
             boton.setRolloverIcon(iconoAumentado);
-            
+            boton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             boton.addActionListener(e -> {
                 switch (contenido) {
                     case "calendario":

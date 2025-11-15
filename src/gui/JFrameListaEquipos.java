@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -9,6 +10,10 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseMotionListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -297,9 +302,7 @@ public class JFrameListaEquipos extends JFramePadre {
 		        return (Component) value;
 		    } else if (column == 2){
 		        JLabel result1 = new JLabel(value.toString(), JLabel.CENTER);
-		        result1.setFont(new Font("Arial", Font.BOLD, 16
-		        		
-		        		));
+		        result1.setFont(new Font("Arial", Font.BOLD, 16));
 		        return result1;
 		    }
 		    
@@ -308,7 +311,6 @@ public class JFrameListaEquipos extends JFramePadre {
 		};
 
 		this.tablaEquipos.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		
 		//Crear tableCellEditor para que la celda funcione como un JButton
 		TableColumn botonColumn = this.tablaEquipos.getColumnModel().getColumn(1);
 	    botonColumn.setCellEditor(new ComponentCellEditor());
@@ -329,10 +331,13 @@ public class JFrameListaEquipos extends JFramePadre {
 		this.tablaEquipos.setRowHeight(40);
 		//Se modifica el  modelo de seleccion para que solamente se pueda seleccionar una fila
 		this.tablaEquipos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
 	}
-	
 
+
+
+
+	
+	
 	//IAG
 	//Funcion que modifica el tamaño de la imagen a la altura de la celda
 	
@@ -373,7 +378,7 @@ public class JFrameListaEquipos extends JFramePadre {
 		modeloDatosEquipos.setRowCount(0);
 		for (Equipo eq: equiposOrdenados) {
 			if (eq.getNombre().toLowerCase().contains(filtro.toLowerCase())) {
-				botonEquipo = new JButton(eq.getNombre());
+				botonEquipo = new JButton(eq.getNombre());	
 				botonEquipo.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
@@ -387,6 +392,7 @@ public class JFrameListaEquipos extends JFramePadre {
 						//System.out.println("Abrir ventana de equipo: "+eq.getNombre());
 					}
 				});
+			
 				this.modeloDatosEquipos.addRow(new Object[] {eq.getNombrePNGEquipo(), botonEquipo, eq.getTitulos()});
 			}
 		}

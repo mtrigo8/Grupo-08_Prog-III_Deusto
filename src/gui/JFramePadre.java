@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -34,6 +35,7 @@ public abstract class JFramePadre extends JFrame {
 	setVisible(false);
 	frameAnterior.setVisible(true);
 		});
+		botonAtras.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	}
 		
 	
