@@ -87,6 +87,8 @@ public class JFrameClasificacion extends JFramePadre {
 			mDatTab.addRow(new Object[] {posicion, equipo.getNombre(), puntos, partidos, goles});
 			pos++;
 			}
+		
+		
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBounds(270, 150, 460, 300);
 		scrollPane.setOpaque(false);
