@@ -14,6 +14,7 @@ public class JFrameInicio extends JFramePadre {
 
     private JLabel titulo;
     private JButton btnEntrar;
+    private JButton btnQuiz;
 
     public JFrameInicio(ArrayList<Liga> ligas) {
         super();
@@ -28,10 +29,12 @@ public class JFrameInicio extends JFramePadre {
         titulo.setFont(new Font("Arial", Font.BOLD, 36));
         titulo.setForeground(new Color(33, 33, 33));
         titulo.setOpaque(false);
-        panel.add(titulo);
-
+        panel.add(titulo, BorderLayout.NORTH);
+        
+        
+        
         // --- Crear Botón Entrar ---
-        btnEntrar = new JButton("Entrar");
+        btnEntrar = new JButton("Entrar aplicacion");
         btnEntrar.setFont(new Font("Arial", Font.BOLD, 20));
         btnEntrar.setBackground(new Color(185, 255, 183));
         btnEntrar.setFocusPainted(false);
@@ -40,7 +43,7 @@ public class JFrameInicio extends JFramePadre {
         
         panel.add(btnEntrar);
 
-        this.add(panel);
+       
 
         // Acción del botón
         btnEntrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -52,8 +55,31 @@ public class JFrameInicio extends JFramePadre {
                 jfs.setVisible(true);
             }
         });
+        
+        //Crear boton del quiz
+        btnQuiz = new JButton("Entrar Quiz");
+        btnQuiz.setFont(new Font("Arial", Font.BOLD, 20));
+        btnQuiz.setBackground(new Color(185, 255, 183));
+        btnQuiz.setFocusPainted(false);
+        btnQuiz.setForeground(Color.BLACK);
+        btnQuiz.setBorderPainted(false);
+        
+        btnQuiz.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				JFrameQuiz jfq = new JFrameQuiz(ligas, JFrameInicio.this);
+				setVisible(false);
+				jfq.setVisible(true);
+			}
+		});
+        
+        panel.add(btnQuiz);
         super.botonAtras.setVisible(false);
         posicionarComponentes();
+        
+        
         //Crear listener para entrar en el siguente frame introduciendo enter
     
         KeyListener kLEntrarAplicacion = new KeyListener() {
@@ -84,6 +110,7 @@ public class JFrameInicio extends JFramePadre {
 	
 		panel.addKeyListener(kLEntrarAplicacion);
 		
+		this.add(panel);
     }
     
     
@@ -104,12 +131,14 @@ public class JFrameInicio extends JFramePadre {
         int xTitulo = (ancho - anchoTitulo) / 2;
         int yTitulo = (int) (alto * 0.08);
 
-        int xBoton = (ancho - anchoBoton) / 2;
+        int xBotonEntrar = ((ancho - anchoBoton) / 2)/2;
+        int xBotonQuiz = ancho - xBotonEntrar*2;
         int yBoton = (int) (alto * 0.78);
 
         // Asignar posiciones
         titulo.setBounds(xTitulo, yTitulo, anchoTitulo, altoTitulo);
-        btnEntrar.setBounds(xBoton, yBoton, anchoBoton, altoBoton);
+        btnEntrar.setBounds(xBotonEntrar, yBoton, anchoBoton, altoBoton);
+        btnQuiz.setBounds(xBotonQuiz, yBoton, anchoBoton, altoBoton);
     }
     @Override
 	public void usoBotonAtras(JFramePadre framePrevio) {
