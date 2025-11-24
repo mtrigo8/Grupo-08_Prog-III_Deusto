@@ -11,11 +11,15 @@ public class JFrameInicio extends JFramePadre {
 	private ArrayList<Liga> ligas;
 
     private static final long serialVersionUID = 1L;
+    private static final long MAX_VALUE = 1000000;
 
     private JLabel titulo;
     private JButton btnEntrar;
     private JButton btnQuiz;
-
+    private JProgressBar progressBar = new JProgressBar(0, 100);
+    
+    private Contador contador;
+    
     public JFrameInicio(ArrayList<Liga> ligas) {
         super();
         this.ligas = ligas;
@@ -50,9 +54,17 @@ public class JFrameInicio extends JFramePadre {
         btnEntrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrameSeleccionarLigas jfs = new JFrameSeleccionarLigas(ligas , JFrameInicio.this);
-                setVisible(false);
-                jfs.setVisible(true);
+            	contador = new Contador();
+            	panel.add(progressBar);
+            	progressBar.setBounds(0, 543, getWidth(), 20);
+            	progressBar.setBackground(new Color(239, 71, 111));
+            	progressBar.setForeground(progressBar.getBackground().darker());
+            	progressBar.setStringPainted(true);  
+            	
+            	UIManager.put("ProgressBar.selectionForeground", Color.WHITE);
+            	UIManager.put("ProgressBar.selectionBackground", Color.WHITE);
+            	
+                contador.start();
             }
         });
         
@@ -142,6 +154,30 @@ public class JFrameInicio extends JFramePadre {
     }
     @Override
 	public void usoBotonAtras(JFramePadre framePrevio) {
+    }
+    
+    private class Contador extends Thread {
+    	@Override
+    	public void run() {
+    		int progreso;
+    		
+    		for (int i=0; i <= MAX_VALUE; i++) {
+    			
+    			
+    			// Valor de progreso
+    			progreso = (int) ((i * 100) / MAX_VALUE);
+    			
+    			updateProgressBar(progreso);
+    		}
+    		JFrameInicio.this.panel.remove(progressBar);
+            JFrameSeleccionarLigas jfs = new JFrameSeleccionarLigas(ligas , JFrameInicio.this);
+            setVisible(false);
+            jfs.setVisible(true);
+    	}
+    }
+    
+    private void updateProgressBar(final int value) {
+        SwingUtilities.invokeLater(() -> progressBar.setValue(value));
     }
     
 
