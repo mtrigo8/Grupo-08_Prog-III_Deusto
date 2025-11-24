@@ -59,12 +59,8 @@ public class JFrameInicio extends JFramePadre {
             	progressBar.setBounds(0, 543, getWidth(), 20);
             	progressBar.setBackground(new Color(239, 71, 111));
             	progressBar.setForeground(progressBar.getBackground().darker());
-            	progressBar.setStringPainted(true);  
-            	
-            	UIManager.put("ProgressBar.selectionForeground", Color.WHITE);
-            	UIManager.put("ProgressBar.selectionBackground", Color.WHITE);
-            	
-                contador.start();
+            	progressBar.setStringPainted(true); 
+            	contador.start();
             }
         });
         
