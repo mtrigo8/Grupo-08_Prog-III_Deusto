@@ -11,7 +11,7 @@ public class JFrameInicio extends JFramePadre {
 	private ArrayList<Liga> ligas;
 
     private static final long serialVersionUID = 1L;
-    private static final long MAX_VALUE = 1000000;
+    private static final long MAX_VALUE = 3000000;
 
     private JLabel titulo;
     private JButton btnEntrar;
@@ -167,8 +167,8 @@ public class JFrameInicio extends JFramePadre {
     		}
     		JFrameInicio.this.panel.remove(progressBar);
             JFrameSeleccionarLigas jfs = new JFrameSeleccionarLigas(ligas , JFrameInicio.this);
-            setVisible(false);
             jfs.setVisible(true);
+            setVisible(false);
     	}
     }
     
