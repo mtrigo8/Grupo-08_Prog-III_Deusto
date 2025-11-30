@@ -1,0 +1,301 @@
+id,texto_pregunta,categoria,dificultad
+1,¿Qué selección ganó el Mundial 2010?,Mundiales,Facil
+2,¿Qué país organiza el Mundial?,Mundiales,Facil
+3,¿Qué jugador es apodado La Pulga?,Jugadores,Facil
+4,¿Qué jugador es conocido como CR7?,Jugadores,Facil
+5,¿Cuál es el deporte más popular del mundo?,General,Facil
+6,¿Cuántos tiempos tiene un partido de fútbol?,Reglas,Facil
+7,¿Cuántos jugadores tiene un equipo?,Reglas,Facil
+8,¿Qué selección es conocida como La Canarinha?,Selecciones,Facil
+9,¿Cuál es el color principal del Barça?,Clubes,Facil
+10,¿Cuál es el color principal del Real Madrid?,Clubes,Facil
+11,¿Qué país ganó el Mundial 2014?,Mundiales,Facil
+12,¿Qué selección usa camiseta celeste?,Selecciones,Facil
+13,¿Quién ganó el Mundial 2002?,Mundiales,Facil
+14,¿Qué país ganó el Mundial 1998?,Mundiales,Facil
+15,¿Qué club es conocido como Los Red Devils?,Clubes,Facil
+16,¿Qué equipo es conocido como Los Blues?,Clubes,Facil
+17,¿En qué país nació Messi?,Jugadores,Facil
+18,¿En qué país nació Cristiano Ronaldo?,Jugadores,Facil
+19,¿Cuál es el clásico español más conocido?,Clubes,Facil
+20,¿Qué selección es conocida como La Albiceleste?,Selecciones,Facil
+21,¿Cuántos minutos dura un tiempo?,Reglas,Facil
+22,¿Qué selección ganó el Mundial 1958?,Mundiales,Facil
+23,¿Qué jugador ganó el Balón de Oro 2021?,Jugadores,Facil
+24,¿Dónde juega de local el Barcelona?,Clubes,Facil
+25,¿Dónde juega de local el Real Madrid?,Clubes,Facil
+26,¿Cuál es el país sede de la Conmebol?,Selecciones,Facil
+27,¿Qué selección ganó la Eurocopa 2016?,Selecciones,Facil
+28,¿Qué país ganó la Copa América 2021?,Selecciones,Facil
+29,¿Quién anotó el gol de la Mano de Dios?,Historia,Facil
+30,¿Qué jugador es conocido como O Rei?,Jugadores,Facil
+31,¿Qué color usa la Juventus?,Clubes,Facil
+32,¿Qué selección es conocida como La Roja?,Selecciones,Facil
+33,¿Qué selección ganó la Euro 2008?,Selecciones,Facil
+34,¿Qué selección ganó la Copa América 2019?,Selecciones,Facil
+35,¿Cuántos árbitros hay en un partido?,Reglas,Facil
+36,¿Qué país ganó el Mundial 1970?,Mundiales,Facil
+37,¿En qué país nació Neymar?,Jugadores,Facil
+38,¿Quién es el máximo goleador del Barcelona?,Clubes,Facil
+39,¿De qué país es Luis Suárez?,Jugadores,Facil
+40,¿Qué club usa camiseta amarilla?,Clubes,Facil
+41,¿En qué confederación juega Brasil?,Selecciones,Facil
+42,¿En qué confederación juega España?,Selecciones,Facil
+43,¿Qué club es conocido como Los Gunners?,Clubes,Facil
+44,¿Qué país ganó el Mundial 2006?,Mundiales,Facil
+45,¿En qué año se jugó el primer Mundial?,Historia,Facil
+46,¿Qué selección ganó el primer Mundial?,Historia,Facil
+47,¿Quién es el arquero titular?,Reglas,Facil
+48,¿Qué selección usa camiseta verde?,Selecciones,Facil
+49,¿Cuál es el balón oficial?,General,Facil
+50,¿Qué equipo tiene más Champions?,Clubes,Facil
+51,¿Qué club es conocido como Colchoneros?,Clubes,Facil
+52,¿Qué jugador es apodado El Niño?,Jugadores,Facil
+53,¿Qué selección ganó el Mundial 2018?,Mundiales,Facil
+54,¿Qué país es sede de la FIFA?,General,Facil
+55,¿Qué jugador es conocido como El Tigre?,Jugadores,Facil
+56,¿Qué país ganó la Copa América 2015?,Selecciones,Facil
+57,¿Qué selección usa la camiseta amarilla con azul?,Selecciones,Facil
+58,¿Quién es el máximo goleador histórico de Brasil?,Selecciones,Facil
+59,¿Qué país ganó el Mundial 1962?,Mundiales,Facil
+60,¿Qué equipo usa camiseta rojiblanca?,Clubes,Facil
+61,¿Qué país ganó la Eurocopa 2020?,Selecciones,Facil
+62,¿Quién ganó el Balón de Oro 2009?,Jugadores,Facil
+63,¿Qué jugador celebraba con una máscara?,Jugadores,Facil
+64,¿Qué club es conocido como Los Leones?,Clubes,Facil
+65,¿Qué país ganó el Mundial 1982?,Mundiales,Facil
+66,¿Dónde juega de local el Bayern Munich?,Clubes,Facil
+67,¿Qué selección ganó la Eurocopa 1992?,Selecciones,Facil
+68,¿Qué selección es conocida como La Naranja Mecánica?,Selecciones,Facil
+69,¿Qué selección usa camiseta roja?,Selecciones,Facil
+70,¿En qué país nació Haaland?,Jugadores,Facil
+71,¿Qué equipo dirige Guardiola?,Entrenadores,Facil
+72,¿Qué jugador usa el dorsal 10 en Argentina?,Jugadores,Facil
+73,¿En qué país nació Modric?,Jugadores,Facil
+74,¿Cuál es el símbolo del Liverpool?,Clubes,Facil
+75,¿Qué selección ganó la Copa América 2007?,Selecciones,Facil
+76,¿Quién es el máximo goleador del Real Madrid?,Clubes,Facil
+77,¿En qué país se inventó el fútbol?,Historia,Facil
+78,¿Qué jugador ganó el The Best 2020?,Jugadores,Facil
+79,¿Qué jugador usa el dorsal 7 en Portugal?,Jugadores,Facil
+80,¿Dónde juega de local el Manchester United?,Clubes,Facil
+81,¿Qué equipo tiene el apodo La Vecchia Signora?,Clubes,Facil
+82,¿Cuál es el clásico italiano más famoso?,Clubes,Facil
+83,¿Quién ganó la Champions 2020?,Clubes,Facil
+84,¿Qué país ganó la Euro 2012?,Selecciones,Facil
+85,¿Quién es el jugador más alto del mundo?,Jugadores,Facil
+86,¿Qué país ganó la Copa América 2011?,Selecciones,Facil
+87,¿Qué selección usa camiseta azul?,Selecciones,Facil
+88,¿Quién ganó el Balón de Oro 2013?,Jugadores,Facil
+89,¿Qué país ganó la Euro 2004?,Selecciones,Facil
+90,¿Qué club español usa camiseta verde y blanca?,Clubes,Facil
+91,¿En qué equipo debutó Messi?,Jugadores,Facil
+92,¿En qué equipo debutó Cristiano Ronaldo?,Jugadores,Facil
+93,¿Qué país ganó el Mundial 1994?,Mundiales,Facil
+94,¿En qué país nació Salah?,Jugadores,Facil
+95,¿Qué selección ganó la Copa América 1993?,Selecciones,Facil
+96,¿Qué selección ganó el Mundial 1978?,Mundiales,Facil
+97,¿Cuál es la posición encargada de defender la portería?,Reglas,Facil
+98,¿Cuántas tarjetas amarillas recibe un jugador para ser expulsado?,Reglas,Facil
+99,¿Qué club es conocido como El Submarino Amarillo?,Clubes,Facil
+100,¿En qué país nació Benzema?,Jugadores,Facil
+101,¿Qué selección perdió la final del Mundial 2010?,Mundiales,Media
+102,¿Quién fue el entrenador de España en el Mundial 2010?,Entrenadores,Media
+103,¿Qué jugador marcó el gol decisivo en la final del Mundial 2014?,Historia,Media
+104,¿Qué selección ganó la Eurocopa 2000?,Selecciones,Media
+105,¿Qué equipo ganó la Champions League 2012?,Clubes,Media
+106,¿Qué club fue finalista de la Champions 2006?,Clubes,Media
+107,¿Qué selección ganó la Copa América 2019?,Selecciones,Media
+108,¿En qué país se jugó el Mundial 1994?,Mundiales,Media
+109,¿Cuántos Mundiales ganó Alemania hasta 2022?,Mundiales,Media
+110,¿Qué selección es conocida como Los Cafeteros?,Selecciones,Media
+111,¿Qué equipo italiano tiene más Champions?,Clubes,Media
+112,¿Qué jugador marcó el gol de oro en la Euro 2000?,Historia,Media
+113,¿En qué club debutó Ronaldinho?,Jugadores,Media
+114,¿Qué selección ganó la Eurocopa 1996?,Selecciones,Media
+115,¿Qué país ganó la Copa Confederaciones 2013?,Selecciones,Media
+116,¿Qué selección fue campeona del Mundial Sub-20 2005?,Juveniles,Media
+117,¿Qué selección ganó la Copa América 2001?,Selecciones,Media
+118,¿Qué equipo eliminó al Barcelona en la Champions 2010?,Clubes,Media
+119,¿Quién fue el portero titular de Alemania en 2014?,Jugadores,Media
+120,¿En qué club jugó Maradona en España?,Jugadores,Media
+121,¿Qué país organizó el Mundial 1990?,Mundiales,Media
+122,¿Qué selección ganó el Mundial 1974?,Mundiales,Media
+123,¿Qué jugador es el máximo asistente histórico del fútbol?,Jugadores,Media
+124,¿Qué equipo ganó la Europa League 2010?,Clubes,Media
+125,¿Quién fue el técnico de Brasil en 2002?,Entrenadores,Media
+126,¿Qué selección nacional utiliza el estadio Wembley?,Selecciones,Media
+127,¿Qué selección ganó la Eurocopa 2016?,Selecciones,Media
+128,¿Cuál es el club con más Copas Libertadores?,Clubes,Media
+129,¿Qué jugador anotó más goles en la Champions 2015?,Jugadores,Media
+130,¿Qué selección ganó la Copa África 2010?,Selecciones,Media
+131,¿Qué club ganó la Champions 1999?,Clubes,Media
+132,¿Qué país fue anfitrión del Mundial 2006?,Mundiales,Media
+133,¿Qué año se jugó el Mundial en Corea y Japón?,Mundiales,Media
+134,¿Quién fue el goleador del Mundial 2006?,Jugadores,Media
+135,¿Qué selección ganó la Euro 1992?,Selecciones,Media
+136,¿Qué jugador ganó el Balón de Oro 2004?,Jugadores,Media
+137,¿Qué club italiano es conocido como La Loba?,Clubes,Media
+138,¿Qué selección ganó la Copa América 2007?,Selecciones,Media
+139,¿Qué club fue campeón de la Champions en 1994?,Clubes,Media
+140,¿Quién anotó el gol decisivo en la final de la Champions 2013?,Historia,Media
+141,¿Qué país ganó la Eurocopa 1984?,Selecciones,Media
+142,¿Qué club ganó la Champions 2008?,Clubes,Media
+143,¿Qué jugador es apodado El Apache?,Jugadores,Media
+144,¿Qué país organizó la Copa América 2011?,Selecciones,Media
+145,¿Qué selección ganó la Copa Oro 2017?,Selecciones,Media
+146,¿Qué club es conocido como Los Dragones?,Clubes,Media
+147,¿Quién fue el entrenador del Manchester United tras Ferguson?,Entrenadores,Media
+148,¿Qué selección ganó el Mundial Sub-20 2007?,Juveniles,Media
+149,¿Qué equipo eliminó a Argentina en el Mundial 2002?,Selecciones,Media
+150,¿Qué selección ganó la Eurocopa 1976?,Selecciones,Media
+151,¿Qué jugador marcó el gol más rápido en un Mundial?,Historia,Media
+152,¿Quién anotó el gol que clasificó a Portugal al Mundial 2014?,Jugadores,Media
+153,¿Qué selección ganó el Mundial 1982?,Mundiales,Media
+154,¿Qué club ganó la Champions 1995?,Clubes,Media
+155,¿Qué país organizó la Eurocopa 2008?,Selecciones,Media
+156,¿Quién ganó el Balón de Oro 2003?,Jugadores,Media
+157,¿Qué club es conocido como Los Nerazzurri?,Clubes,Media
+158,¿Qué selección ganó la Copa América 2004?,Selecciones,Media
+159,¿Quién fue el portero titular de Italia en 2006?,Jugadores,Media
+160,¿Qué jugador marcó más goles en la Euro 2016?,Jugadores,Media
+161,¿Qué selección ganó la Eurocopa 1972?,Selecciones,Media
+162,¿Qué jugador marcó el gol decisivo en la Champions 2005?,Jugadores,Media
+163,¿Qué selección ganó la Copa América 1999?,Selecciones,Media
+164,¿Quién ganó la Champions League 2014?,Clubes,Media
+165,¿Qué selección ganó la Copa Confederaciones 2009?,Selecciones,Media
+166,¿Qué equipo eliminó a España en el Mundial 2014?,Selecciones,Media
+167,¿Qué club ganó el Mundial de Clubes 2013?,Clubes,Media
+168,¿Quién fue el técnico campeón de la Euro 2004?,Entrenadores,Media
+169,¿Qué jugador es el máximo goleador histórico del Bayern Munich?,Clubes,Media
+170,¿Qué país organizó el Mundial 1986?,Mundiales,Media
+171,¿Qué selección ganó la Copa África 2012?,Selecciones,Media
+172,¿Qué jugador anotó el gol decisivo en la final de 2010?,Jugadores,Media
+173,¿Qué club ganó la Champions en 1997?,Clubes,Media
+174,¿Qué jugador es conocido como El Mago?,Jugadores,Media
+175,¿Qué selección ganó la Copa América 2015?,Selecciones,Media
+176,¿Qué selección ganó la Eurocopa 1968?,Selecciones,Media
+177,¿En qué país nació el futbolista Andriy Shevchenko?,Jugadores,Media
+178,¿Qué club ganó la Champions 1998?,Clubes,Media
+179,¿Quién anotó el gol del título en la Copa América 2021?,Jugadores,Media
+180,¿Quién fue el técnico de Argentina en 2014?,Entrenadores,Media
+181,¿Qué selección ganó la Copa Oro 2013?,Selecciones,Media
+182,¿Quién fue el máximo goleador del Mundial 2018?,Jugadores,Media
+183,¿Qué club es conocido como Los Rossoneri?,Clubes,Media
+184,¿Cuál fue la sede de la Eurocopa 2020?,Selecciones,Media
+185,¿Qué jugador ganó el Balón de Oro 1999?,Jugadores,Media
+186,¿Qué selección ganó el Mundial 1966?,Mundiales,Media
+187,¿Qué club ganó la Champions 2009?,Clubes,Media
+188,¿Qué selección ganó la Copa América 1983?,Selecciones,Media
+189,¿Quién fue el portero titular de España en 2010?,Jugadores,Media
+190,¿Qué país organizó el Mundial 1982?,Mundiales,Media
+191,¿Qué jugador ganó el Balón de Oro 2010?,Jugadores,Media
+192,¿Qué selección ganó la Eurocopa 1988?,Selecciones,Media
+193,¿Quién fue el entrenador campeón del Mundial 1994?,Entrenadores,Media
+194,¿Qué selección ganó la Copa América 1993?,Selecciones,Media
+195,¿En qué club debutó Xavi Hernández?,Jugadores,Media
+196,¿Quién es el máximo asistente de la Premier League?,Jugadores,Media
+197,¿Qué equipo ganó la Champions 2011?,Clubes,Media
+198,¿Qué selección ganó la Copa Oro 2009?,Selecciones,Media
+199,¿Quién anotó el gol decisivo en la final de la Champions 2018?,Jugadores,Media
+200,¿Qué selección ganó la Copa Confederaciones 2001?,Selecciones,Media
+201,¿Qué selección ganó el Mundial 1930?,Mundiales,Dificil
+202,¿Qué país organizó la primera Copa América?,Historia,Dificil
+203,¿Quién anotó el primer gol en la historia de los Mundiales?,Historia,Dificil
+204,¿Qué jugador tiene el récord de más goles en un solo Mundial?,Historia,Dificil
+205,¿En qué año se jugó el Mundial de Suiza?,Mundiales,Dificil
+206,¿Qué selección ganó la Copa África 1990?,Selecciones,Dificil
+207,¿Qué entrenador ganó más Copas Libertadores?,Entrenadores,Dificil
+208,¿Cuál es el club más antiguo del mundo?,Historia,Dificil
+209,¿En qué año se fundó la FIFA?,Historia,Dificil
+210,¿Qué selección ganó la Copa Confederaciones 1997?,Selecciones,Dificil
+211,¿Qué jugador fue el máximo goleador del Mundial 1954?,Jugadores,Dificil
+212,¿Qué club ganó la primera Champions de la historia?,Clubes,Dificil
+213,¿Qué selección fue subcampeona del Mundial 1950?,Mundiales,Dificil
+214,¿Qué entrenador dirigió a Italia en el Mundial 1982?,Entrenadores,Dificil
+215,¿Quién fue el máximo goleador de la Copa América 1945?,Historia,Dificil
+216,¿Cuál es el país con más títulos de Copa de Oro CONCACAF?,Selecciones,Dificil
+217,¿Qué selección ganó la Eurocopa 1976?,Selecciones,Dificil
+218,¿Qué club ganó la Copa Intercontinental 1967?,Clubes,Dificil
+219,¿Quién fue el máximo goleador de la Copa América 1922?,Historia,Dificil
+220,¿Cuál selección fue campeona de la Copa África 1994?,Selecciones,Dificil
+221,¿Qué club argentino ganó la Copa Libertadores 1978?,Clubes,Dificil
+222,¿Qué selección ganó el Mundial 1934?,Mundiales,Dificil
+223,¿Quién anotó el gol decisivo en la final del Mundial 1966?,Jugadores,Dificil
+224,¿Qué país organizó la Eurocopa 1968?,Selecciones,Dificil
+225,¿Qué selección ganó la Copa América 1987?,Selecciones,Dificil
+226,¿Qué club ganó la Champions 1983?,Clubes,Dificil
+227,¿Quién fue el máximo goleador del Mundial 1990?,Jugadores,Dificil
+228,¿Qué selección ganó la Eurocopa 1972?,Selecciones,Dificil
+229,¿Qué club ganó la Copa Intercontinental 1992?,Clubes,Dificil
+230,¿Qué jugador tiene más partidos en Mundiales?,Jugadores,Dificil
+231,¿Qué selección ganó la Copa América 1947?,Selecciones,Dificil
+232,¿Qué país fue sede de la Eurocopa 1980?,Selecciones,Dificil
+233,¿Qué club ganó la Recopa de Europa 1995?,Clubes,Dificil
+234,¿Quién fue el técnico campeón del Mundial 1958?,Entrenadores,Dificil
+235,¿Qué selección fue finalista de la Copa América 1991?,Selecciones,Dificil
+236,¿Quién fue el goleador del Mundial 1974?,Jugadores,Dificil
+237,¿Qué club ganó la Champions en 1989?,Clubes,Dificil
+238,¿Qué entrenador ganó la Champions 1997?,Entrenadores,Dificil
+239,¿Qué jugador anotó el primer gol de la Eurocopa 1960?,Historia,Dificil
+240,¿Qué país organizó el Mundial 1974?,Mundiales,Dificil
+241,¿Qué selección ganó la Copa África 1984?,Selecciones,Dificil
+242,¿Quién fue el máximo goleador de la Eurocopa 1988?,Jugadores,Dificil
+243,¿Qué club ganó la Champions 1976?,Clubes,Dificil
+244,¿En qué país se jugó la Copa América 1946?,Selecciones,Dificil
+245,¿Qué selección ganó el Mundial 1938?,Mundiales,Dificil
+246,¿Cuál selección ganó la Euro 1964?,Selecciones,Dificil
+247,¿Quién fue el portero titular de Brasil en 1982?,Jugadores,Dificil
+248,¿Qué selección ganó la Copa África 1996?,Selecciones,Dificil
+249,¿Qué club ganó la Champions 1973?,Clubes,Dificil
+250,¿Qué técnico ganó la Copa América 2001?,Entrenadores,Dificil
+251,¿Qué selección ganó la Eurocopa 1972?,Selecciones,Dificil
+252,¿Qué país organizó la Copa África 1992?,Selecciones,Dificil
+253,¿Qué selección ganó el Mundial 1954?,Mundiales,Dificil
+254,¿Qué jugador fue el máximo goleador del Mundial 1962?,Jugadores,Dificil
+255,¿Qué club ganó la Copa Intercontinental 1971?,Clubes,Dificil
+256,¿Qué jugador ganó el Balón de Oro 1980?,Jugadores,Dificil
+257,¿Qué selección ganó la Copa América 1935?,Selecciones,Dificil
+258,¿Qué club ganó la Champions 1972?,Clubes,Dificil
+259,¿Quién fue el técnico campeón de la Euro 1984?,Entrenadores,Dificil
+260,¿Qué selección ganó la Copa África 1978?,Selecciones,Dificil
+261,¿Qué club ganó la Recopa de Europa 1988?,Clubes,Dificil
+262,¿Qué jugador anotó el gol decisivo en la final de la Intercontinental 1990?,Jugadores,Dificil
+263,¿Qué selección fue finalista del Mundial 1950?,Mundiales,Dificil
+264,¿Qué club ganó la Champions 1984?,Clubes,Dificil
+265,¿Quién fue el técnico campeón del Mundial 1930?,Entrenadores,Dificil
+266,¿Cuál selección ganó la Copa América 1925?,Selecciones,Dificil
+267,¿Qué club ganó la Intercontinental 1963?,Clubes,Dificil
+268,¿Qué jugador fue máximo goleador de la Eurocopa 1976?,Jugadores,Dificil
+269,¿Qué país organizó el Mundial 1958?,Mundiales,Dificil
+270,¿Qué selección ganó la Copa África 1976?,Selecciones,Dificil
+271,¿Qué club ganó la Copa Libertadores 1989?,Clubes,Dificil
+272,¿Quién fue el técnico campeón de la Eurocopa 1992?,Entrenadores,Dificil
+273,¿Qué jugador ganó el Balón de Oro 1964?,Jugadores,Dificil
+274,¿Qué selección ganó la Copa América 1926?,Selecciones,Dificil
+275,¿Qué club ganó la Champions 1980?,Clubes,Dificil
+276,¿Quién fue el máximo goleador del Mundial 1986?,Jugadores,Dificil
+277,¿Qué selección ganó la Euro 1976?,Selecciones,Dificil
+278,¿Qué club ganó la Copa Intercontinental 1994?,Clubes,Dificil
+279,¿Qué país organizó la Eurocopa 1976?,Selecciones,Dificil
+280,¿Qué club ganó la Champions 1986?,Clubes,Dificil
+281,¿Quién fue el técnico campeón del Mundial 1954?,Entrenadores,Dificil
+282,¿Qué selección ganó la Copa África 1970?,Selecciones,Dificil
+283,¿Qué club ganó la Libertadores 1979?,Clubes,Dificil
+284,¿Qué jugador fue el máximo goleador del Mundial 1930?,Jugadores,Dificil
+285,¿Qué selección ganó la Eurocopa 1958?,Selecciones,Dificil
+286,¿Qué club ganó la Champions 1988?,Clubes,Dificil
+287,¿Qué selección ganó la Copa América 1939?,Selecciones,Dificil
+288,¿Qué jugador ganó el Balón de Oro 1977?,Jugadores,Dificil
+289,¿Qué selección ganó la Copa África 1980?,Selecciones,Dificil
+290,¿Qué club ganó la Copa Intercontinental 1979?,Clubes,Dificil
+291,¿Cuál país fue sede de la Eurocopa 1960?,Selecciones,Dificil
+292,¿Qué selección ganó la Copa América 1975?,Selecciones,Dificil
+293,¿Qué club ganó la Champions 1979?,Clubes,Dificil
+294,¿Quién fue el entrenador de Francia en el Mundial 1958?,Entrenadores,Dificil
+295,¿Qué selección ganó la Eurocopa 1968?,Selecciones,Dificil
+296,¿Qué club ganó la Copa Intercontinental 1951?,Clubes,Dificil
+297,¿Quién fue el máximo goleador del Mundial 1970?,Jugadores,Dificil
+298,¿Qué selección ganó la Eurocopa 1980?,Selecciones,Dificil
+299,¿Qué club ganó la Champions 1971?,Clubes,Dificil
+300,¿Quién fue el técnico campeón de la Copa América 1993?,Entrenadores,Dificil

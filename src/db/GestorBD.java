@@ -20,12 +20,12 @@ import java.util.logging.Logger;
 
 
 public class GestorBD {
-
+	
 	private final String PROPERTIES_FILE = "resources/config/app.properties";
 	private final String CSV_LALIGA = "resources/data/laliga_calendario.csv";
 	private final String CSV_BUNDESLIGA = "resources/data/bundesliga_calendario.csv";
-	private final String CSV_PREMIER = "resources/data/premier_calendario.csv";
 	private final String LOG_FOLDER = "resources/log";
+	private final String CSV_PREMIER = "resources/data/premier_calendario.csv";
 	
 	private Properties properties;
 	private String driverName;
