@@ -72,6 +72,7 @@ public class JFrameInicio extends JFramePadre {
         btnQuiz.setForeground(Color.BLACK);
         btnQuiz.setBorderPainted(false);
         
+        btnQuiz.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnQuiz.addActionListener(new ActionListener() {
 			
 			@Override

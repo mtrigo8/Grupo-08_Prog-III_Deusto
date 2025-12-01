@@ -12,13 +12,13 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 
-public class JFramecargapantalla extends JFrame{
+public class JFrameCargaPantalla extends JFrame{
 	
 	private JLabel imagenfondo;
 	private Thread thread;
 	private ArrayList<String> imagenes;
 	private JButton btnSaltar;
-	public JFramecargapantalla (){
+	public JFrameCargaPantalla (){
 		setSize(600, 800);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,8 +75,8 @@ public class JFramecargapantalla extends JFrame{
 	        });
 	    }
 	 public static void main(String[] args) {
-	        SwingUtilities.invokeLater(() -> new JFramecargapantalla());
-	        new JFramecargapantalla().setVisible(true);
+	        SwingUtilities.invokeLater(() -> new JFrameCargaPantalla());
+	        new JFrameCargaPantalla().setVisible(true);
 	    }
 	}
 

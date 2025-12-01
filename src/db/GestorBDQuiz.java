@@ -20,7 +20,7 @@ import domain.Pregunta;
 
 public class GestorBDQuiz {
 	private String PREGUNTAS_CSV = "resources/data/preguntas.csv";
-	private String OPCIONES_CSV = ""; 
+	private String OPCIONES_CSV = "resources/data/opciones.csv"; 
 	private final String LOG_FOLDER = "resources/log";
 	private final String PROPERTIES_FILE = "resources/config/app.properties";
 
@@ -84,6 +84,14 @@ public class GestorBDQuiz {
 		
 	}
 	public void crearBBDD() {
+		 // Verificar si el archivo de BBDD ya existe
+	    File dbFile = new File(databaseFile);
+	    
+	    if (dbFile.exists()) {
+	        logger.info("La base de datos ya existe, no se creará de nuevo");
+	        return;
+	    }
+	    
 		//Sólo se crea la BBDD si la propiedad initBBDD es true.
 		if (properties.get("createBBDD").equals("true")) {
 			//La base de datos tiene 3 tablas: Personaje, Comic y Personajes_Comic

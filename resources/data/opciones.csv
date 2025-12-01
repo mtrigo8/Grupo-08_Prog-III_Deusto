@@ -1,0 +1,1201 @@
+cod_opcion,cod_pregunta,opcion,es_correcta
+1_1,1,España,1
+1_2,1,Alemania,0
+1_3,1,Brasil,0
+1_4,1,Italia,0
+2_1,2,Estados Unidos,1
+2_2,2,Catar,0
+2_3,2,Brasil,0
+2_4,2,Italia,0
+3_1,3,Lionel Messi,1
+3_2,3,Cristiano Ronaldo,0
+3_3,3,Neymar,0
+3_4,3,Mbappé,0
+4_1,4,Cristiano Ronaldo,1
+4_2,4,Benzema,0
+4_3,4,Modric,0
+4_4,4,Haaland,0
+5_1,5,Fútbol,1
+5_2,5,Baloncesto,0
+5_3,5,Críquet,0
+5_4,5,Tenis,0
+6_1,6,Dos tiempos,1
+6_2,6,Tres tiempos,0
+6_3,6,Cuatro tiempos,0
+6_4,6,Un tiempo,0
+7_1,7,Once jugadores,1
+7_2,7,Diez jugadores,0
+7_3,7,Doce jugadores,0
+7_4,7,Nueve jugadores,0
+8_1,8,Brasil,1
+8_2,8,Argentina,0
+8_3,8,Ecuador,0
+8_4,8,Colombia,0
+9_1,9,Azul y grana,1
+9_2,9,Rojo,0
+9_3,9,Amarillo,0
+9_4,9,Blanco,0
+10_1,10,Blanco,1
+10_2,10,Negro,0
+10_3,10,Azul,0
+10_4,10,Morado,0
+11_1,11,Alemania,1
+11_2,11,Argentina,0
+11_3,11,Brasil,0
+11_4,11,Francia,0
+12_1,12,Uruguay,1
+12_2,12,Argentina,0
+12_3,12,Italia,0
+12_4,12,Perú,0
+13_1,13,Brasil,1
+13_2,13,Alemania,0
+13_3,13,Argentina,0
+13_4,13,Francia,0
+14_1,14,Francia,1
+14_2,14,Brasil,0
+14_3,14,Italia,0
+14_4,14,Argentina,0
+15_1,15,Manchester United,1
+15_2,15,Liverpool,0
+15_3,15,Chelsea,0
+15_4,15,Arsenal,0
+16_1,16,Chelsea,1
+16_2,16,Arsenal,0
+16_3,16,Manchester City,0
+16_4,16,Everton,0
+17_1,17,Argentina,1
+17_2,17,Brasil,0
+17_3,17,Uruguay,0
+17_4,17,España,0
+18_1,18,Portugal,1
+18_2,18,España,0
+18_3,18,Francia,0
+18_4,18,Brasil,0
+19_1,19,El Clásico (Barcelona vs Real Madrid),1
+19_2,19,Derbi madrileño,0
+19_3,19,Clásico vasco,0
+19_4,19,Derbi de Manchester,0
+20_1,20,Argentina,1
+20_2,20,Uruguay,0
+20_3,20,Colombia,0
+20_4,20,Paraguay,0
+21_1,21,45 minutos,1
+21_2,21,40 minutos,0
+21_3,21,50 minutos,0
+21_4,21,60 minutos,0
+22_1,22,Brasil,1
+22_2,22,Argentina,0
+22_3,22,Uruguay,0
+22_4,22,Alemania,0
+23_1,23,Lionel Messi,1
+23_2,23,Lewandowski,0
+23_3,23,Benzema,0
+23_4,23,Mbappé,0
+24_1,24,Camp Nou,1
+24_2,24,Bernabéu,0
+24_3,24,Metropolitano,0
+24_4,24,Mestalla,0
+25_1,25,Santiago Bernabéu,1
+25_2,25,Camp Nou,0
+25_3,25,Wanda,0
+25_4,25,Riazor,0
+26_1,26,Paraguay,1
+26_2,26,Brasil,0
+26_3,26,Argentina,0
+26_4,26,Chile,0
+27_1,27,Portugal,1
+27_2,27,Francia,0
+27_3,27,España,0
+27_4,27,Italia,0
+28_1,28,Argentina,1
+28_2,28,Brasil,0
+28_3,28,Chile,0
+28_4,28,Uruguay,0
+29_1,29,Diego Maradona,1
+29_2,29,Pelé,0
+29_3,29,Messi,0
+29_4,29,Kempes,0
+30_1,30,Pelé,1
+30_2,30,Romário,0
+30_3,30,Zico,0
+30_4,30,Ronaldo,0
+31_1,31,Blanco y negro,1
+31_2,31,Rojo,0
+31_3,31,Azul,0
+31_4,31,Verde,0
+32_1,32,España,1
+32_2,32,Chile,0
+32_3,32,Dinamarca,0
+32_4,32,Portugal,0
+33_1,33,España,1
+33_2,33,Alemania,0
+33_3,33,Italia,0
+33_4,33,Francia,0
+34_1,34,Brasil,1
+34_2,34,Argentina,0
+34_3,34,Chile,0
+34_4,34,Uruguay,0
+35_1,35,Cuatro árbitros,1
+35_2,35,Tres,0
+35_3,35,Cinco,0
+35_4,35,Dos,0
+36_1,36,Brasil,1
+36_2,36,Argentina,0
+36_3,36,Uruguay,0
+36_4,36,Alemania,0
+37_1,37,Brasil,1
+37_2,37,Argentina,0
+37_3,37,Portugal,0
+37_4,37,Francia,0
+38_1,38,Lionel Messi,1
+38_2,38,Suárez,0
+38_3,38,Eto’o,0
+38_4,38,Neymar,0
+39_1,39,Uruguay,1
+39_2,39,Brasil,0
+39_3,39,Argentina,0
+39_4,39,Paraguay,0
+40_1,40,Villarreal,1
+40_2,40,Chelsea,0
+40_3,40,Leeds,0
+40_4,40,Cádiz,0
+41_1,41,CONMEBOL,1
+41_2,41,UEFA,0
+41_3,41,AFC,0
+41_4,41,CAF,0
+42_1,42,UEFA,1
+42_2,42,CONMEBOL,0
+42_3,42,CONCACAF,0
+42_4,42,CAF,0
+43_1,43,Arsenal,1
+43_2,43,Chelsea,0
+43_3,43,Liverpool,0
+43_4,43,Juventus,0
+44_1,44,Italia,1
+44_2,44,Francia,0
+44_3,44,Brasil,0
+44_4,44,Alemania,0
+45_1,45,1930,1
+45_2,45,1920,0
+45_3,45,1940,0
+45_4,45,1950,0
+46_1,46,Uruguay,1
+46_2,46,Brasil,0
+46_3,46,Argentina,0
+46_4,46,Italia,0
+47_1,47,Arquero / Portero,1
+47_2,47,Delantero,0
+47_3,47,Defensa,0
+47_4,47,Volante,0
+48_1,48,México,1
+48_2,48,Bolivia,0
+48_3,48,Nigeria,0
+48_4,48,Camerún,0
+49_1,49,Adidas,1
+49_2,49,Nike,0
+49_3,49,Puma,0
+49_4,49,Umbro,0
+50_1,50,Real Madrid,1
+50_2,50,Barcelona,0
+50_3,50,Liverpool,0
+50_4,50,Milan,0
+51_1,51,Atlético de Madrid,1
+51_2,51,Real Madrid,0
+51_3,51,Sevilla FC,0
+51_4,51,Valencia CF,0
+52_1,52,Fernando Torres,1
+52_2,52,David Villa,0
+52_3,52,Sergio Ramos,0
+52_4,52,Iker Casillas,0
+53_1,53,Francia,1
+53_2,53,Croacia,0
+53_3,53,Bélgica,0
+53_4,53,Brasil,0
+54_1,54,Suiza,1
+54_2,54,Francia,0
+54_3,54,Alemania,0
+54_4,54,Estados Unidos,0
+55_1,55,Radamel Falcao,1
+55_2,55,James Rodríguez,0
+55_3,55,Arturo Vidal,0
+55_4,55,Alexis Sánchez,0
+56_1,56,Chile,1
+56_2,56,Argentina,0
+56_3,56,Brasil,0
+56_4,56,Uruguay,0
+57_1,57,Suecia,1
+57_2,57,Holanda,0
+57_3,57,Portugal,0
+57_4,57,Italia,0
+58_1,58,Neymar,1
+58_2,58,Pelé,0
+58_3,58,Ronaldo,0
+58_4,58,Romario,0
+59_1,59,Brasil,1
+59_2,59,Checoslovaquia,0
+59_3,59,Italia,0
+59_4,59,Alemania,0
+60_1,60,Atlético de Madrid,1
+60_2,60,Real Madrid,0
+60_3,60,FC Barcelona,0
+60_4,60,Valencia CF,0
+61_1,61,Italia,1
+61_2,61,Inglaterra,0
+61_3,61,España,0
+61_4,61,Francia,0
+62_1,62,Lionel Messi,1
+62_2,62,Cristiano Ronaldo,0
+62_3,62,Kaka,0
+62_4,62,Xavi Hernández,0
+63_1,63,Paulo Dybala,1
+63_2,63,Antoine Griezmann,0
+63_3,63,Paul Pogba,0
+63_4,63,Neymar,0
+64_1,64,Athletic Club,1
+64_2,64,Real Sociedad,0
+64_3,64,Espanyol,0
+64_4,64,Betis,0
+65_1,65,Italia,1
+65_2,65,Alemania Federal,0
+65_3,65,Brasil,0
+65_4,65,Francia,0
+66_1,66,Allianz Arena,1
+66_2,66,Signal Iduna Park,0
+66_3,66,Olympiastadion,0
+66_4,66,Veltins-Arena,0
+67_1,67,Dinamarca,1
+67_2,67,Alemania,0
+67_3,67,Holanda,0
+67_4,67,Suecia,0
+68_1,68,Países Bajos,1
+68_2,68,Alemania,0
+68_3,68,Bélgica,0
+68_4,68,Polonia,0
+69_1,69,España,1
+69_2,69,Italia,0
+69_3,69,Francia,0
+69_4,69,Alemania,0
+70_1,70,Inglaterra,1
+70_2,70,Noruega,0
+70_3,70,Alemania,0
+70_4,70,Dinamarca,0
+71_1,71,Manchester City,1
+71_2,71,Liverpool,0
+71_3,71,Chelsea,0
+71_4,71,Bayern Munich,0
+72_1,72,Lionel Messi,1
+72_2,72,Sergio Agüero,0
+72_3,72,Paulo Dybala,0
+72_4,72,Lautaro Martínez,0
+73_1,73,Croacia,1
+73_2,73,Serbia,0
+73_3,73,Montenegro,0
+73_4,73,Eslovenia,0
+74_1,74,Liverbird (Pájaro),1
+74_2,74,León,0
+74_3,74,Diablo,0
+74_4,74,Cañón,0
+75_1,75,Brasil,1
+75_2,75,Argentina,0
+75_3,75,Uruguay,0
+75_4,75,México,0
+76_1,76,Cristiano Ronaldo,1
+76_2,76,Raúl González,0
+76_3,76,Karim Benzema,0
+76_4,76,Di Stéfano,0
+77_1,77,Inglaterra,1
+77_2,77,Brasil,0
+77_3,77,Francia,0
+77_4,77,China,0
+78_1,78,Robert Lewandowski,1
+78_2,78,Lionel Messi,0
+78_3,78,Cristiano Ronaldo,0
+78_4,78,Kevin De Bruyne,0
+79_1,79,Cristiano Ronaldo,1
+79_2,79,Bruno Fernandes,0
+79_3,79,Bernardo Silva,0
+79_4,79,Joao Félix,0
+80_1,80,Old Trafford,1
+80_2,80,Etihad Stadium,0
+80_3,80,Anfield,0
+80_4,80,Stamford Bridge,0
+81_1,81,Juventus,1
+81_2,81,AC Milan,0
+81_3,81,Inter,0
+81_4,81,Roma,0
+82_1,82,Derbi de Italia,1
+82_2,82,Derbi de la Madonnina,0
+82_3,82,Derbi de Roma,0
+82_4,82,Derbi del Sole,0
+83_1,83,Bayern Munich,1
+83_2,83,PSG,0
+83_3,83,Real Madrid,0
+83_4,83,Chelsea,0
+84_1,84,España,1
+84_2,84,Italia,0
+84_3,84,Alemania,0
+84_4,84,Portugal,0
+85_1,85,Kristof van Hout,1
+85_2,85,Thibaut Courtois,0
+85_3,85,Peter Crouch,0
+85_4,85,Zlatan Ibrahimovic,0
+86_1,86,Uruguay,1
+86_2,86,Paraguay,0
+86_3,86,Argentina,0
+86_4,86,Brasil,0
+87_1,87,Italia,1
+87_2,87,Inglaterra,0
+87_3,87,Alemania,0
+87_4,87,Holanda,0
+88_1,88,Cristiano Ronaldo,1
+88_2,88,Lionel Messi,0
+88_3,88,Franck Ribéry,0
+88_4,88,Andrés Iniesta,0
+89_1,89,Grecia,1
+89_2,89,Portugal,0
+89_3,89,República Checa,0
+89_4,89,Holanda,0
+90_1,90,Real Betis,1
+90_2,90,Sevilla FC,0
+90_3,90,Celta de Vigo,0
+90_4,90,Elche,0
+91_1,91,FC Barcelona,1
+91_2,91,PSG,0
+91_3,91,Newell's,0
+91_4,91,River Plate,0
+92_1,92,Sporting CP,1
+92_2,92,Manchester United,0
+92_3,92,Real Madrid,0
+92_4,92,Juventus,0
+93_1,93,Brasil,1
+93_2,93,Italia,0
+93_3,93,Suecia,0
+93_4,93,Alemania,0
+94_1,94,Egipto,1
+94_2,94,Marruecos,0
+94_3,94,Túnez,0
+94_4,94,Senegal,0
+95_1,95,Argentina,1
+95_2,95,México,0
+95_3,95,Colombia,0
+95_4,95,Ecuador,0
+96_1,96,Argentina,1
+96_2,96,Holanda,0
+96_3,96,Brasil,0
+96_4,96,Alemania,0
+97_1,97,Portero,1
+97_2,97,Defensa,0
+97_3,97,Delantero,0
+97_4,97,Mediocentro,0
+98_1,98,Dos,1
+98_2,98,Una,0
+98_3,98,Tres,0
+98_4,98,Cuatro,0
+99_1,99,Villarreal,1
+99_2,99,Cádiz,0
+99_3,99,Las Palmas,0
+99_4,99,Alcorcón,0
+100_1,100,Francia,1
+100_2,100,Argelia,0
+100_3,100,Bélgica,0
+100_4,100,España,0
+101_1,101,Holanda (Países Bajos),1
+101_2,101,Alemania,0
+101_3,101,Uruguay,0
+101_4,101,Argentina,0
+102_1,102,Vicente del Bosque,1
+102_2,102,Luis Aragonés,0
+102_3,102,Pep Guardiola,0
+102_4,102,Fernando Hierro,0
+103_1,103,Mario Götze,1
+103_2,103,Thomas Müller,0
+103_3,103,Miroslav Klose,0
+103_4,103,Lionel Messi,0
+104_1,104,Francia,1
+104_2,104,Italia,0
+104_3,104,Portugal,0
+104_4,104,Holanda,0
+105_1,105,Chelsea,1
+105_2,105,Bayern Munich,0
+105_3,105,Real Madrid,0
+105_4,105,Barcelona,0
+106_1,106,Arsenal,1
+106_2,106,Milan,0
+106_3,106,Juventus,0
+106_4,106,Villarreal,0
+107_1,107,Brasil,1
+107_2,107,Perú,0
+107_3,107,Argentina,0
+107_4,107,Chile,0
+108_1,108,Estados Unidos,1
+108_2,108,Italia,0
+108_3,108,Francia,0
+108_4,108,Brasil,0
+109_1,109,Cuatro,1
+109_2,109,Tres,0
+109_3,109,Cinco,0
+109_4,109,Dos,0
+110_1,110,Colombia,1
+110_2,110,Ecuador,0
+110_3,110,Costa Rica,0
+110_4,110,Venezuela,0
+111_1,111,AC Milan,1
+111_2,111,Juventus,0
+111_3,111,Inter de Milán,0
+111_4,111,AS Roma,0
+112_1,112,David Trezeguet,1
+112_2,112,Zinedine Zidane,0
+112_3,112,Thierry Henry,0
+112_4,112,Sylvain Wiltord,0
+113_1,113,Grêmio,1
+113_2,113,Flamengo,0
+113_3,113,PSG,0
+113_4,113,Santos,0
+114_1,114,Alemania,1
+114_2,114,República Checa,0
+114_3,114,Inglaterra,0
+114_4,114,Francia,0
+115_1,115,Brasil,1
+115_2,115,España,0
+115_3,115,Italia,0
+115_4,115,Uruguay,0
+116_1,116,Argentina,1
+116_2,116,Nigeria,0
+116_3,116,Brasil,0
+116_4,116,España,0
+117_1,117,Colombia,1
+117_2,117,México,0
+117_3,117,Brasil,0
+117_4,117,Honduras,0
+118_1,118,Inter de Milán,1
+118_2,118,Chelsea,0
+118_3,118,Bayern Munich,0
+118_4,118,Real Madrid,0
+119_1,119,Manuel Neuer,1
+119_2,119,Oliver Kahn,0
+119_3,119,Marc-André ter Stegen,0
+119_4,119,Jens Lehmann,0
+120_1,120,FC Barcelona,1
+120_2,120,Real Madrid,0
+120_3,120,Atlético de Madrid,0
+120_4,120,Valencia,0
+121_1,121,Italia,1
+121_2,121,México,0
+121_3,121,Alemania,0
+121_4,121,Argentina,0
+122_1,122,Alemania,1
+122_2,122,Holanda,0
+122_3,122,Polonia,0
+122_4,122,Brasil,0
+123_1,123,Lionel Messi,1
+123_2,123,Mesut Özil,0
+123_3,123,Cristiano Ronaldo,0
+123_4,123,Xavi Hernández,0
+124_1,124,Atlético de Madrid,1
+124_2,124,Fulham,0
+124_3,124,Liverpool,0
+124_4,124,Sevilla,0
+125_1,125,Luiz Felipe Scolari,1
+125_2,125,Carlos Alberto Parreira,0
+125_3,125,Dunga,0
+125_4,125,Mario Zagallo,0
+126_1,126,Inglaterra,1
+126_2,126,Gales,0
+126_3,126,Escocia,0
+126_4,126,Irlanda,0
+127_1,127,Portugal,1
+127_2,127,Francia,0
+127_3,127,Alemania,0
+127_4,127,Gales,0
+128_1,128,Independiente,1
+128_2,128,Boca Juniors,0
+128_3,128,Peñarol,0
+128_4,128,River Plate,0
+129_1,129,Lionel Messi,1
+129_2,129,Luis Suárez,0
+129_3,129,Robert Lewandowski,0
+129_4,129,Thomas Müller,0
+130_1,130,Egipto,1
+130_2,130,Ghana,0
+130_3,130,Costa de Marfil,0
+130_4,130,Camerún,0
+131_1,131,Manchester United,1
+131_2,131,Bayern Munich,0
+131_3,131,Juventus,0
+131_4,131,Real Madrid,0
+132_1,132,Alemania,1
+132_2,132,Sudáfrica,0
+132_3,132,Francia,0
+132_4,132,Japón,0
+133_1,133,2002,1
+133_2,133,1998,0
+133_3,133,2006,0
+133_4,133,2010,0
+134_1,134,Miroslav Klose,1
+134_2,134,Ronaldo Nazario,0
+134_3,134,Hernán Crespo,0
+134_4,134,Zinedine Zidane,0
+135_1,135,Dinamarca,1
+135_2,135,Alemania,0
+135_3,135,Holanda,0
+135_4,135,Suecia,0
+136_1,136,Andriy Shevchenko,1
+136_2,136,Deco,0
+136_3,136,Ronaldinho,0
+136_4,136,Thierry Henry,0
+137_1,137,AS Roma,1
+137_2,137,Lazio,0
+137_3,137,Napoli,0
+137_4,137,Fiorentina,0
+138_1,138,Brasil,1
+138_2,138,Argentina,0
+138_3,138,México,0
+138_4,138,Uruguay,0
+139_1,139,AC Milan,1
+139_2,139,Barcelona,0
+139_3,139,Marsella,0
+139_4,139,Ajax,0
+140_1,140,Arjen Robben,1
+140_2,140,Thomas Müller,0
+140_3,140,Mario Mandzukic,0
+140_4,140,Franck Ribéry,0
+141_1,141,Francia,1
+141_2,141,España,0
+141_3,141,Portugal,0
+141_4,141,Bélgica,0
+142_1,142,Manchester United,1
+142_2,142,Chelsea,0
+142_3,142,Liverpool,0
+142_4,142,Barcelona,0
+143_1,143,Carlos Tevez,1
+143_2,143,Sergio Agüero,0
+143_3,143,Javier Mascherano,0
+143_4,143,Ezequiel Lavezzi,0
+144_1,144,Argentina,1
+144_2,144,Uruguay,0
+144_3,144,Chile,0
+144_4,144,Venezuela,0
+145_1,145,Estados Unidos,1
+145_2,145,Jamaica,0
+145_3,145,México,0
+145_4,145,Panamá,0
+146_1,146,FC Porto,1
+146_2,146,Benfica,0
+146_3,146,Sporting CP,0
+146_4,146,Braga,0
+147_1,147,David Moyes,1
+147_2,147,Louis van Gaal,0
+147_3,147,Jose Mourinho,0
+147_4,147,Ole Gunnar Solskjaer,0
+148_1,148,Argentina,1
+148_2,148,República Checa,0
+148_3,148,Chile,0
+148_4,148,Austria,0
+149_1,149,Suecia,1
+149_2,149,Nigeria,0
+149_3,149,Francia,0
+149_4,149,Italia,0
+150_1,150,Checoslovaquia,1
+150_2,150,Alemania Federal,0
+150_3,150,Holanda,0
+150_4,150,Yugoslavia,0
+151_1,151,Hakan Sukur,1
+151_2,151,Clint Dempsey,0
+151_3,151,Ronaldo,0
+151_4,151,Kylian Mbappé,0
+152_1,152,Cristiano Ronaldo,1
+152_2,152,Nani,0
+152_3,152,Pepe,0
+152_4,152,Joao Moutinho,0
+153_1,153,Italia,1
+153_2,153,Alemania Federal,0
+153_3,153,Polonia,0
+153_4,153,Francia,0
+154_1,154,Ajax,1
+154_2,154,AC Milan,0
+154_3,154,Juventus,0
+154_4,154,PSG,0
+155_1,155,Austria y Suiza,1
+155_2,155,Portugal,0
+155_3,155,Polonia y Ucrania,0
+155_4,155,Francia,0
+156_1,156,Pavel Nedved,1
+156_2,156,Thierry Henry,0
+156_3,156,Paolo Maldini,0
+156_4,156,Zinedine Zidane,0
+157_1,157,Inter de Milán,1
+157_2,157,Atalanta,0
+157_3,157,AC Milan,0
+157_4,157,Juventus,0
+158_1,158,Brasil,1
+158_2,158,Argentina,0
+158_3,158,Uruguay,0
+158_4,158,Colombia,0
+159_1,159,Gianluigi Buffon,1
+159_2,159,Francesco Toldo,0
+159_3,159,Angelo Peruzzi,0
+159_4,159,Gianluca Pagliuca,0
+160_1,160,Antoine Griezmann,1
+160_2,160,Cristiano Ronaldo,0
+160_3,160,Olivier Giroud,0
+160_4,160,Gareth Bale,0
+161_1,161,Alemania Federal,1
+161_2,161,URSS,0
+161_3,161,Bélgica,0
+161_4,161,Hungría,0
+162_1,162,Xabi Alonso,1
+162_2,162,Steven Gerrard,0
+162_3,162,Hernán Crespo,0
+162_4,162,Kaká,0
+163_1,163,Brasil,1
+163_2,163,Uruguay,0
+163_3,163,México,0
+163_4,163,Chile,0
+164_1,164,Real Madrid,1
+164_2,164,Atlético de Madrid,0
+164_3,164,Bayern Munich,0
+164_4,164,Chelsea,0
+165_1,165,Brasil,1
+165_2,165,Estados Unidos,0
+165_3,165,España,0
+165_4,165,Sudáfrica,0
+166_1,166,Chile,1
+166_2,166,Holanda,0
+166_3,166,Australia,0
+166_4,166,Brasil,0
+167_1,167,Bayern Munich,1
+167_2,167,Raja Casablanca,0
+167_3,167,Atlético Mineiro,0
+167_4,167,Chelsea,0
+168_1,168,Otto Rehhagel,1
+168_2,168,Luiz Felipe Scolari,0
+168_3,168,Fatih Terim,0
+168_4,168,Sven-Göran Eriksson,0
+169_1,169,Gerd Müller,1
+169_2,169,Robert Lewandowski,0
+169_3,169,Karl-Heinz Rummenigge,0
+169_4,169,Thomas Müller,0
+170_1,170,México,1
+170_2,170,Colombia,0
+170_3,170,España,0
+170_4,170,Brasil,0
+171_1,171,Zambia,1
+171_2,171,Costa de Marfil,0
+171_3,171,Ghana,0
+171_4,171,Mali,0
+172_1,172,Andrés Iniesta,1
+172_2,172,David Villa,0
+172_3,172,Fernando Torres,0
+172_4,172,Xavi Hernández,0
+173_1,173,Borussia Dortmund,1
+173_2,173,Juventus,0
+173_3,173,Manchester United,0
+173_4,173,Ajax,0
+174_1,174,Jorge Valdivia,1
+174_2,174,Juan Román Riquelme,0
+174_3,174,Pablo Aimar,0
+174_4,174,Ronaldinho,0
+175_1,175,Chile,1
+175_2,175,Argentina,0
+175_3,175,Paraguay,0
+175_4,175,Perú,0
+176_1,176,Italia,1
+176_2,176,Yugoslavia,0
+176_3,176,Inglaterra,0
+176_4,176,URSS,0
+177_1,177,Ucrania,1
+177_2,177,Rusia,0
+177_3,177,Polonia,0
+177_4,177,Bielorrusia,0
+178_1,178,Real Madrid,1
+178_2,178,Juventus,0
+178_3,178,Mónaco,0
+178_4,178,Borussia Dortmund,0
+179_1,179,Ángel Di María,1
+179_2,179,Lionel Messi,0
+179_3,179,Lautaro Martínez,0
+179_4,179,Rodrigo De Paul,0
+180_1,180,Alejandro Sabella,1
+180_2,180,Gerardo Martino,0
+180_3,180,Diego Maradona,0
+180_4,180,Jorge Sampaoli,0
+181_1,181,Estados Unidos,1
+181_2,181,Panamá,0
+181_3,181,México,0
+181_4,181,Honduras,0
+182_1,182,Harry Kane,1
+182_2,182,Kylian Mbappé,0
+182_3,182,Romelu Lukaku,0
+182_4,182,Antoine Griezmann,0
+183_1,183,AC Milan,1
+183_2,183,AS Roma,0
+183_3,183,Liverpool,0
+183_4,183,Benfica,0
+184_1,184,Europa (Multisede),1
+184_2,184,Inglaterra,0
+184_3,184,Alemania,0
+184_4,184,Francia,0
+185_1,185,Rivaldo,1
+185_2,185,David Beckham,0
+185_3,185,Zinedine Zidane,0
+185_4,185,Andriy Shevchenko,0
+186_1,186,Inglaterra,1
+186_2,186,Alemania Federal,0
+186_3,186,Portugal,0
+186_4,186,URSS,0
+187_1,187,FC Barcelona,1
+187_2,187,Manchester United,0
+187_3,187,Chelsea,0
+187_4,187,Arsenal,0
+188_1,188,Uruguay,1
+188_2,188,Brasil,0
+188_3,188,Paraguay,0
+188_4,188,Perú,0
+189_1,189,Iker Casillas,1
+189_2,189,Pepe Reina,0
+189_3,189,Víctor Valdés,0
+189_4,189,David de Gea,0
+190_1,190,España,1
+190_2,190,Italia,0
+190_3,190,Argentina,0
+190_4,190,México,0
+191_1,191,Lionel Messi,1
+191_2,191,Andrés Iniesta,0
+191_3,191,Xavi Hernández,0
+191_4,191,Wesley Sneijder,0
+192_1,192,Holanda,1
+192_2,192,URSS,0
+192_3,192,Alemania Federal,0
+192_4,192,Italia,0
+193_1,193,Carlos Alberto Parreira,1
+193_2,193,Mario Zagallo,0
+193_3,193,Arrigo Sacchi,0
+193_4,193,Alfio Basile,0
+194_1,194,Argentina,1
+194_2,194,México,0
+194_3,194,Colombia,0
+194_4,194,Ecuador,0
+195_1,195,FC Barcelona,1
+195_2,195,Al Sadd,0
+195_3,195,Espanyol,0
+195_4,195,Girona,0
+196_1,196,Ryan Giggs,1
+196_2,196,Kevin De Bruyne,0
+196_3,196,Cesc Fàbregas,0
+196_4,196,Wayne Rooney,0
+197_1,197,FC Barcelona,1
+197_2,197,Manchester United,0
+197_3,197,Real Madrid,0
+197_4,197,Schalke 04,0
+198_1,198,México,1
+198_2,198,Estados Unidos,0
+198_3,198,Honduras,0
+198_4,198,Costa Rica,0
+199_1,199,Gareth Bale,1
+199_2,199,Karim Benzema,0
+199_3,199,Sadio Mané,0
+199_4,199,Cristiano Ronaldo,0
+200_1,200,Francia,1
+200_2,200,Japón,0
+200_3,200,Australia,0
+200_4,200,Brasil,0
+201_1,201,Uruguay,1
+201_2,201,Argentina,0
+201_3,201,Estados Unidos,0
+201_4,201,Yugoslavia,0
+202_1,202,Argentina,1
+202_2,202,Uruguay,0
+202_3,202,Brasil,0
+202_4,202,Chile,0
+203_1,203,Lucien Laurent,1
+203_2,203,Guillermo Stábile,0
+203_3,203,Bert Patenaude,0
+203_4,203,Just Fontaine,0
+204_1,204,Just Fontaine,1
+204_2,204,Gerd Müller,0
+204_3,204,Ronaldo,0
+204_4,204,Miroslav Klose,0
+205_1,205,1954,1
+205_2,205,1958,0
+205_3,205,1950,0
+205_4,205,1962,0
+206_1,206,Argelia,1
+206_2,206,Nigeria,0
+206_3,206,Camerún,0
+206_4,206,Egipto,0
+207_1,207,Carlos Bianchi,1
+207_2,207,Marcelo Gallardo,0
+207_3,207,Luiz Felipe Scolari,0
+207_4,207,Telê Santana,0
+208_1,208,Sheffield FC,1
+208_2,208,Notts County,0
+208_3,208,Recreativo de Huelva,0
+208_4,208,Genoa,0
+209_1,209,1904,1
+209_2,209,1930,0
+209_3,209,1890,0
+209_4,209,1910,0
+210_1,210,Brasil,1
+210_2,210,Australia,0
+210_3,210,Francia,0
+210_4,210,República Checa,0
+211_1,211,Sándor Kocsis,1
+211_2,211,Ferenc Puskás,0
+211_3,211,Fritz Walter,0
+211_4,211,Helmut Rahn,0
+212_1,212,Real Madrid,1
+212_2,212,Reims,0
+212_3,212,Benfica,0
+212_4,212,Milan,0
+213_1,213,Brasil,1
+213_2,213,España,0
+213_3,213,Suecia,0
+213_4,213,Yugoslavia,0
+214_1,214,Enzo Bearzot,1
+214_2,214,Arrigo Sacchi,0
+214_3,214,Vittorio Pozzo,0
+214_4,214,Giovanni Trapattoni,0
+215_1,215,Norberto Méndez,1
+215_2,215,Ademir,0
+215_3,215,Obdulio Varela,0
+215_4,215,Teodoro Fernández,0
+216_1,216,México,1
+216_2,216,Estados Unidos,0
+216_3,216,Costa Rica,0
+216_4,216,Canadá,0
+217_1,217,Checoslovaquia,1
+217_2,217,Alemania Federal,0
+217_3,217,Holanda,0
+217_4,217,Yugoslavia,0
+218_1,218,Racing Club,1
+218_2,218,Celtic,0
+218_3,218,Estudiantes,0
+218_4,218,Independiente,0
+219_1,219,Juan Francia,1
+219_2,219,Arthur Friedenreich,0
+219_3,219,Héctor Scarone,0
+219_4,219,Angel Romano,0
+220_1,220,Nigeria,1
+220_2,220,Zambia,0
+220_3,220,Costa de Marfil,0
+220_4,220,Túnez,0
+221_1,221,Boca Juniors,1
+221_2,221,River Plate,0
+221_3,221,Independiente,0
+221_4,221,Racing Club,0
+222_1,222,Italia,1
+222_2,222,Checoslovaquia,0
+222_3,222,Alemania,0
+222_4,222,Austria,0
+223_1,223,Geoff Hurst,1
+223_2,223,Bobby Charlton,0
+223_3,223,Franz Beckenbauer,0
+223_4,223,Uwe Seeler,0
+224_1,224,Italia,1
+224_2,224,Yugoslavia,0
+224_3,224,Inglaterra,0
+224_4,224,España,0
+225_1,225,Uruguay,1
+225_2,225,Chile,0
+225_3,225,Colombia,0
+225_4,225,Argentina,0
+226_1,226,Hamburgo,1
+226_2,226,Juventus,0
+226_3,226,Liverpool,0
+226_4,226,Real Sociedad,0
+227_1,227,Salvatore Schillaci,1
+227_2,227,Lothar Matthäus,0
+227_3,227,Roger Milla,0
+227_4,227,Diego Maradona,0
+228_1,228,Alemania Federal,1
+228_2,228,URSS,0
+228_3,228,Bélgica,0
+228_4,228,Hungría,0
+229_1,229,São Paulo,1
+229_2,229,Barcelona,0
+229_3,229,Colo-Colo,0
+229_4,229,Milan,0
+230_1,230,Lionel Messi,1
+230_2,230,Lothar Matthäus,0
+230_3,230,Miroslav Klose,0
+230_4,230,Cristiano Ronaldo,0
+231_1,231,Argentina,1
+231_2,231,Paraguay,0
+231_3,231,Uruguay,0
+231_4,231,Ecuador,0
+232_1,232,Italia,1
+232_2,232,Bélgica,0
+232_3,232,Alemania Federal,0
+232_4,232,Francia,0
+233_1,233,Real Zaragoza,1
+233_2,233,Arsenal,0
+233_3,233,Parma,0
+233_4,233,PSG,0
+234_1,234,Vicente Feola,1
+234_2,234,Aymoré Moreira,0
+234_3,234,Flávio Costa,0
+234_4,234,Mário Zagallo,0
+235_1,235,Brasil,1
+235_2,235,Chile,0
+235_3,235,Colombia,0
+235_4,235,Paraguay,0
+236_1,236,Grzegorz Lato,1
+236_2,236,Johan Cruyff,0
+236_3,236,Gerd Müller,0
+236_4,236,Johan Neeskens,0
+237_1,237,AC Milan,1
+237_2,237,Steaua Bucarest,0
+237_3,237,Real Madrid,0
+237_4,237,Benfica,0
+238_1,238,Ottmar Hitzfeld,1
+238_2,238,Marcello Lippi,0
+238_3,238,Jupp Heynckes,0
+238_4,238,Fabio Capello,0
+239_1,239,Anatoli Ilyin,1
+239_2,239,Lev Yashin,0
+239_3,239,Raymond Kopa,0
+239_4,239,Just Fontaine,0
+240_1,240,Alemania Federal,1
+240_2,240,Inglaterra,0
+240_3,240,México,0
+240_4,240,Argentina,0
+241_1,241,Camerún,1
+241_2,241,Nigeria,0
+241_3,241,Argelia,0
+241_4,241,Egipto,0
+242_1,242,Marco van Basten,1
+242_2,242,Ruud Gullit,0
+242_3,242,Rudi Völler,0
+242_4,242,Ronald Koeman,0
+243_1,243,Bayern Munich,1
+243_2,243,Saint-Étienne,0
+243_3,243,Borussia Mönchengladbach,0
+243_4,243,Leeds United,0
+244_1,244,Argentina,1
+244_2,244,Uruguay,0
+244_3,244,Chile,0
+244_4,244,Brasil,0
+245_1,245,Italia,1
+245_2,245,Hungría,0
+245_3,245,Brasil,0
+245_4,245,Suecia,0
+246_1,246,España,1
+246_2,246,URSS,0
+246_3,246,Hungría,0
+246_4,246,Dinamarca,0
+247_1,247,Waldir Peres,1
+247_2,247,Gilmar,0
+247_3,247,Leao,0
+247_4,247,Taffarel,0
+248_1,248,Sudáfrica,1
+248_2,248,Túnez,0
+248_3,248,Ghana,0
+248_4,248,Zambia,0
+249_1,249,Ajax,1
+249_2,249,Juventus,0
+249_3,249,Inter,0
+249_4,249,Panathinaikos,0
+250_1,250,Francisco Maturana,1
+250_2,250,Hernán Darío Gómez,0
+250_3,250,José Pekerman,0
+250_4,250,Reinaldo Rueda,0
+251_1,251,Alemania Federal,1
+251_2,251,URSS,0
+251_3,251,Bélgica,0
+251_4,251,Inglaterra,0
+252_1,252,Senegal,1
+252_2,252,Costa de Marfil,0
+252_3,252,Marruecos,0
+252_4,252,Sudáfrica,0
+253_1,253,Alemania Federal,1
+253_2,253,Hungría,0
+253_3,253,Austria,0
+253_4,253,Uruguay,0
+254_1,254,Garrincha,1
+254_2,254,Pelé,0
+254_3,254,Amarildo,0
+254_4,254,Uwe Seeler,0
+255_1,255,Nacional,1
+255_2,255,Panathinaikos,0
+255_3,255,Ajax,0
+255_4,255,Estudiantes,0
+256_1,256,Karl-Heinz Rummenigge,1
+256_2,256,Bernd Schuster,0
+256_3,256,Michel Platini,0
+256_4,256,Kevin Keegan,0
+257_1,257,Uruguay,1
+257_2,257,Argentina,0
+257_3,257,Perú,0
+257_4,257,Chile,0
+258_1,258,Ajax,1
+258_2,258,Inter,0
+258_3,258,Benfica,0
+258_4,258,Celtic,0
+259_1,259,Michel Hidalgo,1
+259_2,259,Aimé Jacquet,0
+259_3,259,Raymond Domenech,0
+259_4,259,Roger Lemerre,0
+260_1,260,Ghana,1
+260_2,260,Uganda,0
+260_3,260,Nigeria,0
+260_4,260,Túnez,0
+261_1,261,KV Mechelen,1
+261_2,261,Ajax,0
+261_3,261,Anderlecht,0
+261_4,261,Atalanta,0
+262_1,262,Frank Rijkaard,1
+262_2,262,Marco van Basten,0
+262_3,262,Ruud Gullit,0
+262_4,262,Giovanni van Bronckhorst,0
+263_1,263,Brasil,1
+263_2,263,España,0
+263_3,263,Suecia,0
+263_4,263,Inglaterra,0
+264_1,264,Liverpool,1
+264_2,264,Roma,0
+264_3,264,Dundee United,0
+264_4,264,Dinamo Bucarest,0
+265_1,265,Alberto Suppici,1
+265_2,265,Juan Francisco Dombos,0
+265_3,265,Francisco Olazar,0
+265_4,265,Guillermo Stábile,0
+266_1,266,Argentina,1
+266_2,266,Brasil,0
+266_3,266,Paraguay,0
+266_4,266,Uruguay,0
+267_1,267,Santos,1
+267_2,267,Milan,0
+267_3,267,Benfica,0
+267_4,267,Boca Juniors,0
+268_1,268,Dieter Müller,1
+268_2,268,Gerd Müller,0
+268_3,268,Dragan Dzajic,0
+268_4,268,Antonin Panenka,0
+269_1,269,Suecia,1
+269_2,269,Suiza,0
+269_3,269,Brasil,0
+269_4,269,Chile,0
+270_1,270,Marruecos,1
+270_2,270,Guinea,0
+270_3,270,Nigeria,0
+270_4,270,Egipto,0
+271_1,271,Atlético Nacional,1
+271_2,271,Olimpia,0
+271_3,271,Peñarol,0
+271_4,271,Danubio,0
+272_1,272,Richard Moller Nielsen,1
+272_2,272,Berti Vogts,0
+272_3,272,Rinus Michels,0
+272_4,272,Tommy Svensson,0
+273_1,273,Denis Law,1
+273_2,273,Luis Suárez,0
+273_3,273,Eusebio,0
+273_4,273,Bobby Charlton,0
+274_1,274,Uruguay,1
+274_2,274,Argentina,0
+274_3,274,Chile,0
+274_4,274,Paraguay,0
+275_1,275,Nottingham Forest,1
+275_2,275,Hamburgo,0
+275_3,275,Malmö FF,0
+275_4,275,Liverpool,0
+276_1,276,Gary Lineker,1
+276_2,276,Diego Maradona,0
+276_3,276,Careca,0
+276_4,276,Emilio Butragueño,0
+277_1,277,Checoslovaquia,1
+277_2,277,Alemania Federal,0
+277_3,277,Holanda,0
+277_4,277,Yugoslavia,0
+278_1,278,Vélez Sarsfield,1
+278_2,278,Milan,0
+278_3,278,São Paulo,0
+278_4,278,Barcelona,0
+279_1,279,Yugoslavia,1
+279_2,279,Italia,0
+279_3,279,Bélgica,0
+279_4,279,Alemania,0
+280_1,280,Steaua Bucarest,1
+280_2,280,Barcelona,0
+280_3,280,Anderlecht,0
+280_4,280,Goteborg,0
+281_1,281,Sepp Herberger,1
+281_2,281,Helmut Schön,0
+281_3,281,Gusztáv Sebes,0
+281_4,281,Rudolf Illovszky,0
+282_1,282,Sudán,1
+282_2,282,Ghana,0
+282_3,282,Egipto,0
+282_4,282,Costa de Marfil,0
+283_1,283,Olimpia,1
+283_2,283,Boca Juniors,0
+283_3,283,Independiente,0
+283_4,283,Peñarol,0
+284_1,284,Guillermo Stábile,1
+284_2,284,Pedro Cea,0
+284_3,284,Guillermo Subiabre,0
+284_4,284,Luis Monti,0
+285_1,285,URSS,1
+285_2,285,Yugoslavia,0
+285_3,285,España,0
+285_4,285,Hungría,0
+286_1,286,PSV Eindhoven,1
+286_2,286,Benfica,0
+286_3,286,Real Madrid,0
+286_4,286,Milan,0
+287_1,287,Perú,1
+287_2,287,Uruguay,0
+287_3,287,Paraguay,0
+287_4,287,Chile,0
+288_1,288,Allan Simonsen,1
+288_2,288,Kevin Keegan,0
+288_3,288,Michel Platini,0
+288_4,288,Johan Cruyff,0
+289_1,289,Nigeria,1
+289_2,289,Argelia,0
+289_3,289,Marruecos,0
+289_4,289,Egipto,0
+290_1,290,Olimpia,1
+290_2,290,Malmö FF,0
+290_3,290,Nottingham Forest,0
+290_4,290,Nacional,0
+291_1,291,Francia,1
+291_2,291,España,0
+291_3,291,Italia,0
+291_4,291,Portugal,0
+292_1,292,Perú,1
+292_2,292,Colombia,0
+292_3,292,Brasil,0
+292_4,292,Uruguay,0
+293_1,293,Nottingham Forest,1
+293_2,293,Malmö FF,0
+293_3,293,Liverpool,0
+293_4,293,Austria Viena,0
+294_1,294,Albert Batteux,1
+294_2,294,Just Fontaine,0
+294_3,294,Raymond Kopa,0
+294_4,294,Jean Vincent,0
+295_1,295,Italia,1
+295_2,295,Yugoslavia,0
+295_3,295,Inglaterra,0
+295_4,295,URSS,0
+296_1,296,Palmeiras,1
+296_2,296,Juventus,0
+296_3,296,Vasco da Gama,0
+296_4,296,Nice,0
+297_1,297,Gerd Müller,1
+297_2,297,Jairzinho,0
+297_3,297,Pelé,0
+297_4,297,Teófilo Cubillas,0
+298_1,298,Alemania Federal,1
+298_2,298,Bélgica,0
+298_3,298,Checoslovaquia,0
+298_4,298,Italia,0
+299_1,299,Ajax,1
+299_2,299,Panathinaikos,0
+299_3,299,Everton,0
+299_4,299,Feyenoord,0
+300_1,300,Alfio Basile,1
+300_2,300,Miguel Mejía Barón,0
+300_3,300,Xabier Azkargorta,0
+300_4,300,Francisco Maturana,0
