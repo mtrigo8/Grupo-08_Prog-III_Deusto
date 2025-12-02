@@ -9,14 +9,19 @@ import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 import domain.Opcion;
 import domain.Pregunta;
+import domain.Pregunta.Dificultad;
 
 public class GestorBDQuiz {
 	private String PREGUNTAS_CSV = "resources/data/preguntas.csv";
@@ -29,7 +34,7 @@ public class GestorBDQuiz {
 	private String databaseFile;
 	private String connectionString;
 	
-	private static Logger logger = Logger.getLogger(GestorBD.class.getName());
+	private static Logger logger = Logger.getLogger(GestorBDQuiz.class.getName());
 	public GestorBDQuiz() {
 		try (FileInputStream fis = new FileInputStream("resources/config/logger.properties")) {
 			//Inicialización del Logger
@@ -64,11 +69,11 @@ public class GestorBDQuiz {
 		}
 	}
 	// Inicializa los datos de la BBDD desde varios CSV
-	public void initilizeFromCSV() {
+	public void initilizeQuizFromCSV() {
 		//Sólo se inicializa la BBDD si la propiedad initBBDD es true.
-		if (properties.get("loadCSV").equals("true")) {
+		if (properties.get("loadCSVQuiz").equals("true")) {
 			//Se borran los datos, si existía alguno
-			this.borrarDatos();
+			this.borrarDatosQuiz();
 			
 			//Se leen las preguntas del CSV
 			List<Pregunta> preguntas = this.cargarCSVPreguntas();
@@ -83,7 +88,7 @@ public class GestorBDQuiz {
 		}
 		
 	}
-	public void crearBBDD() {
+	public void crearBBDDQuiz() {
 		 // Verificar si el archivo de BBDD ya existe
 	    File dbFile = new File(databaseFile);
 	    
@@ -93,7 +98,7 @@ public class GestorBDQuiz {
 	    }
 	    
 		//Sólo se crea la BBDD si la propiedad initBBDD es true.
-		if (properties.get("createBBDD").equals("true")) {
+		if (properties.get("createBBDDQuiz").equals("true")) {
 			//La base de datos tiene 3 tablas: Personaje, Comic y Personajes_Comic
 			String sql1 = "CREATE TABLE IF NOT EXISTS pregunta (\n"
 	                + " cod_pregunta INTEGER PRIMARY KEY,\n"
@@ -134,9 +139,9 @@ public class GestorBDQuiz {
 			}
 		}
 	}
-	public void borrarBBDD() {
+	public void borrarBBDDQuiz() {
 		//Sólo se borra la BBDD si la propiedad deleteBBDD es true
-		if (properties.get("deleteBBDD").equals("true")) {	
+		if (properties.get("deleteBBDDQuiz").equals("true")) {	
 			String sql1 = "DROP TABLE IF EXISTS pregunta;";
 			String sql2 = "DROP TABLE IF EXISTS opcion";
 			String sql3 = "DROP TABLE IF EXISTS usuario;";
@@ -164,9 +169,9 @@ public class GestorBDQuiz {
 			}
 		}
 	}
-	public void borrarDatos() {
+	public void borrarDatosQuiz() {
 		//Sólo se borran los datos si la propiedad cleanBBDD es true
-		if (properties.get("cleanBBDD").equals("true")) {	
+		if (properties.get("cleanBBDDQuiz").equals("true")) {	
 			String sql1 = "DELETE FROM pregunta;";
 			String sql2 = "DELETE FROM opcion;";
 			String sql3 = "DELETE FROM usuario;";
@@ -211,7 +216,7 @@ public class GestorBDQuiz {
 	// Añade las preguntas a la BBDD
 	private void insertarPreguntas (ArrayList<Pregunta> preguntas) {
 		//Definir la sentencia de SQl
-		String sql = "INSERT INTO preguntas (cod_pregunta, pregunta, dificultad, categoria) VALUES (?, ?, ?, ?) ";
+		String sql = "INSERT INTO pregunta (cod_pregunta, pregunta, dificultad, categoria) VALUES (?, ?, ?, ?) ";
 		try (Connection con = DriverManager.getConnection(connectionString);
 				 PreparedStatement pStmt = con.prepareStatement(sql)) {
 										
@@ -279,5 +284,75 @@ public class GestorBDQuiz {
 			logger.warning(String.format("Error leyendo opciones del CSV: %s", ex.getMessage()));
 		}
 		return opciones;
+	}
+	
+	// Seleccionar una pregunta aleatoria diferente a las seleccionadas previamente
+	
+	public Pregunta cargarPreguntaAleatoria (Set<Pregunta> preguntasMostradas) {
+		String sql1 = "SELECT * FROM pregunta "+
+					"WHERE cod_pregunta NOT IN ("+ getIdsExcluidos(preguntasMostradas) +")" + 
+					"ORDERED BY RANDOM() LIMIT 1";
+		Pregunta pregAleatoria = null;
+		try (Connection con = DriverManager.getConnection(connectionString);
+				PreparedStatement pst = con.prepareStatement(sql1)){
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				int cod_pregunta = rs.getInt("cod_pregunta");
+				String pregunta = rs.getString("pregunta");
+				Dificultad dif = Dificultad.valueOf(rs.getString("dificultad").toUpperCase());
+				String categoria = rs.getString("categoria");
+				
+				pregAleatoria = new Pregunta(cod_pregunta, pregunta, dif, categoria);
+				preguntasMostradas.add(pregAleatoria);
+				}
+		} catch (Exception e) {
+			System.err.println("Error al seleccionar la pregunta de la base de datos: " +e.getMessage());
+		}
+		
+		return pregAleatoria;
+	}
+	public List<Opcion> cargarOpcionesDePregunta (Pregunta pregunta){
+		List<Opcion> opciones = new ArrayList<Opcion>();
+		
+		String sql = "SELECT * FROM opcion WHERE cod_pregunta = ?";
+		
+		try (Connection con = DriverManager.getConnection(connectionString);
+				PreparedStatement pst = con.prepareStatement(sql)){
+			pst.setInt(1, pregunta.getCodigo());
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next()) {
+	            String textoOpcion = rs.getString("texto_opcion");
+	            int esCorrecta = rs.getInt("es_correcta");
+	            int codPregunta = rs.getInt("cod_pregunta");
+	            
+	            opciones.add(new Opcion(codPregunta, textoOpcion, esCorrecta));
+			}
+			
+		} catch (Exception e) {
+			System.err.println("Error al cargar opciones de la pregunta: " + e.getMessage());
+		}
+		return opciones;
+	}
+	private String getIdsExcluidos (Set<Pregunta> preguntasMostradas) {
+		//Si las preguntas mostradas son null o esta vacio el set no hay preguntas 
+		//entonces se pone -1 (No hay ningun codigo de preguntacon -1)
+		if (preguntasMostradas == null || preguntasMostradas.isEmpty()){
+			return "-1";
+		}
+		
+		StringBuilder sb = new StringBuilder();
+	    Iterator<Pregunta> iterator = preguntasMostradas.iterator();
+	    
+	    while (iterator.hasNext()) {
+	        sb.append(iterator.next().getCodigo());
+	        if (iterator.hasNext()) {
+	            sb.append(",");
+	        }
+	    }
+	    
+	    return sb.toString();
+		
 	}
 }

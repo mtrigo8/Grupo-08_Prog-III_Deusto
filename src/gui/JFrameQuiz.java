@@ -8,6 +8,8 @@ import java.awt.GridLayout;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -18,6 +20,7 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
 import domain.Liga;
+import domain.Pregunta;
 
 
 public class JFrameQuiz extends JFramePadre{
@@ -36,6 +39,7 @@ public class JFrameQuiz extends JFramePadre{
 	private JPanel tiempo;
 	private JPanel panelPuntuacion;
 	private JLabel lblPuntuacion;
+	private Set<Pregunta> preguntasUsadas;
 	
 	public JFrameQuiz (ArrayList<Liga> ligas, JFramePadre frameP) {
 		super();
@@ -83,6 +87,8 @@ public class JFrameQuiz extends JFramePadre{
         botonInicio.addActionListener(e -> {
         	this.quizIniciado();
         	contadorQuiz.start();
+        	preguntasUsadas = new HashSet<Pregunta>();
+        	
         });
         
         panelQuiz.add(botonInicio, BorderLayout.SOUTH);
