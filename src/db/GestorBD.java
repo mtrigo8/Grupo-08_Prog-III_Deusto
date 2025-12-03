@@ -23,6 +23,7 @@ import domain.Liga;
 
 
 public class GestorBD {
+	//Hasta el momento falta borrar un elemento conseguirlo y actualizarlo
 	
 	private final String PROPERTIES_FILE = "resources/config/app.properties";
 	private final String CSV_LALIGA = "resources/data/laliga_calendario.csv";
@@ -245,6 +246,7 @@ public class GestorBD {
 			logger.warning(String.format("Error al insertar personajes: %s", ex.getMessage()));
 		}			
 	}
+	
 	
 	/**
 	 * Inserta Comics en la BBDD
@@ -565,9 +567,9 @@ public class GestorBD {
 			try (PrintWriter out = new PrintWriter(new File(CSV_LIGAS))) {
 				out.println("NOMBRE;PAIS;NTITULOS");
 				ligas.forEach(l -> out.println(l.getNombre() + ";" + l.getPais() + ";" + l.getNumeroEquipos() + ";"));			
-				logger.info("Se han guardado los comics en un CSV.");
+				logger.info("Se han guardado los ligas en un CSV.");
 			} catch (Exception ex) {
-				logger.warning(String.format("Error guardando comics en el CSV: %s", ex.getMessage()));
+				logger.warning(String.format("Error guardando ligas en el CSV: %s", ex.getMessage()));
 			}
 		}
 	}
@@ -577,10 +579,10 @@ public class GestorBD {
 		if (equipos != null) {
 			try (PrintWriter out = new PrintWriter(new File(CSV_EQUIPOS))) {
 				out.println("NOMBRE;CIUDAD;LIGA;ANYOFUNDACION;TITULOS;ESTADIO;NOMBREFICHERO");
-				equipos.forEach(p -> out.println());
-				logger.info("Se han guardado los personajes en un CSV.");
+				equipos.forEach(e -> out.println(e.getNombre() + ";" + e.getCiudad() + ";" + e.getLiga().getNombre() + ";" + e.getAnyoFundacion() + ";" + e.getTitulos() + ";" + e.getEstadio() + ";" + e.getNombrePNGEquipo()));
+				logger.info("Se han guardado los equipos en un CSV.");
 			} catch (Exception ex) {
-				logger.warning(String.format("Error guardando personajes en el CSV: %s", ex.getMessage()));
+				logger.warning(String.format("Error guardando equipos en el CSV: %s", ex.getMessage()));
 			}			
 		}
 	}
