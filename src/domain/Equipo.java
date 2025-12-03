@@ -16,6 +16,7 @@ public class Equipo implements Comparable<Equipo> {
 	private String estadio;
 	private String	nombrePNGEquipo;
 	private int partidosJugados;
+	private String nombreLiga;
 	
 	private int puntos;
 	private int goles;
@@ -32,6 +33,19 @@ public class Equipo implements Comparable<Equipo> {
 		this.estadio = estadio;
 		this.nombrePNGEquipo = nombrePNGEquipo;
 	}
+	public Equipo(String nombre, String ciudad, Liga liga, int anyoFundacion, int titulos,
+			String estadio, String nombrePNGEquipo, String nombreLiga) {
+		super();
+		this.jugadores = new HashMap<TipoPosicion, ArrayList<Jugador>>();
+		this.nombre = nombre;
+		this.ciudad = ciudad;
+		this.liga = liga;
+		this.anyoFundacion = anyoFundacion;
+		this.titulos = titulos;
+		this.estadio = estadio;
+		this.nombrePNGEquipo = nombrePNGEquipo;
+		this.nombreLiga = nombreLiga;
+	}
 	public int getPartidosJugados() {
 		return this.partidosJugados;
 	}
@@ -39,6 +53,9 @@ public class Equipo implements Comparable<Equipo> {
 	
 	public void actualizarPartidos() {
 		this.partidosJugados+=1;
+	}
+	public String getNomLiga() {
+		return this.nombreLiga;
 	}
 
 	public int getGoles() {
