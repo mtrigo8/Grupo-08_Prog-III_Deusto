@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.TreeMap;
 
+import db.GestorBDQuiz;
 import domain.Equipo;
 import domain.Jugador;
 import domain.Jugador.TipoPosicion;
@@ -18,6 +19,11 @@ import gui.JFrameInicio;
 public class Main {
 
 	public static void main(String[] args) {
+		GestorBDQuiz gbdq = new GestorBDQuiz();
+	
+		gbdq.crearBBDDQuiz();
+		gbdq.initilizeQuizFromCSV();
+		
 		ArrayList<Liga> ligas = new ArrayList<Liga>();
 		Liga laLiga = new Liga("LaLiga", "España", 20, null);
 		Liga premier = new Liga("Premier", "Inglaterra", 20, null);

@@ -84,6 +84,13 @@ public class Pregunta {
 		Pregunta other = (Pregunta) obj;
 		return codigo == other.codigo;
 	}
+
+	@Override
+	public String toString() {
+		return "Pregunta [pregunta=" + pregunta + "?]";
+	}
+
+	
 	
 }
 

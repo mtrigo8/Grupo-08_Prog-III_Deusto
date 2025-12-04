@@ -103,15 +103,15 @@ public class GestorBDQuiz {
 			String sql1 = "CREATE TABLE IF NOT EXISTS pregunta (\n"
 	                + " cod_pregunta INTEGER PRIMARY KEY,\n"
 	                + " pregunta TEXT NOT NULL,\n"
-	                + " dificultad TEXT NOT NULL CHECK(dificultad IN ('Facil', 'Media', 'Dificil')),\n"
+	                + " dificultad TEXT NOT NULL CHECK(dificultad IN ('FACIL', 'MEDIA', 'DIFICIL')),\n"
 	                + " categoria TEXT NOT NULL\n"
 	                + " );";
 	
 			String sql2 = "CREATE TABLE IF NOT EXISTS opcion (\n"
-	                + " cod_opcion INTEGER PRIMARY KEY AUTOINCREMENT,\n"
+	                + " cod_opcion INTEGER UNIQUE PRIMARY KEY AUTOINCREMENT,\n"
 	                + " cod_pregunta INTEGER NOT NULL,\n"
-	                + " opcion TEXT UNIQUE NOT NULL\n"
-	                + " es_correcta INTEGER NOT NULL DEFAULT 0\n"
+	                + " opcion TEXT NOT NULL,\n"
+	                + " es_correcta INTEGER NOT NULL DEFAULT 0,\n"
 	                + " FOREIGN KEY(cod_pregunta) REFERENCES pregunta(cod_pregunta) ON DELETE CASCADE\n"
 	                +" ON UPDATE CASCADE\n"
 	                + ");"; 
@@ -135,6 +135,7 @@ public class GestorBDQuiz {
 		        	logger.info("Se han creado las tablas");
 		        }
 			} catch (Exception ex) {
+				System.out.println("aaa");
 				logger.warning(String.format("Error al crear las tablas: %s", ex.getMessage()));
 			}
 		}
@@ -225,8 +226,8 @@ public class GestorBDQuiz {
 					//Se añaden los parámetros al PreparedStatement
 					pStmt.setInt(1, p.getCodigo());
 					pStmt.setString(2, p.getPregunta());
-					pStmt.setString(3, p.getCategoria());
-					pStmt.setString(4, p.getDificultad().toString());
+					pStmt.setString(3, p.getDificultad().toString()); 
+	                pStmt.setString(4, p.getCategoria());
 					
 					if (pStmt.executeUpdate() != 1) {					
 						logger.warning(String.format("No se ha insertado el Personaje: %s", p));
@@ -253,9 +254,9 @@ public class GestorBDQuiz {
 					pStmt.setInt(3, o.getEs_correcta());
 					
 					if (pStmt.executeUpdate() != 1) {					
-						logger.warning(String.format("No se ha insertado el Personaje: %s", o));
+						logger.warning(String.format("No se ha insertado la opcion: %d", o.getCod_opcion()));
 					} else {				
-						logger.info(String.format("Se ha insertado el Personaje: %s", o));
+						logger.info(String.format("Se ha insertado la opcion: %d", o.getCod_opcion()));
 					}
 				}
 				
@@ -291,7 +292,7 @@ public class GestorBDQuiz {
 	public Pregunta cargarPreguntaAleatoria (Set<Pregunta> preguntasMostradas) {
 		String sql1 = "SELECT * FROM pregunta "+
 					"WHERE cod_pregunta NOT IN ("+ getIdsExcluidos(preguntasMostradas) +")" + 
-					"ORDERED BY RANDOM() LIMIT 1";
+					"ORDER BY RANDOM() LIMIT 1";
 		Pregunta pregAleatoria = null;
 		try (Connection con = DriverManager.getConnection(connectionString);
 				PreparedStatement pst = con.prepareStatement(sql1)){

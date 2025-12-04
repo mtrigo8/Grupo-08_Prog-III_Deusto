@@ -2,13 +2,17 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.swing.BorderFactory;
@@ -19,7 +23,9 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
+import db.GestorBDQuiz;
 import domain.Liga;
+import domain.Opcion;
 import domain.Pregunta;
 
 
@@ -30,16 +36,27 @@ public class JFrameQuiz extends JFramePadre{
 	 */
 	private static final long serialVersionUID = 1L;
 	private ArrayList <Liga> ligas;
-	private JLabel lblTiempo;
-	private int TIEMPO = 10;
 	private JPanel panelQuiz;
 	private HiloQuiz contadorQuiz;
-	private JPanel panelTiempoYPuntos;
-	private JPanel panelPreguntaYRespuesta;
+	//Tiempo
+	private int TIEMPO = 10;
 	private JPanel tiempo;
+	private JLabel lblTiempo;
+	private JPanel panelTiempoYPuntos;
+	//Puntuacion
 	private JPanel panelPuntuacion;
 	private JLabel lblPuntuacion;
-	private Set<Pregunta> preguntasUsadas;
+	private int puntuacion;
+	//Preguntas
+	private JPanel panelPregunta;
+	private Set<Pregunta> preguntasUsadas; //Asegura que las preguntas del quiz seran todas diferentes
+	private Pregunta pregunta;
+	private JPanel panelPreguntaYRespuesta;
+	//Respuestas
+	private JPanel panelRespuestas;
+	private List<Opcion> opciones;
+	//Gestor de base de datos
+	private GestorBDQuiz GBDQ;
 	
 	public JFrameQuiz (ArrayList<Liga> ligas, JFramePadre frameP) {
 		super();
@@ -48,6 +65,8 @@ public class JFrameQuiz extends JFramePadre{
 		usoBotonAtras(super.framePrevio);
 		//Creacion del thread
 		contadorQuiz = new HiloQuiz();
+		//Inicializar el Gestor BD
+		GBDQ = new GestorBDQuiz();
 		JPanel panel = super.panel;
 		setImagenDeFondo(null);
 		panel.setOpaque(true);
@@ -87,7 +106,6 @@ public class JFrameQuiz extends JFramePadre{
         botonInicio.addActionListener(e -> {
         	this.quizIniciado();
         	contadorQuiz.start();
-        	preguntasUsadas = new HashSet<Pregunta>();
         	
         });
         
@@ -96,7 +114,8 @@ public class JFrameQuiz extends JFramePadre{
 	// Pantalla del juego
 	private void quizIniciado() {
 		panelQuiz.removeAll();
-		
+		//Reiniciar el Set de preguntas usadas
+		preguntasUsadas = new HashSet<Pregunta>();
 		//Crear la estructura base del Quiz (Paneles contenedores)
 		panelTiempoYPuntos = new JPanel(new GridLayout(1, 2, 15, 15));
 		panelPreguntaYRespuesta = new JPanel(new GridLayout(2, 1, 10, 30));
@@ -116,16 +135,93 @@ public class JFrameQuiz extends JFramePadre{
 		panelQuiz.add(panelTiempoYPuntos, BorderLayout.NORTH);
 		
 		//Crear el panel de la pregunta
-		JPanel pregunta = new JPanel();
-		pregunta.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		panelPreguntaYRespuesta.add(pregunta);
+		panelPregunta = new JPanel();
+		panelPregunta.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		panelPreguntaYRespuesta.add(panelPregunta);
 		//Crear panel de las respuestas
-		JPanel respuestas = new JPanel(new GridLayout(2, 2, 15, 15));
-		respuestas.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		panelPreguntaYRespuesta.add(respuestas);
+		panelRespuestas = new JPanel(new GridLayout(2, 2, 15, 15));
+		panelRespuestas.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		
+		
+		
+		panelPreguntaYRespuesta.add(panelRespuestas, pregunta);
 		
 		panelQuiz.add(panelPreguntaYRespuesta);
+		
+		this.añadirPregunta();
 	}
+	
+	private void añadirPregunta () {
+		// Cargar la pregunta de la BBDD
+		this.pregunta = GBDQ.cargarPreguntaAleatoria(preguntasUsadas);
+		try {
+			//Añadir la pregunta a las preguntas usadas
+			this.preguntasUsadas.add(pregunta);
+			//Se añade el la pregunta al panel
+			panelPregunta.add(new JLabel(pregunta.getPregunta()));
+			//Llama a la funcion para cargar las opciones
+			this.añadirRespuestas();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.println("No se ha podido cargar la pregunta de la base de datos: " + e.getMessage());
+		}
+		
+	}
+	
+	private void añadirRespuestas() {
+	    opciones = GBDQ.cargarOpcionesDePregunta(pregunta);
+	    
+	    //Crea el lbl para cada opcion y le da la funcionalidad para que sea clickable
+	    for (int i = 0; i < opciones.size(); i++) {
+	    	
+	        Opcion opcion = opciones.get(i);
+	        //Crea un lbl con el contenido de cada opcion
+	        JLabel lblOpcion = new JLabel(opcion.getTexto_opcion());
+	        
+	        final int indice = i; // Para capturar en el listener
+	        
+	        // Hacer que parezca clicable
+	        lblOpcion.setCursor(new Cursor(Cursor.HAND_CURSOR));
+	        lblOpcion.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+	        
+	        lblOpcion.addMouseListener(new MouseAdapter() {
+	        	//Si se clicka verifica la opcion si es correcta
+	        	@Override
+	            public void mouseClicked(MouseEvent e) {
+	                verificarRespuesta(indice);
+	            }
+	            //Modifica color del label si el raton esta encima
+	            @Override
+	            public void mouseEntered(MouseEvent e) {
+	                lblOpcion.setBackground(Color.LIGHT_GRAY);
+	                lblOpcion.setOpaque(true);
+	            }
+	            
+	            //Modifica el color del label 
+	            @Override
+	            public void mouseExited(MouseEvent e) {
+	                lblOpcion.setOpaque(false);
+	            }
+	        });
+	        
+	        panelRespuestas.add(lblOpcion);
+	    }
+	}
+	
+	//Verifica si la pregunta seleccionada es correcta
+	private void verificarRespuesta(int indice) {
+	    Opcion seleccionada = opciones.get(indice);
+	    
+	    if (seleccionada.getEs_correcta() == 1) {
+	        JOptionPane.showMessageDialog(this, "¡Correcto!");
+	        
+	    } else {
+	        JOptionPane.showMessageDialog(this, "Incorrecto");
+	    }
+	    //Sea la pregunta correcta o incorrecta se carga una nueva pregunta
+	    this.añadirPregunta();
+	}
+
 	public void actualizarTiempo(int tiempoRestante) {
 		int minutos = (tiempoRestante % 3600) / 60;
 		int segundos = tiempoRestante % 60;
