@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.TreeMap;
 
 import db.GestorBD;
-import db.GestorBDQuiz;
 import domain.Equipo;
 import domain.Jugador;
 import domain.Jugador.TipoPosicion;

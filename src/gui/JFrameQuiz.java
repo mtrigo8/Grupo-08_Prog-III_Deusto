@@ -24,7 +24,6 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
 import db.GestorBD;
-import db.GestorBDQuiz;
 import domain.Liga;
 import domain.Opcion;
 import domain.Pregunta;
