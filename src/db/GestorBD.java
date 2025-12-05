@@ -88,8 +88,9 @@ public class GestorBD {
 	 * Inicializa la BBDD leyendo los datos de los ficheros CSV 
 	 */
 	public void initilizeFromCSV() {
+		
 		//Sólo se inicializa la BBDD si la propiedad initBBDD es true.
-		if (properties.get("loadCSV").equals("true")) {
+		if (properties.get("loadCSV") != null && properties.get("loadCSV").equals("true")) {
 			//Se borran los datos, si existía alguno
 			this.borrarDatos();
 			
@@ -123,7 +124,7 @@ public class GestorBD {
 
 	public void crearBBDD() {
 		//Sólo se crea la BBDD si la propiedad initBBDD es true.
-		if (properties.get("createBBDD").equals("true")) {
+		if (properties.get("createBBDD") != null && properties.get("createBBDD").equals("true")) {
 			
 			String sql1 = "CREATE TABLE IF NOT EXISTS Equipo (\n"
 	                + " nombre TEXT PRIMARY KEY,\n"
