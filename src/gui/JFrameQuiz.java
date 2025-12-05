@@ -23,6 +23,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
+import db.GestorBD;
 import db.GestorBDQuiz;
 import domain.Liga;
 import domain.Opcion;
@@ -56,7 +57,7 @@ public class JFrameQuiz extends JFramePadre{
 	private JPanel panelRespuestas;
 	private List<Opcion> opciones;
 	//Gestor de base de datos
-	private GestorBDQuiz GBDQ;
+	private GestorBD GBD;
 	
 	public JFrameQuiz (ArrayList<Liga> ligas, JFramePadre frameP) {
 		super();
@@ -66,7 +67,7 @@ public class JFrameQuiz extends JFramePadre{
 		//Creacion del thread
 		contadorQuiz = new HiloQuiz();
 		//Inicializar el Gestor BD
-		GBDQ = new GestorBDQuiz();
+		GBD = new GestorBD();
 		JPanel panel = super.panel;
 		setImagenDeFondo(null);
 		panel.setOpaque(true);
@@ -153,7 +154,7 @@ public class JFrameQuiz extends JFramePadre{
 	
 	private void añadirPregunta () {
 		// Cargar la pregunta de la BBDD
-		this.pregunta = GBDQ.cargarPreguntaAleatoria(preguntasUsadas);
+		this.pregunta = GBD.cargarPreguntaAleatoria(preguntasUsadas);
 		try {
 			//Añadir la pregunta a las preguntas usadas
 			this.preguntasUsadas.add(pregunta);
@@ -169,7 +170,7 @@ public class JFrameQuiz extends JFramePadre{
 	}
 	
 	private void añadirRespuestas() {
-	    opciones = GBDQ.cargarOpcionesDePregunta(pregunta);
+	    opciones = GBD.cargarOpcionesDePregunta(pregunta);
 	    
 	    //Crea el lbl para cada opcion y le da la funcionalidad para que sea clickable
 	    for (int i = 0; i < opciones.size(); i++) {

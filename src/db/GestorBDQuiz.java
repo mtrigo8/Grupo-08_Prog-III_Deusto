@@ -22,13 +22,14 @@ import java.util.logging.Logger;
 import domain.Opcion;
 import domain.Pregunta;
 import domain.Pregunta.Dificultad;
+import domain.Usuario;
 
 public class GestorBDQuiz {
-	private String PREGUNTAS_CSV = "resources/data/preguntas.csv";
-	private String OPCIONES_CSV = "resources/data/opciones.csv"; 
+	
 	private final String LOG_FOLDER = "resources/log";
 	private final String PROPERTIES_FILE = "resources/config/app.properties";
-
+	private String PREGUNTAS_CSV = "resources/data/preguntas.csv";
+	private String OPCIONES_CSV = "resources/data/opciones.csv"; 
 	private Properties properties;
 	private String driverName;
 	private String databaseFile;
@@ -336,6 +337,21 @@ public class GestorBDQuiz {
 		}
 		return opciones;
 	}
+	public void insertarUsuario (Usuario usuario) {
+		String sql = "INSERT INTO usuario (nombre, puntuacion) VALUES (?, ?) ";
+		try (Connection con = DriverManager.getConnection(connectionString);
+				 PreparedStatement pStmt = con.prepareStatement(sql)) {
+				
+				pStmt.setString(1, usuario.getNombre());
+				pStmt.setInt(2, usuario.getPuntuacion());
+				
+				logger.info(String.format("Usuario: " + usuario.getNombre() + "añadido a la BBDD"));
+			} catch (Exception ex) {
+				logger.warning(String.format("Error al insertar usuario: %s", ex.getMessage()));
+			}
+		
+	}
+	
 	private String getIdsExcluidos (Set<Pregunta> preguntasMostradas) {
 		//Si las preguntas mostradas son null o esta vacio el set no hay preguntas 
 		//entonces se pone -1 (No hay ningun codigo de preguntacon -1)

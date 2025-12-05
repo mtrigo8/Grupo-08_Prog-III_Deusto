@@ -13,25 +13,35 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 import domain.Equipo;
 import domain.Liga;
+import domain.Opcion;
+import domain.Pregunta;
+import domain.Usuario;
+import domain.Pregunta.Dificultad;
 
 
 public class GestorBD {
-	//Hasta el momento falta borrar un elemento conseguirlo y actualizarlo
 	
+	private final String LOG_FOLDER = "resources/log";
 	private final String PROPERTIES_FILE = "resources/config/app.properties";
+	
+	//CSV
 	private final String CSV_LALIGA = "resources/data/laliga_calendario.csv";
 	private final String CSV_BUNDESLIGA = "resources/data/bundesliga_calendario.csv";
 	private final String CSV_PREMIER = "resources/data/premier_calendario.csv";
 	private final String CSV_EQUIPOS = "resources/data/equipos.csv";
 	private final String CSV_LIGAS = "resources/data/ligas.csv";
-	private final String LOG_FOLDER = "resources/log";
+	private String PREGUNTAS_CSV = "resources/data/preguntas.csv";
+	private String OPCIONES_CSV = "resources/data/opciones.csv"; 
+	
 	
 	private Properties properties;
 	private String driverName;
@@ -83,12 +93,12 @@ public class GestorBD {
 			//Se borran los datos, si existía alguno
 			this.borrarDatos();
 			
-			//Se leen los personajes del CSV
+			//Se leen los equipos del CSV
 			List<Equipo> equipos = this.loadCSVEquipos();
-			//Se insertan los personajes en la BBDD
+			//Se insertan los equipos en la BBDD
 			this.insertarEquipos(equipos.toArray(new Equipo[equipos.size()]));
 			
-			//Se leen los comics del CSV
+			//Se leen las ligas del CSV
 			List<Liga> ligas = this.loadCVSLigas();				
 			//lambda expression: enlaza los personajes con los comics porque al leer los
 			//comics sólo se recuperan los nombres de los personajes y faltan el resto de
@@ -96,14 +106,25 @@ public class GestorBD {
 			updateEquipos(equipos, ligas);
 			
 			//Se insertan los comics en la BBDD
-			this.insertarComic(comics.toArray(new Comic[comics.size()]));				
+			this.insertarLigas(ligas.toArray(new Liga[ligas.size()]));	
+			
+			//Se leen las preguntas del CSV
+			List<Pregunta> preguntas = this.cargarCSVPreguntas();
+			//Se insertan los personajes en la BBDD
+			this.insertarPreguntas((ArrayList<Pregunta>) preguntas);
+			
+			//Se leen las opciones del CSV
+			List<Opcion> opciones = this.cargarCSVOpciones();
+			
+			//Insertar las opciones en la BBDD
+			this.insertarOpciones(opciones.toArray(new Opcion[opciones.size()]));
 		}
 	}
 
 	public void crearBBDD() {
 		//Sólo se crea la BBDD si la propiedad initBBDD es true.
 		if (properties.get("createBBDD").equals("true")) {
-			//La base de datos tiene 3 tablas: Personaje, Comic y Personajes_Comic
+			
 			String sql1 = "CREATE TABLE IF NOT EXISTS Equipo (\n"
 	                + " nombre TEXT PRIMARY KEY,\n"
 	                + " liga TEXT NOT NULL,\n"
@@ -122,7 +143,6 @@ public class GestorBD {
 	                + " pais TEXT NOT NULL,\n"
 	                + " numeroEquipos TEXT NOT NULL\n"
 	                + ");";
-			//Queda por añadir la tabla de usuarios
 			String sql3 = "CREATE TABLE IF NOT EXISTS Jugador (\n"
 	                + " id_comic INTEGER,\n"
 	                + " id_personaje INTEGER,\n"
@@ -131,12 +151,37 @@ public class GestorBD {
 	                + " FOREIGN KEY(id_personaje) REFERENCES Personaje(id) ON DELETE CASCADE\n"
 	                + ");";
 			
+			String sql4 = "CREATE TABLE IF NOT EXISTS pregunta (\n"
+	                + " cod_pregunta INTEGER PRIMARY KEY,\n"
+	                + " pregunta TEXT NOT NULL,\n"
+	                + " dificultad TEXT NOT NULL CHECK(dificultad IN ('FACIL', 'MEDIA', 'DIFICIL')),\n"
+	                + " categoria TEXT NOT NULL\n"
+	                + " );";
+	
+			String sql5 = "CREATE TABLE IF NOT EXISTS opcion (\n"
+	                + " cod_opcion INTEGER UNIQUE PRIMARY KEY AUTOINCREMENT,\n"
+	                + " cod_pregunta INTEGER NOT NULL,\n"
+	                + " opcion TEXT NOT NULL,\n"
+	                + " es_correcta INTEGER NOT NULL DEFAULT 0,\n"
+	                + " FOREIGN KEY(cod_pregunta) REFERENCES pregunta(cod_pregunta) ON DELETE CASCADE\n"
+	                +" ON UPDATE CASCADE\n"
+	                + ");"; 
+	
+			String sql6 = "CREATE TABLE IF NOT EXISTS usuario (" +
+                    "id_usuario INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "nombre TEXT NOT NULL, " +
+                    "fecha_registro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, " +
+                    "puntuacion INTEGER DEFAULT 0" +
+                    ");";
 	        //Se abre la conexión y se crea un PreparedStatement para crer cada tabla
 			//Al abrir la conexión, si no existía el fichero por defecto, se crea.
 			try (Connection con = DriverManager.getConnection(connectionString);
 			     PreparedStatement pStmt1 = con.prepareStatement(sql1);
 				 PreparedStatement pStmt2 = con.prepareStatement(sql2);
-				 PreparedStatement pStmt3 = con.prepareStatement(sql3)) {
+				 PreparedStatement pStmt3 = con.prepareStatement(sql3);
+				 PreparedStatement pStmt4 = con.prepareStatement(sql4);
+				 PreparedStatement pStmt5 = con.prepareStatement(sql5);
+			   	 PreparedStatement pStmt6 = con.prepareStatement(sql6)){
 				
 				//Se ejecutan las sentencias de creación de las tablas
 		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()) {
@@ -157,15 +202,22 @@ public class GestorBD {
 			String sql1 = "DROP TABLE IF EXISTS Equipo;";
 			String sql2 = "DROP TABLE IF EXISTS Liga";
 			String sql3 = "DROP TABLE IF EXISTS Jugador;";
+			String sql4 = "DROP TABLE IF EXISTS pregunta;";
+			String sql5 = "DROP TABLE IF EXISTS opcion";
+			String sql6 = "DROP TABLE IF EXISTS usuario;";
 			
 	        //Se abre la conexión y se crea un PreparedStatement para borrar cada tabla
 			try (Connection con = DriverManager.getConnection(connectionString);
 			     PreparedStatement pStmt1 = con.prepareStatement(sql1);
 				 PreparedStatement pStmt2 = con.prepareStatement(sql2);
-				 PreparedStatement pStmt3 = con.prepareStatement(sql3)) {
+				 PreparedStatement pStmt3 = con.prepareStatement(sql3);
+				 PreparedStatement pStmt4 = con.prepareStatement(sql4);
+				 PreparedStatement pStmt5 = con.prepareStatement(sql5);
+				 PreparedStatement pStmt6 = con.prepareStatement(sql6)) {
 				
 				//Se ejecutan las sentencias de borrado de las tablas
-		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()) {
+		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()
+		        	&& !pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute()) {
 		        	logger.info("Se han borrado las tablas");
 		        }
 			} catch (Exception ex) {
@@ -191,15 +243,21 @@ public class GestorBD {
 			String sql1 = "DELETE FROM Equipo;";
 			String sql2 = "DELETE FROM Liga;";
 			String sql3 = "DELETE FROM Jugador;";
-			
+			String sql4 = "DELETE FROM pregunta;";
+			String sql5 = "DELETE FROM opcion;";
+			String sql6 = "DELETE FROM usuario;";
 	        //Se abre la conexión y se crea un PreparedStatement para borrar los datos de cada tabla
 			try (Connection con = DriverManager.getConnection(connectionString);
 			     PreparedStatement pStmt1 = con.prepareStatement(sql1);
 				 PreparedStatement pStmt2 = con.prepareStatement(sql2);
-				 PreparedStatement pStmt3 = con.prepareStatement(sql3)) {
+				 PreparedStatement pStmt3 = con.prepareStatement(sql3);
+				 PreparedStatement pStmt4 = con.prepareStatement(sql1);
+				 PreparedStatement pStmt5 = con.prepareStatement(sql2);
+				 PreparedStatement pStmt6 = con.prepareStatement(sql3)) {
 				
 				//Se ejecutan las sentencias de borrado de las tablas
-		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()) {
+		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()
+		        	&& !pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute()) {
 		        	logger.info("Se han borrado los datos");
 		        }
 			} catch (Exception ex) {
@@ -249,7 +307,7 @@ public class GestorBD {
 	
 	
 	/**
-	 * Inserta Comics en la BBDD
+	 * Inserta Ligas en la BBDD
 	 */
 	public void insertarLigas(Liga... ligas) {
 		//Se define la plantilla de la sentencia SQL			
@@ -267,7 +325,7 @@ public class GestorBD {
 				pStmt.setInt(3, l.getNumeroEquipos());
 				
 				if (pStmt.executeUpdate() != 1) {					
-					logger.warning(String.format("No se ha insertado el Comic: %s", c));
+					logger.warning(String.format("No se ha insertado el Comic: %s", l));
 				} else {
 					//IMPORTANTE: El valor del ID del comic se establece automáticamente al
 					//insertarlo en la BBDD. Por lo tanto, después de insertar un comic, 
@@ -275,232 +333,16 @@ public class GestorBD {
 					//en memoria.				
 					
 					
-					logger.info(String.format("Se ha insertado el Comic: %s", c));
+					logger.info(String.format("Se ha insertado el Comic: %s", l));
 				}
 			}
 			
-			logger.info(String.format("%d Comics insertados en la BBDD", comics.length));
+			logger.info(String.format("%d Comics insertados en la BBDD", ligas.length));
 		} catch (Exception ex) {
 			logger.warning(String.format("Error al insertar comics: %s", ex.getMessage()));
 		}				
 	}
 		
-	//MODIFICACIÓN 1: Método para actualizar la información de un Comic en la BBDD
-	/**
-	 * Actualiza un Comic
-	 */
-	public void actualizarComic(Comic comic) {
-		//Se define la plantilla de la sentencia SQL			
-		String sql = "UPDATE Comic SET editorial = ?, titulo = ? WHERE id = ?;";
-		
-		//Se abre la conexión y se crea el PreparedStatement con la sentencia SQL
-		try (Connection con = DriverManager.getConnection(connectionString);
-			 PreparedStatement pStmt = con.prepareStatement(sql)) {
-			
-			//Se definen los parámetros de la sentencia SQL
-			pStmt.setString(1, comic.getEditorial().toString());
-			pStmt.setString(2, comic.getTitulo());
-			pStmt.setInt(3, comic.getId());
-				
-			if (pStmt.executeUpdate() != 1) {					
-				logger.warning(String.format("No se ha actualizado el Comic: %s", comic.getTitulo()));
-			} else {					
-				logger.info(String.format("Se ha actualizado el Comic: %s", comic.getTitulo()));
-			}			
-		} catch (Exception ex) {
-			logger.warning(String.format("Error al actualizar comic: %s", ex.getMessage()));
-		}				
-	}
-	
-
-	
-	/**
-	 * Borra la relación entre un pesonaje y un comic en la BBDD. 
-	 */
-	public void borrarPersonajeComic(int idComic, int idPersonaje) {
-		String sql = "DELETE FROM Personajes_Comic WHERE id_comic = ? AND id_personaje = ?;";
-		
-		//Se abre la conexión y se crea el PreparedStatement con la sentencia SQL
-		try (Connection con = DriverManager.getConnection(connectionString);
-			 PreparedStatement pStmt = con.prepareStatement(sql)) {
-				
-			//Se añaden los parámetros al PreparedStatement
-			pStmt.setInt(1, idComic);
-			pStmt.setInt(2, idPersonaje);
-				
-			if (pStmt.executeUpdate() != 1) {					
-				logger.warning(String.format("No se ha borrado el personaje %d del comic %d.", idComic, idPersonaje));
-			} else {
-				logger.info(String.format("Se ha borrado el personaje %d del comic %d.", idComic, idPersonaje));
-			}
-		} catch (Exception ex) {
-			logger.warning(String.format("Error al borrar personaje de un comic: %s", ex.getMessage()));
-		}				
-	}
-	
-	/**
-	 * Recupera los Personajes de la BBDD.
-	 */
-	public List<Personaje> getPersonajes() {
-		List<Personaje> personajes = new ArrayList<>();
-		String sql = "SELECT * FROM Personaje";
-		
-		//Se abre la conexión sy se crea el PreparedStatement con la sentencia SQL
-		try (Connection con = DriverManager.getConnection(connectionString);
-		     PreparedStatement pStmt = con.prepareStatement(sql)) {			
-			
-			//Se ejecuta la sentencia y se obtiene el ResultSet
-			ResultSet rs = pStmt.executeQuery();			
-			Personaje personaje;
-			
-			//Se recorre el ResultSet y se crean objetos
-			while (rs.next()) {
-				personaje = new Personaje(rs.getInt("id"), 
-						rs.getString("nombre"), 
-						rs.getString("email"), 
-						Editorial.valueOf(rs.getString("editorial")));
-				
-				//Se inserta cada nuevo cliente en la lista de clientes
-				personajes.add(personaje);
-			}
-			
-			//Se cierra el ResultSet
-			rs.close();
-			
-			logger.info(String.format("Se han recuperado %d personajes.", personajes.size()));			
-		} catch (Exception ex) {
-			logger.warning(String.format("Error recuperar los personajes: %s", ex.getMessage()));						
-		}		
-		
-		return personajes;
-	}
-	
-	
-
-	
-	/**
-	 * Recupera de la BBDD un Personaje a partir de su nombre. 
-	 */
-	public Personaje getPersonajeByNombre(String nombre) {
-		Personaje personaje = null;
-		String sql = "SELECT * FROM Personaje WHERE nombre = ? LIMIT 1";
-		
-		//Se abre la conexión y se crea el PreparedStatement con la sentencia SQL
-		try (Connection con = DriverManager.getConnection(connectionString);
-		     PreparedStatement pStmt = con.prepareStatement(sql)) {			
-			
-			//Se definen los parámetros de la sentencia SQL
-			pStmt.setString(1, nombre);
-			
-			//Se ejecuta la sentencia y se obtiene el ResultSet con los resutlados
-			ResultSet rs = pStmt.executeQuery();			
-
-			//Se procesa el único resultado
-			if (rs.next()) {
-				personaje = new Personaje(rs.getInt("id"), 
-						rs.getString("nombre"), 
-						rs.getString("email"), 
-						Editorial.valueOf(rs.getString("editorial")));
-			}
-			
-			//Se cierra el ResultSet
-			rs.close();
-			
-			logger.info(String.format("Se ha recuperado el personaje %s", personaje));			
-		} catch (Exception ex) {
-			logger.warning(String.format("Error recuperar el personaje con nombre %s: %s", nombre, ex.getMessage()));						
-		}		
-		
-		return personaje;
-	}
-	
-	/**
-	 * Recupera los Comics de la BBDD. 
-	 */
-	public List<Comic> getComics() {
-		List<Comic> comics = new ArrayList<>();
-		String sql = "SELECT * FROM Comic";
-		
-		//Se abre la conexión y se crea el PreparedStatement con la sentencia SQL
-		try (Connection con = DriverManager.getConnection(connectionString);
-		     PreparedStatement pStmt = con.prepareStatement(sql)) {			
-			
-			//Se ejecuta la sentencia y se obtiene el ResultSet con los resutlados
-			ResultSet rs = pStmt.executeQuery();			
-			Comic comic;
-			
-			//Se recorre el ResultSet y se crean los Comics
-			while (rs.next()) {
-				comic = new Comic(rs.getInt("id"), 
-							Editorial.valueOf(rs.getString("editorial")),
-							rs.getString("titulo"));
-				
-				//Se recuperan los IDs de los personajes del Comic
-				List<Integer> idsPersonaje = this.getIdsPersonajesComic(comic);
-				
-				//A partir de los IDs, se van recuperando los personajes de la BBDD
-				//y se añaden al comic.
-				for(int id : idsPersonaje) {
-					comic.addPersonaje(this.getPersonajeById(id));
-				}
-				
-				//Se inserta cada nuevo cliente en la lista de clientes
-				comics.add(comic);
-			}
-			
-			//Se cierra el ResultSet
-			rs.close();
-			
-			logger.info(String.format("Se han recuperado %d comics", comics.size()));			
-		} catch (Exception ex) {
-			logger.warning(String.format("Error recuperar los comics: %s", ex.getMessage()));						
-		}		
-		
-		return comics;
-	}
-	
-	public Comic getComicByTitulo(String titulo) {
-		Comic comic = null;
-		String sql = "SELECT * FROM Comic WHERE titulo = ? LIMIT 1";
-		
-		//Se abre la conexión y se crea el PreparedStatement con la sentencia SQL
-		try (Connection con = DriverManager.getConnection(connectionString);
-		     PreparedStatement pStmt = con.prepareStatement(sql)) {			
-			
-			//Se definen los parámetros de la sentencia SQL
-			pStmt.setString(1, titulo);
-			
-			//Se ejecuta la sentencia y se obtiene el ResultSet con los resutlados
-			ResultSet rs = pStmt.executeQuery();			
-
-			//Se procesa el único resultado
-			if (rs.next()) {
-				comic = new Comic(rs.getInt("id"), 
-						Editorial.valueOf(rs.getString("editorial")),
-						rs.getString("titulo"));
-
-				//Se recuperan los personajes del comic
-				List<Integer> idsPersonaje = this.getIdsPersonajesComic(comic);
-				
-				//Se recuperan los personajes de la BBDD
-				for(int id : idsPersonaje) {
-					comic.addPersonaje(this.getPersonajeById(id));
-				}
-			}
-			
-			//Se cierra el ResultSet
-			rs.close();
-			
-			logger.info(String.format("Se ha recuperado el comic %s", comic));			
-		} catch (Exception ex) {
-			logger.warning(String.format("Error recuperar el comic con nombre %s: %s", titulo, ex.getMessage()));						
-		}		
-		
-		return comic;
-	}
-	
-	
-	
 	/**
 	 * IMPORTANTE: La información del CSV de los comics sólo trae el nombre de los personajes.
 	 * Este método procesa cada comic y reemplaza cada personaje leído desde el CSV (que sólo tiene el nombre)
@@ -586,4 +428,187 @@ public class GestorBD {
 			}			
 		}
 	}
+	//========================================
+	//FUNCIONES DE LA BBDD QUE AFECTAN AL QUIZ
+	//========================================
+	
+	// Lee el fichero csv y añade todas las preguntas a una lista
+		private List<Pregunta> cargarCSVPreguntas (){
+			ArrayList<Pregunta> preguntas = new ArrayList<Pregunta>();
+			try (BufferedReader in = new BufferedReader(new FileReader(PREGUNTAS_CSV))){
+				String linea = null;
+				Pregunta p = null;
+				//Omitir la cabecera
+				in.readLine();
+				
+				while((linea = in.readLine()) != null) {
+					p = Pregunta.parseCSV(linea);
+					if (p != null) {
+						preguntas.add(p);
+					}
+				}
+					
+			} catch (Exception ex) {
+				// TODO: handle exception
+				logger.warning(String.format("Error leyendo preguntas del CSV: %s", ex.getMessage()));		}
+			
+			return preguntas;
+		}
+		// Añade las preguntas a la BBDD
+		private void insertarPreguntas (ArrayList<Pregunta> preguntas) {
+			//Definir la sentencia de SQl
+			String sql = "INSERT INTO pregunta (cod_pregunta, pregunta, dificultad, categoria) VALUES (?, ?, ?, ?) ";
+			try (Connection con = DriverManager.getConnection(connectionString);
+					 PreparedStatement pStmt = con.prepareStatement(sql)) {
+											
+					//Se recorren los clientes y se insertan uno a uno
+					for (Pregunta p : preguntas) {
+						//Se añaden los parámetros al PreparedStatement
+						pStmt.setInt(1, p.getCodigo());
+						pStmt.setString(2, p.getPregunta());
+						pStmt.setString(3, p.getDificultad().toString()); 
+		                pStmt.setString(4, p.getCategoria());
+						
+						if (pStmt.executeUpdate() != 1) {					
+							logger.warning(String.format("No se ha insertado el Personaje: %s", p));
+						} else {				
+							logger.info(String.format("Se ha insertado el Personaje: %s", p));
+						}
+					}
+					
+					logger.info(String.format("%d Preguntas insertados en la BBDD", preguntas.size()));
+				} catch (Exception ex) {
+					logger.warning(String.format("Error al insertar preguntas: %s", ex.getMessage()));
+				}
+		}
+		private void insertarOpciones (Opcion...opciones ) {
+			String sql = "INSERT INTO opcion (cod_pregunta, opcion, es_correcta) VALUES (?, ?, ?) ";
+			try (Connection con = DriverManager.getConnection(connectionString);
+					 PreparedStatement pStmt = con.prepareStatement(sql)) {
+											
+					//Se recorren los clientes y se insertan uno a uno
+					for (Opcion o : opciones) {
+						//Se añaden los parámetros al PreparedStatement
+						pStmt.setInt(1, o.getCod_pregunta());
+						pStmt.setString(2, o.getTexto_opcion());
+						pStmt.setInt(3, o.getEs_correcta());
+						
+						if (pStmt.executeUpdate() != 1) {					
+							logger.warning(String.format("No se ha insertado la opcion: %d", o.getCod_opcion()));
+						} else {				
+							logger.info(String.format("Se ha insertado la opcion: %d", o.getCod_opcion()));
+						}
+					}
+					
+					logger.info(String.format("%d Preguntas insertados en la BBDD", opciones.length));
+				} catch (Exception ex) {
+					logger.warning(String.format("Error al insertar preguntas: %s", ex.getMessage()));
+				}
+		}
+
+		// CSV CON FORMATO : cod_opcion, cod_pregunta, opcion, es_correcta
+
+		private List<Opcion> cargarCSVOpciones (){
+			List<Opcion> opciones = new ArrayList<Opcion>();
+			
+			try (BufferedReader in = new BufferedReader(new FileReader(OPCIONES_CSV))) {
+				String linea = null;
+				
+				//Omitir la cabecera
+				in.readLine();			
+				
+				while ((linea = in.readLine()) != null) {
+					opciones.add(Opcion.parseCSV(linea));
+				}			
+				
+			} catch (Exception ex) {
+				logger.warning(String.format("Error leyendo opciones del CSV: %s", ex.getMessage()));
+			}
+			return opciones;
+		}
+		
+		// Seleccionar una pregunta aleatoria diferente a las seleccionadas previamente
+		
+		public Pregunta cargarPreguntaAleatoria (Set<Pregunta> preguntasMostradas) {
+			String sql1 = "SELECT * FROM pregunta "+
+						"WHERE cod_pregunta NOT IN ("+ getIdsExcluidos(preguntasMostradas) +")" + 
+						"ORDER BY RANDOM() LIMIT 1";
+			Pregunta pregAleatoria = null;
+			try (Connection con = DriverManager.getConnection(connectionString);
+					PreparedStatement pst = con.prepareStatement(sql1)){
+				ResultSet rs = pst.executeQuery();
+				
+				while (rs.next()) {
+					int cod_pregunta = rs.getInt("cod_pregunta");
+					String pregunta = rs.getString("pregunta");
+					Dificultad dif = Dificultad.valueOf(rs.getString("dificultad").toUpperCase());
+					String categoria = rs.getString("categoria");
+					
+					pregAleatoria = new Pregunta(cod_pregunta, pregunta, dif, categoria);
+					preguntasMostradas.add(pregAleatoria);
+					}
+			} catch (Exception e) {
+				System.err.println("Error al seleccionar la pregunta de la base de datos: " +e.getMessage());
+			}
+			
+			return pregAleatoria;
+		}
+		public List<Opcion> cargarOpcionesDePregunta (Pregunta pregunta){
+			List<Opcion> opciones = new ArrayList<Opcion>();
+			
+			String sql = "SELECT * FROM opcion WHERE cod_pregunta = ?";
+			
+			try (Connection con = DriverManager.getConnection(connectionString);
+					PreparedStatement pst = con.prepareStatement(sql)){
+				pst.setInt(1, pregunta.getCodigo());
+				ResultSet rs = pst.executeQuery();
+				
+				while(rs.next()) {
+		            String textoOpcion = rs.getString("texto_opcion");
+		            int esCorrecta = rs.getInt("es_correcta");
+		            int codPregunta = rs.getInt("cod_pregunta");
+		            
+		            opciones.add(new Opcion(codPregunta, textoOpcion, esCorrecta));
+				}
+				
+			} catch (Exception e) {
+				System.err.println("Error al cargar opciones de la pregunta: " + e.getMessage());
+			}
+			return opciones;
+		}
+		public void insertarUsuario (Usuario usuario) {
+			String sql = "INSERT INTO usuario (nombre, puntuacion) VALUES (?, ?) ";
+			try (Connection con = DriverManager.getConnection(connectionString);
+					 PreparedStatement pStmt = con.prepareStatement(sql)) {
+					
+					pStmt.setString(1, usuario.getNombre());
+					pStmt.setInt(2, usuario.getPuntuacion());
+					
+					logger.info(String.format("Usuario: " + usuario.getNombre() + "añadido a la BBDD"));
+				} catch (Exception ex) {
+					logger.warning(String.format("Error al insertar usuario: %s", ex.getMessage()));
+				}
+			
+		}
+		
+		private String getIdsExcluidos (Set<Pregunta> preguntasMostradas) {
+			//Si las preguntas mostradas son null o esta vacio el set no hay preguntas 
+			//entonces se pone -1 (No hay ningun codigo de preguntacon -1)
+			if (preguntasMostradas == null || preguntasMostradas.isEmpty()){
+				return "-1";
+			}
+			
+			StringBuilder sb = new StringBuilder();
+		    Iterator<Pregunta> iterator = preguntasMostradas.iterator();
+		    
+		    while (iterator.hasNext()) {
+		        sb.append(iterator.next().getCodigo());
+		        if (iterator.hasNext()) {
+		            sb.append(",");
+		        }
+		    }
+		    
+		    return sb.toString();
+			
+		}
 }

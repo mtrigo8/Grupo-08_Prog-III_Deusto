@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.TreeMap;
 
+import db.GestorBD;
 import db.GestorBDQuiz;
 import domain.Equipo;
 import domain.Jugador;
@@ -19,10 +20,10 @@ import gui.JFrameInicio;
 public class Main {
 
 	public static void main(String[] args) {
-		GestorBDQuiz gbdq = new GestorBDQuiz();
+		GestorBD gbd = new GestorBD();
 	
-		gbdq.crearBBDDQuiz();
-		gbdq.initilizeQuizFromCSV();
+		gbd.crearBBDD();
+		gbd.initilizeFromCSV();
 		
 		ArrayList<Liga> ligas = new ArrayList<Liga>();
 		Liga laLiga = new Liga("LaLiga", "España", 20, null);
