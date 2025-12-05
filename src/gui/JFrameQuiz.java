@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -15,6 +16,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -57,12 +62,17 @@ public class JFrameQuiz extends JFramePadre{
 	private List<Opcion> opciones;
 	//Gestor de base de datos
 	private GestorBD GBD;
-	
+	private Clip clip;
 	public JFrameQuiz (ArrayList<Liga> ligas, JFramePadre frameP) {
 		super();
 		super.framePrevio = frameP;
 		this.ligas = ligas;
 		usoBotonAtras(super.framePrevio);
+		botonAtras.addActionListener(e->{
+			if (clip !=null) {
+				clip.stop();
+			}
+		});
 		//Creacion del thread
 		contadorQuiz = new HiloQuiz();
 		//Inicializar el Gestor BD
@@ -92,6 +102,8 @@ public class JFrameQuiz extends JFramePadre{
         panelQuiz.setBounds(x, y, panelWidth, panelHeight);
         
         componentesPanelInicio();
+        musica("resources/audios/The_Shire.wav");
+        
 	}
 	
 	// Pantalla de inicio del quiz
@@ -258,6 +270,18 @@ public class JFrameQuiz extends JFramePadre{
                }
             }
         }
-    
+	private void musica (String ruta) {
+		try {
+            File archivo = new File(ruta);
+            
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(archivo);
+                clip = AudioSystem.getClip();
+                clip.open(audioInput);
+                clip.loop(Clip.LOOP_CONTINUOUSLY); 
+                clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 	
 }
