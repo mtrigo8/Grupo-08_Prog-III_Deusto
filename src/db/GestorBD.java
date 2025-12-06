@@ -565,7 +565,7 @@ public class GestorBD {
 				ResultSet rs = pst.executeQuery();
 				
 				while(rs.next()) {
-		            String textoOpcion = rs.getString("texto_opcion");
+		            String textoOpcion = rs.getString("opcion");
 		            int esCorrecta = rs.getInt("es_correcta");
 		            int codPregunta = rs.getInt("cod_pregunta");
 		            

@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -124,7 +125,7 @@ public class JFrameListaEquipos extends JFramePadre {
 		cargarEquiposTablaFiltro(filtradoNombre.getText());
 		//Insertar la tabla de equipos en un panel con scroll
 		JScrollPane scrollPaneEquipos = new JScrollPane(this.tablaEquipos);
-		scrollPaneEquipos.setBorder(new TitledBorder("Equipos"));
+		//scrollPaneEquipos.setBorder(new TitledBorder("Equipos"));
 		this.tablaEquipos.setFillsViewportHeight(true);
 		
 		panel.add(BorderLayout.CENTER, scrollPaneEquipos);
@@ -284,7 +285,8 @@ public class JFrameListaEquipos extends JFramePadre {
 		        String nombrePNG = (String) value;	
 		        String nombreLiga  = liga.getNombre().toLowerCase();
 		        String ruta = "resources/images/equipos/"+nombreLiga+"/"+nombrePNG+".png";
-		        
+		        result.setBackground(new Color(248,249,250));
+		        result.setOpaque(true);
 		        //Modificar tamaño de la imagen
 		        int alturaObjetivo = table.getRowHeight(row);
 		        ImageIcon imagenOriginal = null;
@@ -303,6 +305,8 @@ public class JFrameListaEquipos extends JFramePadre {
 		        return (Component) value;
 		    } else if (column == 2){
 		        JLabel result1 = new JLabel(value.toString(), JLabel.CENTER);
+		        result1.setBackground(new Color(248,249,250));
+		        result1.setOpaque(true);
 		        result1.setFont(new Font("Arial", Font.BOLD, 16));
 		        return result1;
 		    }

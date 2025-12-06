@@ -272,7 +272,7 @@ public class JFrameInicio extends JFramePadre {
     	 private Movimiento movimiento;
     	 private Image imagenParticula;
     	 public FondoAnimado () {
-    		 ImageIcon icono= new ImageIcon("resources/images/logos/prueba.png");
+    		 ImageIcon icono= new ImageIcon("resources/images/logos/logoApp.png");
     		 imagenParticula=icono.getImage();
     		 for (int i =0; i<30; i++) {
     		 particulas.add(new Particula ());

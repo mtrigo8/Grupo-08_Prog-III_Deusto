@@ -40,12 +40,13 @@ public class JFrameQuiz extends JFramePadre{
 	private static final long serialVersionUID = 1L;
 	private ArrayList <Liga> ligas;
 	private JPanel panelQuiz;
-	private HiloQuiz contadorQuiz;
+	private HiloQuiz contadorQuiz = new HiloQuiz(); //Creacion del hilo
 	//Tiempo
-	private int TIEMPO = 10;
+	private int TIEMPO = 60;
 	private JPanel tiempo;
 	private JLabel lblTiempo;
 	private JPanel panelTiempoYPuntos;
+	private boolean tiempoCumplido;
 	//Puntuacion
 	private JPanel panelPuntuacion;
 	private JLabel lblPuntuacion;
@@ -71,8 +72,7 @@ public class JFrameQuiz extends JFramePadre{
 				clip.stop();
 			}
 		});
-		//Creacion del thread
-		contadorQuiz = new HiloQuiz();
+	
 		//Inicializar el Gestor BD
 		GBD = new GestorBD();
 		JPanel panel = super.panel;
@@ -107,12 +107,12 @@ public class JFrameQuiz extends JFramePadre{
 	// Pantalla de inicio del quiz
 	private void componentesPanelInicio() {
 		panelQuiz.removeAll();
-		
+		contadorQuiz = new HiloQuiz();
 		JButton botonInicio = new JButton("Iniciar quiz");
 		botonInicio.setFont(new Font("Arial", Font.BOLD, 24));
         botonInicio.setPreferredSize(new Dimension(200, 60));
         botonInicio.setFocusPainted(false);
-		
+		botonInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         botonInicio.addActionListener(e -> {
         	this.quizIniciado();
         	contadorQuiz.start();
@@ -124,6 +124,7 @@ public class JFrameQuiz extends JFramePadre{
 	// Pantalla del juego
 	private void quizIniciado() {
 		panelQuiz.removeAll();
+		puntuacion = 0;
 		//Reiniciar el Set de preguntas usadas
 		preguntasUsadas = new HashSet<Pregunta>();
 		//Crear la estructura base del Quiz (Paneles contenedores)
@@ -148,9 +149,11 @@ public class JFrameQuiz extends JFramePadre{
 		panelPregunta = new JPanel();
 		panelPregunta.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		panelPreguntaYRespuesta.add(panelPregunta);
+		panelPregunta.setBackground(Color.WHITE);
 		//Crear panel de las respuestas
 		panelRespuestas = new JPanel(new GridLayout(2, 2, 15, 15));
 		panelRespuestas.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		panelRespuestas.setBackground(Color.WHITE);
 		
 		
 		
@@ -210,8 +213,10 @@ public class JFrameQuiz extends JFramePadre{
 	            //Modifica el color del label 
 	            @Override
 	            public void mouseExited(MouseEvent e) {
-	                lblOpcion.setOpaque(false);
+	                lblOpcion.setBackground(Color.WHITE);
+	                
 	            }
+	            
 	        });
 	        
 	        panelRespuestas.add(lblOpcion);
@@ -224,15 +229,25 @@ public class JFrameQuiz extends JFramePadre{
 	    
 	    if (seleccionada.getEs_correcta() == 1) {
 	        JOptionPane.showMessageDialog(this, "¡Correcto!");
+	        puntuacion += 1;
+	        lblPuntuacion.setText("" + puntuacion);
 	        
 	    } else {
 	        JOptionPane.showMessageDialog(this, "Incorrecto");
 	    }
+	    panelPregunta.removeAll();
+	    panelRespuestas.removeAll();
 	    //Sea la pregunta correcta o incorrecta se carga una nueva pregunta
 	    this.añadirPregunta();
+	    panelQuiz.revalidate(); //IAG
+	    panelQuiz.repaint();
 	}
 
 	public void actualizarTiempo(int tiempoRestante) {
+		if(tiempoRestante == 5) {
+			lblTiempo.setForeground(Color.RED);
+			
+		}
 		int minutos = (tiempoRestante % 3600) / 60;
 		int segundos = tiempoRestante % 60;
 		
@@ -243,8 +258,8 @@ public class JFrameQuiz extends JFramePadre{
 	private class HiloQuiz extends Thread {
         @Override
         public void run() {
+        	tiempoCumplido = false;
         	actualizarTiempo(TIEMPO);
-            while (!this.isInterrupted()) {
                 for (int i = TIEMPO; i >= 0; i--) {
                     final int tiempoRestante = i;
                     SwingUtilities.invokeLater(() -> {
@@ -258,14 +273,22 @@ public class JFrameQuiz extends JFramePadre{
                     	break;
                     }
                 }
-                this.interrupt();
-                JLabel texto = new JLabel("¡Te has quedado sin tiempo!", JLabel.CENTER);
-                JOptionPane.showMessageDialog(JFrameQuiz.this, 
-                		texto, 
-                		"Fin del juego", 
-                		JOptionPane.OK_OPTION);
                 
-               }
+                tiempoCumplido = true;
+                if(tiempoCumplido && !this.isInterrupted()) {
+                	componentesPanelInicio();
+                	JFrameQuiz.this.revalidate();
+                    JFrameQuiz.this.repaint();
+	                JLabel texto = new JLabel("Su puntuacion ha sido de " + puntuacion + " " + "Introduzca su usuario", JLabel.CENTER);
+	                String usuario = JOptionPane.showInputDialog(
+	                        JFrameQuiz.this,
+	                        texto,
+	                        "Tiempo finalizado",
+	                        JOptionPane.PLAIN_MESSAGE
+	                    );
+	                
+                }
+                this.interrupt();
             }
         }
 	private void musica (String ruta) {
@@ -281,5 +304,15 @@ public class JFrameQuiz extends JFramePadre{
             e.printStackTrace();
         }
     }
+	@Override
+	public void usoBotonAtras(JFramePadre frameAnterior) { //Implemnta en cada clase hija su uso del boton atras
+		botonAtras.addActionListener(e -> {
+			contadorQuiz.interrupt();
+			setVisible(false);
+			frameAnterior.setVisible(true);
+	
+		});
+		botonAtras.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	}
 	
 }
