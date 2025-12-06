@@ -84,6 +84,11 @@ public class Liga {
 		Liga other = (Liga) obj;
 		return Objects.equals(nombre, other.nombre) && Objects.equals(pais, other.pais);
 	}
+
+	@Override
+	public String toString() {
+		return "Liga [nombre=" + nombre + "]";
+	}
 	
 	
 	

@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Timer;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -47,6 +49,7 @@ public class JFrameQuiz extends JFramePadre{
 	private JLabel lblTiempo;
 	private JPanel panelTiempoYPuntos;
 	private boolean tiempoCumplido;
+	private Timer delayTimer;
 	//Puntuacion
 	private JPanel panelPuntuacion;
 	private JLabel lblPuntuacion;
@@ -137,7 +140,9 @@ public class JFrameQuiz extends JFramePadre{
 		tiempo.add(lblTiempo);
 		panelTiempoYPuntos.add(tiempo);
 		//Añadir panel de puntos
-		panelPuntuacion = new JPanel();
+		panelPuntuacion = new JPanel(new FlowLayout());
+		panelPuntuacion.add(new JLabel  ("PUNTUACION: "));
+		
 		lblPuntuacion = new JLabel("0");
 		panelPuntuacion.add(lblPuntuacion);
 		
@@ -191,7 +196,7 @@ public class JFrameQuiz extends JFramePadre{
 	        //Crea un lbl con el contenido de cada opcion
 	        JLabel lblOpcion = new JLabel(opcion.getTexto_opcion());
 	        
-	        final int indice = i; // Para capturar en el listener
+	        
 	        
 	        // Hacer que parezca clicable
 	        lblOpcion.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -201,7 +206,7 @@ public class JFrameQuiz extends JFramePadre{
 	        	//Si se clicka verifica la opcion si es correcta
 	        	@Override
 	            public void mouseClicked(MouseEvent e) {
-	                verificarRespuesta(indice);
+	                verificarRespuesta(opcion);
 	            }
 	            //Modifica color del label si el raton esta encima
 	            @Override
@@ -224,17 +229,18 @@ public class JFrameQuiz extends JFramePadre{
 	}
 	
 	//Verifica si la pregunta seleccionada es correcta
-	private void verificarRespuesta(int indice) {
-	    Opcion seleccionada = opciones.get(indice);
+	private void verificarRespuesta(Opcion opcionSeleccionada) {
 	    
-	    if (seleccionada.getEs_correcta() == 1) {
-	        JOptionPane.showMessageDialog(this, "¡Correcto!");
+	    
+	    if (opcionSeleccionada.getEs_correcta() == 1) {
+	        pintarOpcionCorrecta(opcionSeleccionada);
 	        puntuacion += 1;
 	        lblPuntuacion.setText("" + puntuacion);
 	        
 	    } else {
 	        JOptionPane.showMessageDialog(this, "Incorrecto");
 	    }
+	    
 	    panelPregunta.removeAll();
 	    panelRespuestas.removeAll();
 	    //Sea la pregunta correcta o incorrecta se carga una nueva pregunta
@@ -242,7 +248,9 @@ public class JFrameQuiz extends JFramePadre{
 	    panelQuiz.revalidate(); //IAG
 	    panelQuiz.repaint();
 	}
-
+	private void pintarOpcionCorrecta(Opcion opcionSeleccionada) {
+		
+	}
 	public void actualizarTiempo(int tiempoRestante) {
 		if(tiempoRestante == 5) {
 			lblTiempo.setForeground(Color.RED);

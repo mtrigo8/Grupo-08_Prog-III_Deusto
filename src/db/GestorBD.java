@@ -96,15 +96,17 @@ public class GestorBD {
 			
 			//Se leen los equipos del CSV
 			List<Equipo> equipos = this.loadCSVEquipos();
-			//Se insertan los equipos en la BBDD
-			this.insertarEquipos(equipos.toArray(new Equipo[equipos.size()]));
-			
 			//Se leen las ligas del CSV
-			List<Liga> ligas = this.loadCVSLigas();				
+			List<Liga> ligas = this.loadCVSLigas();	
 			//lambda expression: enlaza los personajes con los comics porque al leer los
 			//comics sólo se recuperan los nombres de los personajes y faltan el resto de
 			//datos.
 			updateEquipos(equipos, ligas);
+			//Se insertan los equipos en la BBDD
+			this.insertarEquipos(equipos.toArray(new Equipo[equipos.size()]));
+			
+						
+			
 			
 			//Se insertan los comics en la BBDD
 			this.insertarLigas(ligas.toArray(new Liga[ligas.size()]));	
@@ -124,7 +126,7 @@ public class GestorBD {
 
 	public void crearBBDD() {
 		//Sólo se crea la BBDD si la propiedad initBBDD es true.
-		if (properties.get("createBBDD") != null && properties.get("createBBDD").equals("true")) {
+		if (properties.get("createBBDD").equals("true")) {
 			
 			String sql1 = "CREATE TABLE IF NOT EXISTS Equipo (\n"
 	                + " nombre TEXT PRIMARY KEY,\n"
@@ -135,9 +137,7 @@ public class GestorBD {
 	                + " anyofundacion INTEGER NOT NULL,\n"
 	                + " titulos INTEGER NOT NULL,\n"
 	                + " UNIQUE(nombre),\n"
-	                + " UNIQUE KEY `nombre_UNIQUE` (`nombre`),\n"
-	                + "  KEY `nombreLiga_idx` (`liga`),\n"
-	                + "  CONSTRAINT `nombreLiga` FOREIGN KEY (`liga`) REFERENCES `liga` (`nombre`) ON DELETE CASCADE);";
+	                + " FOREIGN KEY (liga) REFERENCES Liga(nombre) ON DELETE CASCADE)";
 	
 			String sql2 = "CREATE TABLE IF NOT EXISTS Liga (\n"
 	                + " nombre TEXT PRIMARY KEY,\n"
@@ -185,8 +185,9 @@ public class GestorBD {
 			   	 PreparedStatement pStmt6 = con.prepareStatement(sql6)){
 				
 				//Se ejecutan las sentencias de creación de las tablas
-		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()) {
+		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()&&!pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute()) {
 		        	logger.info("Se han creado las tablas");
+		        	System.out.println("Se han creado las tablas");
 		        }
 			} catch (Exception ex) {
 				logger.warning(String.format("Error al crear las tablas: %s", ex.getMessage()));
@@ -220,6 +221,7 @@ public class GestorBD {
 		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()
 		        	&& !pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute()) {
 		        	logger.info("Se han borrado las tablas");
+		        	System.out.println("Se han borrado las tablas");
 		        }
 			} catch (Exception ex) {
 				logger.warning(String.format("Error al borrar las tablas: %s", ex.getMessage()));
@@ -229,6 +231,7 @@ public class GestorBD {
 				//Se borra físicamente el fichero de la BBDD
 				Files.delete(Paths.get(databaseFile));
 				logger.info("Se ha borrado el fichero de la BBDD");
+				System.out.println("Se ha borrado correctamente la BBDD");
 			} catch (Exception ex) {
 				logger.warning(String.format("Error al borrar el fichero de la BBDD: %s", ex.getMessage()));
 			}
@@ -252,9 +255,9 @@ public class GestorBD {
 			     PreparedStatement pStmt1 = con.prepareStatement(sql1);
 				 PreparedStatement pStmt2 = con.prepareStatement(sql2);
 				 PreparedStatement pStmt3 = con.prepareStatement(sql3);
-				 PreparedStatement pStmt4 = con.prepareStatement(sql1);
-				 PreparedStatement pStmt5 = con.prepareStatement(sql2);
-				 PreparedStatement pStmt6 = con.prepareStatement(sql3)) {
+				 PreparedStatement pStmt4 = con.prepareStatement(sql4);
+				 PreparedStatement pStmt5 = con.prepareStatement(sql5);
+				 PreparedStatement pStmt6 = con.prepareStatement(sql6)) {
 				
 				//Se ejecutan las sentencias de borrado de las tablas
 		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()
@@ -272,7 +275,7 @@ public class GestorBD {
 	 */
 	public void insertarEquipos(Equipo... equipos) {
 		//Se define la plantilla de la sentencia SQL
-		String sql = "INSERT INTO Equipo (liga, nombre, estadio, ciudad, anyofun, titulos, npng) VALUES (?, ?, ?, ?, ?, ?, ?);";
+		String sql = "INSERT INTO Equipo (liga, nombre, estadio, ciudad, anyofundacion, titulos, npng) VALUES (?, ?, ?, ?, ?, ?, ?);";
 		
 		//Se abre la conexión y se crea el PreparedStatement con la sentencia SQL
 		try (Connection con = DriverManager.getConnection(connectionString);
@@ -290,19 +293,19 @@ public class GestorBD {
 				pStmt.setString(7, e.getNombrePNGEquipo());
 				
 				if (pStmt.executeUpdate() != 1) {					
-					logger.warning(String.format("No se ha insertado el Personaje: %s", e));
+					logger.warning(String.format("No se ha insertado el equipo: %s", e));
 				} else {
 					//IMPORTANTE: El valor del ID del personaje se establece automáticamente al
 					//insertarlo en la BBDD. Por lo tanto, después de insertar un personaje, 
 					//se recupera de la BBDD para establecer el campo ID en el objeto que está
 					//en memoria.				
-					logger.info(String.format("Se ha insertado el Personaje: %s", e));
+					logger.info(String.format("Se ha insertado el equipo: %s", e));
 				}
 			}
 			
-			logger.info(String.format("%d Personajes insertados en la BBDD", equipos.length));
+			logger.info(String.format("%d equipos insertados en la BBDD", equipos.length));
 		} catch (Exception ex) {
-			logger.warning(String.format("Error al insertar personajes: %s", ex.getMessage()));
+			logger.warning(String.format("Error al insertar ligas: %s", ex.getMessage()));
 		}			
 	}
 	
@@ -326,7 +329,7 @@ public class GestorBD {
 				pStmt.setInt(3, l.getNumeroEquipos());
 				
 				if (pStmt.executeUpdate() != 1) {					
-					logger.warning(String.format("No se ha insertado el Comic: %s", l));
+					logger.warning(String.format("No se ha insertado la Liga: %s", l));
 				} else {
 					//IMPORTANTE: El valor del ID del comic se establece automáticamente al
 					//insertarlo en la BBDD. Por lo tanto, después de insertar un comic, 
@@ -334,13 +337,13 @@ public class GestorBD {
 					//en memoria.				
 					
 					
-					logger.info(String.format("Se ha insertado el Comic: %s", l));
+					logger.info(String.format("Se ha insertado la Liga: %s", l));
 				}
 			}
 			
 			logger.info(String.format("%d Comics insertados en la BBDD", ligas.length));
 		} catch (Exception ex) {
-			logger.warning(String.format("Error al insertar comics: %s", ex.getMessage()));
+			logger.warning(String.format("Error al insertar ligas: %s", ex.getMessage()));
 		}				
 	}
 		
@@ -377,7 +380,7 @@ public class GestorBD {
 			}			
 			
 		} catch (Exception ex) {
-			logger.warning(String.format("Error leyendo personajes del CSV: %s", ex.getMessage()));
+			logger.warning(String.format("Error leyendo equipos del CSV: %s", ex.getMessage()));
 		}
 		
 		return equipos;
@@ -398,7 +401,7 @@ public class GestorBD {
 			}			
 			
 		} catch (Exception ex) {
-			logger.warning(String.format("Error leyendo personajes del CSV: %s", ex.getMessage()));
+			logger.warning(String.format("Error leyendo ligas del CSV: %s", ex.getMessage()));
 		}
 		
 		return ligas;
@@ -471,9 +474,9 @@ public class GestorBD {
 		                pStmt.setString(4, p.getCategoria());
 						
 						if (pStmt.executeUpdate() != 1) {					
-							logger.warning(String.format("No se ha insertado el Personaje: %s", p));
+							logger.warning(String.format("No se ha insertado la pregunta: %s", p));
 						} else {				
-							logger.info(String.format("Se ha insertado el Personaje: %s", p));
+							logger.info(String.format("Se ha insertado la pregunta: %s", p));
 						}
 					}
 					
@@ -503,7 +506,7 @@ public class GestorBD {
 					
 					logger.info(String.format("%d Preguntas insertados en la BBDD", opciones.length));
 				} catch (Exception ex) {
-					logger.warning(String.format("Error al insertar preguntas: %s", ex.getMessage()));
+					logger.warning(String.format("Error al insertar opciones: %s", ex.getMessage()));
 				}
 		}
 

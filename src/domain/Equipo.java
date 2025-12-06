@@ -158,6 +158,10 @@ public class Equipo implements Comparable<Equipo> {
 		// TODO Auto-generated method stub
 		 return Integer.compare(o.puntos, this.puntos);
 	}
+	@Override
+	public String toString() {
+		return "Equipo [nombre=" + nombre + "]";
+	}
 	
 	
 
