@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.Timer;
+import javax.swing.Timer;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -62,6 +62,8 @@ public class JFrameQuiz extends JFramePadre{
 	//Respuestas
 	private JPanel panelRespuestas;
 	private List<Opcion> opciones;
+	private List<JLabel> labelOpciones;
+	private Opcion opcionCorrecta;
 	//Gestor de base de datos
 	private GestorBD GBD;
 	private Clip clip;
@@ -188,14 +190,19 @@ public class JFrameQuiz extends JFramePadre{
 	
 	private void añadirRespuestas() {
 	    opciones = GBD.cargarOpcionesDePregunta(pregunta);
-	    
+	    opcionCorrecta = null;
+	    labelOpciones = new ArrayList<JLabel>();
 	    //Crea el lbl para cada opcion y le da la funcionalidad para que sea clickable
 	    for (int i = 0; i < opciones.size(); i++) {
 	    	
 	        Opcion opcion = opciones.get(i);
 	        //Crea un lbl con el contenido de cada opcion
 	        JLabel lblOpcion = new JLabel(opcion.getTexto_opcion());
-	        
+	        labelOpciones.add(lblOpcion);
+	        //Conseguir la opcion correcta de la pregunta
+	        if (opcion.getEs_correcta() == 1) {
+	        	opcionCorrecta = opcion;
+	        }
 	        
 	        
 	        // Hacer que parezca clicable
@@ -238,18 +245,55 @@ public class JFrameQuiz extends JFramePadre{
 	        lblPuntuacion.setText("" + puntuacion);
 	        
 	    } else {
-	        JOptionPane.showMessageDialog(this, "Incorrecto");
+	    	pintarOpcionIncorrecta(opcionSeleccionada, opcionCorrecta);	
 	    }
 	    
-	    panelPregunta.removeAll();
-	    panelRespuestas.removeAll();
-	    //Sea la pregunta correcta o incorrecta se carga una nueva pregunta
-	    this.añadirPregunta();
-	    panelQuiz.revalidate(); //IAG
-	    panelQuiz.repaint();
+	   
+	 // Detener el timer anterior si existe
+	    if (delayTimer != null && delayTimer.isRunning()) {
+	        delayTimer.stop();
+	    }
+	    
+	    // Esperar medio segundo (500ms) antes de cargar la siguiente pregunta
+	    delayTimer = new javax.swing.Timer(500, e -> {
+	        panelPregunta.removeAll();
+	        panelRespuestas.removeAll();
+	        // Cargar nueva pregunta
+	        añadirPregunta();
+	        panelQuiz.revalidate();
+	        panelQuiz.repaint();
+	    });
+	    delayTimer.setRepeats(false);
+	    delayTimer.start();
 	}
+	//Colorea el label de color verde claro si la respuesta ha sido correcta
 	private void pintarOpcionCorrecta(Opcion opcionSeleccionada) {
-		
+		for (JLabel label : this.labelOpciones) {
+			if (label.getText().equals(opcionSeleccionada.getTexto_opcion())) {
+				label.setBackground(new Color(144, 238, 144));
+				label.setBorder(BorderFactory.createCompoundBorder(
+	                    BorderFactory.createLineBorder(new Color(34, 139, 34), 3),
+	                    BorderFactory.createEmptyBorder(15, 15, 15, 15)));
+				break;
+			}
+		}
+	}
+	//Colorea la opcion seleccionada de rojo y la opcion correcta de verde
+	private void pintarOpcionIncorrecta (Opcion opcionSeleccionada, Opcion opcionCorrecta) {
+		for (JLabel label : this.labelOpciones) {
+			if (label.getText().equals(opcionSeleccionada.getTexto_opcion())) {
+				label.setBackground(new Color(255, 182, 193));
+				label.setBorder(BorderFactory.createCompoundBorder(
+	                    BorderFactory.createLineBorder(new Color(220, 20, 60), 3),
+	                    BorderFactory.createEmptyBorder(15, 15, 15, 15)));
+			}else if(label.getText().equals(opcionCorrecta.getTexto_opcion())){
+				label.setBackground((new Color(144, 238, 144)));
+				label.setBorder(BorderFactory.createCompoundBorder(
+	                    BorderFactory.createLineBorder(new Color(34, 139, 34), 3),
+	                    BorderFactory.createEmptyBorder(15, 15, 15, 15)));
+				
+			}
+		}
 	}
 	public void actualizarTiempo(int tiempoRestante) {
 		if(tiempoRestante == 5) {
