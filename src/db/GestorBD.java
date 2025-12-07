@@ -659,7 +659,7 @@ public class GestorBD {
 					
 					pStmt.setString(1, usuario.getNombre());
 					pStmt.setInt(2, usuario.getPuntuacion());
-					
+					pStmt.executeUpdate();
 					logger.info(String.format("Usuario: " + usuario.getNombre() + "añadido a la BBDD"));
 				} catch (Exception ex) {
 					logger.warning(String.format("Error al insertar usuario: %s", ex.getMessage()));

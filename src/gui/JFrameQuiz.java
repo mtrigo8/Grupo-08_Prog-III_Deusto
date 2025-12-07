@@ -2,30 +2,44 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.geom.RoundRectangle2D;
 import java.io.File;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import javax.swing.Timer;
+import java.util.Vector;
 
+import javax.swing.Timer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
 import db.GestorBD;
@@ -68,6 +82,7 @@ public class JFrameQuiz extends JFramePadre{
 	//Gestor de base de datos
 	private GestorBD GBD;
 	private Clip clip;
+	private boolean respondido=false;
 	public JFrameQuiz (ArrayList<Liga> ligas, JFramePadre frameP) {
 		super();
 		super.framePrevio = frameP;
@@ -112,30 +127,109 @@ public class JFrameQuiz extends JFramePadre{
 	
 	// Pantalla de inicio del quiz
 	private void componentesPanelInicio() {
-		List<Usuario> clasificacion = GBD.cargarClasificacion();
+		
 		panelQuiz.removeAll();
-		contadorQuiz = new HiloQuiz();
-		JButton botonInicio = new JButton("Iniciar quiz");
-		botonInicio.setFont(new Font("Arial", Font.BOLD, 24));
-        botonInicio.setPreferredSize(new Dimension(200, 60));
-        botonInicio.setFocusPainted(false);
-		botonInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        botonInicio.addActionListener(e -> {
-        	this.quizIniciado();
-        	contadorQuiz.start();
-        	
-        });
-        JPanel panelClasificacion = new JPanel(new GridLayout(10,2));
-        for(Usuario usuario : clasificacion) {
-        	panelClasificacion.add(new JLabel(usuario.getNombre()));
-        	panelClasificacion.add(new JLabel("" + usuario.getPuntuacion()));
-        	
-        }
-        panelClasificacion.setOpaque(true);
-        panelQuiz.add(panelClasificacion, BorderLayout.NORTH);
-        panelQuiz.add(botonInicio, BorderLayout.SOUTH);
-        panelQuiz.revalidate();
-        panelQuiz.repaint();
+		JLabel lblTitulo= new JLabel ("TABLA DE CLASIFICACIÓN");
+		lblTitulo.setFont ( new Font("SansSerif", Font.BOLD, 24));
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		String [] col= {"POS","USUARIO","PUNTOS"};
+		TableCellRenderer cellrenderer = new TableCellRenderer() {
+			
+			@Override
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+					int row, int column) {
+			JLabel result = new JLabel(value.toString());
+			result.setOpaque(true);
+			result.setHorizontalAlignment(SwingConstants.CENTER); 
+			result.setFont(new Font("SansSerif", Font.PLAIN, 14));			
+			if (row % 2 == 0) {
+					result.setBackground(Color.WHITE);
+				} else {
+					result.setBackground(new Color(245, 255, 245));
+				}		
+			if (column == 0 && row!=1) {
+
+			result.setText((row + 1) + "º");}
+			result.setOpaque(true);
+			result.setHorizontalAlignment(SwingConstants.CENTER);
+			result.setFont(new Font("SansSerif", Font.PLAIN, 14));
+			
+
+			if (row % 2 == 0) {
+				result.setBackground(Color.WHITE);
+			} else {
+				result.setBackground(new Color(245, 255, 245));
+			}
+
+			if (column == 0) { 
+				result.setFont(new Font("SansSerif", Font.BOLD, 14));
+				
+				if (row == 0) {
+						ImageIcon imagen = new ImageIcon("resources/images/logos/trofeo.png");
+						Image imgEscalada = imagen.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+						result.setIcon(new ImageIcon(imgEscalada));
+						result.setHorizontalTextPosition(SwingConstants.CENTER);
+						
+				}
+				
+				else if (row == 1) {
+					ImageIcon imagen = new ImageIcon("resources/images/logos/plata.png");
+					Image imgEscalada = imagen.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+					result.setIcon(new ImageIcon(imgEscalada));
+					result.setHorizontalTextPosition(SwingConstants.CENTER);
+				}
+				else if (row == 2) {
+					ImageIcon imagen = new ImageIcon("resources/images/logos/broncemedalla.png");
+					Image imgEscalada = imagen.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+					result.setIcon(new ImageIcon(imgEscalada));
+					result.setHorizontalTextPosition(SwingConstants.CENTER);
+				}
+				
+			} else {
+				result.setForeground(Color.BLACK);
+			}
+			
+			return result;
+			}
+		};
+		
+		DefaultTableModel Tablamodelo = new DefaultTableModel(col, 0) {
+	        @Override
+	        public boolean isCellEditable(int row, int column) {
+	            return false;
+	        }
+	    };
+		List<Usuario> clasifi= GBD.cargarClasificacion();
+		for (Usuario u : clasifi) {
+			Tablamodelo.addRow(new Object[] { 
+				"",          
+				u.getNombre(),
+				u.getPuntuacion()
+			});
+		}
+		JTable tabla = new JTable(Tablamodelo);
+		for (int i = 0; i < tabla.getColumnCount(); i++) {
+			tabla.getColumnModel().getColumn(i).setCellRenderer(cellrenderer);
+		}
+		tabla.setRowHeight(40);
+		tabla.getTableHeader().setFont(new Font("SansSerif", Font.BOLD, 14));
+		tabla.getTableHeader().setBackground(new Color(185, 255, 183));
+		JButton btnInicio=new BotonCircular("Iniciar Quizz",Color.gray,Color.DARK_GRAY);
+		btnInicio.setPreferredSize(new Dimension(230, 70));
+		btnInicio.addActionListener(e -> {
+			this.quizIniciado();
+			contadorQuiz = new HiloQuiz();
+			contadorQuiz.start();
+		});
+		JScrollPane scrollPane = new javax.swing.JScrollPane(tabla);
+		scrollPane.setBorder(BorderFactory.createEmptyBorder(0, 15, 0, 15));
+		scrollPane.getViewport().setBackground(Color.WHITE);
+		panelQuiz.add(lblTitulo, BorderLayout.NORTH);
+		panelQuiz.add(scrollPane, BorderLayout.CENTER);
+		panelQuiz.add(btnInicio, BorderLayout.SOUTH);
+		
+		panelQuiz.revalidate();
+		panelQuiz.repaint();
 	}
 	// Pantalla del juego
 	private void quizIniciado() {
@@ -200,7 +294,9 @@ public class JFrameQuiz extends JFramePadre{
 	}
 	
 	private void añadirRespuestas() {
+		this.respondido=false;
 	    opciones = GBD.cargarOpcionesDePregunta(pregunta);
+	    Collections.shuffle(opciones);//para mover las opciones
 	    opcionCorrecta = null;
 	    labelOpciones = new ArrayList<JLabel>();
 	    //Crea el lbl para cada opcion y le da la funcionalidad para que sea clickable
@@ -248,8 +344,10 @@ public class JFrameQuiz extends JFramePadre{
 	
 	//Verifica si la pregunta seleccionada es correcta
 	private void verificarRespuesta(Opcion opcionSeleccionada) {
-	    
-	    
+	    if (respondido==true) {
+	    	return;
+	    }
+	    respondido =true;
 	    if (opcionSeleccionada.getEs_correcta() == 1) {
 	        pintarOpcionCorrecta(opcionSeleccionada);
 	        puntuacion += 1;
@@ -353,9 +451,7 @@ public class JFrameQuiz extends JFramePadre{
                 
                 tiempoCumplido = true;
                 if(tiempoCumplido && !this.isInterrupted()) {
-                	componentesPanelInicio();
-                	JFrameQuiz.this.revalidate();
-                    JFrameQuiz.this.repaint();
+                	SwingUtilities.invokeLater(() -> {
 	                JLabel texto = new JLabel("Su puntuacion ha sido de " + puntuacion + " " + "Introduzca su usuario", JLabel.CENTER);
 	                String usuario = JOptionPane.showInputDialog(
 	                        JFrameQuiz.this,
@@ -363,12 +459,17 @@ public class JFrameQuiz extends JFramePadre{
 	                        "Tiempo finalizado",
 	                        JOptionPane.PLAIN_MESSAGE
 	                    );
-	                añadirPuntuacion(usuario, puntuacion);
+	             añadirPuntuacion(usuario, puntuacion);
 	                
-                }
-                this.interrupt();
+                componentesPanelInicio();
+                JFrameQuiz.this.revalidate();
+                JFrameQuiz.this.repaint();
+                });
+                
             }
+        this.interrupt();
         }
+	}
 	private void musica (String ruta) {
 		try {
             File archivo = new File(ruta);
@@ -392,5 +493,55 @@ public class JFrameQuiz extends JFramePadre{
 		});
 		botonAtras.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	}
-	
+	 private class BotonCircular extends JButton {
+	    	
+			private static final long serialVersionUID = 1L;
+			private Color colorNormal,colorSeleccionado, colorPresionado;
+	    	private boolean Seleccionado=false;
+	public BotonCircular (String text, Color normal, Color seleccionado) {
+		super (text);
+		this.colorNormal=normal;
+		this.colorSeleccionado= seleccionado;
+		this.colorPresionado=seleccionado.darker();
+		//Quito el diseño por defecto para los botones de Java
+		setContentAreaFilled(false);
+		setFocusPainted(false);
+		setBorderPainted(false);
+		setOpaque(false);
+		setForeground(Color.BLACK);
+		setFont (new Font ("SansSerif",Font.BOLD,18));
+		setCursor (new Cursor(Cursor.HAND_CURSOR));
+		addMouseListener (new MouseAdapter(){
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				Seleccionado=true;
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				Seleccionado=false;
+			}
+		});
+	}
+	//IAG
+	@Override
+	  protected void paintComponent(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+        // Decidimos el color según el estado (Presionado, Hover, o Normal)
+        if (getModel().isPressed()) g2.setColor(colorPresionado);
+        else if (Seleccionado) g2.setColor(colorSeleccionado); // Aquí usamos la variable booleana
+        else g2.setColor(colorNormal);
+
+        // Dibujamos el rectángulo redondeado (Radio 30)
+        g2.fill(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 30, 30));
+        
+        // Dejamos que Java pinte el texto encima
+        super.paintComponent(g2);
+        g2.dispose();
+    }
 }
+}
+	
