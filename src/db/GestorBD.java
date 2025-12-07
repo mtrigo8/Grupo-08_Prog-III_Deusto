@@ -666,6 +666,26 @@ public class GestorBD {
 				}
 			
 		}
+		public List<Usuario> cargarClasificacion() {
+		    List<Usuario> clasificacion = new ArrayList<>();
+		    String sql = "SELECT nombre, puntuacion FROM usuario ORDER BY puntuacion DESC"; 
+
+		    try (Connection con = DriverManager.getConnection(connectionString);
+		         PreparedStatement pst = con.prepareStatement(sql);
+		         ResultSet rs = pst.executeQuery()) {
+
+		        while (rs.next()) {
+		            String nombre = rs.getString("nombre");
+		            int puntuacion = rs.getInt("puntuacion");
+		            clasificacion.add(new Usuario(nombre, puntuacion)); 
+		        }
+
+		    } catch (Exception e) {
+		        System.err.println("Error al cargar la clasificación: " + e.getMessage());
+		        logger.warning(String.format("Error al cargar la clasificación: %s", e.getMessage()));
+		    }
+		    return clasificacion;
+		}
 		
 		private String getIdsExcluidos (Set<Pregunta> preguntasMostradas) {
 			//Si las preguntas mostradas son null o esta vacio el set no hay preguntas 

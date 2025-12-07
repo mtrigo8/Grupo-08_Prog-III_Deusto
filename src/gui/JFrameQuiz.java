@@ -32,6 +32,7 @@ import db.GestorBD;
 import domain.Liga;
 import domain.Opcion;
 import domain.Pregunta;
+import domain.Usuario;
 
 
 public class JFrameQuiz extends JFramePadre{
@@ -111,6 +112,7 @@ public class JFrameQuiz extends JFramePadre{
 	
 	// Pantalla de inicio del quiz
 	private void componentesPanelInicio() {
+		List<Usuario> clasificacion = GBD.cargarClasificacion();
 		panelQuiz.removeAll();
 		contadorQuiz = new HiloQuiz();
 		JButton botonInicio = new JButton("Iniciar quiz");
@@ -123,8 +125,17 @@ public class JFrameQuiz extends JFramePadre{
         	contadorQuiz.start();
         	
         });
-        
+        JPanel panelClasificacion = new JPanel(new GridLayout(10,2));
+        for(Usuario usuario : clasificacion) {
+        	panelClasificacion.add(new JLabel(usuario.getNombre()));
+        	panelClasificacion.add(new JLabel("" + usuario.getPuntuacion()));
+        	
+        }
+        panelClasificacion.setOpaque(true);
+        panelQuiz.add(panelClasificacion, BorderLayout.NORTH);
         panelQuiz.add(botonInicio, BorderLayout.SOUTH);
+        panelQuiz.revalidate();
+        panelQuiz.repaint();
 	}
 	// Pantalla del juego
 	private void quizIniciado() {
@@ -295,6 +306,20 @@ public class JFrameQuiz extends JFramePadre{
 			}
 		}
 	}
+	public void añadirPuntuacion(String nom_usuario, int puntuacion) {
+		try {
+           Usuario usuario = new Usuario(nom_usuario, puntuacion);
+            
+            // 2. Llamar al método del GestorBD
+            JFrameQuiz.this.GBD.insertarUsuario(usuario);
+            JOptionPane.showMessageDialog(JFrameQuiz.this, "Puntuación guardada con éxito.");
+            
+        } catch (Exception e) {
+        	System.err.println("No se ha podido guardar la puntuacion de la base de datos: " + e.getMessage());
+        }
+    
+    }
+	
 	public void actualizarTiempo(int tiempoRestante) {
 		if(tiempoRestante == 5) {
 			lblTiempo.setForeground(Color.RED);
@@ -338,6 +363,7 @@ public class JFrameQuiz extends JFramePadre{
 	                        "Tiempo finalizado",
 	                        JOptionPane.PLAIN_MESSAGE
 	                    );
+	                añadirPuntuacion(usuario, puntuacion);
 	                
                 }
                 this.interrupt();
