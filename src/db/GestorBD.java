@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
@@ -21,6 +22,8 @@ import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 import domain.Equipo;
+import domain.Jugador;
+import domain.Jugador.TipoPosicion;
 import domain.Liga;
 import domain.Opcion;
 import domain.Pregunta;
@@ -174,6 +177,14 @@ public class GestorBD {
                     "fecha_registro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, " +
                     "puntuacion INTEGER DEFAULT 0" +
                     ");";
+			String sql7 = "CREATE TABLE IF NOT EXISTS Jugador (\n"
+					+ "cod_jugador INTEGER UNIQUE PRIMARY KEY AUTOINCREMENT,\n"
+					+ "nom_jugador TEXT NOT NULL,\n"
+					+ "num_camiseta INTEGER NOT NULL,\n"
+					+ "posicion TEXT NOT NULL, \n"
+					+ "nacionalidad TEXT NOT NULL,\n"
+					+ "edad TEXT NOT NULL,\n"
+					+ "FOREIGN KEY (equipo) REFERENCES Equipo(nombre) ON DELETE CASCADE);";
 	        //Se abre la conexión y se crea un PreparedStatement para crer cada tabla
 			//Al abrir la conexión, si no existía el fichero por defecto, se crea.
 			try (Connection con = DriverManager.getConnection(connectionString);
@@ -182,10 +193,11 @@ public class GestorBD {
 				 PreparedStatement pStmt3 = con.prepareStatement(sql3);
 				 PreparedStatement pStmt4 = con.prepareStatement(sql4);
 				 PreparedStatement pStmt5 = con.prepareStatement(sql5);
-			   	 PreparedStatement pStmt6 = con.prepareStatement(sql6)){
+			   	 PreparedStatement pStmt6 = con.prepareStatement(sql6);
+				 PreparedStatement pStmt7 = con.prepareStatement(sql7)){
 				
 				//Se ejecutan las sentencias de creación de las tablas
-		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()&&!pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute()) {
+		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()&&!pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute() && !pStmt7.execute()) {
 		        	logger.info("Se han creado las tablas");
 		        	System.out.println("Se han creado las tablas");
 		        }
@@ -207,6 +219,7 @@ public class GestorBD {
 			String sql4 = "DROP TABLE IF EXISTS pregunta;";
 			String sql5 = "DROP TABLE IF EXISTS opcion";
 			String sql6 = "DROP TABLE IF EXISTS usuario;";
+			String sql7 = "DROP TABLE IF EXISTS Jugador;";
 			
 	        //Se abre la conexión y se crea un PreparedStatement para borrar cada tabla
 			try (Connection con = DriverManager.getConnection(connectionString);
@@ -215,11 +228,13 @@ public class GestorBD {
 				 PreparedStatement pStmt3 = con.prepareStatement(sql3);
 				 PreparedStatement pStmt4 = con.prepareStatement(sql4);
 				 PreparedStatement pStmt5 = con.prepareStatement(sql5);
-				 PreparedStatement pStmt6 = con.prepareStatement(sql6)) {
+				 PreparedStatement pStmt6 = con.prepareStatement(sql6);
+				 PreparedStatement pStmt7 = con.prepareStatement(sql7)) {
 				
 				//Se ejecutan las sentencias de borrado de las tablas
 		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()
-		        	&& !pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute()) {
+		        	&& !pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute()
+		        	&& !pStmt7.execute()) {
 		        	logger.info("Se han borrado las tablas");
 		        	System.out.println("Se han borrado las tablas");
 		        }
@@ -250,6 +265,7 @@ public class GestorBD {
 			String sql4 = "DELETE FROM pregunta;";
 			String sql5 = "DELETE FROM opcion;";
 			String sql6 = "DELETE FROM usuario;";
+			String sql7 = "DELETE FROM Jugador;";
 	        //Se abre la conexión y se crea un PreparedStatement para borrar los datos de cada tabla
 			try (Connection con = DriverManager.getConnection(connectionString);
 			     PreparedStatement pStmt1 = con.prepareStatement(sql1);
@@ -257,11 +273,13 @@ public class GestorBD {
 				 PreparedStatement pStmt3 = con.prepareStatement(sql3);
 				 PreparedStatement pStmt4 = con.prepareStatement(sql4);
 				 PreparedStatement pStmt5 = con.prepareStatement(sql5);
-				 PreparedStatement pStmt6 = con.prepareStatement(sql6)) {
+				 PreparedStatement pStmt6 = con.prepareStatement(sql6);
+				 PreparedStatement pStmt7 = con.prepareStatement(sql7)) {
 				
 				//Se ejecutan las sentencias de borrado de las tablas
 		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()
-		        	&& !pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute()) {
+		        	&& !pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute()
+		        	&& !pStmt7.execute()) {
 		        	logger.info("Se han borrado los datos");
 		        }
 			} catch (Exception ex) {
@@ -346,6 +364,46 @@ public class GestorBD {
 			logger.warning(String.format("Error al insertar ligas: %s", ex.getMessage()));
 		}				
 	}
+	
+	/**
+	 * Inserta Jugadores en la BBDD
+	 */
+	public void insertarJugadores(Jugador... jugadores) {
+		//Se define la plantilla de la sentencia SQL
+		String sql = "INSERT INTO Jugador (cod_jugador, nom_jugador, num_camiseta, posicion, nacionalidad, edad, equipo) VALUES (?, ?, ?, ?, ?, ?, ?);";
+		
+		//Se abre la conexión y se crea el PreparedStatement con la sentencia SQL
+		try (Connection con = DriverManager.getConnection(connectionString);
+			 PreparedStatement pStmt = con.prepareStatement(sql)) {
+									
+			//Se recorren los clientes y se insertan uno a uno
+			for (Jugador j : jugadores) {
+				//Se añaden los parámetros al PreparedStatement
+				pStmt.setInt(1, j.getCod_jugador());
+				pStmt.setString(2, j.getNombre());
+				pStmt.setInt(3, j.getNumeroCamiseta());
+				pStmt.setString(4, j.getPosicion().toString());
+				pStmt.setString(5, j.getNacionalidad());
+				pStmt.setInt(6, j.getEdad());
+				pStmt.setString(7, j.getEquipo().toString());
+				
+				if (pStmt.executeUpdate() != 1) {					
+					logger.warning(String.format("No se ha insertado el jugador: %s", j));
+				} else {
+					//IMPORTANTE: El valor del ID del personaje se establece automáticamente al
+					//insertarlo en la BBDD. Por lo tanto, después de insertar un personaje, 
+					//se recupera de la BBDD para establecer el campo ID en el objeto que está
+					//en memoria.				
+					logger.info(String.format("Se ha insertado el jugador: %s", j));
+				}
+			}
+			
+			logger.info(String.format("%d equipos insertados en la BBDD", jugadores.length));
+		} catch (Exception ex) {
+			logger.warning(String.format("Error al insertar ligas: %s", ex.getMessage()));
+		}			
+	}
+	
 		
 	/**
 	 * IMPORTANTE: La información del CSV de los comics sólo trae el nombre de los personajes.
@@ -360,6 +418,20 @@ public class GestorBD {
 				if (equipo.getNomLiga().equals(liga.getNombre())) {
 					equipo.setLiga(liga);
 					liga.getEquipos().add(equipo);
+				}
+			}
+		}
+	}
+	private void updateJugadores(List<Jugador> jugadores, List<Equipo> equipos) {
+		for (Equipo equipo : equipos) {
+			for (Jugador jugador : jugadores ) {
+				if (jugador.getEquipo().equals(equipo.getNombre())) {
+					jugador.setEquipo(equipo);
+					HashMap<TipoPosicion, ArrayList<Jugador>>mapaJugadores = equipo.getJugadores();
+					if(!mapaJugadores.containsKey(jugador.getPosicion())) {
+						mapaJugadores.put(jugador.getPosicion(), new ArrayList<Jugador>());
+					}
+					mapaJugadores.get(jugador.getPosicion()).add(jugador);
 				}
 			}
 		}

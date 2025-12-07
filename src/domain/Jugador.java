@@ -3,12 +3,14 @@ package domain;
 import java.util.Objects;
 
 public class Jugador {
+	private static int contador = 1;
 	private String nombre;
 	private int numeroCamiseta;
 	private TipoPosicion posicion;
 	private Equipo equipo;
 	private String nacionalidad;
 	private int edad;
+	private int cod_jugador;
 public enum TipoPosicion {
 	PORTERO, 
 	DEFENSA,
@@ -24,8 +26,16 @@ public Jugador(String nombre, int numeroCamiseta, TipoPosicion posicion, Equipo 
 	this.equipo = equipo;
 	this.nacionalidad = nacionalidad;
 	this. edad= edad;
+	this.cod_jugador = contador;
+	contador ++;
+	
 	}
 
+
+
+public int getCod_jugador() {
+	return cod_jugador;
+}
 
 public String getNombre() {
 	return nombre;
