@@ -462,7 +462,7 @@ public class GestorBD {
 	    }           
 	}
 
-	private void updateEquipos(List<Equipo> equipos, List<Liga> ligas) {
+	public void updateEquipos(List<Equipo> equipos, List<Liga> ligas) {
 		for (Liga liga : ligas) {
 			for (Equipo equipo : equipos) {
 				if (equipo.getNomLiga().equals(liga.getNombre())) {
@@ -472,7 +472,7 @@ public class GestorBD {
 			}
 		}
 	}
-	private void updateJugadores(List<Jugador> jugadores, List<Equipo> equipos) {
+	public void updateJugadores(List<Jugador> jugadores, List<Equipo> equipos) {
 		for (Equipo equipo : equipos) {
 			for (Jugador jugador : jugadores ) {
 				if (jugador.getEquipo().equals(equipo.getNombre())) {
@@ -486,7 +486,7 @@ public class GestorBD {
 			}
 		}
 	}
-	private void updatePartidos(List<Partido> partidos, List<Equipo> equipos) {
+	public void updatePartidos(List<Partido> partidos, List<Equipo> equipos) {
 		for (Equipo equipo : equipos) {
 			for (Partido partido : partidos) {
 				if (equipo.getNombre().equals(partido.getNombreEquipoLocal())) {

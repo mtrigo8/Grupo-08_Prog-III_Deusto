@@ -17,7 +17,9 @@ import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
@@ -33,9 +35,11 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
+import db.GestorBD;
 import domain.Equipo;
 import domain.Liga;
 import domain.Partido;
+
 
 public class JFrameCalendario extends JFramePadre {
 	
@@ -48,9 +52,11 @@ public class JFrameCalendario extends JFramePadre {
 	private int columnaCalendario = -1;
 	private JComboBox<Integer> seleccionarJornada;
 	private HashMap<String, ImageIcon> mapaEscudos;
+	private GestorBD GBD;
 	
 	public JFrameCalendario(Liga liga, JFramePadre ventanaAnterior) {
 		super();
+		GBD = new GestorBD();
 		super.framePrevio = ventanaAnterior;
 		this.liga = liga;
 		JPanel panel = super.panel;
