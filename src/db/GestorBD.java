@@ -437,6 +437,160 @@ public class GestorBD {
 		}
 	}
 	
+	/**
+	 * Recupera los Personajes de la BBDD.
+	 */
+	public List<Equipo> getEquipos() {
+		List<Equipo> equipos = new ArrayList<>();
+		String sql = "SELECT * FROM Equipo";
+		
+		//Se abre la conexión sy se crea el PreparedStatement con la sentencia SQL
+		try (Connection con = DriverManager.getConnection(connectionString);
+		     PreparedStatement pStmt = con.prepareStatement(sql)) {			
+			
+			//Se ejecuta la sentencia y se obtiene el ResultSet
+			ResultSet rs = pStmt.executeQuery();			
+			Equipo equipo;
+			
+			//Se recorre el ResultSet y se crean objetos
+			while (rs.next()) {
+				equipo = new Equipo(rs.getString("nombre"),
+						rs.getString("ciudad"),
+						rs.getInt("anyofun"),
+						rs.getInt("titulos"),
+						rs.getString("estadio"),
+						rs.getString("npng"),
+						rs.getString("liga"));
+				
+				//Se inserta cada nuevo cliente en la lista de clientes
+				equipos.add(equipo);
+			}
+			
+			//Se cierra el ResultSet
+			rs.close();
+			
+			logger.info(String.format("Se han recuperado %d personajes.", equipos.size()));			
+		} catch (Exception ex) {
+			logger.warning(String.format("Error recuperar los personajes: %s", ex.getMessage()));						
+		}		
+		
+		return equipos;
+	}
+	
+	
+
+	
+	/**
+	 * Recupera de la BBDD un Personaje a partir de su nombre. 
+	 */
+	public Equipo getEquipoByNombre(String nombre) {
+		Equipo equipo = null;
+		String sql = "SELECT * FROM Equipo WHERE nombre = ? LIMIT 1";
+		
+		//Se abre la conexión y se crea el PreparedStatement con la sentencia SQL
+		try (Connection con = DriverManager.getConnection(connectionString);
+		     PreparedStatement pStmt = con.prepareStatement(sql)) {			
+			
+			//Se definen los parámetros de la sentencia SQL
+			pStmt.setString(1, nombre);
+			
+			//Se ejecuta la sentencia y se obtiene el ResultSet con los resutlados
+			ResultSet rs = pStmt.executeQuery();			
+
+			//Se procesa el único resultado
+			if (rs.next()) {
+				equipo = new Equipo(rs.getString("nombre"),
+						rs.getString("ciudad"),
+						rs.getInt("anyofun"),
+						rs.getInt("titulos"),
+						rs.getString("estadio"),
+						rs.getString("npng"),
+						rs.getString("liga"));
+			}
+			
+			//Se cierra el ResultSet
+			rs.close();
+			
+			logger.info(String.format("Se ha recuperado el personaje %s", equipo));			
+		} catch (Exception ex) {
+			logger.warning(String.format("Error recuperar el personaje con nombre %s: %s", nombre, ex.getMessage()));						
+		}		
+		
+		return equipo;
+	}
+	
+	/**
+	 * Recupera los Comics de la BBDD. 
+	 */
+	public List<Liga> getLigas() {
+		List<Liga> ligas = new ArrayList<>();
+		String sql = "SELECT * FROM Liga";
+		
+		//Se abre la conexión y se crea el PreparedStatement con la sentencia SQL
+		try (Connection con = DriverManager.getConnection(connectionString);
+		     PreparedStatement pStmt = con.prepareStatement(sql)) {			
+			
+			//Se ejecuta la sentencia y se obtiene el ResultSet con los resutlados
+			ResultSet rs = pStmt.executeQuery();			
+			Liga liga;
+			
+			//Se recorre el ResultSet y se crean los Comics
+			while (rs.next()) {
+				liga = new Liga(rs.getString("nombre"),
+						rs.getString("pais"),
+						rs.getInt("numeroEquipos"),
+						new ArrayList<Equipo>());
+				
+				
+				
+				//Se inserta cada nuevo cliente en la lista de clientes
+				ligas.add(liga);
+			}
+			
+			//Se cierra el ResultSet
+			rs.close();
+			
+			logger.info(String.format("Se han recuperado %d comics", ligas.size()));			
+		} catch (Exception ex) {
+			logger.warning(String.format("Error recuperar los comics: %s", ex.getMessage()));						
+		}		
+		
+		return ligas;
+	}
+	
+	public Liga getComicByTitulo(String nombre) {
+		Liga liga = null;
+		String sql = "SELECT * FROM Liga WHERE nombre = ? LIMIT 1";
+		
+		//Se abre la conexión y se crea el PreparedStatement con la sentencia SQL
+		try (Connection con = DriverManager.getConnection(connectionString);
+		     PreparedStatement pStmt = con.prepareStatement(sql)) {			
+			
+			//Se definen los parámetros de la sentencia SQL
+			pStmt.setString(1, nombre);
+			
+			//Se ejecuta la sentencia y se obtiene el ResultSet con los resutlados
+			ResultSet rs = pStmt.executeQuery();			
+
+			//Se procesa el único resultado
+			if (rs.next()) {
+				liga = new Liga(rs.getString("nombre"),
+						rs.getString("pais"),
+						rs.getInt("numeroEquipos"),
+						new ArrayList<Equipo>());
+
+			
+			//Se cierra el ResultSet
+			rs.close();
+			}
+			logger.info(String.format("Se ha recuperado el comic %s", liga));			
+		} catch (Exception ex) {
+			logger.warning(String.format("Error recuperar el comic con nombre %s: %s", nombre, ex.getMessage()));						
+		}		
+		
+		return liga;
+	}
+	
 	private List<Equipo> loadCSVEquipos() {
 		List<Equipo> equipos = new ArrayList<>();
 		
@@ -447,7 +601,7 @@ public class GestorBD {
 			
 			while ((linea = in.readLine()) != null) {
 				String[] campos = linea.split(";");
-				Equipo e = new Equipo(campos[0], campos[1], null, Integer.parseInt(campos[3]), Integer.parseInt(campos[4]), campos[5], campos[6], campos[2]);
+				Equipo e = new Equipo(campos[0], campos[1], Integer.parseInt(campos[3]), Integer.parseInt(campos[4]), campos[5], campos[6], campos[2]);
 				equipos.add(e);
 			}			
 			
