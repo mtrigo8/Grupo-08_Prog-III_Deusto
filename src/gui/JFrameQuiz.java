@@ -133,6 +133,10 @@ public class JFrameQuiz extends JFramePadre{
 		lblTitulo.setFont ( new Font("SansSerif", Font.BOLD, 24));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		String [] col= {"POS","USUARIO","PUNTOS"};
+		JPanel panelgeneral= new JPanel(); 
+	    panelgeneral.setBackground(Color.WHITE);
+	    panelgeneral.setLayout(new BorderLayout(10, 10));
+	    panelQuiz.setLayout(new BorderLayout());
 		TableCellRenderer cellrenderer = new TableCellRenderer() {
 			
 			@Override
@@ -165,6 +169,7 @@ public class JFrameQuiz extends JFramePadre{
 				result.setFont(new Font("SansSerif", Font.BOLD, 14));
 				
 				if (row == 0) {
+						result.setText("");
 						ImageIcon imagen = new ImageIcon("resources/images/logos/trofeo.png");
 						Image imgEscalada = imagen.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 						result.setIcon(new ImageIcon(imgEscalada));
@@ -173,12 +178,14 @@ public class JFrameQuiz extends JFramePadre{
 				}
 				
 				else if (row == 1) {
+					result.setText("");
 					ImageIcon imagen = new ImageIcon("resources/images/logos/plata.png");
 					Image imgEscalada = imagen.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 					result.setIcon(new ImageIcon(imgEscalada));
 					result.setHorizontalTextPosition(SwingConstants.CENTER);
 				}
 				else if (row == 2) {
+					result.setText("");
 					ImageIcon imagen = new ImageIcon("resources/images/logos/broncemedalla.png");
 					Image imgEscalada = imagen.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 					result.setIcon(new ImageIcon(imgEscalada));
@@ -221,13 +228,21 @@ public class JFrameQuiz extends JFramePadre{
 			contadorQuiz = new HiloQuiz();
 			contadorQuiz.start();
 		});
-		JScrollPane scrollPane = new javax.swing.JScrollPane(tabla);
-		scrollPane.setBorder(BorderFactory.createEmptyBorder(0, 15, 0, 15));
-		scrollPane.getViewport().setBackground(Color.WHITE);
-		panelQuiz.add(lblTitulo, BorderLayout.NORTH);
-		panelQuiz.add(scrollPane, BorderLayout.CENTER);
-		panelQuiz.add(btnInicio, BorderLayout.SOUTH);
 		
+		
+		JScrollPane scrollPane = new JScrollPane(tabla);
+		panelgeneral.add(lblTitulo, BorderLayout.NORTH);
+	    panelgeneral.add(scrollPane, BorderLayout.CENTER);
+	    
+	    JPanel panelContenedor = new JPanel(new FlowLayout());
+	    panelContenedor.setBackground(Color.WHITE);
+	    panelContenedor.setOpaque(false); 
+	    panelContenedor.add(btnInicio);
+	    panelgeneral.add(panelContenedor, BorderLayout.SOUTH);
+	  
+	    panelQuiz.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+	    
+	    panelQuiz.add(panelgeneral, BorderLayout.CENTER);
 		panelQuiz.revalidate();
 		panelQuiz.repaint();
 	}
@@ -542,6 +557,8 @@ public class JFrameQuiz extends JFramePadre{
         super.paintComponent(g2);
         g2.dispose();
     }
+	
 }
+	
 }
 	

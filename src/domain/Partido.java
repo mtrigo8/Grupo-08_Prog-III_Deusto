@@ -7,6 +7,8 @@ import java.util.Objects;
 public class Partido {
 	private Equipo equipoLocal;
 	private Equipo equipoVisitante;
+	private String nombreEquipoLocal;
+	private String nombreEquipoVisitante;
 	private int golesLocal;
 	private int golesVisitante;
 	private LocalDate fecha;
@@ -18,6 +20,16 @@ public class Partido {
 		super();
 		this.equipoLocal = equipoLocal;
 		this.equipoVisitante = equipoVisitante;
+		this.golesLocal = golesLocal;
+		this.golesVisitante = golesVisitante;
+		this.fecha = fecha;
+		this.jornada = jornada;
+	}
+	
+	public Partido(String nombreEquipoLocal, String nombreEquipoVisitante, int golesLocal, int golesVisitante, LocalDate fecha, int jornada) {
+		super();
+		this.nombreEquipoLocal = nombreEquipoLocal;
+		this.nombreEquipoVisitante = nombreEquipoVisitante;
 		this.golesLocal = golesLocal;
 		this.golesVisitante = golesVisitante;
 		this.fecha = fecha;
@@ -85,6 +97,23 @@ public class Partido {
 
 	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
+	}
+	
+
+	public String getNombreEquipoLocal() {
+		return nombreEquipoLocal;
+	}
+
+	public void setNombreEquipoLocal(String nombreEquipoLocal) {
+		this.nombreEquipoLocal = nombreEquipoLocal;
+	}
+
+	public String getNombreEquipoVisitante() {
+		return nombreEquipoVisitante;
+	}
+
+	public void setNombreEquipoVisitante(String nombreEquipoVisitante) {
+		this.nombreEquipoVisitante = nombreEquipoVisitante;
 	}
 
 	@Override

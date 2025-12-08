@@ -33,13 +33,12 @@ public class Equipo implements Comparable<Equipo> {
 		this.estadio = estadio;
 		this.nombrePNGEquipo = nombrePNGEquipo;
 	}
-	public Equipo(String nombre, String ciudad, Liga liga, int anyoFundacion, int titulos,
+	public Equipo(String nombre, String ciudad, int anyoFundacion, int titulos,
 			String estadio, String nombrePNGEquipo, String nombreLiga) {
 		super();
 		this.jugadores = new HashMap<TipoPosicion, ArrayList<Jugador>>();
 		this.nombre = nombre;
 		this.ciudad = ciudad;
-		this.liga = liga;
 		this.anyoFundacion = anyoFundacion;
 		this.titulos = titulos;
 		this.estadio = estadio;

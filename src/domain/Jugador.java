@@ -11,6 +11,7 @@ public class Jugador {
 	private String nacionalidad;
 	private int edad;
 	private int cod_jugador;
+	private String nombreEquipo;
 public enum TipoPosicion {
 	PORTERO, 
 	DEFENSA,
@@ -24,6 +25,18 @@ public Jugador(String nombre, int numeroCamiseta, TipoPosicion posicion, Equipo 
 	this.numeroCamiseta = numeroCamiseta;
 	this.posicion = posicion;
 	this.equipo = equipo;
+	this.nacionalidad = nacionalidad;
+	this. edad= edad;
+	this.cod_jugador = contador;
+	contador ++;
+	
+	}
+public Jugador(String nombre, int numeroCamiseta, TipoPosicion posicion, String nacionalidad,int edad, String nombreEquipo) {
+	super();
+	this.nombre = nombre;
+	this.numeroCamiseta = numeroCamiseta;
+	this.posicion = posicion;
+	this.nombreEquipo = nombreEquipo;
 	this.nacionalidad = nacionalidad;
 	this. edad= edad;
 	this.cod_jugador = contador;
