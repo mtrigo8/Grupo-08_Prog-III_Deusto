@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
-public class Partido {
+public class Partido implements Comparable<Partido> {
 	private Equipo equipoLocal;
 	private Equipo equipoVisitante;
 	private String nombreEquipoLocal;
@@ -137,6 +137,12 @@ public class Partido {
 		Partido other = (Partido) obj;
 		return Objects.equals(equipoLocal, other.equipoLocal) && Objects.equals(equipoVisitante, other.equipoVisitante)
 				&& Objects.equals(fecha, other.fecha);
+	}
+
+	@Override
+	public int compareTo(Partido o) {
+		// TODO Auto-generated method stub
+		return this.jornada - o.getJornada();
 	}
 	
 	
