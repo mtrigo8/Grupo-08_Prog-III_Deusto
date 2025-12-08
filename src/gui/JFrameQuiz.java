@@ -133,6 +133,10 @@ public class JFrameQuiz extends JFramePadre{
 		lblTitulo.setFont ( new Font("SansSerif", Font.BOLD, 24));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		String [] col= {"POS","USUARIO","PUNTOS"};
+		JPanel panelRedondeado = new JPanel(); 
+	    panelRedondeado.setBackground(Color.WHITE);
+	    panelRedondeado.setLayout(new BorderLayout(10, 10));
+	    panelQuiz.setLayout(new BorderLayout());
 		TableCellRenderer cellrenderer = new TableCellRenderer() {
 			
 			@Override
@@ -221,12 +225,27 @@ public class JFrameQuiz extends JFramePadre{
 			contadorQuiz = new HiloQuiz();
 			contadorQuiz.start();
 		});
-		JScrollPane scrollPane = new javax.swing.JScrollPane(tabla);
-		scrollPane.setBorder(BorderFactory.createEmptyBorder(0, 15, 0, 15));
-		scrollPane.getViewport().setBackground(Color.WHITE);
-		panelQuiz.add(lblTitulo, BorderLayout.NORTH);
-		panelQuiz.add(scrollPane, BorderLayout.CENTER);
-		panelQuiz.add(btnInicio, BorderLayout.SOUTH);
+		
+		
+		JScrollPane scrollPane = new JScrollPane(tabla);
+		panelRedondeado.add(lblTitulo, BorderLayout.NORTH);
+	    panelRedondeado.add(scrollPane, BorderLayout.CENTER);
+	    
+	    JPanel panelBotonContenedor = new JPanel(new FlowLayout());
+	    panelBotonContenedor.setBackground(Color.WHITE);
+	    panelBotonContenedor.setOpaque(false); // Para que se vea el fondo redondeado
+	    panelBotonContenedor.add(btnInicio);
+	    panelRedondeado.add(panelBotonContenedor, BorderLayout.SOUTH);
+	  
+	    panelQuiz.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+	    
+	    panelQuiz.add(panelRedondeado, BorderLayout.CENTER);
+	    
+		//scrollPane.setBorder(BorderFactory.createEmptyBorder(0, 15, 0, 15));
+		//scrollPane.getViewport().setBackground(Color.WHITE);
+		//panelQuiz.add(lblTitulo, BorderLayout.NORTH);
+		//panelQuiz.add(scrollPane, BorderLayout.CENTER);
+		//panelQuiz.add(btnInicio, BorderLayout.SOUTH);
 		
 		panelQuiz.revalidate();
 		panelQuiz.repaint();
@@ -542,6 +561,8 @@ public class JFrameQuiz extends JFramePadre{
         super.paintComponent(g2);
         g2.dispose();
     }
+	
 }
+	
 }
 	
