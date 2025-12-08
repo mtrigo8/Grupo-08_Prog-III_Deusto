@@ -12,10 +12,16 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.logging.LogManager;
@@ -26,6 +32,7 @@ import domain.Jugador;
 import domain.Jugador.TipoPosicion;
 import domain.Liga;
 import domain.Opcion;
+import domain.Partido;
 import domain.Pregunta;
 import domain.Usuario;
 import domain.Pregunta.Dificultad;
@@ -37,9 +44,13 @@ public class GestorBD {
 	private final String PROPERTIES_FILE = "resources/config/app.properties";
 	
 	//CSV
-	private final String CSV_LALIGA = "resources/data/laliga_calendario.csv";
-	private final String CSV_BUNDESLIGA = "resources/data/bundesliga_calendario.csv";
-	private final String CSV_PREMIER = "resources/data/premier_calendario.csv";
+	//IAG ayuda para la creacion del mapa
+	private final Map<String, String> MAP_CALENDARIOS = Map.of(
+		    "LALIGA", "resources/data/laliga_calendario.csv",
+		    "BUNDESLIGA", "resources/data/bundesliga_calendario.csv",
+		    "PREMIER", "resources/data/premier_calendario.csv"
+		);
+	private final String CSV_JUGADORES = "resources/data/jugadores.csv";
 	private final String CSV_EQUIPOS = "resources/data/equipos.csv";
 	private final String CSV_LIGAS = "resources/data/ligas.csv";
 	private String PREGUNTAS_CSV = "resources/data/preguntas.csv";
@@ -101,10 +112,14 @@ public class GestorBD {
 			List<Equipo> equipos = this.loadCSVEquipos();
 			//Se leen las ligas del CSV
 			List<Liga> ligas = this.loadCVSLigas();	
+			List<Jugador> jugadores = this.loadCVSJugadores();
+			List<Partido> partidos = this.loadCVSPartidos();
 			//lambda expression: enlaza los personajes con los comics porque al leer los
 			//comics sólo se recuperan los nombres de los personajes y faltan el resto de
 			//datos.
 			updateEquipos(equipos, ligas);
+			updateJugadores(jugadores, equipos);
+			updatePartidos(partidos, equipos);
 			//Se insertan los equipos en la BBDD
 			this.insertarEquipos(equipos.toArray(new Equipo[equipos.size()]));
 			
@@ -185,6 +200,16 @@ public class GestorBD {
 					+ "nacionalidad TEXT NOT NULL,\n"
 					+ "edad TEXT NOT NULL,\n"
 					+ "FOREIGN KEY (equipo) REFERENCES Equipo(nombre) ON DELETE CASCADE);";
+			String sql8 = "CREATE TABLE IF NOT EXISTS partido (\n"
+				    + "idpartido INTEGER UNIQUE PRIMARY KEY AUTOINCREMENT,\n"
+				    + "equipoL TEXT NOT NULL,\n"
+				    + "equipoV TEXT NOT NULL,\n"
+				    + "golesL INTEGER NOT NULL,\n"
+				    + "golesV INTEGER NOT NULL,\n"
+				    + "fecha TEXT NOT NULL,\n"
+				    + "jornada TEXT NOT NULL,\n"
+				    + "FOREIGN KEY (equipoL) REFERENCES equipo(nombre) ON DELETE CASCADE ON UPDATE NO ACTION,\n"
+				    + "FOREIGN KEY (equipoV) REFERENCES equipo(nombre) ON DELETE CASCADE ON UPDATE NO ACTION);";
 	        //Se abre la conexión y se crea un PreparedStatement para crer cada tabla
 			//Al abrir la conexión, si no existía el fichero por defecto, se crea.
 			try (Connection con = DriverManager.getConnection(connectionString);
@@ -194,10 +219,11 @@ public class GestorBD {
 				 PreparedStatement pStmt4 = con.prepareStatement(sql4);
 				 PreparedStatement pStmt5 = con.prepareStatement(sql5);
 			   	 PreparedStatement pStmt6 = con.prepareStatement(sql6);
-				 PreparedStatement pStmt7 = con.prepareStatement(sql7)){
+				 PreparedStatement pStmt7 = con.prepareStatement(sql7);
+				 PreparedStatement pStmt8 = con.prepareStatement(sql8)){
 				
 				//Se ejecutan las sentencias de creación de las tablas
-		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()&&!pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute() && !pStmt7.execute()) {
+		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()&&!pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute() && !pStmt7.execute() && !pStmt8.execute()) {
 		        	logger.info("Se han creado las tablas");
 		        	System.out.println("Se han creado las tablas");
 		        }
@@ -220,6 +246,7 @@ public class GestorBD {
 			String sql5 = "DROP TABLE IF EXISTS opcion";
 			String sql6 = "DROP TABLE IF EXISTS usuario;";
 			String sql7 = "DROP TABLE IF EXISTS Jugador;";
+			String sql8 = "DROP TABLE IF EXISTS partido;";
 			
 	        //Se abre la conexión y se crea un PreparedStatement para borrar cada tabla
 			try (Connection con = DriverManager.getConnection(connectionString);
@@ -229,12 +256,13 @@ public class GestorBD {
 				 PreparedStatement pStmt4 = con.prepareStatement(sql4);
 				 PreparedStatement pStmt5 = con.prepareStatement(sql5);
 				 PreparedStatement pStmt6 = con.prepareStatement(sql6);
-				 PreparedStatement pStmt7 = con.prepareStatement(sql7)) {
+				 PreparedStatement pStmt7 = con.prepareStatement(sql7);
+				 PreparedStatement pStmt8 = con.prepareStatement(sql8)) {
 				
 				//Se ejecutan las sentencias de borrado de las tablas
 		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()
 		        	&& !pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute()
-		        	&& !pStmt7.execute()) {
+		        	&& !pStmt7.execute() && !pStmt8.execute()) {
 		        	logger.info("Se han borrado las tablas");
 		        	System.out.println("Se han borrado las tablas");
 		        }
@@ -266,6 +294,7 @@ public class GestorBD {
 			String sql5 = "DELETE FROM opcion;";
 			String sql6 = "DELETE FROM usuario;";
 			String sql7 = "DELETE FROM Jugador;";
+			String sql8 = "DELETE FROM partido;";
 	        //Se abre la conexión y se crea un PreparedStatement para borrar los datos de cada tabla
 			try (Connection con = DriverManager.getConnection(connectionString);
 			     PreparedStatement pStmt1 = con.prepareStatement(sql1);
@@ -274,12 +303,13 @@ public class GestorBD {
 				 PreparedStatement pStmt4 = con.prepareStatement(sql4);
 				 PreparedStatement pStmt5 = con.prepareStatement(sql5);
 				 PreparedStatement pStmt6 = con.prepareStatement(sql6);
-				 PreparedStatement pStmt7 = con.prepareStatement(sql7)) {
+				 PreparedStatement pStmt7 = con.prepareStatement(sql7);
+				 PreparedStatement pStmt8 = con.prepareStatement(sql8)) {
 				
 				//Se ejecutan las sentencias de borrado de las tablas
 		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()
 		        	&& !pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute()
-		        	&& !pStmt7.execute()) {
+		        	&& !pStmt7.execute() && !pStmt8.execute()) {
 		        	logger.info("Se han borrado los datos");
 		        }
 			} catch (Exception ex) {
@@ -389,11 +419,7 @@ public class GestorBD {
 				
 				if (pStmt.executeUpdate() != 1) {					
 					logger.warning(String.format("No se ha insertado el jugador: %s", j));
-				} else {
-					//IMPORTANTE: El valor del ID del personaje se establece automáticamente al
-					//insertarlo en la BBDD. Por lo tanto, después de insertar un personaje, 
-					//se recupera de la BBDD para establecer el campo ID en el objeto que está
-					//en memoria.				
+				} else {			
 					logger.info(String.format("Se ha insertado el jugador: %s", j));
 				}
 			}
@@ -404,14 +430,38 @@ public class GestorBD {
 		}			
 	}
 	
-		
-	/**
-	 * IMPORTANTE: La información del CSV de los comics sólo trae el nombre de los personajes.
-	 * Este método procesa cada comic y reemplaza cada personaje leído desde el CSV (que sólo tiene el nombre)
-	 * por el objeto personaje con todos los datos.
-	 * @param comic Comic cuyos personajes va a procesarse.
-	 * @param personajes List<Personaje> con los personajes que tienen todos los datos.
-	 */
+	public void insertarPartidos(Partido... partidos) {
+		String sql = "INSERT INTO partido (equipoL, equipoV, golesL, golesV, fecha, jornada) VALUES (?, ?, ?, ?, ?, ?);";
+	    
+	    Logger logger = Logger.getLogger(this.getClass().getName()); 
+
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+	    try (Connection con = DriverManager.getConnection(connectionString);
+	         PreparedStatement pStmt = con.prepareStatement(sql)) {
+	                            
+	        for (Partido p : partidos) {
+	            
+	            pStmt.setString(1, p.getEquipoLocal().getNombre()); 
+	            pStmt.setString(2, p.getEquipoVisitante().getNombre());	          
+	            pStmt.setInt(3, p.getGolesLocal());
+	            pStmt.setInt(4, p.getGolesVisitante());	            
+	            pStmt.setString(5, p.getFecha().format(formatter)); 	            
+	            pStmt.setInt(6, p.getJornada());
+	            
+	            if (pStmt.executeUpdate() != 1) {                  
+	                logger.warning(String.format("No se ha insertado el partido: %s", p));
+	            } else {
+	                logger.info(String.format("Se ha insertado el partido: %s", p));
+	            }
+	        }
+	        
+	        logger.info(String.format("%d partidos insertados en la BBDD", partidos.length));
+	    } catch (Exception ex) {
+	        logger.warning(String.format("Error al insertar partidos: %s", ex.getMessage()));
+	    }           
+	}
+
 	private void updateEquipos(List<Equipo> equipos, List<Liga> ligas) {
 		for (Liga liga : ligas) {
 			for (Equipo equipo : equipos) {
@@ -436,6 +486,18 @@ public class GestorBD {
 			}
 		}
 	}
+	private void updatePartidos(List<Partido> partidos, List<Equipo> equipos) {
+		for (Equipo equipo : equipos) {
+			for (Partido partido : partidos) {
+				if (equipo.getNombre().equals(partido.getNombreEquipoLocal())) {
+					partido.setEquipoLocal(equipo);
+				} else if (equipo.getNombre().equals(partido.getNombreEquipoVisitante())) {
+					partido.setEquipoVisitante(equipo);
+				}
+			}
+		}
+	}
+	
 	
 	/**
 	 * Recupera los Personajes de la BBDD.
@@ -558,7 +620,7 @@ public class GestorBD {
 		return ligas;
 	}
 	
-	public Liga getComicByTitulo(String nombre) {
+	public Liga getLigaByTitulo(String nombre) {
 		Liga liga = null;
 		String sql = "SELECT * FROM Liga WHERE nombre = ? LIMIT 1";
 		
@@ -589,6 +651,50 @@ public class GestorBD {
 		}		
 		
 		return liga;
+	}
+	
+	public List<Partido> getPartidos() {
+		List<Partido> partidos = new ArrayList<>();
+		String sql = "SELECT * FROM partido";
+		
+		//Se abre la conexión sy se crea el PreparedStatement con la sentencia SQL
+		try (Connection con = DriverManager.getConnection(connectionString);
+		     PreparedStatement pStmt = con.prepareStatement(sql)) {			
+			
+			//Se ejecuta la sentencia y se obtiene el ResultSet
+			ResultSet rs = pStmt.executeQuery();			
+			Partido partido;
+			
+			//Se recorre el ResultSet y se crean objetos
+			while (rs.next()) {
+				//IAG solucion de date a datetime por la ia
+				Instant instant = rs.getDate("fecha").toInstant();
+
+				// 2. Convertir a LocalDateTime (usando la zona horaria del sistema)
+				LocalDateTime localDateTime = instant.atZone(ZoneId.systemDefault()).toLocalDateTime();
+
+				// 3. Extraer LocalDate
+				LocalDate fecha = localDateTime.toLocalDate();
+				partido = new Partido(rs.getString("equipoL"),
+						rs.getString("equipoV"),
+						rs.getInt("golesL"),
+						rs.getInt("golesV"),
+						fecha,
+						rs.getInt("jornada"));
+				
+				//Se inserta cada nuevo cliente en la lista de clientes
+				partidos.add(partido);
+			}
+			
+			//Se cierra el ResultSet
+			rs.close();
+			
+			logger.info(String.format("Se han recuperado %d personajes.", partidos.size()));			
+		} catch (Exception ex) {
+			logger.warning(String.format("Error recuperar los personajes: %s", ex.getMessage()));						
+		}		
+		
+		return partidos;
 	}
 	
 	private List<Equipo> loadCSVEquipos() {
@@ -633,10 +739,51 @@ public class GestorBD {
 		return ligas;
 	}
 	
+	private List<Jugador> loadCVSJugadores() {
+		List<Jugador> jugadores = new ArrayList<>();
+		
+		try (BufferedReader in = new BufferedReader(new FileReader(CSV_JUGADORES))) {
+			String linea = null;
+			//Omitir la cabecera
+			in.readLine();		
+			
+			while ((linea = in.readLine()) != null) {
+				String[] campos = linea.split(";");
+				Jugador j = new Jugador(campos[0], Integer.parseInt(campos[1]), TipoPosicion.valueOf(campos[2]), campos[3], Integer.parseInt(campos[4]), campos[5]);
+				jugadores.add(j);
+			}			
+			
+		} catch (Exception ex) {
+			logger.warning(String.format("Error leyendo ligas del CSV: %s", ex.getMessage()));
+		}
+		
+		return jugadores;
+	}
+	private List<Partido> loadCVSPartidos() {
+		List<Partido> partidos = new ArrayList<>();
+		for (String key: MAP_CALENDARIOS.keySet())
+		try (BufferedReader in = new BufferedReader(new FileReader(MAP_CALENDARIOS.get(key)))) {
+			String linea = null;
+			//Omitir la cabecera
+			in.readLine();		
+			
+			while ((linea = in.readLine()) != null) {
+				String[] campos = linea.split(";");
+				Partido p = new Partido(campos[2], campos[3], Integer.parseInt(campos[4]), Integer.parseInt(campos[5]), LocalDate.parse(campos[1]), Integer.parseInt(campos[0]));
+				partidos.add(p);
+			}			
+			
+		} catch (Exception ex) {
+			logger.warning(String.format("Error leyendo ligas del CSV: %s", ex.getMessage()));
+		}
+		
+		return partidos;
+	}
+	
 	//MODIFICACIÓN 4: Guarda una lista de comics en un CSV
 	public void storeCSVLigas(List<Liga> ligas) {
 		if (ligas != null) {
-			try (PrintWriter out = new PrintWriter(new File(CSV_LIGAS))) {
+			try (PrintWriter out = new PrintWriter(new File(CSV_JUGADORES))) {
 				out.println("NOMBRE;PAIS;NTITULOS");
 				ligas.forEach(l -> out.println(l.getNombre() + ";" + l.getPais() + ";" + l.getNumeroEquipos() + ";"));			
 				logger.info("Se han guardado los ligas en un CSV.");
