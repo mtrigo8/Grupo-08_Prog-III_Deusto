@@ -30,6 +30,7 @@ public class Main {
 		//Cargar las ligas de la BBDD
 		List<Liga> ligas = new ArrayList<Liga>();
 		ligas = gbd.getLigas();
+		JFramePadre.ligas= (ArrayList<Liga>) ligas;
 		//Cargar los equipos de la BBDD
 		List<Equipo> equipos = new ArrayList<Equipo>();
 		equipos = gbd.getEquipos();
