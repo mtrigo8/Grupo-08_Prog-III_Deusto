@@ -15,14 +15,15 @@ public class Jugador {
 	private String nombreEquipo;
 	private PiernaHabil piernaHabil;
 	private int altura;
-	private int partidosJugados;
-    private int goles;
-    private int asistencias;
-    private int regates;
-    private int porteriasaCero;
-    private int paradas;
-    private int golesEncajados;
-    private double valorMercado;
+	 private int goles;
+	 private int partidosJugados;
+	    private int asistencias;
+	    private int regates;
+	    private int porteriasaCero;
+	    private int paradas;
+	    private int golesEncajados;
+	    private double valorMercado;
+
 public enum PiernaHabil{
 	IZQUIERDA,
 	DERECHA,
@@ -44,7 +45,7 @@ public Jugador(String nombre, int numeroCamiseta, TipoPosicion posicion, Equipo 
 	this. edad= edad;
 	this.cod_jugador = contador;
 	contador ++;
-	generarEstadisticasAleatorias();
+	
 	}
 public Jugador(String nombre, int numeroCamiseta, TipoPosicion posicion, String nacionalidad,int edad, String nombreEquipo) {
 	super();
@@ -56,59 +57,11 @@ public Jugador(String nombre, int numeroCamiseta, TipoPosicion posicion, String 
 	this. edad= edad;
 	this.cod_jugador = contador;
 	contador ++;
-	generarEstadisticasAleatorias();
+	
 	}
 
 
 
-public int getPartidosJugados() {
-	return partidosJugados;
-}
-public void setPartidosJugados(int partidosJugados) {
-	this.partidosJugados = partidosJugados;
-}
-public int getGoles() {
-	return goles;
-}
-public void setGoles(int goles) {
-	this.goles = goles;
-}
-public int getAsistencias() {
-	return asistencias;
-}
-public void setAsistencias(int asistencias) {
-	this.asistencias = asistencias;
-}
-public int getRegates() {
-	return regates;
-}
-public void setRegates(int regates) {
-	this.regates = regates;
-}
-public int getPorteriasaCero() {
-	return porteriasaCero;
-}
-public void setPorteriasaCero(int porteriasaCero) {
-	this.porteriasaCero = porteriasaCero;
-}
-public int getParadas() {
-	return paradas;
-}
-public void setParadas(int paradas) {
-	this.paradas = paradas;
-}
-public int getGolesEncajados() {
-	return golesEncajados;
-}
-public void setGolesEncajados(int golesEncajados) {
-	this.golesEncajados = golesEncajados;
-}
-public double getValorMercado() {
-	return valorMercado;
-}
-public void setValorMercado(double valorMercado) {
-	this.valorMercado = valorMercado;
-}
 public int getCod_jugador() {
 	return cod_jugador;
 }
@@ -169,6 +122,63 @@ public int getAltura() {
 }
 public void setAltura(int altura) {
 	this.altura = altura;
+}
+
+public String getNombreEquipo() {
+	return nombreEquipo;
+}
+public void setNombreEquipo(String nombreEquipo) {
+	this.nombreEquipo = nombreEquipo;
+}
+
+
+public int getGoles() {
+	return goles;
+}
+public void setGoles(int goles) {
+	this.goles = goles;
+}
+public int getPartidosJugados() {
+	return partidosJugados;
+}
+public void setPartidosJugados(int partidosJugados) {
+	this.partidosJugados = partidosJugados;
+}
+public int getAsistencias() {
+	return asistencias;
+}
+public void setAsistencias(int asistencias) {
+	this.asistencias = asistencias;
+}
+public int getRegates() {
+	return regates;
+}
+public void setRegates(int regates) {
+	this.regates = regates;
+}
+public int getPorteriasaCero() {
+	return porteriasaCero;
+}
+public void setPorteriasaCero(int porteriasaCero) {
+	this.porteriasaCero = porteriasaCero;
+}
+public int getParadas() {
+	return paradas;
+}
+public double getValorMercado() {
+	return valorMercado;
+}
+public void setValorMercado(double valorMercado) {
+	this.valorMercado = valorMercado;
+}
+public void setParadas(int paradas) {
+	this.paradas = paradas;
+}
+public int getGolesEncajados() {
+	return golesEncajados;
+}
+public void setGolesEncajados(int golesEncajados) {
+	this.golesEncajados = golesEncajados;
 }
 private void generarEstadisticasAleatorias() {
     Random r = new Random();
@@ -233,5 +243,7 @@ public boolean equals(Object obj) {
 public String toString() {
 	return "Jugador " + nombre + " con el numero de camiseta " + numeroCamiseta + " es " + posicion + " en el equipo " + equipo ;
 }
+
+
 
 }
