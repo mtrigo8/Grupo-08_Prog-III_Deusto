@@ -45,11 +45,7 @@ public class GestorBD {
 	
 	//CSV
 	//IAG ayuda para la creacion del mapa
-	private final Map<String, String> MAP_CALENDARIOS = Map.of(
-		    "LALIGA", "resources/data/laliga_calendario.csv",
-		    "BUNDESLIGA", "resources/data/bundesliga_calendario.csv",
-		    "PREMIER", "resources/data/premier_calendario.csv"
-		);
+	private final String CSV_CALENDARIO = "resources/data/calendario.csv";
 	private final String CSV_JUGADORES = "resources/data/jugadores.csv";
 	private final String CSV_EQUIPOS = "resources/data/equipos.csv";
 	private final String CSV_LIGAS = "resources/data/ligas.csv";
@@ -120,6 +116,7 @@ public class GestorBD {
 			updateEquipos(equipos, ligas);
 			updateJugadores(jugadores, equipos);
 			updatePartidos(partidos, equipos);
+			System.out.println(partidos.getFirst().getEquipoLocal());
 			//Se insertan los equipos en la BBDD
 			this.insertarEquipos(equipos.toArray(new Equipo[equipos.size()]));
 			
@@ -478,11 +475,11 @@ public class GestorBD {
 		}
 	}
 	public void updatePartidos(List<Partido> partidos, List<Equipo> equipos) {
-		for (Equipo equipo : equipos) {
-			for (Partido partido : partidos) {
-				if (equipo.getNombre().equals(partido.getNombreEquipoLocal())) {
+		for (Partido partido : partidos) {
+			for (Equipo equipo : equipos) {
+				if (partido.getNombreEquipoLocal().equals(equipo.getNombre())) {
 					partido.setEquipoLocal(equipo);
-				} else if (equipo.getNombre().equals(partido.getNombreEquipoVisitante())) {
+				}else if (partido.getNombreEquipoVisitante().equals(equipo.getNombre())) {
 					partido.setEquipoVisitante(equipo);
 				}
 			}
@@ -491,8 +488,9 @@ public class GestorBD {
 	
 	public void updateCalendario(TreeMap<Integer,ArrayList<Partido>>calendario,List<Partido>partidos, Liga liga) {
 		ArrayList<Partido>partidosFilt = new ArrayList<>();
+		
 		for(Partido partido : partidos) {
-			if(partido.getEquipoLocal().getLiga().equals(liga)) {
+			if(partido.getEquipoLocal().getLiga().getNombre().equals(liga.getNombre())) {
 				partidosFilt.add(partido);
 			}
 		}
@@ -674,13 +672,13 @@ public class GestorBD {
 			//Se recorre el ResultSet y se crean objetos
 			while (rs.next()) {
 				//IAG solucion de date a datetime por la ia
-				Instant instant = rs.getDate("fecha").toInstant();
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-				// 2. Convertir a LocalDateTime (usando la zona horaria del sistema)
-				LocalDateTime localDateTime = instant.atZone(ZoneId.systemDefault()).toLocalDateTime();
+				
+				String fechaStr = rs.getString("fecha"); 
+				LocalDate fecha = LocalDate.parse(fechaStr, formatter); 
 
 				// 3. Extraer LocalDate
-				LocalDate fecha = localDateTime.toLocalDate();
 				partido = new Partido(rs.getString("equipoL"),
 						rs.getString("equipoV"),
 						rs.getInt("golesL"),
@@ -767,23 +765,19 @@ public class GestorBD {
 	}
 	public List<Partido> loadCVSPartidos() {
 		List<Partido> partidos = new ArrayList<>();
-		for (String key: MAP_CALENDARIOS.keySet()) {
-			try (BufferedReader in = new BufferedReader(new FileReader(MAP_CALENDARIOS.get(key)))) {
+			try (BufferedReader in = new BufferedReader(new FileReader(CSV_CALENDARIO))) {
 			String linea = null;
 			//Omitir la cabecera
 			in.readLine();		
 			
 			while ((linea = in.readLine()) != null) {
 				String[] campos = linea.split(",");
-				System.out.println(campos[2]);
 				Partido p = new Partido(campos[2], campos[3], Integer.parseInt(campos[4]), Integer.parseInt(campos[5]), LocalDate.parse(campos[1]), Integer.parseInt(campos[0]));
-				System.out.println(p);
 				partidos.add(p);
 			}			
 			
 		} catch (Exception ex) {
 			logger.warning(String.format("Error leyendo p del CSV: %s", ex.getMessage()));
-		}
 		}
 		return partidos;
 	}

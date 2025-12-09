@@ -20,6 +20,8 @@ public class Partido implements Comparable<Partido> {
 		super();
 		this.equipoLocal = equipoLocal;
 		this.equipoVisitante = equipoVisitante;
+		this.nombreEquipoLocal = equipoLocal.getNombre();
+        this.nombreEquipoVisitante = equipoVisitante.getNombre();
 		this.golesLocal = golesLocal;
 		this.golesVisitante = golesVisitante;
 		this.fecha = fecha;
@@ -118,7 +120,7 @@ public class Partido implements Comparable<Partido> {
 
 	@Override
 	public String toString() {
-		return jornada + "-" + equipoLocal.getNombre() + " " + golesLocal + " - " + golesVisitante + " " + equipoVisitante.getNombre() + " (" + fecha + ")";
+		return jornada + "-" + nombreEquipoLocal + " " + golesLocal + " - " + golesVisitante + " " + nombreEquipoVisitante + " (" + fecha + ")";
 	}
 
 	@Override

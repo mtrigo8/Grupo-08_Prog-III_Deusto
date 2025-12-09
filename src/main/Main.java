@@ -40,32 +40,37 @@ public class Main {
 		gbd.updateEquipos(equipos, ligas);
 		List<Partido> partidos = new ArrayList<Partido>();
 		partidos = gbd.getPartidos();
+		System.out.println("Número de partidos cargados desde BBDD: " + partidos.size()); // AÑADE ESTA LÍNEA
 		gbd.updatePartidos(partidos, equipos);
+		System.out.println("Número de partidos cargados desde BBDD: " + partidos.size()); // AÑADE ESTA LÍNEA
 		
-
+		// Generar calendario
+				for (Liga liga : ligas) {
+					if (liga.getCalendario() == null) {
+				        liga.setCalendario(new TreeMap<>());
+				    }
+					gbd.updateCalendario(liga.getCalendario(), partidos, liga);	
+			
+				}
+				for (Liga liga : ligas) {
+					for (Equipo equipo : liga.getEquipos()) {
+						int dorsal = 1;
+						for (int i = 0; i < 4; i++) {
+							for (TipoPosicion posicion : TipoPosicion.values()) {
+								Jugador j = new Jugador("Nombre Apellido", dorsal, posicion, equipo, "Nacionalidad", 20);
+								dorsal++;
+								equipo.anyadirJugador(j);
+							}
+						}
+					}
+					
+				}
+		
 		// GUI
 		JFrameInicio jfi = new JFrameInicio((ArrayList<Liga>) ligas);
 		jfi.setVisible(true);
 		
-		// Generar calendario
-		for (Liga liga : ligas) {
-			TreeMap<Integer, ArrayList<Partido>> calendario = new TreeMap<Integer, ArrayList<Partido>>();
-			gbd.updateCalendario(calendario, partidos, liga);	
-			liga.setCalendario(calendario);
-		}
-		for (Liga liga : ligas) {
-			for (Equipo equipo : liga.getEquipos()) {
-				int dorsal = 1;
-				for (int i = 0; i < 4; i++) {
-					for (TipoPosicion posicion : TipoPosicion.values()) {
-						Jugador j = new Jugador("Nombre Apellido", dorsal, posicion, equipo, "Nacionalidad", 20);
-						dorsal++;
-						equipo.anyadirJugador(j);
-					}
-				}
-			}
-			
-		}
+		
 		
 	}
 	

@@ -60,12 +60,25 @@ public class JFrameCalendario extends JFramePadre {
 		GBD = new GestorBD();
 		super.framePrevio = ventanaAnterior;
 		this.liga = liga;
+		 // DEBUG
+	    System.out.println("=== DEBUG CALENDARIO ===");
+	    System.out.println("Liga: " + liga.getNombre());
+	    System.out.println("Equipos: " + liga.getEquipos().size());
+	    System.out.println("Calendario es null? " + (liga.getCalendario() == null));
+	    if (liga.getCalendario() != null) {
+	        System.out.println("Jornadas en calendario: " + liga.getCalendario().size());
+	        for (Integer jornada : liga.getCalendario().keySet()) {
+	            System.out.println("  Jornada " + jornada + ": " + liga.getCalendario().get(jornada).size() + " partidos");
+	        }
+	    }
+	    System.out.println("========================");
 		JPanel panel = super.panel;
 		panel.setLayout(new BorderLayout());
-		iniciarizarCalendario();
-		cargarCalendario();
 		//Cargar los escudos tan solo una vez
 		cargarEscudos();
+		iniciarizarCalendario();
+		cargarCalendario();
+		 
 		//Filtrar por jornada
 		//Crear el comboBox con todas las jornadas
 		seleccionarJornada = new JComboBox<>();
