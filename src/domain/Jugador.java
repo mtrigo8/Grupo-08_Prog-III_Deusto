@@ -113,6 +113,13 @@ public int getAltura() {
 public void setAltura(int altura) {
 	this.altura = altura;
 }
+
+public String getNombreEquipo() {
+	return nombreEquipo;
+}
+public void setNombreEquipo(String nombreEquipo) {
+	this.nombreEquipo = nombreEquipo;
+}
 @Override
 public int hashCode() {
 	return Objects.hash(equipo, nombre);

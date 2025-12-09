@@ -1,4 +1,3 @@
-//IAG
 Jornada,Fecha,Local,Visitante,GolesLocal,GolesVisitante
 1,2025-11-01,Alavés,Elche,0,3
 1,2025-11-01,Athletic,UD Levante,2,0
@@ -182,13 +181,13 @@ Jornada,Fecha,Local,Visitante,GolesLocal,GolesVisitante
 18,2026-02-28,Rayo Vallecano,Real Madrid,3,2
 19,2026-03-07,Alavés,Athletic,1,3
 19,2026-03-07,Atlético de Madrid,Elche,3,0
-19,2026-03-07,Barcelona,UD Levante,2-1
+19,2026-03-07,Barcelona,UD Levante,2,1
 19,2026-03-07,Betis,Real Oviedo,2,1
 19,2026-03-07,Celta,Villarreal,3,1
 19,2026-03-07,Espanyol,Valencia,2,1
 19,2026-03-07,Getafe,Sevilla,3,0
 19,2026-03-07,Girona,Real Sociedad,1,0
-19,2026-03-07,Mallorca,Real Madrid,1-4
+19,2026-03-07,Mallorca,Real Madrid,1,4
 19,2026-03-07,Osasuna,Rayo Vallecano,1,1
 20,2026-03-14,Elche,Alavés,2,2
 20,2026-03-14,UD Levante,Athletic,0,3

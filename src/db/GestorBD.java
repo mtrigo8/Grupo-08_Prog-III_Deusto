@@ -11,7 +11,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -162,13 +161,6 @@ public class GestorBD {
 	                + " pais TEXT NOT NULL,\n"
 	                + " numeroEquipos TEXT NOT NULL\n"
 	                + ");";
-			String sql3 = "CREATE TABLE IF NOT EXISTS Jugador (\n"
-	                + " id_comic INTEGER,\n"
-	                + " id_personaje INTEGER,\n"
-	                + " PRIMARY KEY(id_comic, id_personaje)\n"
-	                + " FOREIGN KEY(id_comic) REFERENCES Comic(id) ON DELETE CASCADE\n"
-	                + " FOREIGN KEY(id_personaje) REFERENCES Personaje(id) ON DELETE CASCADE\n"
-	                + ");";
 			
 			String sql4 = "CREATE TABLE IF NOT EXISTS pregunta (\n"
 	                + " cod_pregunta INTEGER PRIMARY KEY,\n"
@@ -199,6 +191,7 @@ public class GestorBD {
 					+ "posicion TEXT NOT NULL, \n"
 					+ "nacionalidad TEXT NOT NULL,\n"
 					+ "edad TEXT NOT NULL,\n"
+					+ "equipo TEXT NOT NULL,\n"
 					+ "FOREIGN KEY (equipo) REFERENCES Equipo(nombre) ON DELETE CASCADE);";
 			String sql8 = "CREATE TABLE IF NOT EXISTS partido (\n"
 				    + "idpartido INTEGER UNIQUE PRIMARY KEY AUTOINCREMENT,\n"
@@ -208,14 +201,13 @@ public class GestorBD {
 				    + "golesV INTEGER NOT NULL,\n"
 				    + "fecha TEXT NOT NULL,\n"
 				    + "jornada TEXT NOT NULL,\n"
-				    + "FOREIGN KEY (equipoL) REFERENCES equipo(nombre) ON DELETE CASCADE ON UPDATE NO ACTION,\n"
-				    + "FOREIGN KEY (equipoV) REFERENCES equipo(nombre) ON DELETE CASCADE ON UPDATE NO ACTION);";
+				    + "FOREIGN KEY (equipoL) REFERENCES Equipo(nombre) ON DELETE CASCADE ON UPDATE NO ACTION,\n"
+				    + "FOREIGN KEY (equipoV) REFERENCES Equipo(nombre) ON DELETE CASCADE ON UPDATE NO ACTION);";
 	        //Se abre la conexión y se crea un PreparedStatement para crer cada tabla
 			//Al abrir la conexión, si no existía el fichero por defecto, se crea.
 			try (Connection con = DriverManager.getConnection(connectionString);
 			     PreparedStatement pStmt1 = con.prepareStatement(sql1);
 				 PreparedStatement pStmt2 = con.prepareStatement(sql2);
-				 PreparedStatement pStmt3 = con.prepareStatement(sql3);
 				 PreparedStatement pStmt4 = con.prepareStatement(sql4);
 				 PreparedStatement pStmt5 = con.prepareStatement(sql5);
 			   	 PreparedStatement pStmt6 = con.prepareStatement(sql6);
@@ -223,7 +215,7 @@ public class GestorBD {
 				 PreparedStatement pStmt8 = con.prepareStatement(sql8)){
 				
 				//Se ejecutan las sentencias de creación de las tablas
-		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()&&!pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute() && !pStmt7.execute() && !pStmt8.execute()) {
+		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute() && !pStmt7.execute() && !pStmt8.execute()) {
 		        	logger.info("Se han creado las tablas");
 		        	System.out.println("Se han creado las tablas");
 		        }
@@ -241,7 +233,6 @@ public class GestorBD {
 		if (properties.get("deleteBBDD").equals("true")) {	
 			String sql1 = "DROP TABLE IF EXISTS Equipo;";
 			String sql2 = "DROP TABLE IF EXISTS Liga";
-			String sql3 = "DROP TABLE IF EXISTS Jugador;";
 			String sql4 = "DROP TABLE IF EXISTS pregunta;";
 			String sql5 = "DROP TABLE IF EXISTS opcion";
 			String sql6 = "DROP TABLE IF EXISTS usuario;";
@@ -252,7 +243,6 @@ public class GestorBD {
 			try (Connection con = DriverManager.getConnection(connectionString);
 			     PreparedStatement pStmt1 = con.prepareStatement(sql1);
 				 PreparedStatement pStmt2 = con.prepareStatement(sql2);
-				 PreparedStatement pStmt3 = con.prepareStatement(sql3);
 				 PreparedStatement pStmt4 = con.prepareStatement(sql4);
 				 PreparedStatement pStmt5 = con.prepareStatement(sql5);
 				 PreparedStatement pStmt6 = con.prepareStatement(sql6);
@@ -260,7 +250,7 @@ public class GestorBD {
 				 PreparedStatement pStmt8 = con.prepareStatement(sql8)) {
 				
 				//Se ejecutan las sentencias de borrado de las tablas
-		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()
+		        if (!pStmt1.execute() && !pStmt2.execute() 
 		        	&& !pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute()
 		        	&& !pStmt7.execute() && !pStmt8.execute()) {
 		        	logger.info("Se han borrado las tablas");
@@ -289,7 +279,6 @@ public class GestorBD {
 		if (properties.get("cleanBBDD").equals("true")) {	
 			String sql1 = "DELETE FROM Equipo;";
 			String sql2 = "DELETE FROM Liga;";
-			String sql3 = "DELETE FROM Jugador;";
 			String sql4 = "DELETE FROM pregunta;";
 			String sql5 = "DELETE FROM opcion;";
 			String sql6 = "DELETE FROM usuario;";
@@ -299,7 +288,6 @@ public class GestorBD {
 			try (Connection con = DriverManager.getConnection(connectionString);
 			     PreparedStatement pStmt1 = con.prepareStatement(sql1);
 				 PreparedStatement pStmt2 = con.prepareStatement(sql2);
-				 PreparedStatement pStmt3 = con.prepareStatement(sql3);
 				 PreparedStatement pStmt4 = con.prepareStatement(sql4);
 				 PreparedStatement pStmt5 = con.prepareStatement(sql5);
 				 PreparedStatement pStmt6 = con.prepareStatement(sql6);
@@ -307,7 +295,7 @@ public class GestorBD {
 				 PreparedStatement pStmt8 = con.prepareStatement(sql8)) {
 				
 				//Se ejecutan las sentencias de borrado de las tablas
-		        if (!pStmt1.execute() && !pStmt2.execute() && !pStmt3.execute()
+		        if (!pStmt1.execute() && !pStmt2.execute()
 		        	&& !pStmt4.execute() && !pStmt5.execute() && !pStmt6.execute()
 		        	&& !pStmt7.execute() && !pStmt8.execute()) {
 		        	logger.info("Se han borrado los datos");
@@ -475,7 +463,7 @@ public class GestorBD {
 	public void updateJugadores(List<Jugador> jugadores, List<Equipo> equipos) {
 		for (Equipo equipo : equipos) {
 			for (Jugador jugador : jugadores ) {
-				if (jugador.getEquipo().equals(equipo.getNombre())) {
+				if (jugador.getNombreEquipo().equals(equipo.getNombre())) {
 					jugador.setEquipo(equipo);
 					HashMap<TipoPosicion, ArrayList<Jugador>>mapaJugadores = equipo.getJugadores();
 					if(!mapaJugadores.containsKey(jugador.getPosicion())) {
@@ -754,29 +742,29 @@ public class GestorBD {
 			}			
 			
 		} catch (Exception ex) {
-			logger.warning(String.format("Error leyendo ligas del CSV: %s", ex.getMessage()));
+			logger.warning(String.format("Error leyendo j del CSV: %s", ex.getMessage()));
 		}
 		
 		return jugadores;
 	}
 	public List<Partido> loadCVSPartidos() {
 		List<Partido> partidos = new ArrayList<>();
-		for (String key: MAP_CALENDARIOS.keySet())
-		try (BufferedReader in = new BufferedReader(new FileReader(MAP_CALENDARIOS.get(key)))) {
+		for (String key: MAP_CALENDARIOS.keySet()) {
+			try (BufferedReader in = new BufferedReader(new FileReader(MAP_CALENDARIOS.get(key)))) {
 			String linea = null;
 			//Omitir la cabecera
 			in.readLine();		
 			
 			while ((linea = in.readLine()) != null) {
-				String[] campos = linea.split(";");
+				String[] campos = linea.split(",");
 				Partido p = new Partido(campos[2], campos[3], Integer.parseInt(campos[4]), Integer.parseInt(campos[5]), LocalDate.parse(campos[1]), Integer.parseInt(campos[0]));
 				partidos.add(p);
 			}			
 			
 		} catch (Exception ex) {
-			logger.warning(String.format("Error leyendo ligas del CSV: %s", ex.getMessage()));
+			logger.warning(String.format("Error leyendo p del CSV: %s", ex.getMessage()));
 		}
-		
+		}
 		return partidos;
 	}
 	
