@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.TreeMap;
+import java.util.List;
 
 import db.GestorBD;
 import domain.Equipo;
@@ -317,4 +318,31 @@ public class Main {
 	    }
 	    
 	}
+/*	public static void asignarEquiposLigas (List<Equipo> equipos, List<Liga> ligas) {
+		for (Liga l:ligas) {
+			ArrayList<Equipo> equiposLiga = new ArrayList<>();
+			for (Equipo e:equipos ) {
+				if (e.getLiga().getNombre().equals(l.getNombre())){
+					equiposLiga.add(e);
+					e.setLiga(l);
+				}
+			}
+			l.setEquipos(equiposLiga);
+		}
+	}
+	public static void asignarPartidosLigas (List<Partido> partidos, List<Liga> ligas) {
+		for (Partido p:partidos) {
+			for (Liga l:ligas) {
+				if (l.getEquipos().contains(p.getEquipoLocal())) {
+					TreeMap<Integer, ArrayList<Partido>> calendario = l.getCalendario();
+					int numJornada = p.getJornada();
+					if (!calendario.containsKey(numJornada)) {
+						calendario.put(numJornada, new ArrayList<Partido>());
+						
+						}
+					calendario.get(numJornada).add(p);
+					}
+				}
+			}
+		}*/
 }

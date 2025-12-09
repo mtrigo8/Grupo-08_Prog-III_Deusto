@@ -12,6 +12,12 @@ public class Jugador {
 	private int edad;
 	private int cod_jugador;
 	private String nombreEquipo;
+	private PiernaHabil piernaHabil;
+	private int altura;
+public enum PiernaHabil{
+	IZQUIERDA,
+	DERECHA,
+}
 public enum TipoPosicion {
 	PORTERO, 
 	DEFENSA,
@@ -95,6 +101,18 @@ public int getEdad() {
 public void setEdad(int edad) {
 	this.edad = edad;
 }
+public PiernaHabil getPiernaHabil() {
+	return piernaHabil;
+}
+public void setPiernaHabil(PiernaHabil piernaHabil) {
+	this.piernaHabil = piernaHabil;
+}
+public int getAltura() {
+	return altura;
+}
+public void setAltura(int altura) {
+	this.altura = altura;
+}
 @Override
 public int hashCode() {
 	return Objects.hash(equipo, nombre);
@@ -116,6 +134,7 @@ public boolean equals(Object obj) {
 public String toString() {
 	return "Jugador " + nombre + " con el numero de camiseta " + numeroCamiseta + " es " + posicion + " en el equipo " + equipo ;
 }
+
 
 
 }

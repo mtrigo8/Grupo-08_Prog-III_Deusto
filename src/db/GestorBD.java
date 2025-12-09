@@ -697,7 +697,7 @@ public class GestorBD {
 		return partidos;
 	}
 	
-	private List<Equipo> loadCSVEquipos() {
+	public List<Equipo> loadCSVEquipos() {
 		List<Equipo> equipos = new ArrayList<>();
 		
 		try (BufferedReader in = new BufferedReader(new FileReader(CSV_EQUIPOS))) {
@@ -718,7 +718,7 @@ public class GestorBD {
 		return equipos;
 	}
 	
-	private List<Liga> loadCVSLigas() {
+	public List<Liga> loadCVSLigas() {
 		List<Liga> ligas = new ArrayList<>();
 		
 		try (BufferedReader in = new BufferedReader(new FileReader(CSV_LIGAS))) {
@@ -739,7 +739,7 @@ public class GestorBD {
 		return ligas;
 	}
 	
-	private List<Jugador> loadCVSJugadores() {
+	public List<Jugador> loadCVSJugadores() {
 		List<Jugador> jugadores = new ArrayList<>();
 		
 		try (BufferedReader in = new BufferedReader(new FileReader(CSV_JUGADORES))) {
@@ -759,7 +759,7 @@ public class GestorBD {
 		
 		return jugadores;
 	}
-	private List<Partido> loadCVSPartidos() {
+	public List<Partido> loadCVSPartidos() {
 		List<Partido> partidos = new ArrayList<>();
 		for (String key: MAP_CALENDARIOS.keySet())
 		try (BufferedReader in = new BufferedReader(new FileReader(MAP_CALENDARIOS.get(key)))) {
