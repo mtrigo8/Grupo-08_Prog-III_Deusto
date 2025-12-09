@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [12/09/25 12:59:36] [INFORMACIÓN] Se han borrado las tablas 
 [12/09/25 12:59:36] [INFORMACIÓN] Se ha borrado el fichero de la BBDD 
 [12/09/25 12:59:36] [INFORMACIÓN] Se han creado las tablas 
@@ -1569,3 +1570,8 @@
 [12/09/25 12:59:40] [INFORMACIÓN] 1200 Preguntas insertados en la BBDD 
 [12/09/25 12:59:40] [INFORMACIÓN] Se han recuperado 3 comics 
 [12/09/25 12:59:40] [INFORMACIÓN] Se han recuperado 58 equipos. 
+=======
+[12/09/25 11:57:58] [INFORMACIÓN] Se han recuperado 3 comics 
+[12/09/25 11:57:58] [INFORMACIÓN] Se han recuperado 58 equipos. 
+[12/09/25 11:57:58] [ADVERTENCIA] Error recuperar los personajes: [SQLITE_ERROR] SQL error or missing database (no such table: partido) 
+>>>>>>> refs/remotes/master/master
