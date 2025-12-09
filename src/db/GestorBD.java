@@ -773,7 +773,9 @@ public class GestorBD {
 			
 			while ((linea = in.readLine()) != null) {
 				String[] campos = linea.split(",");
+				System.out.println(campos[2]);
 				Partido p = new Partido(campos[2], campos[3], Integer.parseInt(campos[4]), Integer.parseInt(campos[5]), LocalDate.parse(campos[1]), Integer.parseInt(campos[0]));
+				System.out.println(p);
 				partidos.add(p);
 			}			
 			

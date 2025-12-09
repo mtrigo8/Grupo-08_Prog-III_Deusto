@@ -1,5 +1,4 @@
 //IAG
-//Main modificado por IA para en vez de añadir 5 equipos por liga como habiamos hecho a mano haga todos
 package main;
 
 import java.time.LocalDate;
@@ -30,10 +29,12 @@ public class Main {
 		//Cargar las ligas de la BBDD
 		List<Liga> ligas = new ArrayList<Liga>();
 		ligas = gbd.getLigas();
+		System.out.println("ligas cargadas");
 
 		//Cargar los equipos de la BBDD
 		List<Equipo> equipos = new ArrayList<Equipo>();
 		equipos = gbd.getEquipos();
+		System.out.println("equipos");
 
 		
 		gbd.updateEquipos(equipos, ligas);
