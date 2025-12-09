@@ -36,6 +36,8 @@ public class JFrameJugador extends JFramePadre {
 
 	
 	private static final long serialVersionUID = 1L;
+	private ArrayList<Liga> todasLasLigas; 
+
 	private Jugador jugador;
 	private Liga liga;
 
@@ -48,6 +50,7 @@ public class JFrameJugador extends JFramePadre {
 		this.jugador = jugador;
 		super.framePrevio = ventanaAnterior;
 		this.liga=jugador.getEquipo().getLiga();
+		this.todasLasLigas = ligas;
 		JPanel panel = super.panel;
 		setImagenDeFondo(null);
 
@@ -98,9 +101,8 @@ public class JFrameJugador extends JFramePadre {
 		PanelRedondeado panelValor = new PanelRedondeado(new Color(79, 172, 254), new Color(0, 242, 254), 40);
         panelValor.setLayout(null);
 		panelValor.setBounds(520, 450, 420, 110);
-		Random r = new Random();
-		int valor = 5 + r.nextInt(95); 
-		JLabel lblPrecio = new JLabel(valor + ",00 mill. €", SwingConstants.CENTER);
+		double valor= jugador.getValorMercado(); 
+		JLabel lblPrecio = new JLabel(valor + " mill. €", SwingConstants.CENTER);
 		lblPrecio.setFont(new Font("SansSerif", Font.BOLD, 32));
 		lblPrecio.setForeground(Color.WHITE);
 		lblPrecio.setBounds(0, 15, 420, 50);
@@ -127,27 +129,34 @@ public class JFrameJugador extends JFramePadre {
         BotonCircular btnComparar= new BotonCircular(ftequilibrio);
         btnComparar.setSize(new Dimension (60,60));
         btnComparar.setBounds(430, 475, 80, 40);
-      /*  btnComparar.addActionListener(new ActionListener() {
+        btnComparar.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				JFrameComparar jfc = new JFrameComparar();
-        		JFrameJugador.this.setVisible(false);
-        		jfc.setVisible(true);
+				 JFrameComparar jfc = new JFrameComparar(JFrameJugador.this,JFrameJugador.this.jugador);
+			        setVisible(false);
+			        jfc.setVisible(true);
 			}
-		});*/
+		});
         panel.add(btnComparar);
 		JPanel panelStats = new JPanel(new GridLayout(1, 3, 20, 0));
 		panelStats.setOpaque(false);
 		panelStats.setBounds(60, 460, 350, 80);
-		panelStats.add(crearCirculoStat("PJ", String.valueOf(10 + r.nextInt(20))));
-		if (!jugador.getPosicion().toString().equals("PORTERO")) {
-			panelStats.add(crearCirculoStat("Goles", String.valueOf(r.nextInt(15))));
-			panelStats.add(crearCirculoStat("Asist", String.valueOf(r.nextInt(10))));
+		panelStats.add(crearCirculoStat("PJ", String.valueOf(jugador.getPartidosJugados())));
+		if (jugador.getPosicion().toString().equals("DELANTERO") || jugador.getPosicion().toString().equals("CENTROCAMPISTA") ) {
+			panelStats.add(crearCirculoStat("Goles", String.valueOf(jugador.getGoles())));
+			panelStats.add(crearCirculoStat("Asist", String.valueOf(jugador.getAsistencias())));
+			panelStats.add(crearCirculoStat("Regates", String.valueOf(jugador.getRegates())));
+		} else if (jugador.getPosicion().toString().equals("PORTERO")){
+			panelStats.add(crearCirculoStat("Paradas", String.valueOf(jugador.getParadas())));
+			panelStats.add(crearCirculoStat("Goles encajados", String.valueOf(jugador.getGolesEncajados())));
+			panelStats.add(crearCirculoStat("Porterias a 0", String.valueOf(jugador.getPorteriasaCero())));
 		} else {
-			panelStats.add(crearCirculoStat("Paradas", String.valueOf(r.nextInt(50))));
-			panelStats.add(crearCirculoStat("Porterias a 0", String.valueOf(r.nextInt(10))));
+			panelStats.add(crearCirculoStat("Goles", String.valueOf(jugador.getGoles())));
+			panelStats.add(crearCirculoStat("Asist", String.valueOf(jugador.getAsistencias())));
+			panelStats.add(crearCirculoStat("Regates", String.valueOf(jugador.getRegates())));
+			panelStats.add(crearCirculoStat("Porterias a 0", String.valueOf(jugador.getPorteriasaCero())));
 		}
 		
 		panel.add(panelStats);

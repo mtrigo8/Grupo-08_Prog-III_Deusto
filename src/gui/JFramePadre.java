@@ -25,7 +25,7 @@ import domain.Liga;
 public abstract class JFramePadre extends JFrame {
 	protected JPanel panel;
 	protected JButton botonAtras;
-	protected ArrayList<Liga> ligas;
+	public static ArrayList<Liga> ligas;
 	protected Image imagenFondo;
 	private static final long serialVersionUID = 1L;
 	protected JFramePadre framePrevio;
