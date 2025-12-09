@@ -500,7 +500,7 @@ public class GestorBD {
 	
 	
 	/**
-	 * Recupera los Personajes de la BBDD.
+	 * Recupera los equipos de la BBDD.
 	 */
 	public List<Equipo> getEquipos() {
 		List<Equipo> equipos = new ArrayList<>();
@@ -518,7 +518,7 @@ public class GestorBD {
 			while (rs.next()) {
 				equipo = new Equipo(rs.getString("nombre"),
 						rs.getString("ciudad"),
-						rs.getInt("anyofun"),
+						rs.getInt("anyofundacion"),
 						rs.getInt("titulos"),
 						rs.getString("estadio"),
 						rs.getString("npng"),
@@ -531,9 +531,9 @@ public class GestorBD {
 			//Se cierra el ResultSet
 			rs.close();
 			
-			logger.info(String.format("Se han recuperado %d personajes.", equipos.size()));			
+			logger.info(String.format("Se han recuperado %d equipos.", equipos.size()));			
 		} catch (Exception ex) {
-			logger.warning(String.format("Error recuperar los personajes: %s", ex.getMessage()));						
+			logger.warning(String.format("Error recuperar los equiops: %s", ex.getMessage()));						
 		}		
 		
 		return equipos;
@@ -573,16 +573,16 @@ public class GestorBD {
 			//Se cierra el ResultSet
 			rs.close();
 			
-			logger.info(String.format("Se ha recuperado el personaje %s", equipo));			
+			logger.info(String.format("Se ha recuperado el equipo %s", equipo));			
 		} catch (Exception ex) {
-			logger.warning(String.format("Error recuperar el personaje con nombre %s: %s", nombre, ex.getMessage()));						
+			logger.warning(String.format("Error recuperar el equipo con nombre %s: %s", nombre, ex.getMessage()));						
 		}		
 		
 		return equipo;
 	}
 	
 	/**
-	 * Recupera los Comics de la BBDD. 
+	 * Recupera las ligas de la BBDD. 
 	 */
 	public List<Liga> getLigas() {
 		List<Liga> ligas = new ArrayList<>();

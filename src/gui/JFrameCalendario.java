@@ -54,6 +54,7 @@ public class JFrameCalendario extends JFramePadre {
 	private HashMap<String, ImageIcon> mapaEscudos;
 	private GestorBD GBD;
 	
+	
 	public JFrameCalendario(Liga liga, JFramePadre ventanaAnterior) {
 		super();
 		GBD = new GestorBD();
@@ -136,11 +137,12 @@ public class JFrameCalendario extends JFramePadre {
 					result.setBackground(new Color(152, 217, 194));
 				}
 				//Cambiar color de fondo segun la posicion del raton
-				if(filaCalendario != -1 && row == filaCalendario){
-					result.setBackground(new Color(144,213,255));
+				if(filaCalendario != -1 && columnaCalendario != -1 && 
+				row == filaCalendario && column == columnaCalendario){
+					result.setBackground(new Color(144, 213, 255));
 					result.setForeground(Color.BLACK);
 					result.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-				}
+			  }
 				result.setOpaque(true);
 				return result;
 			}
@@ -191,15 +193,18 @@ public class JFrameCalendario extends JFramePadre {
 				// TODO Auto-generated method stub
 				Point puntoRaton = new Point(e.getX(), e.getY());
 				filaCalendario = tablaCalendario.rowAtPoint(puntoRaton);
-				
-				//Cambiar el cursor si se encuentra en las columnas 2 y 3
+				//Cambiar el cursor y el color si se encuentra en las columnas 2 y 3
 				columnaCalendario = tablaCalendario.columnAtPoint(puntoRaton);
 				if (columnaCalendario == 2 || columnaCalendario == 3) {
 					tablaCalendario.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+					tablaCalendario.repaint();
 				}else {
 					tablaCalendario.setCursor(getCursor());
+					filaCalendario = -1;
+					columnaCalendario = -1;
+					tablaCalendario.repaint();
 				}
-				tablaCalendario.repaint();
+			
 				
 			}
 			
@@ -213,6 +218,7 @@ public class JFrameCalendario extends JFramePadre {
 		MouseAdapter miMouseAdapter = new MouseAdapter() {
 			public void mouseExited(MouseEvent e) {
 				filaCalendario = -1;
+				columnaCalendario = -1;
 				tablaCalendario.repaint();
 			}
 		};

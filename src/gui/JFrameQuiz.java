@@ -221,7 +221,8 @@ public class JFrameQuiz extends JFramePadre{
 		tabla.setRowHeight(40);
 		tabla.getTableHeader().setFont(new Font("SansSerif", Font.BOLD, 14));
 		tabla.getTableHeader().setBackground(new Color(185, 255, 183));
-		JButton btnInicio=new BotonCircular("Iniciar Quizz",Color.gray,Color.DARK_GRAY);
+		JButton btnInicio=new BotonCircular("Iniciar Quiz",Color.gray,Color.DARK_GRAY);
+		btnInicio.setForeground(Color.WHITE);
 		btnInicio.setPreferredSize(new Dimension(230, 70));
 		btnInicio.addActionListener(e -> {
 			this.quizIniciado();

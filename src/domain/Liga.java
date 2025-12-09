@@ -90,8 +90,5 @@ public class Liga {
 		return "Liga [nombre=" + nombre + "]";
 	}
 	
-	
-	
-	
 
 }
