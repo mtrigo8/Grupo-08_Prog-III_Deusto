@@ -43,7 +43,7 @@ public class Main {
 				for (Liga liga : ligas) {
 					if (liga.getCalendario() == null) {
 				        liga.setCalendario(new TreeMap<>());
-				    }
+	      		    }
 					gbd.updateCalendario(liga.getCalendario(), partidos, liga);	
 			
 				}
