@@ -1,5 +1,0 @@
-[12/06/25 18:20:38] [ADVERTENCIA] Error al crear las tablas: [SQLITE_ERROR] SQL error or missing database (incomplete input) 
-[12/06/25 18:20:38] [ADVERTENCIA] Error al insertar personajes: [SQLITE_ERROR] SQL error or missing database (no such table: Equipo) 
-[12/06/25 18:20:38] [ADVERTENCIA] Error al insertar comics: [SQLITE_ERROR] SQL error or missing database (no such table: Liga) 
-[12/06/25 18:20:38] [ADVERTENCIA] Error al insertar preguntas: [SQLITE_ERROR] SQL error or missing database (no such table: pregunta) 
-[12/06/25 18:20:38] [ADVERTENCIA] Error al insertar preguntas: [SQLITE_ERROR] SQL error or missing database (no such table: opcion) 
