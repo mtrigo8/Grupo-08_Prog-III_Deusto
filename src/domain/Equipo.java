@@ -155,7 +155,7 @@ public class Equipo implements Comparable<Equipo> {
 	@Override
 	public int compareTo(Equipo o) {
 		// TODO Auto-generated method stub
-		 return Integer.compare(o.puntos, this.puntos);
+		 return o.puntos - this.puntos;
 	}
 	@Override
 	public String toString() {

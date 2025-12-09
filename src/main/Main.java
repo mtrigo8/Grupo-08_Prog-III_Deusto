@@ -47,7 +47,14 @@ public class Main {
 				        liga.setCalendario(new TreeMap<>());
 	      		    }
 					gbd.updateCalendario(liga.getCalendario(), partidos, liga);	
-			
+					TreeMap<Integer,ArrayList<Partido>> calendario = liga.getCalendario();
+					for(int jornada : calendario.keySet()){
+						ArrayList<Partido>partidosJ = calendario.get(jornada);
+						for(Partido partido : partidosJ) {
+							partido.actualizacionPuntos();
+							partido.actualizarGoles();
+						}
+					}	
 				}
 				for (Liga liga : ligas) {
 					for (Equipo equipo : liga.getEquipos()) {

@@ -11,6 +11,7 @@ import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.TreeMap;
 import java.util.Vector;
 
 import javax.swing.ImageIcon;
@@ -39,6 +40,7 @@ public class JFrameClasificacion extends JFramePadre {
 		super();
 		this.liga = liga;
 		super.framePrevio = ventanaAnterior;
+		
 		ArrayList<Equipo> clasificacion = this.liga.getEquipos();
 		Collections.sort(clasificacion);
 		JPanel norte = new JPanel(new GridLayout(2,1));
@@ -56,6 +58,8 @@ public class JFrameClasificacion extends JFramePadre {
 		
 		Vector<String> columnNames = new Vector<String>(Arrays.asList("Pos", "Equipo", "Pts", "PJ", "DG"));
 		DefaultTableModel mDatTab = new DefaultTableModel(new Vector<Vector<Object>>(), columnNames);
+		
+		
 		JTable table = new JTable(mDatTab);
 		table.setRowHeight(30);
 		table.setDefaultEditor(Object.class, null);
