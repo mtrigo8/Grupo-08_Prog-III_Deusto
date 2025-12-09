@@ -139,6 +139,8 @@ public class GestorBD {
 			
 			//Insertar las opciones en la BBDD
 			this.insertarOpciones(opciones.toArray(new Opcion[opciones.size()]));
+			//Insertar partidos
+			this.insertarPartidos(partidos.toArray(new Partido[partidos.size()]));
 		}
 	}
 
