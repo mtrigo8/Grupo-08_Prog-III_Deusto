@@ -478,21 +478,26 @@ public class GestorBD {
 		}
 	}
 	public void updatePartidos(List<Partido> partidos, List<Equipo> equipos) {
-		for (Equipo equipo : equipos) {
-			for (Partido partido : partidos) {
-				if (equipo.getNombre().equals(partido.getNombreEquipoLocal())) {
-					partido.setEquipoLocal(equipo);
-				} else if (equipo.getNombre().equals(partido.getNombreEquipoVisitante())) {
-					partido.setEquipoVisitante(equipo);
-				}
+		for (Partido partido : partidos) {
+			for (Equipo equipo : equipos) {
+				if (partido.getNombreEquipoLocal() != null &&
+					    equipo.getNombre().trim().equalsIgnoreCase(partido.getNombreEquipoLocal().trim())) {
+					    partido.setEquipoLocal(equipo);
+					}
+
+					if (partido.getNombreEquipoVisitante() != null &&
+					    equipo.getNombre().trim().equalsIgnoreCase(partido.getNombreEquipoVisitante().trim())) {
+					    partido.setEquipoVisitante(equipo);
+					}
 			}
 		}
 	}
 	
 	public void updateCalendario(TreeMap<Integer,ArrayList<Partido>>calendario,List<Partido>partidos, Liga liga) {
 		ArrayList<Partido>partidosFilt = new ArrayList<>();
+		
 		for(Partido partido : partidos) {
-			if(partido.getEquipoLocal().getLiga().equals(liga)) {
+			if(partido.getEquipoLocal().getLiga().getNombre().equals(liga.getNombre())) {
 				partidosFilt.add(partido);
 			}
 		}
@@ -674,13 +679,13 @@ public class GestorBD {
 			//Se recorre el ResultSet y se crean objetos
 			while (rs.next()) {
 				//IAG solucion de date a datetime por la ia
-				Instant instant = rs.getDate("fecha").toInstant();
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-				// 2. Convertir a LocalDateTime (usando la zona horaria del sistema)
-				LocalDateTime localDateTime = instant.atZone(ZoneId.systemDefault()).toLocalDateTime();
+				
+				String fechaStr = rs.getString("fecha"); 
+				LocalDate fecha = LocalDate.parse(fechaStr, formatter); 
 
 				// 3. Extraer LocalDate
-				LocalDate fecha = localDateTime.toLocalDate();
 				partido = new Partido(rs.getString("equipoL"),
 						rs.getString("equipoV"),
 						rs.getInt("golesL"),
