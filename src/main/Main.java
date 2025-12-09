@@ -29,20 +29,15 @@ public class Main {
 		//Cargar las ligas de la BBDD
 		List<Liga> ligas = new ArrayList<Liga>();
 		ligas = gbd.getLigas();
-		System.out.println("ligas cargadas");
-
 		//Cargar los equipos de la BBDD
 		List<Equipo> equipos = new ArrayList<Equipo>();
 		equipos = gbd.getEquipos();
-		System.out.println("equipos");
 
 		
 		gbd.updateEquipos(equipos, ligas);
 		List<Partido> partidos = new ArrayList<Partido>();
 		partidos = gbd.getPartidos();
-		System.out.println("Número de partidos cargados desde BBDD: " + partidos.size()); // AÑADE ESTA LÍNEA
 		gbd.updatePartidos(partidos, equipos);
-		System.out.println("Número de partidos cargados desde BBDD: " + partidos.size()); // AÑADE ESTA LÍNEA
 		
 		// Generar calendario
 				for (Liga liga : ligas) {

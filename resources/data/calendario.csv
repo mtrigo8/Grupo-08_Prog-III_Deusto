@@ -1,1067 +1,1067 @@
-Jornada,Fecha,Local,Visitante,GolesLocal,GolesVisitante
-1,2025-08-15,FC Bayern München,Fortuna Düsseldorf,4,1
-1,2025-08-15,Borussia Dortmund,Holstein Kiel,1,0
-1,2025-08-15,RB Leipzig,FC St. Pauli,2,2
-1,2025-08-15,Bayer Leverkusen,1. FC Köln,3,0
-1,2025-08-15,VfB Stuttgart,Borussia Mönchengladbach,1,0
-1,2025-08-15,Eintracht Frankfurt,FC Augsburg,0,1
-1,2025-08-15,1. FC Union Berlin,1. FC Heidenheim,0,0
-1,2025-08-15,SC Freiburg,VfL Wolfsburg,2,1
-1,2025-08-15,TSG Hoffenheim,Werder Bremen,0,2
-2,2025-08-22,FC Bayern München,Holstein Kiel,2,1
-2,2025-08-22,Fortuna Düsseldorf,FC St. Pauli,3,2
-2,2025-08-22,Borussia Dortmund,1. FC Köln,1,0
-2,2025-08-22,RB Leipzig,Borussia Mönchengladbach,4,1
-2,2025-08-22,Bayer Leverkusen,FC Augsburg,0,0
-2,2025-08-22,VfB Stuttgart,1. FC Heidenheim,3,2
-2,2025-08-22,Eintracht Frankfurt,VfL Wolfsburg,3,2
-2,2025-08-22,1. FC Union Berlin,Werder Bremen,1,4
-2,2025-08-22,SC Freiburg,TSG Hoffenheim,1,2
-3,2025-08-29,FC Bayern München,FC St. Pauli,4,0
-3,2025-08-29,Holstein Kiel,1. FC Köln,3,2
-3,2025-08-29,Fortuna Düsseldorf,Borussia Mönchengladbach,2,0
-3,2025-08-29,Borussia Dortmund,FC Augsburg,0,1
-3,2025-08-29,RB Leipzig,1. FC Heidenheim,0,0
-3,2025-08-29,Bayer Leverkusen,VfL Wolfsburg,0,1
-3,2025-08-29,VfB Stuttgart,Werder Bremen,2,1
-3,2025-08-29,Eintracht Frankfurt,TSG Hoffenheim,1,0
-3,2025-08-29,1. FC Union Berlin,SC Freiburg,1,3
-4,2025-09-05,FC Bayern München,1. FC Köln,4,1
-4,2025-09-05,FC St. Pauli,Borussia Mönchengladbach,0,2
-4,2025-09-05,Holstein Kiel,FC Augsburg,0,1
-4,2025-09-05,Fortuna Düsseldorf,1. FC Heidenheim,4,2
-4,2025-09-05,Borussia Dortmund,VfL Wolfsburg,2,2
-4,2025-09-05,RB Leipzig,Werder Bremen,3,2
-4,2025-09-05,Bayer Leverkusen,TSG Hoffenheim,0,0
-4,2025-09-05,VfB Stuttgart,SC Freiburg,1,1
-4,2025-09-05,Eintracht Frankfurt,1. FC Union Berlin,0,3
-5,2025-09-12,FC Bayern München,Borussia Mönchengladbach,2,0
-5,2025-09-12,1. FC Köln,FC Augsburg,2,1
-5,2025-09-12,FC St. Pauli,1. FC Heidenheim,3,1
-5,2025-09-12,Holstein Kiel,VfL Wolfsburg,1,0
-5,2025-09-12,Fortuna Düsseldorf,Werder Bremen,2,1
-5,2025-09-12,Borussia Dortmund,TSG Hoffenheim,2,3
-5,2025-09-12,RB Leipzig,SC Freiburg,1,0
-5,2025-09-12,Bayer Leverkusen,1. FC Union Berlin,4,1
-5,2025-09-12,VfB Stuttgart,Eintracht Frankfurt,0,0
-6,2025-09-19,FC Bayern München,FC Augsburg,3,0
-6,2025-09-19,Borussia Mönchengladbach,1. FC Heidenheim,2,1
-6,2025-09-19,1. FC Köln,VfL Wolfsburg,0,1
-6,2025-09-19,FC St. Pauli,Werder Bremen,4,1
-6,2025-09-19,Holstein Kiel,TSG Hoffenheim,4,3
-6,2025-09-19,Fortuna Düsseldorf,SC Freiburg,0,2
-6,2025-09-19,Borussia Dortmund,1. FC Union Berlin,2,1
-6,2025-09-19,RB Leipzig,Eintracht Frankfurt,1,2
-6,2025-09-19,Bayer Leverkusen,VfB Stuttgart,0,1
-7,2025-09-26,FC Bayern München,1. FC Heidenheim,4,1
-7,2025-09-26,FC Augsburg,VfL Wolfsburg,3,1
-7,2025-09-26,Borussia Mönchengladbach,Werder Bremen,1,0
-7,2025-09-26,1. FC Köln,TSG Hoffenheim,3,3
-7,2025-09-26,FC St. Pauli,SC Freiburg,1,2
-7,2025-09-26,Holstein Kiel,1. FC Union Berlin,2,0
-7,2025-09-26,Fortuna Düsseldorf,Eintracht Frankfurt,2,1
-7,2025-09-26,Borussia Dortmund,VfB Stuttgart,2,1
-7,2025-09-26,RB Leipzig,Bayer Leverkusen,0,1
-8,2025-10-03,FC Bayern München,VfL Wolfsburg,2,0
-8,2025-10-03,1. FC Heidenheim,Werder Bremen,3,3
-8,2025-10-03,FC Augsburg,TSG Hoffenheim,1,0
-8,2025-10-03,Borussia Mönchengladbach,SC Freiburg,3,3
-8,2025-10-03,1. FC Köln,1. FC Union Berlin,0,1
-8,2025-10-03,FC St. Pauli,Eintracht Frankfurt,0,2
-8,2025-10-03,Holstein Kiel,VfB Stuttgart,2,0
-8,2025-10-03,Fortuna Düsseldorf,Bayer Leverkusen,1,1
-8,2025-10-03,Borussia Dortmund,RB Leipzig,1,3
-9,2025-10-10,FC Bayern München,Werder Bremen,3,0
-9,2025-10-10,VfL Wolfsburg,TSG Hoffenheim,1,2
-9,2025-10-10,1. FC Heidenheim,SC Freiburg,0,1
-9,2025-10-10,FC Augsburg,1. FC Union Berlin,4,2
-9,2025-10-10,Borussia Mönchengladbach,Eintracht Frankfurt,1,1
-9,2025-10-10,1. FC Köln,VfB Stuttgart,0,0
-9,2025-10-10,FC St. Pauli,Bayer Leverkusen,1,2
-9,2025-10-10,Holstein Kiel,RB Leipzig,0,0
-9,2025-10-10,Fortuna Düsseldorf,Borussia Dortmund,0,2
-10,2025-10-17,FC Bayern München,TSG Hoffenheim,3,0
-10,2025-10-17,Werder Bremen,SC Freiburg,3,0
-10,2025-10-17,VfL Wolfsburg,1. FC Union Berlin,0,2
-10,2025-10-17,1. FC Heidenheim,Eintracht Frankfurt,0,0
-10,2025-10-17,FC Augsburg,VfB Stuttgart,3,2
-10,2025-10-17,Borussia Mönchengladbach,Bayer Leverkusen,1,2
-10,2025-10-17,1. FC Köln,RB Leipzig,3,0
-10,2025-10-17,FC St. Pauli,Borussia Dortmund,0,1
-10,2025-10-17,Holstein Kiel,Fortuna Düsseldorf,1,1
-11,2025-10-24,FC Bayern München,SC Freiburg,4,1
-11,2025-10-24,TSG Hoffenheim,1. FC Union Berlin,4,0
-11,2025-10-24,Werder Bremen,Eintracht Frankfurt,1,1
-11,2025-10-24,VfL Wolfsburg,VfB Stuttgart,3,0
-11,2025-10-24,1. FC Heidenheim,Bayer Leverkusen,0,1
-11,2025-10-24,FC Augsburg,RB Leipzig,1,1
-11,2025-10-24,Borussia Mönchengladbach,Borussia Dortmund,0,3
-11,2025-10-24,1. FC Köln,Fortuna Düsseldorf,1,3
-11,2025-10-24,FC St. Pauli,Holstein Kiel,2,0
-12,2025-10-31,FC Bayern München,1. FC Union Berlin,4,1
-12,2025-10-31,SC Freiburg,Eintracht Frankfurt,4,3
-12,2025-10-31,TSG Hoffenheim,VfB Stuttgart,3,0
-12,2025-10-31,Werder Bremen,Bayer Leverkusen,1,0
-12,2025-10-31,VfL Wolfsburg,RB Leipzig,1,0
-12,2025-10-31,1. FC Heidenheim,Borussia Dortmund,1,4
-12,2025-10-31,FC Augsburg,Fortuna Düsseldorf,1,2
-12,2025-10-31,Borussia Mönchengladbach,Holstein Kiel,1,1
-12,2025-10-31,1. FC Köln,FC St. Pauli,4,4
-13,2025-11-07,FC Bayern München,Eintracht Frankfurt,3,0
-13,2025-11-07,1. FC Union Berlin,VfB Stuttgart,0,1
-13,2025-11-07,SC Freiburg,Bayer Leverkusen,4,2
-13,2025-11-07,TSG Hoffenheim,RB Leipzig,1,2
-13,2025-11-07,Werder Bremen,Borussia Dortmund,0,2
-13,2025-11-07,VfL Wolfsburg,Fortuna Düsseldorf,1,3
-13,2025-11-07,1. FC Heidenheim,Holstein Kiel,0,4
-13,2025-11-07,FC Augsburg,FC St. Pauli,0,0
-13,2025-11-07,Borussia Mönchengladbach,1. FC Köln,2,2
-14,2025-11-14,FC Bayern München,VfB Stuttgart,4,0
-14,2025-11-14,Eintracht Frankfurt,Bayer Leverkusen,3,0
-14,2025-11-14,1. FC Union Berlin,RB Leipzig,2,2
-14,2025-11-14,SC Freiburg,Borussia Dortmund,1,2
-14,2025-11-14,TSG Hoffenheim,Fortuna Düsseldorf,1,3
-14,2025-11-14,Werder Bremen,Holstein Kiel,0,2
-14,2025-11-14,VfL Wolfsburg,FC St. Pauli,0,1
-14,2025-11-14,1. FC Heidenheim,1. FC Köln,2,1
-14,2025-11-14,FC Augsburg,Borussia Mönchengladbach,1,2
-15,2025-11-21,FC Bayern München,Bayer Leverkusen,3,0
-15,2025-11-21,VfB Stuttgart,RB Leipzig,4,4
-15,2025-11-21,Eintracht Frankfurt,Borussia Dortmund,0,0
-15,2025-11-21,1. FC Union Berlin,Fortuna Düsseldorf,1,3
-15,2025-11-21,SC Freiburg,Holstein Kiel,3,3
-15,2025-11-21,TSG Hoffenheim,FC St. Pauli,1,0
-15,2025-11-21,Werder Bremen,1. FC Köln,3,2
-15,2025-11-21,VfL Wolfsburg,Borussia Mönchengladbach,2,4
-15,2025-11-21,1. FC Heidenheim,FC Augsburg,2,0
-16,2025-11-28,FC Bayern München,RB Leipzig,3,0
-16,2025-11-28,Bayer Leverkusen,Borussia Dortmund,2,3
-16,2025-11-28,VfB Stuttgart,Fortuna Düsseldorf,0,0
-16,2025-11-28,Eintracht Frankfurt,Holstein Kiel,0,2
-16,2025-11-28,1. FC Union Berlin,FC St. Pauli,1,2
-16,2025-11-28,SC Freiburg,1. FC Köln,2,0
-16,2025-11-28,TSG Hoffenheim,Borussia Mönchengladbach,2,1
-16,2025-11-28,Werder Bremen,FC Augsburg,1,3
-16,2025-11-28,VfL Wolfsburg,1. FC Heidenheim,3,0
-17,2025-12-05,FC Bayern München,Borussia Dortmund,3,0
-17,2025-12-05,RB Leipzig,Fortuna Düsseldorf,0,2
-17,2025-12-05,Bayer Leverkusen,Holstein Kiel,2,1
-17,2025-12-05,VfB Stuttgart,FC St. Pauli,2,2
-17,2025-12-05,Eintracht Frankfurt,1. FC Köln,1,0
-17,2025-12-05,1. FC Union Berlin,Borussia Mönchengladbach,0,3
-17,2025-12-05,SC Freiburg,FC Augsburg,3,1
-17,2025-12-05,TSG Hoffenheim,1. FC Heidenheim,3,2
-17,2025-12-05,Werder Bremen,VfL Wolfsburg,0,0
-35,2025-12-12,Fortuna Düsseldorf,FC Bayern München,0,3
-35,2025-12-12,Holstein Kiel,Borussia Dortmund,2,3
-35,2025-12-12,FC St. Pauli,RB Leipzig,3,0
-35,2025-12-12,1. FC Köln,Bayer Leverkusen,0,0
-35,2025-12-12,Borussia Mönchengladbach,VfB Stuttgart,2,3
-35,2025-12-12,FC Augsburg,Eintracht Frankfurt,1,2
-35,2025-12-12,1. FC Heidenheim,1. FC Union Berlin,0,3
-35,2025-12-12,VfL Wolfsburg,SC Freiburg,3,4
-35,2025-12-12,Werder Bremen,TSG Hoffenheim,3,3
-36,2025-12-19,Holstein Kiel,FC Bayern München,0,3
-36,2025-12-19,FC St. Pauli,Fortuna Düsseldorf,1,3
-36,2025-12-19,1. FC Köln,Borussia Dortmund,3,3
-36,2025-12-19,Borussia Mönchengladbach,RB Leipzig,3,1
-36,2025-12-19,FC Augsburg,Bayer Leverkusen,2,0
-36,2025-12-19,1. FC Heidenheim,VfB Stuttgart,3,3
-36,2025-12-19,VfL Wolfsburg,Eintracht Frankfurt,0,3
-36,2025-12-19,Werder Bremen,1. FC Union Berlin,1,1
-36,2025-12-19,TSG Hoffenheim,SC Freiburg,2,0
-37,2025-12-26,FC St. Pauli,FC Bayern München,1,3
-37,2025-12-26,1. FC Köln,Holstein Kiel,1,3
-37,2025-12-26,Borussia Mönchengladbach,Fortuna Düsseldorf,4,1
-37,2025-12-26,FC Augsburg,Borussia Dortmund,2,1
-37,2025-12-26,1. FC Heidenheim,RB Leipzig,4,1
-37,2025-12-26,VfL Wolfsburg,Bayer Leverkusen,3,0
-37,2025-12-26,Werder Bremen,VfB Stuttgart,4,0
-37,2025-12-26,TSG Hoffenheim,Eintracht Frankfurt,4,1
-37,2025-12-26,SC Freiburg,1. FC Union Berlin,0,1
-38,2026-01-02,1. FC Köln,FC Bayern München,1,4
-38,2026-01-02,Borussia Mönchengladbach,FC St. Pauli,2,1
-38,2026-01-02,FC Augsburg,Holstein Kiel,1,2
-38,2026-01-02,1. FC Heidenheim,Fortuna Düsseldorf,1,2
-38,2026-01-02,VfL Wolfsburg,Borussia Dortmund,0,3
-38,2026-01-02,Werder Bremen,RB Leipzig,1,2
-38,2026-01-02,TSG Hoffenheim,Bayer Leverkusen,2,2
-38,2026-01-02,SC Freiburg,VfB Stuttgart,1,0
-38,2026-01-02,1. FC Union Berlin,Eintracht Frankfurt,2,1
-39,2026-01-09,Borussia Mönchengladbach,FC Bayern München,0,2
-39,2026-01-09,FC Augsburg,1. FC Köln,2,1
-39,2026-01-09,1. FC Heidenheim,FC St. Pauli,1,1
-39,2026-01-09,VfL Wolfsburg,Holstein Kiel,1,1
-39,2026-01-09,Werder Bremen,Fortuna Düsseldorf,0,1
-39,2026-01-09,TSG Hoffenheim,Borussia Dortmund,3,2
-39,2026-01-09,SC Freiburg,RB Leipzig,3,2
-39,2026-01-09,1. FC Union Berlin,Bayer Leverkusen,1,1
-39,2026-01-09,Eintracht Frankfurt,VfB Stuttgart,0,1
-40,2026-01-16,FC Augsburg,FC Bayern München,0,3
-40,2026-01-16,1. FC Heidenheim,Borussia Mönchengladbach,2,1
-40,2026-01-16,VfL Wolfsburg,1. FC Köln,1,0
-40,2026-01-16,Werder Bremen,FC St. Pauli,1,3
-40,2026-01-16,TSG Hoffenheim,Holstein Kiel,2,0
-40,2026-01-16,SC Freiburg,Fortuna Düsseldorf,0,1
-40,2026-01-16,1. FC Union Berlin,Borussia Dortmund,2,1
-40,2026-01-16,Eintracht Frankfurt,RB Leipzig,3,2
-40,2026-01-16,VfB Stuttgart,Bayer Leverkusen,2,0
-41,2026-01-23,1. FC Heidenheim,FC Bayern München,0,3
-41,2026-01-23,VfL Wolfsburg,FC Augsburg,0,1
-41,2026-01-23,Werder Bremen,Borussia Mönchengladbach,3,0
-41,2026-01-23,TSG Hoffenheim,1. FC Köln,1,2
-41,2026-01-23,SC Freiburg,FC St. Pauli,0,2
-41,2026-01-23,1. FC Union Berlin,Holstein Kiel,1,0
-41,2026-01-23,Eintracht Frankfurt,Fortuna Düsseldorf,2,0
-41,2026-01-23,VfB Stuttgart,Borussia Dortmund,2,2
-41,2026-01-23,Bayer Leverkusen,RB Leipzig,0,1
-42,2026-01-30,VfL Wolfsburg,FC Bayern München,0,3
-42,2026-01-30,Werder Bremen,1. FC Heidenheim,1,0
-42,2026-01-30,TSG Hoffenheim,FC Augsburg,0,3
-42,2026-01-30,SC Freiburg,Borussia Mönchengladbach,1,3
-42,2026-01-30,1. FC Union Berlin,1. FC Köln,2,4
-42,2026-01-30,Eintracht Frankfurt,FC St. Pauli,2,4
-42,2026-01-30,VfB Stuttgart,Holstein Kiel,3,2
-42,2026-01-30,Bayer Leverkusen,Fortuna Düsseldorf,2,1
-42,2026-01-30,RB Leipzig,Borussia Dortmund,3,1
-43,2026-02-06,Werder Bremen,FC Bayern München,1,4
-43,2026-02-06,TSG Hoffenheim,VfL Wolfsburg,1,1
-43,2026-02-06,SC Freiburg,1. FC Heidenheim,0,2
-43,2026-02-06,1. FC Union Berlin,FC Augsburg,2,1
-43,2026-02-06,Eintracht Frankfurt,Borussia Mönchengladbach,2,1
-43,2026-02-06,VfB Stuttgart,1. FC Köln,0,1
-43,2026-02-06,Bayer Leverkusen,FC St. Pauli,1,1
-43,2026-02-06,RB Leipzig,Holstein Kiel,1,0
-43,2026-02-06,Borussia Dortmund,Fortuna Düsseldorf,0,2
-44,2026-02-13,TSG Hoffenheim,FC Bayern München,0,2
-44,2026-02-13,SC Freiburg,Werder Bremen,1,1
-44,2026-02-13,1. FC Union Berlin,VfL Wolfsburg,1,0
-44,2026-02-13,Eintracht Frankfurt,1. FC Heidenheim,1,3
-44,2026-02-13,VfB Stuttgart,FC Augsburg,2,2
-44,2026-02-13,Bayer Leverkusen,Borussia Mönchengladbach,3,2
-44,2026-02-13,RB Leipzig,1. FC Köln,1,0
-44,2026-02-13,Borussia Dortmund,FC St. Pauli,1,2
-44,2026-02-13,Fortuna Düsseldorf,Holstein Kiel,3,4
-45,2026-02-20,SC Freiburg,FC Bayern München,1,4
-45,2026-02-20,1. FC Union Berlin,TSG Hoffenheim,1,2
-45,2026-02-20,Eintracht Frankfurt,Werder Bremen,0,0
-45,2026-02-20,VfB Stuttgart,VfL Wolfsburg,1,0
-45,2026-02-20,Bayer Leverkusen,1. FC Heidenheim,1,2
-45,2026-02-20,RB Leipzig,FC Augsburg,1,0
-45,2026-02-20,Borussia Dortmund,Borussia Mönchengladbach,1,0
-45,2026-02-20,Fortuna Düsseldorf,1. FC Köln,2,0
-45,2026-02-20,Holstein Kiel,FC St. Pauli,1,2
-46,2026-02-27,1. FC Union Berlin,FC Bayern München,1,3
-46,2026-02-27,Eintracht Frankfurt,SC Freiburg,0,1
-46,2026-02-27,VfB Stuttgart,TSG Hoffenheim,0,1
-46,2026-02-27,Bayer Leverkusen,Werder Bremen,0,1
-46,2026-02-27,RB Leipzig,VfL Wolfsburg,2,1
-46,2026-02-27,Borussia Dortmund,1. FC Heidenheim,2,3
-46,2026-02-27,Fortuna Düsseldorf,FC Augsburg,1,0
-46,2026-02-27,Holstein Kiel,Borussia Mönchengladbach,0,1
-46,2026-02-27,FC St. Pauli,1. FC Köln,4,1
-47,2026-03-06,Eintracht Frankfurt,FC Bayern München,0,3
-47,2026-03-06,VfB Stuttgart,1. FC Union Berlin,2,2
-47,2026-03-06,Bayer Leverkusen,SC Freiburg,3,0
-47,2026-03-06,RB Leipzig,TSG Hoffenheim,0,0
-47,2026-03-06,Borussia Dortmund,Werder Bremen,0,2
-47,2026-03-06,Fortuna Düsseldorf,VfL Wolfsburg,2,0
-47,2026-03-06,Holstein Kiel,1. FC Heidenheim,2,2
-47,2026-03-06,FC St. Pauli,FC Augsburg,0,2
-47,2026-03-06,1. FC Köln,Borussia Mönchengladbach,2,0
-48,2026-03-13,VfB Stuttgart,FC Bayern München,0,4
-48,2026-03-13,Bayer Leverkusen,Eintracht Frankfurt,0,0
-48,2026-03-13,RB Leipzig,1. FC Union Berlin,1,2
-48,2026-03-13,Borussia Dortmund,SC Freiburg,4,1
-48,2026-03-13,Fortuna Düsseldorf,TSG Hoffenheim,2,0
-48,2026-03-13,Holstein Kiel,Werder Bremen,2,2
-48,2026-03-13,FC St. Pauli,VfL Wolfsburg,0,2
-48,2026-03-13,1. FC Köln,1. FC Heidenheim,3,2
-48,2026-03-13,Borussia Mönchengladbach,FC Augsburg,0,4
-49,2026-03-20,Bayer Leverkusen,FC Bayern München,0,2
-49,2026-03-20,RB Leipzig,VfB Stuttgart,1,1
-49,2026-03-20,Borussia Dortmund,Eintracht Frankfurt,1,1
-49,2026-03-20,Fortuna Düsseldorf,1. FC Union Berlin,3,3
-49,2026-03-20,Holstein Kiel,SC Freiburg,0,4
-49,2026-03-20,FC St. Pauli,TSG Hoffenheim,2,3
-49,2026-03-20,1. FC Köln,Werder Bremen,2,1
-49,2026-03-20,Borussia Mönchengladbach,VfL Wolfsburg,2,4
-49,2026-03-20,FC Augsburg,1. FC Heidenheim,1,3
-50,2026-03-27,RB Leipzig,FC Bayern München,0,2
-50,2026-03-27,Borussia Dortmund,Bayer Leverkusen,1,2
-50,2026-03-27,Fortuna Düsseldorf,VfB Stuttgart,1,3
-50,2026-03-27,Holstein Kiel,Eintracht Frankfurt,3,0
-50,2026-03-27,FC St. Pauli,1. FC Union Berlin,3,0
-50,2026-03-27,1. FC Köln,SC Freiburg,1,2
-50,2026-03-27,Borussia Mönchengladbach,TSG Hoffenheim,1,0
-50,2026-03-27,FC Augsburg,Werder Bremen,3,0
-50,2026-03-27,1. FC Heidenheim,VfL Wolfsburg,0,2
-51,2026-04-03,Borussia Dortmund,FC Bayern München,1,3
-51,2026-04-03,Fortuna Düsseldorf,RB Leipzig,2,1
-51,2026-04-03,Holstein Kiel,Bayer Leverkusen,0,3
-51,2026-04-03,FC St. Pauli,VfB Stuttgart,0,2
-51,2026-04-03,1. FC Köln,Eintracht Frankfurt,1,2
-51,2026-04-03,Borussia Mönchengladbach,1. FC Union Berlin,2,2
-51,2026-04-03,FC Augsburg,SC Freiburg,1,2
-51,2026-04-03,1. FC Heidenheim,TSG Hoffenheim,0,0
-51,2026-04-03,VfL Wolfsburg,Werder Bremen,2,1
-1,2025-08-15,Arsenal,Wolverhampton Wanderers,2,0
-1,2025-08-15,Aston Villa,West Ham United,0,0
-1,2025-08-15,Bournemouth,Tottenham Hotspur,2,2
-1,2025-08-15,Brentford,Sunderland,3,0
-1,2025-08-15,Brighton & Hove Albion,Nottingham Forest,1,0
-1,2025-08-15,Burnley,Newcastle United,0,1
-1,2025-08-15,Chelsea,Manchester United,0,0
-1,2025-08-15,Crystal Palace,Manchester City,0,1
-1,2025-08-15,Everton,Liverpool,0,1
-1,2025-08-15,Fulham,Leeds United,3,0
-2,2025-08-22,Arsenal,West Ham United,3,2
-2,2025-08-22,Wolverhampton Wanderers,Tottenham Hotspur,1,0
-2,2025-08-22,Aston Villa,Sunderland,3,1
-2,2025-08-22,Bournemouth,Nottingham Forest,0,0
-2,2025-08-22,Brentford,Newcastle United,3,2
-2,2025-08-22,Brighton & Hove Albion,Manchester United,3,2
-2,2025-08-22,Burnley,Manchester City,0,2
-2,2025-08-22,Chelsea,Liverpool,1,1
-2,2025-08-22,Crystal Palace,Leeds United,3,2
-2,2025-08-22,Everton,Fulham,3,1
-3,2025-08-29,Arsenal,Tottenham Hotspur,2,0
-3,2025-08-29,West Ham United,Sunderland,0,0
-3,2025-08-29,Wolverhampton Wanderers,Nottingham Forest,0,0
-3,2025-08-29,Aston Villa,Newcastle United,0,0
-3,2025-08-29,Bournemouth,Manchester United,2,1
-3,2025-08-29,Brentford,Manchester City,1,2
-3,2025-08-29,Brighton & Hove Albion,Liverpool,0,3
-3,2025-08-29,Burnley,Leeds United,2,2
-3,2025-08-29,Chelsea,Fulham,0,2
-3,2025-08-29,Crystal Palace,Everton,0,1
-4,2025-09-05,Arsenal,Sunderland,3,2
-4,2025-09-05,Tottenham Hotspur,Nottingham Forest,1,2
-4,2025-09-05,West Ham United,Newcastle United,3,2
-4,2025-09-05,Wolverhampton Wanderers,Manchester United,0,0
-4,2025-09-05,Aston Villa,Manchester City,1,0
-4,2025-09-05,Bournemouth,Liverpool,0,3
-4,2025-09-05,Brentford,Leeds United,3,1
-4,2025-09-05,Brighton & Hove Albion,Fulham,2,1
-4,2025-09-05,Burnley,Everton,3,1
-4,2025-09-05,Chelsea,Crystal Palace,0,0
-5,2025-09-12,Arsenal,Nottingham Forest,1,0
-5,2025-09-12,Sunderland,Newcastle United,1,3
-5,2025-09-12,Tottenham Hotspur,Manchester United,1,0
-5,2025-09-12,West Ham United,Manchester City,0,2
-5,2025-09-12,Wolverhampton Wanderers,Liverpool,0,0
-5,2025-09-12,Aston Villa,Leeds United,0,2
-5,2025-09-12,Bournemouth,Fulham,2,1
-5,2025-09-12,Brentford,Everton,0,1
-5,2025-09-12,Brighton & Hove Albion,Crystal Palace,3,1
-5,2025-09-12,Burnley,Chelsea,3,3
-6,2025-09-19,Arsenal,Newcastle United,0,2
-6,2025-09-19,Nottingham Forest,Manchester United,2,1
-6,2025-09-19,Sunderland,Manchester City,1,2
-6,2025-09-19,Tottenham Hotspur,Liverpool,0,1
-6,2025-09-19,West Ham United,Leeds United,1,3
-6,2025-09-19,Wolverhampton Wanderers,Fulham,3,0
-6,2025-09-19,Aston Villa,Everton,1,0
-6,2025-09-19,Bournemouth,Crystal Palace,3,3
-6,2025-09-19,Brentford,Chelsea,0,2
-6,2025-09-19,Brighton & Hove Albion,Burnley,2,0
-7,2025-09-26,Arsenal,Manchester United,2,1
-7,2025-09-26,Newcastle United,Manchester City,1,2
-7,2025-09-26,Nottingham Forest,Liverpool,0,1
-7,2025-09-26,Sunderland,Leeds United,0,3
-7,2025-09-26,Tottenham Hotspur,Fulham,3,3
-7,2025-09-26,West Ham United,Everton,1,0
-7,2025-09-26,Wolverhampton Wanderers,Crystal Palace,3,3
-7,2025-09-26,Aston Villa,Chelsea,0,1
-7,2025-09-26,Bournemouth,Burnley,0,2
-7,2025-09-26,Brentford,Brighton & Hove Albion,2,0
-8,2025-10-03,Arsenal,Manchester City,0,1
-8,2025-10-03,Manchester United,Liverpool,0,3
-8,2025-10-03,Newcastle United,Leeds United,1,0
-8,2025-10-03,Nottingham Forest,Fulham,1,2
-8,2025-10-03,Sunderland,Everton,0,1
-8,2025-10-03,Tottenham Hotspur,Crystal Palace,3,2
-8,2025-10-03,West Ham United,Chelsea,1,1
-8,2025-10-03,Wolverhampton Wanderers,Burnley,0,0
-8,2025-10-03,Aston Villa,Brighton & Hove Albion,1,1
-8,2025-10-03,Bournemouth,Brentford,0,0
-9,2025-10-10,Arsenal,Liverpool,0,2
-9,2025-10-10,Manchester City,Leeds United,2,2
-9,2025-10-10,Manchester United,Fulham,3,0
-9,2025-10-10,Newcastle United,Everton,0,2
-9,2025-10-10,Nottingham Forest,Crystal Palace,0,0
-9,2025-10-10,Sunderland,Chelsea,3,1
-9,2025-10-10,Tottenham Hotspur,Burnley,1,2
-9,2025-10-10,West Ham United,Brighton & Hove Albion,3,0
-9,2025-10-10,Wolverhampton Wanderers,Brentford,0,1
-9,2025-10-10,Aston Villa,Bournemouth,1,1
-10,2025-10-17,Arsenal,Leeds United,2,2
-10,2025-10-17,Liverpool,Fulham,3,0
-10,2025-10-17,Manchester City,Everton,3,0
-10,2025-10-17,Manchester United,Crystal Palace,3,0
-10,2025-10-17,Newcastle United,Chelsea,0,1
-10,2025-10-17,Nottingham Forest,Burnley,1,0
-10,2025-10-17,Sunderland,Brighton & Hove Albion,0,3
-10,2025-10-17,Tottenham Hotspur,Brentford,1,3
-10,2025-10-17,West Ham United,Bournemouth,1,0
-10,2025-10-17,Wolverhampton Wanderers,Aston Villa,3,3
-11,2025-10-24,Arsenal,Fulham,3,3
-11,2025-10-24,Leeds United,Everton,3,0
-11,2025-10-24,Liverpool,Crystal Palace,1,0
-11,2025-10-24,Manchester City,Chelsea,3,0
-11,2025-10-24,Manchester United,Burnley,1,3
-11,2025-10-24,Newcastle United,Brighton & Hove Albion,0,2
-11,2025-10-24,Nottingham Forest,Brentford,1,1
-11,2025-10-24,Sunderland,Bournemouth,3,3
-11,2025-10-24,Tottenham Hotspur,Aston Villa,1,2
-11,2025-10-24,West Ham United,Wolverhampton Wanderers,0,0
-12,2025-10-31,Arsenal,Everton,3,1
-12,2025-10-31,Fulham,Crystal Palace,1,2
-12,2025-10-31,Leeds United,Chelsea,0,1
-12,2025-10-31,Liverpool,Burnley,1,3
-12,2025-10-31,Manchester City,Brighton & Hove Albion,2,1
-12,2025-10-31,Manchester United,Brentford,0,0
-12,2025-10-31,Newcastle United,Bournemouth,1,2
-12,2025-10-31,Nottingham Forest,Aston Villa,0,0
-12,2025-10-31,Sunderland,Wolverhampton Wanderers,3,0
-12,2025-10-31,Tottenham Hotspur,West Ham United,1,2
-13,2025-11-07,Arsenal,Crystal Palace,1,1
-13,2025-11-07,Everton,Chelsea,1,3
-13,2025-11-07,Fulham,Burnley,0,2
-13,2025-11-07,Leeds United,Brighton & Hove Albion,0,1
-13,2025-11-07,Liverpool,Brentford,2,0
-13,2025-11-07,Manchester City,Bournemouth,2,0
-13,2025-11-07,Manchester United,Aston Villa,0,1
-13,2025-11-07,Newcastle United,Wolverhampton Wanderers,3,3
-13,2025-11-07,Nottingham Forest,West Ham United,0,0
-13,2025-11-07,Sunderland,Tottenham Hotspur,0,3
-14,2025-11-14,Arsenal,Chelsea,3,3
-14,2025-11-14,Crystal Palace,Burnley,1,0
-14,2025-11-14,Everton,Brighton & Hove Albion,3,2
-14,2025-11-14,Fulham,Brentford,2,3
-14,2025-11-14,Leeds United,Bournemouth,2,0
-14,2025-11-14,Liverpool,Aston Villa,3,0
-14,2025-11-14,Manchester City,Wolverhampton Wanderers,0,2
-14,2025-11-14,Manchester United,West Ham United,0,0
-14,2025-11-14,Newcastle United,Tottenham Hotspur,0,1
-14,2025-11-14,Nottingham Forest,Sunderland,0,2
-15,2025-11-21,Arsenal,Burnley,2,0
-15,2025-11-21,Chelsea,Brighton & Hove Albion,2,0
-15,2025-11-21,Crystal Palace,Brentford,1,3
-15,2025-11-21,Everton,Bournemouth,3,0
-15,2025-11-21,Fulham,Aston Villa,1,0
-15,2025-11-21,Leeds United,Wolverhampton Wanderers,0,2
-15,2025-11-21,Liverpool,West Ham United,2,0
-15,2025-11-21,Manchester City,Tottenham Hotspur,1,1
-15,2025-11-21,Manchester United,Sunderland,1,0
-15,2025-11-21,Newcastle United,Nottingham Forest,0,3
-16,2025-11-28,Arsenal,Brighton & Hove Albion,3,1
-16,2025-11-28,Burnley,Brentford,3,1
-16,2025-11-28,Chelsea,Bournemouth,0,0
-16,2025-11-28,Crystal Palace,Aston Villa,1,3
-16,2025-11-28,Everton,Wolverhampton Wanderers,2,3
-16,2025-11-28,Fulham,West Ham United,3,0
-16,2025-11-28,Leeds United,Tottenham Hotspur,0,0
-16,2025-11-28,Liverpool,Sunderland,2,3
-16,2025-11-28,Manchester City,Nottingham Forest,1,1
-16,2025-11-28,Manchester United,Newcastle United,0,3
-17,2025-12-05,Arsenal,Brentford,3,3
-17,2025-12-05,Brighton & Hove Albion,Bournemouth,3,3
-17,2025-12-05,Burnley,Aston Villa,0,2
-17,2025-12-05,Chelsea,Wolverhampton Wanderers,1,3
-17,2025-12-05,Crystal Palace,West Ham United,3,3
-17,2025-12-05,Everton,Tottenham Hotspur,3,0
-17,2025-12-05,Fulham,Sunderland,2,0
-17,2025-12-05,Leeds United,Nottingham Forest,3,3
-17,2025-12-05,Liverpool,Newcastle United,0,3
-17,2025-12-05,Manchester City,Manchester United,3,0
-18,2025-12-12,Arsenal,Bournemouth,2,0
-18,2025-12-12,Brentford,Aston Villa,0,0
-18,2025-12-12,Brighton & Hove Albion,Wolverhampton Wanderers,1,3
-18,2025-12-12,Burnley,West Ham United,3,0
-18,2025-12-12,Chelsea,Tottenham Hotspur,2,1
-18,2025-12-12,Crystal Palace,Sunderland,3,1
-18,2025-12-12,Everton,Nottingham Forest,3,0
-18,2025-12-12,Fulham,Newcastle United,3,0
-18,2025-12-12,Leeds United,Manchester United,3,0
-18,2025-12-12,Liverpool,Manchester City,1,1
-19,2025-12-19,Arsenal,Aston Villa,2,1
-19,2025-12-19,Bournemouth,Wolverhampton Wanderers,2,1
-19,2025-12-19,Brentford,West Ham United,1,1
-19,2025-12-19,Brighton & Hove Albion,Tottenham Hotspur,0,2
-19,2025-12-19,Burnley,Sunderland,0,3
-19,2025-12-19,Chelsea,Nottingham Forest,1,2
-19,2025-12-19,Crystal Palace,Newcastle United,2,2
-19,2025-12-19,Everton,Manchester United,1,0
-19,2025-12-19,Fulham,Manchester City,0,0
-19,2025-12-19,Leeds United,Liverpool,1,3
-20,2025-12-26,Wolverhampton Wanderers,Arsenal,2,1
-20,2025-12-26,West Ham United,Aston Villa,1,1
-20,2025-12-26,Tottenham Hotspur,Bournemouth,1,0
-20,2025-12-26,Sunderland,Brentford,0,1
-20,2025-12-26,Nottingham Forest,Brighton & Hove Albion,3,2
-20,2025-12-26,Newcastle United,Burnley,3,2
-20,2025-12-26,Manchester United,Chelsea,1,1
-20,2025-12-26,Manchester City,Crystal Palace,2,1
-20,2025-12-26,Liverpool,Everton,1,1
-20,2025-12-26,Leeds United,Fulham,2,1
-21,2026-01-02,West Ham United,Arsenal,1,0
-21,2026-01-02,Tottenham Hotspur,Wolverhampton Wanderers,1,3
-21,2026-01-02,Sunderland,Aston Villa,2,0
-21,2026-01-02,Nottingham Forest,Bournemouth,0,1
-21,2026-01-02,Newcastle United,Brentford,2,1
-21,2026-01-02,Manchester United,Brighton & Hove Albion,3,2
-21,2026-01-02,Manchester City,Burnley,2,0
-21,2026-01-02,Liverpool,Chelsea,0,0
-21,2026-01-02,Leeds United,Crystal Palace,0,1
-21,2026-01-02,Fulham,Everton,3,0
-22,2026-01-09,Tottenham Hotspur,Arsenal,1,2
-22,2026-01-09,Sunderland,West Ham United,0,2
-22,2026-01-09,Nottingham Forest,Wolverhampton Wanderers,1,0
-22,2026-01-09,Newcastle United,Aston Villa,2,0
-22,2026-01-09,Manchester United,Bournemouth,2,2
-22,2026-01-09,Manchester City,Brentford,3,0
-22,2026-01-09,Liverpool,Brighton & Hove Albion,0,3
-22,2026-01-09,Leeds United,Burnley,1,0
-22,2026-01-09,Fulham,Chelsea,0,3
-22,2026-01-09,Everton,Crystal Palace,1,3
-23,2026-01-16,Sunderland,Arsenal,2,3
-23,2026-01-16,Nottingham Forest,Tottenham Hotspur,1,3
-23,2026-01-16,Newcastle United,West Ham United,3,2
-23,2026-01-16,Manchester United,Wolverhampton Wanderers,2,1
-23,2026-01-16,Manchester City,Aston Villa,1,1
-23,2026-01-16,Liverpool,Bournemouth,3,2
-23,2026-01-16,Leeds United,Brentford,1,0
-23,2026-01-16,Fulham,Brighton & Hove Albion,0,2
-23,2026-01-16,Everton,Burnley,2,1
-23,2026-01-16,Crystal Palace,Chelsea,2,0
-24,2026-01-23,Nottingham Forest,Arsenal,0,0
-24,2026-01-23,Newcastle United,Sunderland,0,1
-24,2026-01-23,Manchester United,Tottenham Hotspur,1,0
-24,2026-01-23,Manchester City,West Ham United,2,0
-24,2026-01-23,Liverpool,Wolverhampton Wanderers,2,0
-24,2026-01-23,Leeds United,Aston Villa,1,1
-24,2026-01-23,Fulham,Bournemouth,1,0
-24,2026-01-23,Everton,Brentford,1,3
-24,2026-01-23,Crystal Palace,Brighton & Hove Albion,1,2
-24,2026-01-23,Chelsea,Burnley,3,2
-25,2026-01-30,Newcastle United,Arsenal,1,0
-25,2026-01-30,Manchester United,Nottingham Forest,1,2
-25,2026-01-30,Manchester City,Sunderland,1,0
-25,2026-01-30,Liverpool,Tottenham Hotspur,1,2
-25,2026-01-30,Leeds United,West Ham United,1,2
-25,2026-01-30,Fulham,Wolverhampton Wanderers,0,0
-25,2026-01-30,Everton,Aston Villa,1,0
-25,2026-01-30,Crystal Palace,Bournemouth,1,2
-25,2026-01-30,Chelsea,Brentford,1,0
-25,2026-01-30,Burnley,Brighton & Hove Albion,1,0
-26,2026-02-06,Manchester United,Arsenal,2,0
-26,2026-02-06,Manchester City,Newcastle United,1,0
-26,2026-02-06,Liverpool,Nottingham Forest,0,2
-26,2026-02-06,Leeds United,Sunderland,0,1
-26,2026-02-06,Fulham,Tottenham Hotspur,0,1
-26,2026-02-06,Everton,West Ham United,0,1
-26,2026-02-06,Crystal Palace,Wolverhampton Wanderers,2,1
-26,2026-02-06,Chelsea,Aston Villa,2,3
-26,2026-02-06,Burnley,Bournemouth,0,0
-26,2026-02-06,Brighton & Hove Albion,Brentford,0,1
-27,2026-02-13,Manchester City,Arsenal,2,0
-27,2026-02-13,Liverpool,Manchester United,2,2
-27,2026-02-13,Leeds United,Newcastle United,2,2
-27,2026-02-13,Fulham,Nottingham Forest,3,0
-27,2026-02-13,Everton,Sunderland,0,0
-27,2026-02-13,Crystal Palace,Tottenham Hotspur,0,2
-27,2026-02-13,Chelsea,West Ham United,1,0
-27,2026-02-13,Burnley,Wolverhampton Wanderers,2,2
-27,2026-02-13,Brighton & Hove Albion,Aston Villa,0,2
-27,2026-02-13,Brentford,Bournemouth,2,0
-28,2026-02-20,Liverpool,Arsenal,3,3
-28,2026-02-20,Leeds United,Manchester City,1,3
-28,2026-02-20,Fulham,Manchester United,1,2
-28,2026-02-20,Everton,Newcastle United,3,1
-28,2026-02-20,Crystal Palace,Nottingham Forest,2,0
-28,2026-02-20,Chelsea,Sunderland,2,2
-28,2026-02-20,Burnley,Tottenham Hotspur,0,2
-28,2026-02-20,Brighton & Hove Albion,West Ham United,3,2
-28,2026-02-20,Brentford,Wolverhampton Wanderers,0,3
-28,2026-02-20,Bournemouth,Aston Villa,2,1
-29,2026-02-27,Leeds United,Arsenal,1,1
-29,2026-02-27,Fulham,Liverpool,1,1
-29,2026-02-27,Everton,Manchester City,2,0
-29,2026-02-27,Crystal Palace,Manchester United,0,3
-29,2026-02-27,Chelsea,Newcastle United,2,3
-29,2026-02-27,Burnley,Nottingham Forest,2,1
-29,2026-02-27,Brighton & Hove Albion,Sunderland,2,3
-29,2026-02-27,Brentford,Tottenham Hotspur,0,3
-29,2026-02-27,Bournemouth,West Ham United,1,1
-29,2026-02-27,Aston Villa,Wolverhampton Wanderers,1,2
-30,2026-03-06,Fulham,Arsenal,0,3
-30,2026-03-06,Everton,Leeds United,3,0
-30,2026-03-06,Crystal Palace,Liverpool,3,0
-30,2026-03-06,Chelsea,Manchester City,1,3
-30,2026-03-06,Burnley,Manchester United,1,0
-30,2026-03-06,Brighton & Hove Albion,Newcastle United,3,0
-30,2026-03-06,Brentford,Nottingham Forest,0,2
-30,2026-03-06,Bournemouth,Sunderland,1,3
-30,2026-03-06,Aston Villa,Tottenham Hotspur,2,0
-30,2026-03-06,Wolverhampton Wanderers,West Ham United,0,3
-31,2026-03-13,Everton,Arsenal,0,2
-31,2026-03-13,Crystal Palace,Fulham,1,2
-31,2026-03-13,Chelsea,Leeds United,2,2
-31,2026-03-13,Burnley,Liverpool,1,2
-31,2026-03-13,Brighton & Hove Albion,Manchester City,1,2
-31,2026-03-13,Brentford,Manchester United,2,1
-31,2026-03-13,Bournemouth,Newcastle United,1,1
-31,2026-03-13,Aston Villa,Nottingham Forest,1,1
-31,2026-03-13,Wolverhampton Wanderers,Sunderland,2,1
-31,2026-03-13,West Ham United,Tottenham Hotspur,2,0
-32,2026-03-20,Crystal Palace,Arsenal,0,0
-32,2026-03-20,Chelsea,Everton,0,0
-32,2026-03-20,Burnley,Fulham,1,2
-32,2026-03-20,Brighton & Hove Albion,Leeds United,0,0
-32,2026-03-20,Brentford,Liverpool,1,2
-32,2026-03-20,Bournemouth,Manchester City,2,1
-32,2026-03-20,Aston Villa,Manchester United,0,0
-32,2026-03-20,Wolverhampton Wanderers,Newcastle United,0,0
-32,2026-03-20,West Ham United,Nottingham Forest,0,0
-32,2026-03-20,Tottenham Hotspur,Sunderland,1,0
-33,2026-03-27,Chelsea,Arsenal,3,1
-33,2026-03-27,Burnley,Crystal Palace,2,0
-33,2026-03-27,Brighton & Hove Albion,Everton,3,1
-33,2026-03-27,Brentford,Fulham,3,1
-33,2026-03-27,Bournemouth,Leeds United,1,1
-33,2026-03-27,Aston Villa,Liverpool,0,0
-33,2026-03-27,Wolverhampton Wanderers,Manchester City,1,2
-33,2026-03-27,West Ham United,Manchester United,3,1
-33,2026-03-27,Tottenham Hotspur,Newcastle United,0,2
-33,2026-03-27,Sunderland,Nottingham Forest,0,0
-34,2026-04-03,Burnley,Arsenal,1,1
-34,2026-04-03,Brighton & Hove Albion,Chelsea,3,0
-34,2026-04-03,Brentford,Crystal Palace,2,2
-34,2026-04-03,Bournemouth,Everton,2,0
-34,2026-04-03,Aston Villa,Fulham,1,1
-34,2026-04-03,Wolverhampton Wanderers,Leeds United,1,3
-34,2026-04-03,West Ham United,Liverpool,3,1
-34,2026-04-03,Tottenham Hotspur,Manchester City,1,3
-34,2026-04-03,Sunderland,Manchester United,2,3
-34,2026-04-03,Nottingham Forest,Newcastle United,0,0
-35,2026-04-10,Brighton & Hove Albion,Arsenal,2,0
-35,2026-04-10,Brentford,Burnley,0,0
-35,2026-04-10,Bournemouth,Chelsea,0,1
-35,2026-04-10,Aston Villa,Crystal Palace,1,0
-35,2026-04-10,Wolverhampton Wanderers,Everton,0,2
-35,2026-04-10,West Ham United,Fulham,2,1
-35,2026-04-10,Tottenham Hotspur,Leeds United,2,3
-35,2026-04-10,Sunderland,Liverpool,2,2
-35,2026-04-10,Nottingham Forest,Manchester City,1,3
-35,2026-04-10,Newcastle United,Manchester United,1,1
-36,2026-04-17,Brentford,Arsenal,2,3
-36,2026-04-17,Bournemouth,Brighton & Hove Albion,3,0
-36,2026-04-17,Aston Villa,Burnley,0,1
-36,2026-04-17,Wolverhampton Wanderers,Chelsea,2,1
-36,2026-04-17,West Ham United,Crystal Palace,0,0
-36,2026-04-17,Tottenham Hotspur,Everton,2,2
-36,2026-04-17,Sunderland,Fulham,3,1
-36,2026-04-17,Nottingham Forest,Leeds United,1,0
-36,2026-04-17,Newcastle United,Liverpool,0,1
-36,2026-04-17,Manchester United,Manchester City,1,3
-37,2026-04-24,Bournemouth,Arsenal,0,3
-37,2026-04-24,Aston Villa,Brentford,3,1
-37,2026-04-24,Wolverhampton Wanderers,Brighton & Hove Albion,3,3
-37,2026-04-24,West Ham United,Burnley,2,0
-37,2026-04-24,Tottenham Hotspur,Chelsea,0,2
-37,2026-04-24,Sunderland,Crystal Palace,1,2
-37,2026-04-24,Nottingham Forest,Everton,3,0
-37,2026-04-24,Newcastle United,Fulham,1,2
-37,2026-04-24,Manchester United,Leeds United,1,0
-37,2026-04-24,Manchester City,Liverpool,2,2
-38,2026-05-01,Aston Villa,Arsenal,2,3
-38,2026-05-01,Wolverhampton Wanderers,Bournemouth,1,2
-38,2026-05-01,West Ham United,Brentford,0,3
-38,2026-05-01,Tottenham Hotspur,Brighton & Hove Albion,3,1
-38,2026-05-01,Sunderland,Burnley,1,1
-38,2026-05-01,Nottingham Forest,Chelsea,1,3
-38,2026-05-01,Newcastle United,Crystal Palace,1,1
-38,2026-05-01,Manchester United,Everton,3,2
-38,2026-05-01,Manchester City,Fulham,2,0
-38,2026-05-01,Liverpool,Leeds United,0,1
-1,2025-11-01,Alavés,Elche,0,3
-1,2025-11-01,Athletic,UD Levante,2,0
-1,2025-11-01,Atlético de Madrid,Real Oviedo,2,3
-1,2025-11-01,Barcelona,Villarreal,0,2
-1,2025-11-01,Betis,Valencia,2,2
-1,2025-11-01,Celta,Sevilla,3,2
-1,2025-11-01,Espanyol,Real Sociedad,1,2
-1,2025-11-01,Getafe,Real Madrid,1,0
-1,2025-11-01,Girona,Rayo Vallecano,1,2
-1,2025-11-01,Mallorca,Osasuna,3,0
-2,2025-11-08,Alavés,UD Levante,1,2
-2,2025-11-08,Elche,Real Oviedo,2,0
-2,2025-11-08,Athletic,Villarreal,0,2
-2,2025-11-08,Atlético de Madrid,Valencia,3,2
-2,2025-11-08,Barcelona,Sevilla,0,3
-2,2025-11-08,Betis,Real Sociedad,3,2
-2,2025-11-08,Celta,Real Madrid,0,1
-2,2025-11-08,Espanyol,Rayo Vallecano,0,3
-2,2025-11-08,Getafe,Osasuna,3,0
-2,2025-11-08,Girona,Mallorca,2,3
-3,2025-11-15,Alavés,Real Oviedo,3,0
-3,2025-11-15,UD Levante,Villarreal,2,0
-3,2025-11-15,Elche,Valencia,3,3
-3,2025-11-15,Athletic,Sevilla,0,2
-3,2025-11-15,Atlético de Madrid,Real Sociedad,1,2
-3,2025-11-15,Barcelona,Real Madrid,1,2
-3,2025-11-15,Betis,Rayo Vallecano,0,1
-3,2025-11-15,Celta,Osasuna,0,0
-3,2025-11-15,Espanyol,Mallorca,3,3
-3,2025-11-15,Getafe,Girona,0,0
-4,2025-11-22,Alavés,Villarreal,0,3
-4,2025-11-22,Real Oviedo,Valencia,0,0
-4,2025-11-22,UD Levante,Sevilla,3,1
-4,2025-11-22,Elche,Real Sociedad,3,0
-4,2025-11-22,Athletic,Real Madrid,2,1
-4,2025-11-22,Atlético de Madrid,Rayo Vallecano,2,0
-4,2025-11-22,Barcelona,Osasuna,0,3
-4,2025-11-22,Betis,Mallorca,2,2
-4,2025-11-22,Celta,Girona,0,1
-4,2025-11-22,Espanyol,Getafe,3,2
-5,2025-11-29,Alavés,Valencia,0,1
-5,2025-11-29,Villarreal,Sevilla,3,1
-5,2025-11-29,Real Oviedo,Real Sociedad,1,2
-5,2025-11-29,UD Levante,Real Madrid,0,1
-5,2025-11-29,Elche,Rayo Vallecano,1,2
-5,2025-11-29,Athletic,Osasuna,2,1
-5,2025-11-29,Atlético de Madrid,Mallorca,2,3
-5,2025-11-29,Barcelona,Girona,1,0
-5,2025-11-29,Betis,Getafe,2,3
-5,2025-11-29,Celta,Espanyol,0,0
-6,2025-12-06,Alavés,Sevilla,3,2
-6,2025-12-06,Valencia,Real Sociedad,0,1
-6,2025-12-06,Villarreal,Real Madrid,0,3
-6,2025-12-06,Real Oviedo,Rayo Vallecano,3,3
-6,2025-12-06,UD Levante,Osasuna,2,0
-6,2025-12-06,Elche,Mallorca,0,2
-6,2025-12-06,Athletic,Girona,2,1
-6,2025-12-06,Atlético de Madrid,Getafe,0,1
-6,2025-12-06,Barcelona,Espanyol,3,0
-6,2025-12-06,Betis,Celta,3,1
-7,2025-12-13,Alavés,Real Sociedad,2,1
-7,2025-12-13,Sevilla,Real Madrid,0,3
-7,2025-12-13,Valencia,Rayo Vallecano,2,3
-7,2025-12-13,Villarreal,Osasuna,3,2
-7,2025-12-13,Real Oviedo,Mallorca,1,1
-7,2025-12-13,UD Levante,Girona,3,0
-7,2025-12-13,Elche,Getafe,0,0
-7,2025-12-13,Athletic,Espanyol,3,0
-7,2025-12-13,Atlético de Madrid,Celta,2,3
-7,2025-12-13,Barcelona,Betis,2,2
-8,2025-12-20,Alavés,Real Madrid,3,0
-8,2025-12-20,Real Sociedad,Rayo Vallecano,2,1
-8,2025-12-20,Sevilla,Osasuna,2,3
-8,2025-12-20,Valencia,Mallorca,1,2
-8,2025-12-20,Villarreal,Girona,3,1
-8,2025-12-20,Real Oviedo,Getafe,1,0
-8,2025-12-20,UD Levante,Espanyol,2,0
-8,2025-12-20,Elche,Celta,0,0
-8,2025-12-20,Athletic,Betis,0,3
-8,2025-12-20,Atlético de Madrid,Barcelona,0,2
-9,2025-12-27,Alavés,Rayo Vallecano,0,2
-9,2025-12-27,Real Madrid,Osasuna,0,1
-9,2025-12-27,Real Sociedad,Mallorca,2,2
-9,2025-12-27,Sevilla,Girona,0,2
-9,2025-12-27,Valencia,Getafe,1,2
-9,2025-12-27,Villarreal,Espanyol,0,0
-9,2025-12-27,Real Oviedo,Celta,3,3
-9,2025-12-27,UD Levante,Betis,0,3
-9,2025-12-27,Elche,Barcelona,0,1
-9,2025-12-27,Athletic,Atlético de Madrid,1,1
-10,2026-01-03,Alavés,Osasuna,3,1
-10,2026-01-03,Rayo Vallecano,Mallorca,3,1
-10,2026-01-03,Real Madrid,Girona,0,1
-10,2026-01-03,Real Sociedad,Getafe,2,2
-10,2026-01-03,Sevilla,Espanyol,2,3
-10,2026-01-03,Valencia,Celta,2,0
-10,2026-01-03,Villarreal,Betis,1,3
-10,2026-01-03,Real Oviedo,Barcelona,1,2
-10,2026-01-03,UD Levante,Atlético de Madrid,2,1
-10,2026-01-03,Elche,Athletic,1,3
-11,2026-01-10,Alavés,Mallorca,1,3
-11,2026-01-10,Osasuna,Girona,0,1
-11,2026-01-10,Rayo Vallecano,Getafe,2,2
-11,2026-01-10,Real Madrid,Espanyol,3,2
-11,2026-01-10,Real Sociedad,Celta,2,2
-11,2026-01-10,Sevilla,Betis,0,2
-11,2026-01-10,Valencia,Barcelona,3,2
-11,2026-01-10,Villarreal,Atlético de Madrid,3,1
-11,2026-01-10,Real Oviedo,Athletic,2,3
-11,2026-01-10,UD Levante,Elche,1,2
-12,2026-01-17,Alavés,Girona,2,3
-12,2026-01-17,Mallorca,Getafe,1,0
-12,2026-01-17,Osasuna,Espanyol,2,0
-12,2026-01-17,Rayo Vallecano,Celta,1,1
-12,2026-01-17,Real Madrid,Betis,3,0
-12,2026-01-17,Real Sociedad,Barcelona,3,0
-12,2026-01-17,Sevilla,Atlético de Madrid,2,1
-12,2026-01-17,Valencia,Athletic,0,1
-12,2026-01-17,Villarreal,Elche,3,2
-12,2026-01-17,Real Oviedo,UD Levante,1,1
-13,2026-01-24,Alavés,Getafe,2,2
-13,2026-01-24,Girona,Espanyol,3,1
-13,2026-01-24,Mallorca,Celta,1,0
-13,2026-01-24,Osasuna,Betis,1,0
-13,2026-01-24,Rayo Vallecano,Barcelona,3,3
-13,2026-01-24,Real Madrid,Atlético de Madrid,1,0
-13,2026-01-24,Real Sociedad,Athletic,2,4
-13,2026-01-24,Sevilla,Elche,0,1
-13,2026-01-24,Valencia,UD Levante,2,3
-13,2026-01-24,Villarreal,Real Oviedo,3,1
-14,2026-01-31,Alavés,Espanyol,3,2
-14,2026-01-31,Getafe,Celta,2,1
-14,2026-01-31,Girona,Betis,1,2
-14,2026-01-31,Mallorca,Barcelona,1,4
-14,2026-01-31,Osasuna,Atlético de Madrid,1,2
-14,2026-01-31,Rayo Vallecano,Athletic,0,2
-14,2026-01-31,Real Madrid,Elche,0,2
-14,2026-01-31,Real Sociedad,UD Levante,0,0
-14,2026-01-31,Sevilla,Real Oviedo,2,0
-14,2026-01-31,Valencia,Villarreal,0,0
-15,2026-02-07,Alavés,Celta,1,3
-15,2026-02-07,Espanyol,Betis,0,0
-15,2026-02-07,Getafe,Barcelona,0,0
-15,2026-02-07,Girona,Atlético de Madrid,0,0
-15,2026-02-07,Mallorca,Athletic,1,3
-15,2026-02-07,Osasuna,Elche,3,0
-15,2026-02-07,Rayo Vallecano,UD Levante,2,3
-15,2026-02-07,Real Madrid,Real Oviedo,3,0
-15,2026-02-07,Real Sociedad,Villarreal,1,3
-15,2026-02-07,Sevilla,Valencia,1,3
-16,2026-02-14,Alavés,Betis,0,1
-16,2026-02-14,Celta,Barcelona,0,1
-16,2026-02-14,Espanyol,Atlético de Madrid,0,2
-16,2026-02-14,Getafe,Athletic,0,2
-16,2026-02-14,Girona,Elche,3,3
-16,2026-02-14,Mallorca,UD Levante,3,1
-16,2026-02-14,Osasuna,Real Oviedo,2,1
-16,2026-02-14,Rayo Vallecano,Villarreal,0,0
-16,2026-02-14,Real Madrid,Valencia,2,1
-16,2026-02-14,Real Sociedad,Sevilla,1,2
-17,2026-02-21,Alavés,Barcelona,3,0
-17,2026-02-21,Betis,Atlético de Madrid,1,2
-17,2026-02-21,Celta,Athletic,2,2
-17,2026-02-21,Espanyol,Elche,3,2
-17,2026-02-21,Getafe,UD Levante,0,3
-17,2026-02-21,Girona,Real Oviedo,2,2
-17,2026-02-21,Mallorca,Villarreal,0,2
-17,2026-02-21,Osasuna,Valencia,1,2
-17,2026-02-21,Rayo Vallecano,Sevilla,3,3
-17,2026-02-21,Real Madrid,Real Sociedad,0,2
-18,2026-02-28,Alavés,Atlético de Madrid,1,0
-18,2026-02-28,Barcelona,Athletic,1,2
-18,2026-02-28,Betis,Elche,3,0
-18,2026-02-28,Celta,UD Levante,1,3
-18,2026-02-28,Espanyol,Real Oviedo,2,2
-18,2026-02-28,Getafe,Villarreal,0,2
-18,2026-02-28,Girona,Valencia,2,2
-18,2026-02-28,Mallorca,Sevilla,0,2
-18,2026-02-28,Osasuna,Real Sociedad,0,2
-18,2026-02-28,Rayo Vallecano,Real Madrid,3,2
-19,2026-03-07,Alavés,Athletic,1,3
-19,2026-03-07,Atlético de Madrid,Elche,3,0
-19,2026-03-07,Barcelona,UD Levante,2,1
-19,2026-03-07,Betis,Real Oviedo,2,1
-19,2026-03-07,Celta,Villarreal,3,1
-19,2026-03-07,Espanyol,Valencia,2,1
-19,2026-03-07,Getafe,Sevilla,3,0
-19,2026-03-07,Girona,Real Sociedad,1,0
-19,2026-03-07,Mallorca,Real Madrid,1,4
-19,2026-03-07,Osasuna,Rayo Vallecano,1,1
-20,2026-03-14,Elche,Alavés,2,2
-20,2026-03-14,UD Levante,Athletic,0,3
-20,2026-03-14,Real Oviedo,Atlético de Madrid,3,3
-20,2026-03-14,Villarreal,Barcelona,1,2
-20,2026-03-14,Valencia,Betis,1,0
-20,2026-03-14,Sevilla,Celta,3,0
-20,2026-03-14,Real Sociedad,Espanyol,1,2
-20,2026-03-14,Real Madrid,Getafe,0,1
-20,2026-03-14,Rayo Vallecano,Girona,0,0
-20,2026-03-14,Osasuna,Mallorca,3,2
-21,2026-03-21,UD Levante,Alavés,2,0
-21,2026-03-21,Real Oviedo,Elche,3,2
-21,2026-03-21,Villarreal,Athletic,0,1
-21,2026-03-21,Valencia,Atlético de Madrid,0,2
-21,2026-03-21,Sevilla,Barcelona,3,3
-21,2026-03-21,Real Sociedad,Betis,0,1
-21,2026-03-21,Real Madrid,Celta,1,1
-21,2026-03-21,Rayo Vallecano,Espanyol,2,1
-21,2026-03-21,Osasuna,Getafe,1,2
-21,2026-03-21,Mallorca,Girona,3,2
-22,2026-03-28,Real Oviedo,Alavés,0,1
-22,2026-03-28,Villarreal,UD Levante,1,3
-22,2026-03-28,Valencia,Elche,1,0
-22,2026-03-28,Sevilla,Athletic,0,4
-22,2026-03-28,Real Sociedad,Atlético de Madrid,0,3
-22,2026-03-28,Real Madrid,Barcelona,3,1
-22,2026-03-28,Rayo Vallecano,Betis,0,3
-22,2026-03-28,Osasuna,Celta,3,1
-22,2026-03-28,Mallorca,Espanyol,3,3
-22,2026-03-28,Girona,Getafe,1,0
-23,2026-04-04,Villarreal,Alavés,3,1
-23,2026-04-04,Valencia,Real Oviedo,0,1
-23,2026-04-04,Sevilla,UD Levante,1,1
-23,2026-04-04,Real Sociedad,Elche,3,0
-23,2026-04-04,Real Madrid,Athletic,0,2
-23,2026-04-04,Rayo Vallecano,Atlético de Madrid,1,2
-23,2026-04-04,Osasuna,Barcelona,2,1
-23,2026-04-04,Mallorca,Betis,0,0
-23,2026-04-04,Girona,Celta,0,0
-23,2026-04-04,Getafe,Espanyol,2,2
-24,2026-04-11,Valencia,Alavés,1,2
-24,2026-04-11,Sevilla,Villarreal,0,3
-24,2026-04-11,Real Sociedad,Real Oviedo,0,3
-24,2026-04-11,Real Madrid,UD Levante,0,1
-24,2026-04-11,Rayo Vallecano,Elche,0,2
-24,2026-04-11,Osasuna,Athletic,1,4
-24,2026-04-11,Mallorca,Atlético de Madrid,0,0
-24,2026-04-11,Girona,Barcelona,3,1
-24,2026-04-11,Getafe,Betis,3,3
-24,2026-04-11,Espanyol,Celta,0,2
-25,2026-04-18,Sevilla,Alavés,1,1
-25,2026-04-18,Real Sociedad,Valencia,1,0
-25,2026-04-18,Real Madrid,Villarreal,0,0
-25,2026-04-18,Rayo Vallecano,Real Oviedo,3,2
-25,2026-04-18,Osasuna,UD Levante,0,0
-25,2026-04-18,Mallorca,Elche,0,0
-25,2026-04-18,Girona,Athletic,1,1
-25,2026-04-18,Getafe,Atlético de Madrid,3,2
-25,2026-04-18,Espanyol,Barcelona,0,1
-25,2026-04-18,Celta,Betis,3,0
-26,2026-04-25,Real Sociedad,Alavés,1,2
-26,2026-04-25,Real Madrid,Sevilla,1,3
-26,2026-04-25,Rayo Vallecano,Valencia,2,1
-26,2026-04-25,Osasuna,Villarreal,3,3
-26,2026-04-25,Mallorca,Real Oviedo,1,3
-26,2026-04-25,Girona,UD Levante,3,0
-26,2026-04-25,Getafe,Elche,3,2
-26,2026-04-25,Espanyol,Athletic,2,4
-26,2026-04-25,Celta,Atlético de Madrid,3,1
-26,2026-04-25,Betis,Barcelona,1,3
-27,2026-05-02,Real Madrid,Alavés,3,2
-27,2026-05-02,Rayo Vallecano,Real Sociedad,3,2
-27,2026-05-02,Osasuna,Sevilla,1,2
-27,2026-05-02,Mallorca,Valencia,0,2
-27,2026-05-02,Girona,Villarreal,0,0
-27,2026-05-02,Getafe,Real Oviedo,1,1
-27,2026-05-02,Espanyol,UD Levante,3,1
-27,2026-05-02,Celta,Elche,0,3
-27,2026-05-02,Betis,Athletic,1,1
-27,2026-05-02,Barcelona,Atlético de Madrid,2,1
-28,2026-05-09,Rayo Vallecano,Alavés,0,3
-28,2026-05-09,Osasuna,Real Madrid,2,3
-28,2026-05-09,Mallorca,Real Sociedad,0,3
-28,2026-05-09,Girona,Sevilla,1,3
-28,2026-05-09,Getafe,Valencia,2,2
-28,2026-05-09,Espanyol,Villarreal,2,0
-28,2026-05-09,Celta,Real Oviedo,2,3
-28,2026-05-09,Betis,UD Levante,3,1
-28,2026-05-09,Barcelona,Elche,0,3
-28,2026-05-09,Atlético de Madrid,Athletic,1,1
-29,2026-05-16,Osasuna,Alavés,2,1
-29,2026-05-16,Mallorca,Rayo Vallecano,0,0
-29,2026-05-16,Girona,Real Madrid,0,1
-29,2026-05-16,Getafe,Real Sociedad,0,0
-29,2026-05-16,Espanyol,Sevilla,0,3
-29,2026-05-16,Celta,Valencia,2,2
-29,2026-05-16,Betis,Villarreal,2,3
-29,2026-05-16,Barcelona,Real Oviedo,0,2
-29,2026-05-16,Atlético de Madrid,UD Levante,0,2
-29,2026-05-16,Athletic,Elche,2,2
-30,2026-05-23,Mallorca,Alavés,3,1
-30,2026-05-23,Girona,Osasuna,3,2
-30,2026-05-23,Getafe,Rayo Vallecano,0,2
-30,2026-05-23,Espanyol,Real Madrid,2,3
-30,2026-05-23,Celta,Real Sociedad,1,0
-30,2026-05-23,Betis,Sevilla,2,3
-30,2026-05-23,Barcelona,Valencia,1,1
-30,2026-05-23,Atlético de Madrid,Villarreal,1,1
-30,2026-05-23,Athletic,Real Oviedo,2,2
-30,2026-05-23,Elche,UD Levante,0,0
-31,2026-05-30,Girona,Alavés,2,0
-31,2026-05-30,Getafe,Mallorca,3,1
-31,2026-05-30,Espanyol,Osasuna,0,2
-31,2026-05-30,Celta,Rayo Vallecano,3,2
-31,2026-05-30,Betis,Real Madrid,2,2
-31,2026-05-30,Barcelona,Real Sociedad,3,3
-31,2026-05-30,Atlético de Madrid,Sevilla,1,1
-31,2026-05-30,Athletic,Valencia,2,2
-31,2026-05-30,Elche,Villarreal,3,0
-31,2026-05-30,UD Levante,Real Oviedo,2,1
-32,2026-06-06,Getafe,Alavés,2,1
-32,2026-06-06,Espanyol,Girona,2,0
-32,2026-06-06,Celta,Mallorca,0,1
-32,2026-06-06,Betis,Osasuna,0,0
-32,2026-06-06,Barcelona,Rayo Vallecano,1,0
-32,2026-06-06,Atlético de Madrid,Real Madrid,2,3
-32,2026-06-06,Athletic,Real Sociedad,2,2
-32,2026-06-06,Elche,Sevilla,1,1
-32,2026-06-06,UD Levante,Valencia,3,3
-32,2026-06-06,Real Oviedo,Villarreal,1,1
-33,2026-06-13,Espanyol,Alavés,2,0
-33,2026-06-13,Celta,Getafe,1,2
-33,2026-06-13,Betis,Girona,2,1
-33,2026-06-13,Barcelona,Mallorca,3,1
-33,2026-06-13,Atlético de Madrid,Osasuna,2,0
-33,2026-06-13,Athletic,Rayo Vallecano,3,3
-33,2026-06-13,Elche,Real Madrid,2,3
-33,2026-06-13,UD Levante,Real Sociedad,3,2
-33,2026-06-13,Real Oviedo,Sevilla,1,1
-33,2026-06-13,Villarreal,Valencia,1,1
-34,2026-06-20,Celta,Alavés,1,0
-34,2026-06-20,Betis,Espanyol,2,0
-34,2026-06-20,Barcelona,Getafe,3,1
-34,2026-06-20,Atlético de Madrid,Girona,2,1
-34,2026-06-20,Athletic,Mallorca,3,2
-34,2026-06-20,Elche,Osasuna,2,3
-34,2026-06-20,UD Levante,Rayo Vallecano,3,2
-34,2026-06-20,Real Oviedo,Real Madrid,0,3
-34,2026-06-20,Villarreal,Real Sociedad,1,1
-34,2026-06-20,Valencia,Sevilla,3,0
-35,2026-06-27,Betis,Alavés,0,2
-35,2026-06-27,Barcelona,Celta,2,1
-35,2026-06-27,Atlético de Madrid,Espanyol,0,2
-35,2026-06-27,Athletic,Getafe,1,2
-35,2026-06-27,Elche,Girona,2,2
-35,2026-06-27,UD Levante,Mallorca,2,2
-35,2026-06-27,Real Oviedo,Osasuna,2,2
-35,2026-06-27,Villarreal,Rayo Vallecano,3,2
-35,2026-06-27,Valencia,Real Madrid,0,2
-35,2026-06-27,Sevilla,Real Sociedad,1,0
-36,2026-07-04,Barcelona,Alavés,3,3
-36,2026-07-04,Atlético de Madrid,Betis,0,3
-36,2026-07-04,Athletic,Celta,3,2
-36,2026-07-04,Elche,Espanyol,1,2
-36,2026-07-04,UD Levante,Getafe,3,2
-36,2026-07-04,Real Oviedo,Girona,2,0
-36,2026-07-04,Villarreal,Mallorca,1,0
-36,2026-07-04,Valencia,Osasuna,2,1
-36,2026-07-04,Sevilla,Rayo Vallecano,1,3
-36,2026-07-04,Real Sociedad,Real Madrid,1,3
-37,2026-07-11,Atlético de Madrid,Alavés,0,0
-37,2026-07-11,Athletic,Barcelona,3,1
-37,2026-07-11,Elche,Betis,1,2
-37,2026-07-11,UD Levante,Celta,0,1
-37,2026-07-11,Real Oviedo,Espanyol,3,0
-37,2026-07-11,Villarreal,Getafe,0,2
-37,2026-07-11,Valencia,Girona,2,1
-37,2026-07-11,Sevilla,Mallorca,0,0
-37,2026-07-11,Real Sociedad,Osasuna,3,3
-37,2026-07-11,Real Madrid,Rayo Vallecano,2,1
-38,2026-07-18,Athletic,Alavés,1,0
-38,2026-07-18,Elche,Atlético de Madrid,3,3
-38,2026-07-18,UD Levante,Barcelona,2,3
-38,2026-07-18,Real Oviedo,Betis,0,0
-38,2026-07-18,Villarreal,Celta,2,1
-38,2026-07-18,Valencia,Espanyol,2,0
-38,2026-07-18,Sevilla,Getafe,3,2
-38,2026-07-18,Real Sociedad,Girona,3,1
-38,2026-07-18,Real Madrid,Mallorca,3,2
-38,2026-07-18,Rayo Vallecano,Osasuna,2,1
+JORNADA;FECHA;EQUIPOLOCAL;EQUIPOVISITANTE;GOLESLOCAL;GOLESVISITANTE
+1;18/08/2024;FC Barcelona;Levante UD;3;0
+1;18/08/2024;Real Madrid;Real Oviedo;2;0
+1;18/08/2024;Atlético de Madrid;Deportivo Alavés;1;0
+1;18/08/2024;Sevilla FC;Elche CF;2;1
+1;18/08/2024;Real Sociedad;Girona FC;1;1
+1;18/08/2024;Real Betis;Celta de Vigo;2;2
+1;18/08/2024;Villarreal CF;CA Osasuna;3;1
+1;18/08/2024;Athletic Club;RCD Mallorca;1;0
+1;18/08/2024;Valencia CF;Rayo Vallecano;1;1
+1;18/08/2024;Getafe CF;RCD Espanyol;0;0
+2;25/08/2024;Levante UD;Getafe CF;1;1
+2;25/08/2024;RCD Espanyol;Valencia CF;1;2
+2;25/08/2024;Rayo Vallecano;Athletic Club;0;1
+2;25/08/2024;RCD Mallorca;Villarreal CF;1;3
+2;25/08/2024;CA Osasuna;Real Betis;1;1
+2;25/08/2024;Celta de Vigo;Real Sociedad;0;2
+2;25/08/2024;Girona FC;Sevilla FC;1;2
+2;25/08/2024;Elche CF;Atlético de Madrid;0;2
+2;25/08/2024;Deportivo Alavés;Real Madrid;0;3
+2;25/08/2024;Real Oviedo;FC Barcelona;0;4
+3;01/09/2024;Real Oviedo;Levante UD;1;0
+3;01/09/2024;FC Barcelona;Deportivo Alavés;3;0
+3;01/09/2024;Real Madrid;Elche CF;4;1
+3;01/09/2024;Atlético de Madrid;Girona FC;2;0
+3;01/09/2024;Sevilla FC;Celta de Vigo;2;1
+3;01/09/2024;Real Sociedad;CA Osasuna;1;0
+3;01/09/2024;Real Betis;RCD Mallorca;2;1
+3;01/09/2024;Villarreal CF;Rayo Vallecano;3;2
+3;01/09/2024;Athletic Club;RCD Espanyol;1;1
+3;01/09/2024;Valencia CF;Getafe CF;1;0
+4;08/09/2024;Levante UD;Valencia CF;2;2
+4;08/09/2024;Getafe CF;Athletic Club;0;1
+4;08/09/2024;RCD Espanyol;Villarreal CF;1;2
+4;08/09/2024;Rayo Vallecano;Real Betis;1;1
+4;08/09/2024;RCD Mallorca;Real Sociedad;0;1
+4;08/09/2024;CA Osasuna;Sevilla FC;1;1
+4;08/09/2024;Celta de Vigo;Atlético de Madrid;0;2
+4;08/09/2024;Girona FC;Real Madrid;1;3
+4;08/09/2024;Elche CF;FC Barcelona;0;5
+4;08/09/2024;Deportivo Alavés;Real Oviedo;1;1
+5;15/09/2024;Deportivo Alavés;Levante UD;1;0
+5;15/09/2024;Real Oviedo;Elche CF;1;0
+5;15/09/2024;FC Barcelona;Girona FC;3;1
+5;15/09/2024;Real Madrid;Celta de Vigo;3;1
+5;15/09/2024;Atlético de Madrid;CA Osasuna;2;0
+5;15/09/2024;Sevilla FC;RCD Mallorca;2;0
+5;15/09/2024;Real Sociedad;Rayo Vallecano;2;1
+5;15/09/2024;Real Betis;RCD Espanyol;2;0
+5;15/09/2024;Villarreal CF;Getafe CF;2;0
+5;15/09/2024;Athletic Club;Valencia CF;1;1
+6;22/09/2024;Levante UD;Athletic Club;1;2
+6;22/09/2024;Valencia CF;Villarreal CF;1;2
+6;22/09/2024;Getafe CF;Real Betis;0;1
+6;22/09/2024;RCD Espanyol;Real Sociedad;1;1
+6;22/09/2024;Rayo Vallecano;Sevilla FC;1;2
+6;22/09/2024;RCD Mallorca;Atlético de Madrid;0;1
+6;22/09/2024;CA Osasuna;Real Madrid;1;3
+6;22/09/2024;Celta de Vigo;FC Barcelona;1;4
+6;22/09/2024;Girona FC;Real Oviedo;2;0
+6;22/09/2024;Elche CF;Deportivo Alavés;0;0
+7;29/09/2024;Elche CF;Levante UD;1;1
+7;29/09/2024;Deportivo Alavés;Girona FC;1;2
+7;29/09/2024;Real Oviedo;Celta de Vigo;1;1
+7;29/09/2024;FC Barcelona;CA Osasuna;4;0
+7;29/09/2024;Real Madrid;RCD Mallorca;3;0
+7;29/09/2024;Atlético de Madrid;Rayo Vallecano;2;0
+7;29/09/2024;Sevilla FC;RCD Espanyol;2;0
+7;29/09/2024;Real Sociedad;Getafe CF;1;0
+7;29/09/2024;Real Betis;Valencia CF;1;1
+7;29/09/2024;Villarreal CF;Athletic Club;2;1
+8;06/10/2024;Levante UD;Villarreal CF;0;2
+8;06/10/2024;Athletic Club;Real Betis;1;1
+8;06/10/2024;Valencia CF;Real Sociedad;1;1
+8;06/10/2024;Getafe CF;Sevilla FC;0;1
+8;06/10/2024;RCD Espanyol;Atlético de Madrid;0;2
+8;06/10/2024;Rayo Vallecano;Real Madrid;1;3
+8;06/10/2024;RCD Mallorca;FC Barcelona;1;4
+8;06/10/2024;CA Osasuna;Real Oviedo;2;0
+8;06/10/2024;Celta de Vigo;Deportivo Alavés;1;0
+8;06/10/2024;Girona FC;Elche CF;2;0
+9;13/10/2024;Girona FC;Levante UD;2;1
+9;13/10/2024;Elche CF;Celta de Vigo;1;1
+9;13/10/2024;Deportivo Alavés;CA Osasuna;1;1
+9;13/10/2024;Real Oviedo;RCD Mallorca;1;0
+9;13/10/2024;FC Barcelona;Rayo Vallecano;5;1
+9;13/10/2024;Real Madrid;RCD Espanyol;3;0
+9;13/10/2024;Atlético de Madrid;Getafe CF;2;0
+9;13/10/2024;Sevilla FC;Valencia CF;2;1
+9;13/10/2024;Real Sociedad;Athletic Club;1;1
+9;13/10/2024;Real Betis;Villarreal CF;1;2
+10;20/10/2024;Levante UD;Real Betis;1;2
+10;20/10/2024;Villarreal CF;Real Sociedad;2;1
+10;20/10/2024;Athletic Club;Sevilla FC;1;1
+10;20/10/2024;Valencia CF;Atlético de Madrid;1;2
+10;20/10/2024;Getafe CF;Real Madrid;0;2
+10;20/10/2024;RCD Espanyol;FC Barcelona;0;4
+10;20/10/2024;Rayo Vallecano;Real Oviedo;2;1
+10;20/10/2024;RCD Mallorca;Deportivo Alavés;1;0
+10;20/10/2024;CA Osasuna;Elche CF;2;0
+10;20/10/2024;Celta de Vigo;Girona FC;1;2
+11;27/10/2024;Celta de Vigo;Levante UD;2;1
+11;27/10/2024;Girona FC;CA Osasuna;2;1
+11;27/10/2024;Elche CF;RCD Mallorca;0;1
+11;27/10/2024;Deportivo Alavés;Rayo Vallecano;1;1
+11;27/10/2024;Real Oviedo;RCD Espanyol;1;0
+11;27/10/2024;FC Barcelona;Getafe CF;4;0
+11;27/10/2024;Real Madrid;Valencia CF;3;1
+11;27/10/2024;Atlético de Madrid;Athletic Club;2;0
+11;27/10/2024;Sevilla FC;Villarreal CF;2;2
+11;27/10/2024;Real Sociedad;Real Betis;1;1
+12;03/11/2024;Levante UD;Real Sociedad;0;2
+12;03/11/2024;Real Betis;Sevilla FC;1;1
+12;03/11/2024;Villarreal CF;Atlético de Madrid;1;2
+12;03/11/2024;Athletic Club;Real Madrid;1;2
+12;03/11/2024;Valencia CF;FC Barcelona;1;3
+12;03/11/2024;Getafe CF;Real Oviedo;1;0
+12;03/11/2024;RCD Espanyol;Deportivo Alavés;1;0
+12;03/11/2024;Rayo Vallecano;Elche CF;2;0
+12;03/11/2024;RCD Mallorca;Girona FC;1;1
+12;03/11/2024;CA Osasuna;Celta de Vigo;1;1
+13;10/11/2024;CA Osasuna;Levante UD;2;0
+13;10/11/2024;Celta de Vigo;RCD Mallorca;1;1
+13;10/11/2024;Girona FC;Rayo Vallecano;2;1
+13;10/11/2024;Elche CF;RCD Espanyol;1;1
+13;10/11/2024;Deportivo Alavés;Getafe CF;0;0
+13;10/11/2024;Real Oviedo;Valencia CF;1;2
+13;10/11/2024;FC Barcelona;Athletic Club;3;1
+13;10/11/2024;Real Madrid;Villarreal CF;3;1
+13;10/11/2024;Atlético de Madrid;Real Betis;2;1
+13;10/11/2024;Sevilla FC;Real Sociedad;2;1
+14;17/11/2024;Levante UD;Sevilla FC;1;2
+14;17/11/2024;Real Sociedad;Atlético de Madrid;1;1
+14;17/11/2024;Real Betis;Real Madrid;1;3
+14;17/11/2024;Villarreal CF;FC Barcelona;1;4
+14;17/11/2024;Athletic Club;Real Oviedo;2;0
+14;17/11/2024;Valencia CF;Deportivo Alavés;2;0
+14;17/11/2024;Getafe CF;Elche CF;1;0
+14;17/11/2024;RCD Espanyol;Girona FC;1;2
+14;17/11/2024;Rayo Vallecano;Celta de Vigo;1;1
+14;17/11/2024;RCD Mallorca;CA Osasuna;1;1
+15;24/11/2024;RCD Mallorca;Levante UD;1;0
+15;24/11/2024;CA Osasuna;Rayo Vallecano;2;1
+15;24/11/2024;Celta de Vigo;RCD Espanyol;1;1
+15;24/11/2024;Girona FC;Getafe CF;2;0
+15;24/11/2024;Elche CF;Valencia CF;0;2
+15;24/11/2024;Deportivo Alavés;Athletic Club;1;2
+15;24/11/2024;Real Oviedo;Villarreal CF;1;2
+15;24/11/2024;FC Barcelona;Real Betis;4;1
+15;24/11/2024;Real Madrid;Real Sociedad;2;0
+15;24/11/2024;Atlético de Madrid;Sevilla FC;1;0
+16;01/12/2024;Levante UD;Atlético de Madrid;0;2
+16;01/12/2024;Sevilla FC;Real Madrid;1;2
+16;01/12/2024;Real Sociedad;FC Barcelona;1;3
+16;01/12/2024;Real Betis;Real Oviedo;2;0
+16;01/12/2024;Villarreal CF;Deportivo Alavés;3;0
+16;01/12/2024;Athletic Club;Elche CF;2;0
+16;01/12/2024;Valencia CF;Girona FC;2;1
+16;01/12/2024;Getafe CF;Celta de Vigo;1;1
+16;01/12/2024;RCD Espanyol;CA Osasuna;1;1
+16;01/12/2024;Rayo Vallecano;RCD Mallorca;1;1
+17;08/12/2024;Rayo Vallecano;Levante UD;2;1
+17;08/12/2024;RCD Mallorca;RCD Espanyol;1;0
+17;08/12/2024;CA Osasuna;Getafe CF;1;0
+17;08/12/2024;Celta de Vigo;Valencia CF;1;2
+17;08/12/2024;Girona FC;Athletic Club;1;1
+17;08/12/2024;Elche CF;Villarreal CF;0;3
+17;08/12/2024;Deportivo Alavés;Real Betis;0;1
+17;08/12/2024;Real Oviedo;Real Sociedad;0;2
+17;08/12/2024;FC Barcelona;Sevilla FC;3;1
+17;08/12/2024;Real Madrid;Atlético de Madrid;1;1
+18;15/12/2024;Levante UD;Real Madrid;0;4
+18;15/12/2024;Atlético de Madrid;FC Barcelona;1;2
+18;15/12/2024;Sevilla FC;Real Oviedo;2;0
+18;15/12/2024;Real Sociedad;Deportivo Alavés;2;0
+18;15/12/2024;Real Betis;Elche CF;3;0
+18;15/12/2024;Villarreal CF;Girona FC;2;1
+18;15/12/2024;Athletic Club;Celta de Vigo;2;1
+18;15/12/2024;Valencia CF;CA Osasuna;2;0
+18;15/12/2024;Getafe CF;RCD Mallorca;1;0
+18;15/12/2024;RCD Espanyol;Rayo Vallecano;1;1
+19;22/12/2024;RCD Espanyol;Levante UD;2;1
+19;22/12/2024;Rayo Vallecano;Getafe CF;1;0
+19;22/12/2024;RCD Mallorca;Valencia CF;1;2
+19;22/12/2024;CA Osasuna;Athletic Club;1;2
+19;22/12/2024;Celta de Vigo;Villarreal CF;1;2
+19;22/12/2024;Girona FC;Real Betis;1;1
+19;22/12/2024;Elche CF;Real Sociedad;0;2
+19;22/12/2024;Deportivo Alavés;Sevilla FC;0;1
+19;22/12/2024;Real Oviedo;Atlético de Madrid;0;2
+19;22/12/2024;FC Barcelona;Real Madrid;3;2
+20;29/12/2024;Levante UD;FC Barcelona;0;5
+20;29/12/2024;Real Oviedo;Real Madrid;0;4
+20;29/12/2024;Deportivo Alavés;Atlético de Madrid;0;2
+20;29/12/2024;Elche CF;Sevilla FC;0;2
+20;29/12/2024;Girona FC;Real Sociedad;1;1
+20;29/12/2024;Celta de Vigo;Real Betis;1;2
+20;29/12/2024;CA Osasuna;Villarreal CF;1;2
+20;29/12/2024;RCD Mallorca;Athletic Club;0;1
+20;29/12/2024;Rayo Vallecano;Valencia CF;1;2
+20;29/12/2024;RCD Espanyol;Getafe CF;1;1
+21;05/01/2025;Getafe CF;Levante UD;1;0
+21;05/01/2025;Valencia CF;RCD Espanyol;2;0
+21;05/01/2025;Athletic Club;Rayo Vallecano;2;0
+21;05/01/2025;Villarreal CF;RCD Mallorca;2;0
+21;05/01/2025;Real Betis;CA Osasuna;2;1
+21;05/01/2025;Real Sociedad;Celta de Vigo;2;0
+21;05/01/2025;Sevilla FC;Girona FC;2;1
+21;05/01/2025;Atlético de Madrid;Elche CF;3;0
+21;05/01/2025;Real Madrid;Deportivo Alavés;4;0
+21;05/01/2025;FC Barcelona;Real Oviedo;5;0
+22;12/01/2025;Levante UD;Real Oviedo;1;1
+22;12/01/2025;Deportivo Alavés;FC Barcelona;0;4
+22;12/01/2025;Elche CF;Real Madrid;0;4
+22;12/01/2025;Girona FC;Atlético de Madrid;0;2
+22;12/01/2025;Celta de Vigo;Sevilla FC;1;2
+22;12/01/2025;CA Osasuna;Real Sociedad;1;2
+22;12/01/2025;RCD Mallorca;Real Betis;0;1
+22;12/01/2025;Rayo Vallecano;Villarreal CF;1;2
+22;12/01/2025;RCD Espanyol;Athletic Club;0;1
+22;12/01/2025;Getafe CF;Valencia CF;0;1
+23;19/01/2025;Valencia CF;Levante UD;2;0
+23;19/01/2025;Athletic Club;Getafe CF;2;0
+23;19/01/2025;Villarreal CF;RCD Espanyol;3;1
+23;19/01/2025;Real Betis;Rayo Vallecano;2;1
+23;19/01/2025;Real Sociedad;RCD Mallorca;2;0
+23;19/01/2025;Sevilla FC;CA Osasuna;2;0
+23;19/01/2025;Atlético de Madrid;Celta de Vigo;2;0
+23;19/01/2025;Real Madrid;Girona FC;4;1
+23;19/01/2025;FC Barcelona;Elche CF;5;0
+23;19/01/2025;Real Oviedo;Deportivo Alavés;1;0
+24;26/01/2025;Levante UD;Deportivo Alavés;0;1
+24;26/01/2025;Elche CF;Real Oviedo;0;1
+24;26/01/2025;Girona FC;FC Barcelona;1;3
+24;26/01/2025;Celta de Vigo;Real Madrid;1;3
+24;26/01/2025;CA Osasuna;Atlético de Madrid;0;1
+24;26/01/2025;RCD Mallorca;Sevilla FC;0;1
+24;26/01/2025;Rayo Vallecano;Real Sociedad;1;2
+24;26/01/2025;RCD Espanyol;Real Betis;0;2
+24;26/01/2025;Getafe CF;Villarreal CF;0;2
+24;26/01/2025;Valencia CF;Athletic Club;1;2
+25;02/02/2025;Athletic Club;Levante UD;2;0
+25;02/02/2025;Villarreal CF;Valencia CF;2;1
+25;02/02/2025;Real Betis;Getafe CF;2;0
+25;02/02/2025;Real Sociedad;RCD Espanyol;2;0
+25;02/02/2025;Sevilla FC;Rayo Vallecano;2;0
+25;02/02/2025;Atlético de Madrid;RCD Mallorca;2;0
+25;02/02/2025;Real Madrid;CA Osasuna;3;0
+25;02/02/2025;FC Barcelona;Celta de Vigo;4;1
+25;02/02/2025;Real Oviedo;Girona FC;0;1
+25;02/02/2025;Deportivo Alavés;Elche CF;1;0
+26;09/02/2025;Levante UD;Elche CF;2;0
+26;09/02/2025;Girona FC;Deportivo Alavés;2;1
+26;09/02/2025;Celta de Vigo;Real Oviedo;1;0
+26;09/02/2025;CA Osasuna;FC Barcelona;0;4
+26;09/02/2025;RCD Mallorca;Real Madrid;0;3
+26;09/02/2025;Rayo Vallecano;Atlético de Madrid;0;2
+26;09/02/2025;RCD Espanyol;Sevilla FC;0;2
+26;09/02/2025;Getafe CF;Real Sociedad;0;1
+26;09/02/2025;Valencia CF;Real Betis;1;1
+26;09/02/2025;Athletic Club;Villarreal CF;1;1
+27;16/02/2025;Villarreal CF;Levante UD;3;0
+27;16/02/2025;Real Betis;Athletic Club;1;2
+27;16/02/2025;Real Sociedad;Valencia CF;2;1
+27;16/02/2025;Sevilla FC;Getafe CF;2;0
+27;16/02/2025;Atlético de Madrid;RCD Espanyol;2;0
+27;16/02/2025;Real Madrid;Rayo Vallecano;4;0
+27;16/02/2025;FC Barcelona;RCD Mallorca;5;0
+27;16/02/2025;Real Oviedo;CA Osasuna;0;1
+27;16/02/2025;Deportivo Alavés;Celta de Vigo;1;1
+27;16/02/2025;Elche CF;Girona FC;0;2
+28;23/02/2025;Levante UD;Girona FC;0;2
+28;23/02/2025;Celta de Vigo;Elche CF;2;0
+28;23/02/2025;CA Osasuna;Deportivo Alavés;1;0
+28;23/02/2025;RCD Mallorca;Real Oviedo;1;0
+28;23/02/2025;Rayo Vallecano;FC Barcelona;1;4
+28;23/02/2025;RCD Espanyol;Real Madrid;0;3
+28;23/02/2025;Getafe CF;Atlético de Madrid;0;1
+28;23/02/2025;Valencia CF;Sevilla FC;1;1
+28;23/02/2025;Athletic Club;Real Sociedad;1;1
+28;23/02/2025;Villarreal CF;Real Betis;2;2
+29;02/03/2025;Real Betis;Levante UD;2;0
+29;02/03/2025;Real Sociedad;Villarreal CF;2;2
+29;02/03/2025;Sevilla FC;Athletic Club;1;1
+29;02/03/2025;Atlético de Madrid;Valencia CF;2;1
+29;02/03/2025;Real Madrid;Getafe CF;2;0
+29;02/03/2025;FC Barcelona;RCD Espanyol;4;0
+29;02/03/2025;Real Oviedo;Rayo Vallecano;0;1
+29;02/03/2025;Deportivo Alavés;RCD Mallorca;1;0
+29;02/03/2025;Elche CF;CA Osasuna;0;1
+29;02/03/2025;Girona FC;Celta de Vigo;2;1
+30;09/03/2025;Levante UD;Celta de Vigo;0;1
+30;09/03/2025;CA Osasuna;Girona FC;1;1
+30;09/03/2025;RCD Mallorca;Elche CF;1;0
+30;09/03/2025;Rayo Vallecano;Deportivo Alavés;1;0
+30;09/03/2025;RCD Espanyol;Real Oviedo;1;0
+30;09/03/2025;Getafe CF;FC Barcelona;0;4
+30;09/03/2025;Valencia CF;Real Madrid;1;2
+30;09/03/2025;Athletic Club;Atlético de Madrid;0;1
+30;09/03/2025;Villarreal CF;Sevilla FC;2;1
+30;09/03/2025;Real Betis;Real Sociedad;1;2
+31;16/03/2025;Real Sociedad;Levante UD;2;0
+31;16/03/2025;Sevilla FC;Real Betis;2;1
+31;16/03/2025;Atlético de Madrid;Villarreal CF;2;1
+31;16/03/2025;Real Madrid;Athletic Club;2;1
+31;16/03/2025;FC Barcelona;Valencia CF;3;1
+31;16/03/2025;Real Oviedo;Getafe CF;0;0
+31;16/03/2025;Deportivo Alavés;RCD Espanyol;0;0
+31;16/03/2025;Elche CF;Rayo Vallecano;0;1
+31;16/03/2025;Girona FC;RCD Mallorca;2;0
+31;16/03/2025;Celta de Vigo;CA Osasuna;1;1
+32;23/03/2025;Levante UD;CA Osasuna;0;1
+32;23/03/2025;RCD Mallorca;Celta de Vigo;1;1
+32;23/03/2025;Rayo Vallecano;Girona FC;1;2
+32;23/03/2025;RCD Espanyol;Elche CF;1;0
+32;23/03/2025;Getafe CF;Deportivo Alavés;1;0
+32;23/03/2025;Valencia CF;Real Oviedo;2;0
+32;23/03/2025;Athletic Club;FC Barcelona;0;3
+32;23/03/2025;Villarreal CF;Real Madrid;1;3
+32;23/03/2025;Real Betis;Atlético de Madrid;1;2
+32;23/03/2025;Real Sociedad;Sevilla FC;1;1
+33;30/03/2025;Sevilla FC;Levante UD;2;0
+33;30/03/2025;Atlético de Madrid;Real Sociedad;1;0
+33;30/03/2025;Real Madrid;Real Betis;3;1
+33;30/03/2025;FC Barcelona;Villarreal CF;4;1
+33;30/03/2025;Real Oviedo;Athletic Club;0;2
+33;30/03/2025;Deportivo Alavés;Valencia CF;0;1
+33;30/03/2025;Elche CF;Getafe CF;0;1
+33;30/03/2025;Girona FC;RCD Espanyol;2;0
+33;30/03/2025;Celta de Vigo;Rayo Vallecano;1;1
+33;30/03/2025;CA Osasuna;RCD Mallorca;1;0
+34;06/04/2025;Levante UD;RCD Mallorca;1;0
+34;06/04/2025;Rayo Vallecano;CA Osasuna;1;1
+34;06/04/2025;RCD Espanyol;Celta de Vigo;1;1
+34;06/04/2025;Getafe CF;Girona FC;0;1
+34;06/04/2025;Valencia CF;Elche CF;2;0
+34;06/04/2025;Athletic Club;Deportivo Alavés;2;0
+34;06/04/2025;Villarreal CF;Real Oviedo;3;0
+34;06/04/2025;Real Betis;FC Barcelona;1;3
+34;06/04/2025;Real Sociedad;Real Madrid;1;2
+34;06/04/2025;Sevilla FC;Atlético de Madrid;1;1
+35;13/04/2025;Atlético de Madrid;Levante UD;2;0
+35;13/04/2025;Real Madrid;Sevilla FC;2;1
+35;13/04/2025;FC Barcelona;Real Sociedad;3;0
+35;13/04/2025;Real Oviedo;Real Betis;0;1
+35;13/04/2025;Deportivo Alavés;Villarreal CF;0;2
+35;13/04/2025;Elche CF;Athletic Club;0;2
+35;13/04/2025;Girona FC;Valencia CF;1;1
+35;13/04/2025;Celta de Vigo;Getafe CF;1;0
+35;13/04/2025;CA Osasuna;RCD Espanyol;1;0
+35;13/04/2025;RCD Mallorca;Rayo Vallecano;1;0
+36;20/04/2025;Levante UD;Rayo Vallecano;1;1
+36;20/04/2025;RCD Espanyol;RCD Mallorca;1;0
+36;20/04/2025;Getafe CF;CA Osasuna;1;0
+36;20/04/2025;Valencia CF;Celta de Vigo;2;1
+36;20/04/2025;Athletic Club;Girona FC;2;1
+36;20/04/2025;Villarreal CF;Elche CF;3;0
+36;20/04/2025;Real Betis;Deportivo Alavés;2;0
+36;20/04/2025;Real Sociedad;Real Oviedo;2;0
+36;20/04/2025;Sevilla FC;FC Barcelona;1;2
+36;20/04/2025;Atlético de Madrid;Real Madrid;1;1
+37;27/04/2025;Real Madrid;Levante UD;4;0
+37;27/04/2025;FC Barcelona;Atlético de Madrid;2;1
+37;27/04/2025;Real Oviedo;Sevilla FC;0;2
+37;27/04/2025;Deportivo Alavés;Real Sociedad;0;2
+37;27/04/2025;Elche CF;Real Betis;0;2
+37;27/04/2025;Girona FC;Villarreal CF;1;2
+37;27/04/2025;Celta de Vigo;Athletic Club;1;2
+37;27/04/2025;CA Osasuna;Valencia CF;0;2
+37;27/04/2025;RCD Mallorca;Getafe CF;1;0
+37;27/04/2025;Rayo Vallecano;RCD Espanyol;1;0
+38;04/05/2025;Levante UD;RCD Espanyol;1;1
+38;04/05/2025;Getafe CF;Rayo Vallecano;0;1
+38;04/05/2025;Valencia CF;RCD Mallorca;2;0
+38;04/05/2025;Athletic Club;CA Osasuna;2;0
+38;04/05/2025;Villarreal CF;Celta de Vigo;3;1
+38;04/05/2025;Real Betis;Girona FC;2;1
+38;04/05/2025;Real Sociedad;Elche CF;3;0
+38;04/05/2025;Sevilla FC;Deportivo Alavés;2;0
+38;04/05/2025;Atlético de Madrid;Real Oviedo;3;0
+38;04/05/2025;Real Madrid;FC Barcelona;2;2
+1;18/08/2024;Manchester United;Leeds United FC;3;1
+1;18/08/2024;Manchester City;Burnley FC;4;0
+1;18/08/2024;Liverpool FC;Nottingham Forest;3;0
+1;18/08/2024;Chelsea FC;AFC Bournemouth;2;0
+1;18/08/2024;Arsenal FC;Crystal Palace;2;0
+1;18/08/2024;Tottenham Hotspur;Brentford FC;2;1
+1;18/08/2024;Newcastle United;Fulham FC;1;1
+1;18/08/2024;Aston Villa;Wolverhampton Wanderers;2;1
+1;18/08/2024;Brighton & Hove Albion;Everton FC;1;1
+1;18/08/2024;West Ham United;Sunderland AFC;2;0
+2;25/08/2024;Leeds United FC;West Ham United;1;2
+2;25/08/2024;Sunderland AFC;Brighton & Hove Albion;0;1
+2;25/08/2024;Everton FC;Aston Villa;1;1
+2;25/08/2024;Wolverhampton Wanderers;Newcastle United;0;1
+2;25/08/2024;Fulham FC;Tottenham Hotspur;1;2
+2;25/08/2024;Brentford FC;Arsenal FC;0;2
+2;25/08/2024;Crystal Palace;Chelsea FC;0;2
+2;25/08/2024;AFC Bournemouth;Liverpool FC;0;3
+2;25/08/2024;Nottingham Forest;Manchester City;0;4
+2;25/08/2024;Burnley FC;Manchester United;0;2
+3;01/09/2024;Burnley FC;Leeds United FC;1;1
+3;01/09/2024;Manchester United;Nottingham Forest;3;0
+3;01/09/2024;Manchester City;AFC Bournemouth;4;0
+3;01/09/2024;Liverpool FC;Crystal Palace;3;0
+3;01/09/2024;Chelsea FC;Brentford FC;2;0
+3;01/09/2024;Arsenal FC;Fulham FC;2;0
+3;01/09/2024;Tottenham Hotspur;Wolverhampton Wanderers;2;1
+3;01/09/2024;Newcastle United;Everton FC;2;1
+3;01/09/2024;Aston Villa;Sunderland AFC;2;0
+3;01/09/2024;Brighton & Hove Albion;West Ham United;1;1
+4;08/09/2024;Leeds United FC;Brighton & Hove Albion;1;2
+4;08/09/2024;West Ham United;Aston Villa;1;2
+4;08/09/2024;Sunderland AFC;Newcastle United;0;2
+4;08/09/2024;Everton FC;Tottenham Hotspur;1;2
+4;08/09/2024;Wolverhampton Wanderers;Arsenal FC;0;2
+4;08/09/2024;Fulham FC;Chelsea FC;0;2
+4;08/09/2024;Brentford FC;Liverpool FC;1;3
+4;08/09/2024;Crystal Palace;Manchester City;0;4
+4;08/09/2024;AFC Bournemouth;Manchester United;0;2
+4;08/09/2024;Nottingham Forest;Burnley FC;1;1
+5;15/09/2024;Nottingham Forest;Leeds United FC;1;1
+5;15/09/2024;Burnley FC;AFC Bournemouth;1;0
+5;15/09/2024;Manchester United;Crystal Palace;2;0
+5;15/09/2024;Manchester City;Brentford FC;3;0
+5;15/09/2024;Liverpool FC;Fulham FC;3;0
+5;15/09/2024;Chelsea FC;Wolverhampton Wanderers;2;0
+5;15/09/2024;Arsenal FC;Everton FC;2;0
+5;15/09/2024;Tottenham Hotspur;Sunderland AFC;3;0
+5;15/09/2024;Newcastle United;West Ham United;2;1
+5;15/09/2024;Aston Villa;Brighton & Hove Albion;2;1
+6;22/09/2024;Leeds United FC;Aston Villa;1;2
+6;22/09/2024;Brighton & Hove Albion;Newcastle United;1;1
+6;22/09/2024;West Ham United;Tottenham Hotspur;1;2
+6;22/09/2024;Sunderland AFC;Arsenal FC;0;3
+6;22/09/2024;Everton FC;Chelsea FC;0;2
+6;22/09/2024;Wolverhampton Wanderers;Liverpool FC;0;2
+6;22/09/2024;Fulham FC;Manchester City;0;3
+6;22/09/2024;Brentford FC;Manchester United;1;2
+6;22/09/2024;Crystal Palace;Burnley FC;1;0
+6;22/09/2024;AFC Bournemouth;Nottingham Forest;1;1
+7;29/09/2024;AFC Bournemouth;Leeds United FC;1;1
+7;29/09/2024;Nottingham Forest;Crystal Palace;1;1
+7;29/09/2024;Burnley FC;Brentford FC;1;0
+7;29/09/2024;Manchester United;Fulham FC;2;0
+7;29/09/2024;Manchester City;Wolverhampton Wanderers;4;0
+7;29/09/2024;Liverpool FC;Everton FC;2;0
+7;29/09/2024;Chelsea FC;Sunderland AFC;2;0
+7;29/09/2024;Arsenal FC;West Ham United;2;0
+7;29/09/2024;Tottenham Hotspur;Brighton & Hove Albion;2;1
+7;29/09/2024;Newcastle United;Aston Villa;1;1
+8;06/10/2024;Leeds United FC;Newcastle United;0;1
+8;06/10/2024;Aston Villa;Tottenham Hotspur;1;2
+8;06/10/2024;Brighton & Hove Albion;Arsenal FC;1;2
+8;06/10/2024;West Ham United;Chelsea FC;0;2
+8;06/10/2024;Sunderland AFC;Liverpool FC;0;3
+8;06/10/2024;Everton FC;Manchester City;0;3
+8;06/10/2024;Wolverhampton Wanderers;Manchester United;0;2
+8;06/10/2024;Fulham FC;Burnley FC;1;0
+8;06/10/2024;Brentford FC;Nottingham Forest;1;1
+8;06/10/2024;Crystal Palace;AFC Bournemouth;1;0
+9;13/10/2024;Crystal Palace;Leeds United FC;1;0
+9;13/10/2024;AFC Bournemouth;Brentford FC;1;1
+9;13/10/2024;Nottingham Forest;Fulham FC;1;1
+9;13/10/2024;Burnley FC;Wolverhampton Wanderers;0;0
+9;13/10/2024;Manchester United;Everton FC;2;0
+9;13/10/2024;Manchester City;Sunderland AFC;4;0
+9;13/10/2024;Liverpool FC;West Ham United;2;0
+9;13/10/2024;Chelsea FC;Brighton & Hove Albion;2;1
+9;13/10/2024;Arsenal FC;Aston Villa;2;1
+9;13/10/2024;Tottenham Hotspur;Newcastle United;2;1
+10;20/10/2024;Leeds United FC;Tottenham Hotspur;0;2
+10;20/10/2024;Newcastle United;Arsenal FC;1;2
+10;20/10/2024;Aston Villa;Chelsea FC;1;2
+10;20/10/2024;Brighton & Hove Albion;Liverpool FC;0;2
+10;20/10/2024;West Ham United;Manchester City;0;3
+10;20/10/2024;Sunderland AFC;Manchester United;0;2
+10;20/10/2024;Everton FC;Burnley FC;1;0
+10;20/10/2024;Wolverhampton Wanderers;Nottingham Forest;1;0
+10;20/10/2024;Fulham FC;AFC Bournemouth;1;0
+10;20/10/2024;Brentford FC;Crystal Palace;1;1
+11;27/10/2024;Brentford FC;Leeds United FC;1;1
+11;27/10/2024;Crystal Palace;Fulham FC;1;0
+11;27/10/2024;AFC Bournemouth;Wolverhampton Wanderers;1;0
+11;27/10/2024;Nottingham Forest;Everton FC;1;1
+11;27/10/2024;Burnley FC;Sunderland AFC;1;0
+11;27/10/2024;Manchester United;West Ham United;2;0
+11;27/10/2024;Manchester City;Brighton & Hove Albion;3;0
+11;27/10/2024;Liverpool FC;Aston Villa;2;1
+11;27/10/2024;Chelsea FC;Newcastle United;2;0
+11;27/10/2024;Arsenal FC;Tottenham Hotspur;2;1
+12;03/11/2024;Leeds United FC;Arsenal FC;0;2
+12;03/11/2024;Tottenham Hotspur;Chelsea FC;1;1
+12;03/11/2024;Newcastle United;Liverpool FC;0;2
+12;03/11/2024;Aston Villa;Manchester City;0;3
+12;03/11/2024;Brighton & Hove Albion;Manchester United;0;2
+12;03/11/2024;West Ham United;Burnley FC;1;0
+12;03/11/2024;Sunderland AFC;Nottingham Forest;0;1
+12;03/11/2024;Everton FC;AFC Bournemouth;1;0
+12;03/11/2024;Wolverhampton Wanderers;Crystal Palace;1;1
+12;03/11/2024;Fulham FC;Brentford FC;1;1
+13;10/11/2024;Fulham FC;Leeds United FC;1;1
+13;10/11/2024;Brentford FC;Wolverhampton Wanderers;1;0
+13;10/11/2024;Crystal Palace;Everton FC;1;1
+13;10/11/2024;AFC Bournemouth;Sunderland AFC;1;0
+13;10/11/2024;Nottingham Forest;West Ham United;0;1
+13;10/11/2024;Burnley FC;Brighton & Hove Albion;0;1
+13;10/11/2024;Manchester United;Aston Villa;2;1
+13;10/11/2024;Manchester City;Newcastle United;3;0
+13;10/11/2024;Liverpool FC;Tottenham Hotspur;2;1
+13;10/11/2024;Chelsea FC;Arsenal FC;1;1
+14;17/11/2024;Leeds United FC;Chelsea FC;0;2
+14;17/11/2024;Arsenal FC;Liverpool FC;1;2
+14;17/11/2024;Tottenham Hotspur;Manchester City;1;3
+14;17/11/2024;Newcastle United;Manchester United;1;2
+14;17/11/2024;Aston Villa;Burnley FC;2;0
+14;17/11/2024;Brighton & Hove Albion;Nottingham Forest;2;0
+14;17/11/2024;West Ham United;AFC Bournemouth;1;0
+14;17/11/2024;Sunderland AFC;Crystal Palace;0;1
+14;17/11/2024;Everton FC;Brentford FC;1;1
+14;17/11/2024;Wolverhampton Wanderers;Fulham FC;1;1
+15;24/11/2024;Wolverhampton Wanderers;Leeds United FC;1;1
+15;24/11/2024;Fulham FC;Everton FC;1;1
+15;24/11/2024;Brentford FC;Sunderland AFC;1;0
+15;24/11/2024;Crystal Palace;West Ham United;1;1
+15;24/11/2024;AFC Bournemouth;Brighton & Hove Albion;0;1
+15;24/11/2024;Nottingham Forest;Aston Villa;0;2
+15;24/11/2024;Burnley FC;Newcastle United;0;2
+15;24/11/2024;Manchester United;Tottenham Hotspur;2;1
+15;24/11/2024;Manchester City;Arsenal FC;3;1
+15;24/11/2024;Liverpool FC;Chelsea FC;2;1
+16;01/12/2024;Leeds United FC;Liverpool FC;0;3
+16;01/12/2024;Chelsea FC;Manchester City;0;2
+16;01/12/2024;Arsenal FC;Manchester United;1;1
+16;01/12/2024;Tottenham Hotspur;Burnley FC;2;0
+16;01/12/2024;Newcastle United;Nottingham Forest;2;0
+16;01/12/2024;Aston Villa;AFC Bournemouth;2;0
+16;01/12/2024;Brighton & Hove Albion;Crystal Palace;1;0
+16;01/12/2024;West Ham United;Brentford FC;1;0
+16;01/12/2024;Sunderland AFC;Fulham FC;0;1
+16;01/12/2024;Everton FC;Wolverhampton Wanderers;1;0
+17;08/12/2024;Everton FC;Leeds United FC;1;0
+17;08/12/2024;Wolverhampton Wanderers;Sunderland AFC;1;0
+17;08/12/2024;Fulham FC;West Ham United;0;1
+17;08/12/2024;Brentford FC;Brighton & Hove Albion;1;2
+17;08/12/2024;Crystal Palace;Aston Villa;0;2
+17;08/12/2024;AFC Bournemouth;Newcastle United;0;2
+17;08/12/2024;Nottingham Forest;Tottenham Hotspur;0;2
+17;08/12/2024;Burnley FC;Arsenal FC;0;2
+17;08/12/2024;Manchester United;Chelsea FC;2;1
+17;08/12/2024;Manchester City;Liverpool FC;2;2
+18;15/12/2024;Leeds United FC;Manchester City;0;4
+18;15/12/2024;Liverpool FC;Manchester United;2;2
+18;15/12/2024;Chelsea FC;Burnley FC;2;0
+18;15/12/2024;Arsenal FC;Nottingham Forest;3;0
+18;15/12/2024;Tottenham Hotspur;AFC Bournemouth;2;0
+18;15/12/2024;Newcastle United;Crystal Palace;2;0
+18;15/12/2024;Aston Villa;Brentford FC;2;0
+18;15/12/2024;Brighton & Hove Albion;Fulham FC;1;0
+18;15/12/2024;West Ham United;Wolverhampton Wanderers;1;0
+18;15/12/2024;Sunderland AFC;Everton FC;0;1
+19;22/12/2024;Sunderland AFC;Leeds United FC;0;1
+19;22/12/2024;Everton FC;West Ham United;1;1
+19;22/12/2024;Wolverhampton Wanderers;Brighton & Hove Albion;0;1
+19;22/12/2024;Fulham FC;Aston Villa;0;2
+19;22/12/2024;Brentford FC;Newcastle United;0;2
+19;22/12/2024;Crystal Palace;Tottenham Hotspur;0;2
+19;22/12/2024;AFC Bournemouth;Arsenal FC;0;2
+19;22/12/2024;Nottingham Forest;Chelsea FC;0;2
+19;22/12/2024;Burnley FC;Liverpool FC;0;3
+19;22/12/2024;Manchester United;Manchester City;1;2
+20;29/12/2024;Leeds United FC;Manchester United;0;3
+20;29/12/2024;Burnley FC;Manchester City;0;4
+20;29/12/2024;Nottingham Forest;Liverpool FC;0;3
+20;29/12/2024;AFC Bournemouth;Chelsea FC;0;2
+20;29/12/2024;Crystal Palace;Arsenal FC;0;2
+20;29/12/2024;Brentford FC;Tottenham Hotspur;1;2
+20;29/12/2024;Fulham FC;Newcastle United;0;2
+20;29/12/2024;Wolverhampton Wanderers;Aston Villa;0;2
+20;29/12/2024;Everton FC;Brighton & Hove Albion;1;1
+20;29/12/2024;Sunderland AFC;West Ham United;0;1
+21;05/01/2025;West Ham United;Leeds United FC;1;1
+21;05/01/2025;Brighton & Hove Albion;Sunderland AFC;2;0
+21;05/01/2025;Aston Villa;Everton FC;2;1
+21;05/01/2025;Newcastle United;Wolverhampton Wanderers;2;0
+21;05/01/2025;Tottenham Hotspur;Fulham FC;2;0
+21;05/01/2025;Arsenal FC;Brentford FC;2;0
+21;05/01/2025;Chelsea FC;Crystal Palace;2;0
+21;05/01/2025;Liverpool FC;AFC Bournemouth;3;0
+21;05/01/2025;Manchester City;Nottingham Forest;4;0
+21;05/01/2025;Manchester United;Burnley FC;3;0
+22;12/01/2025;Leeds United FC;Burnley FC;1;1
+22;12/01/2025;Nottingham Forest;Manchester United;0;3
+22;12/01/2025;AFC Bournemouth;Manchester City;0;4
+22;12/01/2025;Crystal Palace;Liverpool FC;0;3
+22;12/01/2025;Brentford FC;Chelsea FC;0;2
+22;12/01/2025;Fulham FC;Arsenal FC;0;2
+22;12/01/2025;Wolverhampton Wanderers;Tottenham Hotspur;0;2
+22;12/01/2025;Everton FC;Newcastle United;0;2
+22;12/01/2025;Sunderland AFC;Aston Villa;0;2
+22;12/01/2025;West Ham United;Brighton & Hove Albion;1;1
+23;19/01/2025;Brighton & Hove Albion;Leeds United FC;2;0
+23;19/01/2025;Aston Villa;West Ham United;2;1
+23;19/01/2025;Newcastle United;Sunderland AFC;2;0
+23;19/01/2025;Tottenham Hotspur;Everton FC;2;1
+23;19/01/2025;Arsenal FC;Wolverhampton Wanderers;3;0
+23;19/01/2025;Chelsea FC;Fulham FC;2;0
+23;19/01/2025;Liverpool FC;Brentford FC;3;1
+23;19/01/2025;Manchester City;Crystal Palace;3;0
+23;19/01/2025;Manchester United;AFC Bournemouth;2;0
+23;19/01/2025;Burnley FC;Nottingham Forest;1;1
+24;26/01/2025;Leeds United FC;Nottingham Forest;1;1
+24;26/01/2025;AFC Bournemouth;Burnley FC;1;1
+24;26/01/2025;Crystal Palace;Manchester United;0;2
+24;26/01/2025;Brentford FC;Manchester City;0;4
+24;26/01/2025;Fulham FC;Liverpool FC;0;3
+24;26/01/2025;Wolverhampton Wanderers;Chelsea FC;0;2
+24;26/01/2025;Everton FC;Arsenal FC;0;2
+24;26/01/2025;Sunderland AFC;Tottenham Hotspur;0;3
+24;26/01/2025;West Ham United;Newcastle United;1;2
+24;26/01/2025;Brighton & Hove Albion;Aston Villa;1;2
+25;02/02/2025;Aston Villa;Leeds United FC;2;1
+25;02/02/2025;Newcastle United;Brighton & Hove Albion;2;1
+25;02/02/2025;Tottenham Hotspur;West Ham United;2;1
+25;02/02/2025;Arsenal FC;Sunderland AFC;3;0
+25;02/02/2025;Chelsea FC;Everton FC;2;0
+25;02/02/2025;Liverpool FC;Wolverhampton Wanderers;3;0
+25;02/02/2025;Manchester City;Fulham FC;3;0
+25;02/02/2025;Manchester United;Brentford FC;2;1
+25;02/02/2025;Burnley FC;Crystal Palace;0;1
+25;02/02/2025;Nottingham Forest;AFC Bournemouth;1;0
+26;09/02/2025;Leeds United FC;AFC Bournemouth;1;0
+26;09/02/2025;Crystal Palace;Nottingham Forest;1;0
+26;09/02/2025;Brentford FC;Burnley FC;1;0
+26;09/02/2025;Fulham FC;Manchester United;0;2
+26;09/02/2025;Wolverhampton Wanderers;Manchester City;0;4
+26;09/02/2025;Everton FC;Liverpool FC;0;2
+26;09/02/2025;Sunderland AFC;Chelsea FC;0;2
+26;09/02/2025;West Ham United;Arsenal FC;0;2
+26;09/02/2025;Brighton & Hove Albion;Tottenham Hotspur;1;2
+26;09/02/2025;Aston Villa;Newcastle United;1;1
+27;16/02/2025;Newcastle United;Leeds United FC;2;0
+27;16/02/2025;Tottenham Hotspur;Aston Villa;2;1
+27;16/02/2025;Arsenal FC;Brighton & Hove Albion;2;1
+27;16/02/2025;Chelsea FC;West Ham United;2;0
+27;16/02/2025;Liverpool FC;Sunderland AFC;3;0
+27;16/02/2025;Manchester City;Everton FC;3;0
+27;16/02/2025;Manchester United;Wolverhampton Wanderers;2;0
+27;16/02/2025;Burnley FC;Fulham FC;1;1
+27;16/02/2025;Nottingham Forest;Brentford FC;1;1
+27;16/02/2025;AFC Bournemouth;Crystal Palace;0;1
+28;23/02/2025;Leeds United FC;Crystal Palace;1;0
+28;23/02/2025;Brentford FC;AFC Bournemouth;1;0
+28;23/02/2025;Fulham FC;Nottingham Forest;1;0
+28;23/02/2025;Wolverhampton Wanderers;Burnley FC;1;1
+28;23/02/2025;Everton FC;Manchester United;0;2
+28;23/02/2025;Sunderland AFC;Manchester City;0;4
+28;23/02/2025;West Ham United;Liverpool FC;0;2
+28;23/02/2025;Brighton & Hove Albion;Chelsea FC;0;2
+28;23/02/2025;Aston Villa;Arsenal FC;1;2
+28;23/02/2025;Newcastle United;Tottenham Hotspur;1;2
+29;02/03/2025;Tottenham Hotspur;Leeds United FC;2;0
+29;02/03/2025;Arsenal FC;Newcastle United;2;1
+29;02/03/2025;Chelsea FC;Aston Villa;2;1
+29;02/03/2025;Liverpool FC;Brighton & Hove Albion;2;0
+29;02/03/2025;Manchester City;West Ham United;3;0
+29;02/03/2025;Manchester United;Sunderland AFC;3;0
+29;02/03/2025;Burnley FC;Everton FC;0;1
+29;02/03/2025;Nottingham Forest;Wolverhampton Wanderers;0;1
+29;02/03/2025;AFC Bournemouth;Fulham FC;0;1
+29;02/03/2025;Crystal Palace;Brentford FC;1;1
+30;09/03/2025;Leeds United FC;Brentford FC;1;1
+30;09/03/2025;Fulham FC;Crystal Palace;1;1
+30;09/03/2025;Wolverhampton Wanderers;AFC Bournemouth;1;0
+30;09/03/2025;Everton FC;Nottingham Forest;1;1
+30;09/03/2025;Sunderland AFC;Burnley FC;0;1
+30;09/03/2025;West Ham United;Manchester United;0;2
+30;09/03/2025;Brighton & Hove Albion;Manchester City;0;3
+30;09/03/2025;Aston Villa;Liverpool FC;0;2
+30;09/03/2025;Newcastle United;Chelsea FC;0;2
+30;09/03/2025;Tottenham Hotspur;Arsenal FC;1;2
+31;16/03/2025;Arsenal FC;Leeds United FC;2;0
+31;16/03/2025;Chelsea FC;Tottenham Hotspur;1;1
+31;16/03/2025;Liverpool FC;Newcastle United;2;0
+31;16/03/2025;Manchester City;Aston Villa;3;0
+31;16/03/2025;Manchester United;Brighton & Hove Albion;2;0
+31;16/03/2025;Burnley FC;West Ham United;0;1
+31;16/03/2025;Nottingham Forest;Sunderland AFC;1;0
+31;16/03/2025;AFC Bournemouth;Everton FC;0;1
+31;16/03/2025;Crystal Palace;Wolverhampton Wanderers;1;1
+31;16/03/2025;Brentford FC;Fulham FC;1;1
+32;23/03/2025;Leeds United FC;Fulham FC;1;1
+32;23/03/2025;Wolverhampton Wanderers;Brentford FC;1;1
+32;23/03/2025;Everton FC;Crystal Palace;1;1
+32;23/03/2025;Sunderland AFC;AFC Bournemouth;0;1
+32;23/03/2025;West Ham United;Nottingham Forest;1;0
+32;23/03/2025;Brighton & Hove Albion;Burnley FC;2;0
+32;23/03/2025;Aston Villa;Manchester United;1;2
+32;23/03/2025;Newcastle United;Manchester City;0;3
+32;23/03/2025;Tottenham Hotspur;Liverpool FC;1;2
+32;23/03/2025;Arsenal FC;Chelsea FC;1;1
+33;30/03/2025;Chelsea FC;Leeds United FC;2;0
+33;30/03/2025;Liverpool FC;Arsenal FC;2;1
+33;30/03/2025;Manchester City;Tottenham Hotspur;3;1
+33;30/03/2025;Manchester United;Newcastle United;2;1
+33;30/03/2025;Burnley FC;Aston Villa;0;2
+33;30/03/2025;Nottingham Forest;Brighton & Hove Albion;0;1
+33;30/03/2025;AFC Bournemouth;West Ham United;0;1
+33;30/03/2025;Crystal Palace;Sunderland AFC;1;0
+33;30/03/2025;Brentford FC;Everton FC;1;1
+33;30/03/2025;Fulham FC;Wolverhampton Wanderers;0;0
+34;06/04/2025;Leeds United FC;Wolverhampton Wanderers;1;1
+34;06/04/2025;Everton FC;Fulham FC;1;1
+34;06/04/2025;Sunderland AFC;Brentford FC;0;1
+34;06/04/2025;West Ham United;Crystal Palace;1;1
+34;06/04/2025;Brighton & Hove Albion;AFC Bournemouth;2;0
+34;06/04/2025;Aston Villa;Nottingham Forest;2;0
+34;06/04/2025;Newcastle United;Burnley FC;2;0
+34;06/04/2025;Tottenham Hotspur;Manchester United;1;2
+34;06/04/2025;Arsenal FC;Manchester City;1;3
+34;06/04/2025;Chelsea FC;Liverpool FC;1;2
+35;13/04/2025;Liverpool FC;Leeds United FC;3;0
+35;13/04/2025;Manchester City;Chelsea FC;3;0
+35;13/04/2025;Manchester United;Arsenal FC;2;1
+35;13/04/2025;Burnley FC;Tottenham Hotspur;0;2
+35;13/04/2025;Nottingham Forest;Newcastle United;0;2
+35;13/04/2025;AFC Bournemouth;Aston Villa;0;2
+35;13/04/2025;Crystal Palace;Brighton & Hove Albion;0;1
+35;13/04/2025;Brentford FC;West Ham United;1;1
+35;13/04/2025;Fulham FC;Sunderland AFC;1;0
+35;13/04/2025;Wolverhampton Wanderers;Everton FC;0;1
+36;20/04/2025;Leeds United FC;Everton FC;1;1
+36;20/04/2025;Sunderland AFC;Wolverhampton Wanderers;0;1
+36;20/04/2025;West Ham United;Fulham FC;1;0
+36;20/04/2025;Brighton & Hove Albion;Brentford FC;2;1
+36;20/04/2025;Aston Villa;Crystal Palace;2;0
+36;20/04/2025;Newcastle United;AFC Bournemouth;2;0
+36;20/04/2025;Tottenham Hotspur;Nottingham Forest;2;0
+36;20/04/2025;Arsenal FC;Burnley FC;3;0
+36;20/04/2025;Chelsea FC;Manchester United;1;2
+36;20/04/2025;Liverpool FC;Manchester City;2;2
+37;27/04/2025;Manchester City;Leeds United FC;4;0
+37;27/04/2025;Manchester United;Liverpool FC;2;2
+37;27/04/2025;Burnley FC;Chelsea FC;0;2
+37;27/04/2025;Nottingham Forest;Arsenal FC;0;3
+37;27/04/2025;AFC Bournemouth;Tottenham Hotspur;0;2
+37;27/04/2025;Crystal Palace;Newcastle United;0;2
+37;27/04/2025;Brentford FC;Aston Villa;0;2
+37;27/04/2025;Fulham FC;Brighton & Hove Albion;0;1
+37;27/04/2025;Wolverhampton Wanderers;West Ham United;0;1
+37;27/04/2025;Everton FC;Sunderland AFC;1;0
+38;04/05/2025;Leeds United FC;Sunderland AFC;2;0
+38;04/05/2025;West Ham United;Everton FC;1;1
+38;04/05/2025;Brighton & Hove Albion;Wolverhampton Wanderers;2;0
+38;04/05/2025;Aston Villa;Fulham FC;2;0
+38;04/05/2025;Newcastle United;Brentford FC;2;0
+38;04/05/2025;Tottenham Hotspur;Crystal Palace;2;0
+38;04/05/2025;Arsenal FC;AFC Bournemouth;2;0
+38;04/05/2025;Chelsea FC;Nottingham Forest;2;0
+38;04/05/2025;Liverpool FC;Burnley FC;3;0
+38;04/05/2025;Manchester City;Manchester United;3;1
+1;18/08/2024;Bayern Munich;Hamburgo SV;4;0
+1;18/08/2024;Borussia Dortmund;1. FC Heidenheim;3;0
+1;18/08/2024;RB Leipzig;FC St. Pauli;2;0
+1;18/08/2024;Bayer Leverkusen;FC Koln;3;1
+1;18/08/2024;Borussia Mönchengladbach;Werder Bremen;2;1
+1;18/08/2024;Eintracht Frankfurt;FC Augsburg;2;1
+1;18/08/2024;VfL Wolfsburg;FSV Mainz 05;1;1
+1;18/08/2024;Union Berlin;TSG Hoffenheim;1;1
+1;18/08/2024;SC Freiburg;VfB Stuttgart;1;2
+2;25/08/2024;Hamburgo SV;SC Freiburg;1;2
+2;25/08/2024;VfB Stuttgart;Union Berlin;2;0
+2;25/08/2024;TSG Hoffenheim;VfL Wolfsburg;2;2
+2;25/08/2024;FSV Mainz 05;Eintracht Frankfurt;1;2
+2;25/08/2024;FC Augsburg;Borussia Mönchengladbach;1;1
+2;25/08/2024;Werder Bremen;Bayer Leverkusen;0;3
+2;25/08/2024;FC Koln;RB Leipzig;0;2
+2;25/08/2024;FC St. Pauli;Borussia Dortmund;1;3
+2;25/08/2024;1. FC Heidenheim;Bayern Munich;0;4
+3;01/09/2024;1. FC Heidenheim;Hamburgo SV;1;1
+3;01/09/2024;Bayern Munich;FC St. Pauli;4;0
+3;01/09/2024;Borussia Dortmund;FC Koln;3;1
+3;01/09/2024;RB Leipzig;Werder Bremen;3;1
+3;01/09/2024;Bayer Leverkusen;FC Augsburg;3;0
+3;01/09/2024;Borussia Mönchengladbach;FSV Mainz 05;2;1
+3;01/09/2024;Eintracht Frankfurt;TSG Hoffenheim;2;1
+3;01/09/2024;VfL Wolfsburg;VfB Stuttgart;1;2
+3;01/09/2024;Union Berlin;SC Freiburg;1;1
+4;08/09/2024;Hamburgo SV;Union Berlin;1;1
+4;08/09/2024;SC Freiburg;VfL Wolfsburg;1;1
+4;08/09/2024;VfB Stuttgart;Eintracht Frankfurt;2;1
+4;08/09/2024;TSG Hoffenheim;Borussia Mönchengladbach;2;1
+4;08/09/2024;FSV Mainz 05;Bayer Leverkusen;0;3
+4;08/09/2024;FC Augsburg;RB Leipzig;0;2
+4;08/09/2024;Werder Bremen;Borussia Dortmund;1;3
+4;08/09/2024;FC Koln;Bayern Munich;0;4
+4;08/09/2024;FC St. Pauli;1. FC Heidenheim;1;1
+5;15/09/2024;FC St. Pauli;Hamburgo SV;1;1
+5;15/09/2024;1. FC Heidenheim;FC Koln;1;1
+5;15/09/2024;Bayern Munich;Werder Bremen;4;0
+5;15/09/2024;Borussia Dortmund;FC Augsburg;3;1
+5;15/09/2024;RB Leipzig;FSV Mainz 05;3;0
+5;15/09/2024;Bayer Leverkusen;TSG Hoffenheim;3;1
+5;15/09/2024;Borussia Mönchengladbach;VfB Stuttgart;1;2
+5;15/09/2024;Eintracht Frankfurt;SC Freiburg;1;1
+5;15/09/2024;VfL Wolfsburg;Union Berlin;1;1
+6;22/09/2024;Hamburgo SV;VfL Wolfsburg;1;1
+6;22/09/2024;Union Berlin;Eintracht Frankfurt;1;1
+6;22/09/2024;SC Freiburg;Borussia Mönchengladbach;2;1
+6;22/09/2024;VfB Stuttgart;Bayer Leverkusen;2;2
+6;22/09/2024;TSG Hoffenheim;RB Leipzig;1;2
+6;22/09/2024;FSV Mainz 05;Borussia Dortmund;0;2
+6;22/09/2024;FC Augsburg;Bayern Munich;0;4
+6;22/09/2024;Werder Bremen;1. FC Heidenheim;2;1
+6;22/09/2024;FC Koln;FC St. Pauli;2;1
+7;29/09/2024;FC Koln;Hamburgo SV;2;1
+7;29/09/2024;FC St. Pauli;Werder Bremen;1;1
+7;29/09/2024;1. FC Heidenheim;FC Augsburg;1;1
+7;29/09/2024;Bayern Munich;FSV Mainz 05;4;0
+7;29/09/2024;Borussia Dortmund;TSG Hoffenheim;3;1
+7;29/09/2024;RB Leipzig;VfB Stuttgart;2;1
+7;29/09/2024;Bayer Leverkusen;SC Freiburg;3;0
+7;29/09/2024;Borussia Mönchengladbach;Union Berlin;1;1
+7;29/09/2024;Eintracht Frankfurt;VfL Wolfsburg;2;1
+8;06/10/2024;Hamburgo SV;Eintracht Frankfurt;1;2
+8;06/10/2024;VfL Wolfsburg;Borussia Mönchengladbach;1;1
+8;06/10/2024;Union Berlin;Bayer Leverkusen;0;2
+8;06/10/2024;SC Freiburg;RB Leipzig;1;2
+8;06/10/2024;VfB Stuttgart;Borussia Dortmund;2;2
+8;06/10/2024;TSG Hoffenheim;Bayern Munich;0;3
+8;06/10/2024;FSV Mainz 05;1. FC Heidenheim;1;0
+8;06/10/2024;FC Augsburg;FC St. Pauli;1;1
+8;06/10/2024;Werder Bremen;FC Koln;1;1
+9;13/10/2024;Werder Bremen;Hamburgo SV;2;1
+9;13/10/2024;FC Koln;FC Augsburg;2;1
+9;13/10/2024;FC St. Pauli;FSV Mainz 05;1;1
+9;13/10/2024;1. FC Heidenheim;TSG Hoffenheim;1;2
+9;13/10/2024;Bayern Munich;VfB Stuttgart;4;1
+9;13/10/2024;Borussia Dortmund;SC Freiburg;3;1
+9;13/10/2024;RB Leipzig;Union Berlin;2;0
+9;13/10/2024;Bayer Leverkusen;VfL Wolfsburg;3;0
+9;13/10/2024;Borussia Mönchengladbach;Eintracht Frankfurt;2;2
+10;20/10/2024;Hamburgo SV;Borussia Mönchengladbach;1;2
+10;20/10/2024;Eintracht Frankfurt;Bayer Leverkusen;1;2
+10;20/10/2024;VfL Wolfsburg;RB Leipzig;0;2
+10;20/10/2024;Union Berlin;Borussia Dortmund;1;2
+10;20/10/2024;SC Freiburg;Bayern Munich;0;3
+10;20/10/2024;VfB Stuttgart;1. FC Heidenheim;2;0
+10;20/10/2024;TSG Hoffenheim;FC St. Pauli;2;1
+10;20/10/2024;FSV Mainz 05;FC Koln;1;1
+10;20/10/2024;FC Augsburg;Werder Bremen;1;1
+11;27/10/2024;FC Augsburg;Hamburgo SV;2;1
+11;27/10/2024;Werder Bremen;FSV Mainz 05;1;1
+11;27/10/2024;FC Koln;TSG Hoffenheim;2;2
+11;27/10/2024;FC St. Pauli;VfB Stuttgart;0;2
+11;27/10/2024;1. FC Heidenheim;SC Freiburg;0;1
+11;27/10/2024;Bayern Munich;Union Berlin;4;0
+11;27/10/2024;Borussia Dortmund;VfL Wolfsburg;3;1
+11;27/10/2024;RB Leipzig;Eintracht Frankfurt;3;1
+11;27/10/2024;Bayer Leverkusen;Borussia Mönchengladbach;3;1
+12;03/11/2024;Hamburgo SV;Bayer Leverkusen;0;3
+12;03/11/2024;Borussia Mönchengladbach;RB Leipzig;1;2
+12;03/11/2024;Eintracht Frankfurt;Borussia Dortmund;1;2
+12;03/11/2024;VfL Wolfsburg;Bayern Munich;0;3
+12;03/11/2024;Union Berlin;1. FC Heidenheim;1;0
+12;03/11/2024;SC Freiburg;FC St. Pauli;2;0
+12;03/11/2024;VfB Stuttgart;FC Koln;2;1
+12;03/11/2024;TSG Hoffenheim;Werder Bremen;2;1
+12;03/11/2024;FSV Mainz 05;FC Augsburg;1;1
+13;10/11/2024;FSV Mainz 05;Hamburgo SV;1;1
+13;10/11/2024;FC Augsburg;TSG Hoffenheim;1;2
+13;10/11/2024;Werder Bremen;VfB Stuttgart;1;2
+13;10/11/2024;FC Koln;SC Freiburg;1;1
+13;10/11/2024;FC St. Pauli;Union Berlin;1;1
+13;10/11/2024;1. FC Heidenheim;VfL Wolfsburg;0;1
+13;10/11/2024;Bayern Munich;Eintracht Frankfurt;4;1
+13;10/11/2024;Borussia Dortmund;Borussia Mönchengladbach;3;1
+13;10/11/2024;RB Leipzig;Bayer Leverkusen;2;2
+14;17/11/2024;Hamburgo SV;RB Leipzig;0;3
+14;17/11/2024;Bayer Leverkusen;Borussia Dortmund;2;2
+14;17/11/2024;Borussia Mönchengladbach;Bayern Munich;1;3
+14;17/11/2024;Eintracht Frankfurt;1. FC Heidenheim;2;0
+14;17/11/2024;VfL Wolfsburg;FC St. Pauli;1;0
+14;17/11/2024;Union Berlin;FC Koln;1;1
+14;17/11/2024;SC Freiburg;Werder Bremen;2;1
+14;17/11/2024;VfB Stuttgart;FC Augsburg;2;0
+14;17/11/2024;TSG Hoffenheim;FSV Mainz 05;2;1
+15;24/11/2024;TSG Hoffenheim;Hamburgo SV;2;1
+15;24/11/2024;FSV Mainz 05;VfB Stuttgart;1;2
+15;24/11/2024;FC Augsburg;SC Freiburg;1;1
+15;24/11/2024;Werder Bremen;Union Berlin;1;1
+15;24/11/2024;FC Koln;VfL Wolfsburg;1;1
+15;24/11/2024;FC St. Pauli;Eintracht Frankfurt;0;2
+15;24/11/2024;1. FC Heidenheim;Borussia Mönchengladbach;0;1
+15;24/11/2024;Bayern Munich;Bayer Leverkusen;3;1
+15;24/11/2024;Borussia Dortmund;RB Leipzig;2;2
+16;01/12/2024;Hamburgo SV;Borussia Dortmund;1;3
+16;01/12/2024;RB Leipzig;Bayern Munich;1;2
+16;01/12/2024;Bayer Leverkusen;1. FC Heidenheim;3;0
+16;01/12/2024;Borussia Mönchengladbach;FC St. Pauli;2;0
+16;01/12/2024;Eintracht Frankfurt;FC Koln;2;1
+16;01/12/2024;VfL Wolfsburg;Werder Bremen;1;1
+16;01/12/2024;Union Berlin;FC Augsburg;1;0
+16;01/12/2024;SC Freiburg;FSV Mainz 05;2;0
+16;01/12/2024;VfB Stuttgart;TSG Hoffenheim;2;1
+17;08/12/2024;VfB Stuttgart;Hamburgo SV;2;1
+17;08/12/2024;TSG Hoffenheim;SC Freiburg;1;2
+17;08/12/2024;FSV Mainz 05;Union Berlin;1;1
+17;08/12/2024;FC Augsburg;VfL Wolfsburg;1;1
+17;08/12/2024;Werder Bremen;Eintracht Frankfurt;1;2
+17;08/12/2024;FC Koln;Borussia Mönchengladbach;1;1
+17;08/12/2024;FC St. Pauli;Bayer Leverkusen;0;3
+17;08/12/2024;1. FC Heidenheim;RB Leipzig;0;2
+17;08/12/2024;Bayern Munich;Borussia Dortmund;3;2
+18;15/12/2024;Hamburgo SV;Bayern Munich;0;4
+18;15/12/2024;1. FC Heidenheim;Borussia Dortmund;0;3
+18;15/12/2024;FC St. Pauli;RB Leipzig;0;2
+18;15/12/2024;FC Koln;Bayer Leverkusen;1;3
+18;15/12/2024;Werder Bremen;Borussia Mönchengladbach;1;1
+18;15/12/2024;FC Augsburg;Eintracht Frankfurt;1;2
+18;15/12/2024;FSV Mainz 05;VfL Wolfsburg;1;1
+18;15/12/2024;TSG Hoffenheim;Union Berlin;1;1
+18;15/12/2024;VfB Stuttgart;SC Freiburg;2;1
+19;22/12/2024;SC Freiburg;Hamburgo SV;2;1
+19;22/12/2024;Union Berlin;VfB Stuttgart;0;2
+19;22/12/2024;VfL Wolfsburg;TSG Hoffenheim;1;1
+19;22/12/2024;Eintracht Frankfurt;FSV Mainz 05;2;1
+19;22/12/2024;Borussia Mönchengladbach;FC Augsburg;2;1
+19;22/12/2024;Bayer Leverkusen;Werder Bremen;3;1
+19;22/12/2024;RB Leipzig;FC Koln;3;0
+19;22/12/2024;Borussia Dortmund;FC St. Pauli;3;0
+19;22/12/2024;Bayern Munich;1. FC Heidenheim;5;0
+20;29/12/2024;Hamburgo SV;1. FC Heidenheim;1;1
+20;29/12/2024;FC St. Pauli;Bayern Munich;0;5
+20;29/12/2024;FC Koln;Borussia Dortmund;1;3
+20;29/12/2024;Werder Bremen;RB Leipzig;1;3
+20;29/12/2024;FC Augsburg;Bayer Leverkusen;0;3
+20;29/12/2024;FSV Mainz 05;Borussia Mönchengladbach;1;2
+20;29/12/2024;TSG Hoffenheim;Eintracht Frankfurt;1;2
+20;29/12/2024;VfB Stuttgart;VfL Wolfsburg;2;1
+20;29/12/2024;SC Freiburg;Union Berlin;1;1
+21;05/01/2025;Union Berlin;Hamburgo SV;1;0
+21;05/01/2025;VfL Wolfsburg;SC Freiburg;1;1
+21;05/01/2025;Eintracht Frankfurt;VfB Stuttgart;1;2
+21;05/01/2025;Borussia Mönchengladbach;TSG Hoffenheim;2;1
+21;05/01/2025;Bayer Leverkusen;FSV Mainz 05;4;0
+21;05/01/2025;RB Leipzig;FC Augsburg;3;0
+21;05/01/2025;Borussia Dortmund;Werder Bremen;3;0
+21;05/01/2025;Bayern Munich;FC Koln;4;0
+21;05/01/2025;1. FC Heidenheim;FC St. Pauli;1;1
+22;12/01/2025;Hamburgo SV;FC St. Pauli;1;1
+22;12/01/2025;FC Koln;1. FC Heidenheim;1;1
+22;12/01/2025;Werder Bremen;Bayern Munich;0;5
+22;12/01/2025;FC Augsburg;Borussia Dortmund;1;2
+22;12/01/2025;FSV Mainz 05;RB Leipzig;0;2
+22;12/01/2025;TSG Hoffenheim;Bayer Leverkusen;1;3
+22;12/01/2025;VfB Stuttgart;Borussia Mönchengladbach;2;1
+22;12/01/2025;SC Freiburg;Eintracht Frankfurt;1;1
+22;12/01/2025;Union Berlin;VfL Wolfsburg;1;1
+23;19/01/2025;VfL Wolfsburg;Hamburgo SV;1;0
+23;19/01/2025;Eintracht Frankfurt;Union Berlin;2;1
+23;19/01/2025;Borussia Mönchengladbach;SC Freiburg;1;2
+23;19/01/2025;Bayer Leverkusen;VfB Stuttgart;2;2
+23;19/01/2025;RB Leipzig;TSG Hoffenheim;3;0
+23;19/01/2025;Borussia Dortmund;FSV Mainz 05;3;0
+23;19/01/2025;Bayern Munich;FC Augsburg;4;0
+23;19/01/2025;1. FC Heidenheim;Werder Bremen;1;1
+23;19/01/2025;FC St. Pauli;FC Koln;1;1
+24;26/01/2025;Hamburgo SV;FC Koln;1;2
+24;26/01/2025;Werder Bremen;FC St. Pauli;2;1
+24;26/01/2025;FC Augsburg;1. FC Heidenheim;2;1
+24;26/01/2025;FSV Mainz 05;Bayern Munich;0;5
+24;26/01/2025;TSG Hoffenheim;Borussia Dortmund;1;2
+24;26/01/2025;VfB Stuttgart;RB Leipzig;1;2
+24;26/01/2025;SC Freiburg;Bayer Leverkusen;0;2
+24;26/01/2025;Union Berlin;Borussia Mönchengladbach;1;0
+24;26/01/2025;VfL Wolfsburg;Eintracht Frankfurt;1;2
+25;02/02/2025;Eintracht Frankfurt;Hamburgo SV;2;1
+25;02/02/2025;Borussia Mönchengladbach;VfL Wolfsburg;2;1
+25;02/02/2025;Bayer Leverkusen;Union Berlin;3;0
+25;02/02/2025;RB Leipzig;SC Freiburg;2;0
+25;02/02/2025;Borussia Dortmund;VfB Stuttgart;2;2
+25;02/02/2025;Bayern Munich;TSG Hoffenheim;4;0
+25;02/02/2025;1. FC Heidenheim;FSV Mainz 05;0;1
+25;02/02/2025;FC St. Pauli;FC Augsburg;1;1
+25;02/02/2025;FC Koln;Werder Bremen;2;1
+26;09/02/2025;Hamburgo SV;Werder Bremen;1;1
+26;09/02/2025;FC Augsburg;FC Koln;1;1
+26;09/02/2025;FSV Mainz 05;FC St. Pauli;1;1
+26;09/02/2025;TSG Hoffenheim;1. FC Heidenheim;2;1
+26;09/02/2025;VfB Stuttgart;Bayern Munich;1;3
+26;09/02/2025;SC Freiburg;Borussia Dortmund;1;2
+26;09/02/2025;Union Berlin;RB Leipzig;0;2
+26;09/02/2025;VfL Wolfsburg;Bayer Leverkusen;0;3
+26;09/02/2025;Eintracht Frankfurt;Borussia Mönchengladbach;2;1
+27;16/02/2025;Borussia Mönchengladbach;Hamburgo SV;2;1
+27;16/02/2025;Bayer Leverkusen;Eintracht Frankfurt;2;1
+27;16/02/2025;RB Leipzig;VfL Wolfsburg;3;0
+27;16/02/2025;Borussia Dortmund;Union Berlin;3;0
+27;16/02/2025;Bayern Munich;SC Freiburg;4;0
+27;16/02/2025;1. FC Heidenheim;VfB Stuttgart;0;2
+27;16/02/2025;FC St. Pauli;TSG Hoffenheim;1;2
+27;16/02/2025;FC Koln;FSV Mainz 05;1;1
+27;16/02/2025;Werder Bremen;FC Augsburg;1;1
+28;23/02/2025;Hamburgo SV;FC Augsburg;1;1
+28;23/02/2025;FSV Mainz 05;Werder Bremen;1;1
+28;23/02/2025;TSG Hoffenheim;FC Koln;2;1
+28;23/02/2025;VfB Stuttgart;FC St. Pauli;2;0
+28;23/02/2025;SC Freiburg;1. FC Heidenheim;2;0
+28;23/02/2025;Union Berlin;Bayern Munich;0;4
+28;23/02/2025;VfL Wolfsburg;Borussia Dortmund;1;2
+28;23/02/2025;Eintracht Frankfurt;RB Leipzig;1;2
+28;23/02/2025;Borussia Mönchengladbach;Bayer Leverkusen;1;3
+29;02/03/2025;Bayer Leverkusen;Hamburgo SV;3;0
+29;02/03/2025;RB Leipzig;Borussia Mönchengladbach;2;1
+29;02/03/2025;Borussia Dortmund;Eintracht Frankfurt;2;1
+29;02/03/2025;Bayern Munich;VfL Wolfsburg;4;0
+29;02/03/2025;1. FC Heidenheim;Union Berlin;0;1
+29;02/03/2025;FC St. Pauli;SC Freiburg;0;2
+29;02/03/2025;FC Koln;VfB Stuttgart;1;2
+29;02/03/2025;Werder Bremen;TSG Hoffenheim;1;2
+29;02/03/2025;FC Augsburg;FSV Mainz 05;1;1
+30;03/03/2025;Hamburgo SV;FSV Mainz 05;1;1
+30;03/03/2025;TSG Hoffenheim;FC Augsburg;2;1
+30;03/03/2025;VfB Stuttgart;Werder Bremen;2;1
+30;03/03/2025;SC Freiburg;FC Koln;2;1
+30;03/03/2025;Union Berlin;FC St. Pauli;1;0
+30;03/03/2025;VfL Wolfsburg;1. FC Heidenheim;1;0
+30;03/03/2025;Eintracht Frankfurt;Bayern Munich;1;3
+30;03/03/2025;Borussia Mönchengladbach;Borussia Dortmund;1;3
+30;03/03/2025;Bayer Leverkusen;RB Leipzig;2;2
+31;16/03/2025;RB Leipzig;Hamburgo SV;3;0
+31;16/03/2025;Borussia Dortmund;Bayer Leverkusen;2;2
+31;16/03/2025;Bayern Munich;Borussia Mönchengladbach;3;1
+31;16/03/2025;1. FC Heidenheim;Eintracht Frankfurt;0;2
+31;16/03/2025;FC St. Pauli;VfL Wolfsburg;1;1
+31;16/03/2025;FC Koln;Union Berlin;1;1
+31;16/03/2025;Werder Bremen;SC Freiburg;1;1
+31;16/03/2025;FC Augsburg;VfB Stuttgart;1;2
+31;16/03/2025;FSV Mainz 05;TSG Hoffenheim;1;2
+32;23/03/2025;Hamburgo SV;TSG Hoffenheim;1;2
+32;23/03/2025;VfB Stuttgart;FSV Mainz 05;2;0
+32;23/03/2025;SC Freiburg;FC Augsburg;2;1
+32;23/03/2025;Union Berlin;Werder Bremen;1;1
+32;23/03/2025;VfL Wolfsburg;FC Koln;1;1
+32;23/03/2025;Eintracht Frankfurt;FC St. Pauli;2;0
+32;23/03/2025;Borussia Mönchengladbach;1. FC Heidenheim;2;0
+32;23/03/2025;Bayer Leverkusen;Bayern Munich;1;2
+32;23/03/2025;RB Leipzig;Borussia Dortmund;2;2
+33;30/03/2025;Borussia Dortmund;Hamburgo SV;3;0
+33;30/03/2025;Bayern Munich;RB Leipzig;2;1
+33;30/03/2025;1. FC Heidenheim;Bayer Leverkusen;0;3
+33;30/03/2025;FC St. Pauli;Borussia Mönchengladbach;0;2
+33;30/03/2025;FC Koln;Eintracht Frankfurt;1;2
+33;30/03/2025;Werder Bremen;VfL Wolfsburg;1;1
+33;30/03/2025;FC Augsburg;Union Berlin;1;1
+33;30/03/2025;FSV Mainz 05;SC Freiburg;0;1
+33;30/03/2025;TSG Hoffenheim;VfB Stuttgart;1;2
+34;06/04/2025;Hamburgo SV;VfB Stuttgart;1;2
+34;06/04/2025;SC Freiburg;TSG Hoffenheim;2;1
+34;06/04/2025;Union Berlin;FSV Mainz 05;1;0
+34;06/04/2025;VfL Wolfsburg;FC Augsburg;1;1
+34;06/04/2025;Eintracht Frankfurt;Werder Bremen;2;1
+34;06/04/2025;Borussia Mönchengladbach;FC Koln;2;1
+34;06/04/2025;Bayer Leverkusen;FC St. Pauli;3;0
+34;06/04/2025;RB Leipzig;1. FC Heidenheim;2;0
+34;06/04/2025;Borussia Dortmund;Bayern Munich;2;2

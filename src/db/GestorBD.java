@@ -116,7 +116,6 @@ public class GestorBD {
 			updateEquipos(equipos, ligas);
 			updateJugadores(jugadores, equipos);
 			updatePartidos(partidos, equipos);
-			System.out.println(partidos.getFirst().getEquipoLocal());
 			//Se insertan los equipos en la BBDD
 			this.insertarEquipos(equipos.toArray(new Equipo[equipos.size()]));
 			
@@ -771,8 +770,12 @@ public class GestorBD {
 			in.readLine();		
 			
 			while ((linea = in.readLine()) != null) {
-				String[] campos = linea.split(",");
-				Partido p = new Partido(campos[2], campos[3], Integer.parseInt(campos[4]), Integer.parseInt(campos[5]), LocalDate.parse(campos[1]), Integer.parseInt(campos[0]));
+				String[] campos = linea.split(";");
+		        String fString = campos[1];
+		        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		        LocalDate fecha = LocalDate.parse(fString, formatter);
+
+				Partido p = new Partido(campos[2], campos[3], Integer.parseInt(campos[4]), Integer.parseInt(campos[5]), fecha, Integer.parseInt(campos[0]));
 				partidos.add(p);
 			}			
 			
