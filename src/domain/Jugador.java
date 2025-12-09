@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.Objects;
+import java.util.Random;
 
 public class Jugador {
 	private static int contador = 1;
@@ -14,6 +15,15 @@ public class Jugador {
 	private String nombreEquipo;
 	private PiernaHabil piernaHabil;
 	private int altura;
+	 private int goles;
+	 private int partidosJugados;
+	    private int asistencias;
+	    private int regates;
+	    private int porteriasaCero;
+	    private int paradas;
+	    private int golesEncajados;
+	    private double valorMercado;
+
 public enum PiernaHabil{
 	IZQUIERDA,
 	DERECHA,
@@ -119,6 +129,98 @@ public String getNombreEquipo() {
 }
 public void setNombreEquipo(String nombreEquipo) {
 	this.nombreEquipo = nombreEquipo;
+}
+
+
+public int getGoles() {
+	return goles;
+}
+public void setGoles(int goles) {
+	this.goles = goles;
+}
+public int getPartidosJugados() {
+	return partidosJugados;
+}
+public void setPartidosJugados(int partidosJugados) {
+	this.partidosJugados = partidosJugados;
+}
+public int getAsistencias() {
+	return asistencias;
+}
+public void setAsistencias(int asistencias) {
+	this.asistencias = asistencias;
+}
+public int getRegates() {
+	return regates;
+}
+public void setRegates(int regates) {
+	this.regates = regates;
+}
+public int getPorteriasaCero() {
+	return porteriasaCero;
+}
+public void setPorteriasaCero(int porteriasaCero) {
+	this.porteriasaCero = porteriasaCero;
+}
+public int getParadas() {
+	return paradas;
+}
+public double getValorMercado() {
+	return valorMercado;
+}
+public void setValorMercado(double valorMercado) {
+	this.valorMercado = valorMercado;
+}
+public void setParadas(int paradas) {
+	this.paradas = paradas;
+}
+public int getGolesEncajados() {
+	return golesEncajados;
+}
+public void setGolesEncajados(int golesEncajados) {
+	this.golesEncajados = golesEncajados;
+}
+private void generarEstadisticasAleatorias() {
+    Random r = new Random();
+    
+    this.partidosJugados = r.nextInt(24) + 15; 
+
+    if (this.posicion == TipoPosicion.PORTERO) {
+        this.goles = 0; 
+        this.asistencias = 0; 
+        this.porteriasaCero = r.nextInt(this.partidosJugados);
+        this.paradas = r.nextInt(60) + 20;
+        this.golesEncajados = r.nextInt(50) + 8;
+        this.regates = 0;
+        this.valorMercado=(this.porteriasaCero*1500000 + this.paradas*100000+this.partidosJugados*50000)/(1000000);
+    } 
+    else if (this.posicion == TipoPosicion.DEFENSA) {
+
+        this.goles = r.nextInt(6);
+        this.asistencias = r.nextInt(8);
+        this.porteriasaCero = r.nextInt(this.partidosJugados);
+        this.regates = r.nextInt(10);
+        this.paradas = 0; 
+        this.golesEncajados = 0;
+        this.valorMercado=(this.porteriasaCero*1000000 +this.asistencias*1000000+this.regates*20000+ this.goles*2000000+this.partidosJugados*50000)/(1000000);
+    } 
+    else if (this.posicion == TipoPosicion.CENTROCAMPISTA) {
+ 
+        this.goles = r.nextInt(3*this.partidosJugados/2);
+        this.asistencias = r.nextInt(this.partidosJugados) + 2;
+        this.regates = r.nextInt(30) + 5;
+        this.paradas = 0;
+        this.porteriasaCero = 0;
+        this.valorMercado=(this.asistencias*1500000+this.regates*50000+ this.goles*1500000+this.partidosJugados*50000)/(1000000);
+    } 
+    else if (this.posicion == TipoPosicion.DELANTERO) {
+        this.goles = r.nextInt(2*this.partidosJugados) + 3;
+        this.asistencias = r.nextInt(12);
+        this.regates = r.nextInt(60) + 10; 
+        this.paradas = 0;
+        this.porteriasaCero = 0;
+        this.valorMercado=(this.asistencias*1000000+this.regates*50000+ this.goles*2000000+this.partidosJugados*50000)/(1000000);
+    }
 }
 @Override
 public int hashCode() {
