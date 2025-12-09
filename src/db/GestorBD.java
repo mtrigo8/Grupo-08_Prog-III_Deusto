@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
@@ -498,6 +499,21 @@ public class GestorBD {
 		}
 	}
 	
+	public void updateCalendario(TreeMap<Integer,ArrayList<Partido>>calendario,List<Partido>partidos, Liga liga) {
+		ArrayList<Partido>partidosFilt = new ArrayList<>();
+		for(Partido partido : partidos) {
+			if(partido.getEquipoLocal().getLiga().equals(liga)) {
+				partidosFilt.add(partido);
+			}
+		}
+		for(Partido partido : partidosFilt ) {
+			int jornada = partido.getJornada();
+			if(!calendario.containsKey(jornada)) {
+				calendario.put(jornada, new ArrayList<Partido>());
+			}
+			calendario.get(jornada).add(partido);
+		}
+	}
 	
 	/**
 	 * Recupera los equipos de la BBDD.

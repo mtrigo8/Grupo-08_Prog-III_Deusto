@@ -37,7 +37,10 @@ public class Main {
 
 		
 		gbd.updateEquipos(equipos, ligas);
-
+		List<Partido> partidos = new ArrayList<Partido>();
+		partidos = gbd.getPartidos();
+		gbd.updatePartidos(partidos, equipos);
+		
 
 		// GUI
 		JFrameInicio jfi = new JFrameInicio((ArrayList<Liga>) ligas);
@@ -45,32 +48,8 @@ public class Main {
 		
 		// Generar calendario
 		for (Liga liga : ligas) {
-			int partidosMax = liga.getNumeroEquipos()*2-2;
-			int partidosMaxVuelta = partidosMax/2;
-			int partidosPorJ = liga.getNumeroEquipos()/2;
 			TreeMap<Integer, ArrayList<Partido>> calendario = new TreeMap<Integer, ArrayList<Partido>>();
-				ArrayList<ArrayList<Equipo>>emparejamientos = generarEmparejamientos(liga);
-				ArrayList<Partido> jornada = new ArrayList<Partido>();
-				Partido primerPartido = new Partido(emparejamientos.get(0).get(0), emparejamientos.get(0).get(1), 0, 0, LocalDate.now(), 1 );
-				jornada.add(primerPartido);
-				for(ArrayList<Equipo>emparejamiento : emparejamientos){
-					introducirPartido(calendario, emparejamiento,partidosPorJ,partidosMaxVuelta);
-					
-				}
-				int numJornadasIda = calendario.size();
-
-			    for (int jornadaIda = 1; jornadaIda <= numJornadasIda; jornadaIda++) {
-			        int jornadaVuelta = jornadaIda + numJornadasIda;
-			             ArrayList<Partido> partidosIda = calendario.get(jornadaIda);
-			             ArrayList<Partido> partidosVuelta = new ArrayList<>();
-			             for (Partido pIda : partidosIda) {
-			                 Partido pVuelta = new Partido(pIda.getEquipoVisitante(), pIda.getEquipoLocal(), 0, 0, LocalDate.now(), jornadaVuelta);
-			                 partidosVuelta.add(pVuelta);
-			             }
-			             calendario.put(jornadaVuelta, partidosVuelta);
-			        
-			    }
-			
+			gbd.updateCalendario(calendario, partidos, liga);	
 			liga.setCalendario(calendario);
 		}
 		for (Liga liga : ligas) {
