@@ -35,7 +35,9 @@ public class Main {
 		List<Equipo> equipos = new ArrayList<Equipo>();
 		equipos = gbd.getEquipos();
 
+		List<Jugador> jugadores = gbd.cargarJugadores();
 		
+		gbd.emparejarJugadoresYEquipos(jugadores, equipos);
 		gbd.updateEquipos(equipos, ligas);
 		List<Partido> partidos = new ArrayList<Partido>();
 		partidos = gbd.getPartidos();
@@ -105,6 +107,7 @@ public class Main {
              }
          }
 	}
+	
 	public static void introducirPartido(TreeMap<Integer, ArrayList<Partido>> calendario, ArrayList<Equipo> emparejamiento, int partidosPorJornada, int maxJornadasIda) {
 	    Equipo equipo1 = emparejamiento.get(0);
 	    Equipo equipo2 = emparejamiento.get(1);

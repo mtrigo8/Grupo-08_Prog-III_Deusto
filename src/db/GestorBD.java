@@ -184,14 +184,25 @@ public class GestorBD {
                     "puntuacion INTEGER DEFAULT 0" +
                     ");";
 			String sql7 = "CREATE TABLE IF NOT EXISTS Jugador (\n"
-					+ "cod_jugador INTEGER UNIQUE PRIMARY KEY AUTOINCREMENT,\n"
-					+ "nom_jugador TEXT NOT NULL,\n"
-					+ "num_camiseta INTEGER NOT NULL,\n"
-					+ "posicion TEXT NOT NULL, \n"
-					+ "nacionalidad TEXT NOT NULL,\n"
-					+ "edad TEXT NOT NULL,\n"
-					+ "equipo TEXT NOT NULL,\n"
-					+ "FOREIGN KEY (equipo) REFERENCES Equipo(nombre) ON DELETE CASCADE);";
+			        + "cod_jugador INTEGER UNIQUE PRIMARY KEY AUTOINCREMENT,\n"
+			        + "nom_jugador TEXT NOT NULL,\n"
+			        + "num_camiseta INTEGER NOT NULL,\n"
+			        + "posicion TEXT NOT NULL,\n"
+			        + "nacionalidad TEXT NOT NULL,\n"
+			        + "edad INTEGER NOT NULL,\n"
+			        + "nombre_equipo TEXT NOT NULL,\n"
+			        + "pierna_habil TEXT NOT NULL,\n"
+			        + "altura INTEGER NOT NULL,\n"
+			        + "goles INTEGER NOT NULL,\n"
+			        + "partidos_jugados INTEGER NOT NULL,\n"
+			        + "asistencias INTEGER NOT NULL,\n"
+			        + "regates INTEGER NOT NULL,\n"
+			        + "porterias_acero INTEGER NOT NULL,\n"
+			        + "paradas INTEGER NOT NULL,\n"
+			        + "goles_encajados INTEGER NOT NULL,\n"
+			        + "valor_mercado REAL NOT NULL,\n"
+			        + "FOREIGN KEY (nombre_equipo) REFERENCES Equipo(nombre) ON DELETE CASCADE);";
+
 			String sql8 = "CREATE TABLE IF NOT EXISTS partido (\n"
 				    + "idpartido INTEGER UNIQUE PRIMARY KEY AUTOINCREMENT,\n"
 				    + "equipoL TEXT NOT NULL,\n"
@@ -615,9 +626,9 @@ public class GestorBD {
 			//Se cierra el ResultSet
 			rs.close();
 			
-			logger.info(String.format("Se han recuperado %d comics", ligas.size()));			
+			logger.info(String.format("Se han recuperado %d ligas", ligas.size()));			
 		} catch (Exception ex) {
-			logger.warning(String.format("Error recuperar los comics: %s", ex.getMessage()));						
+			logger.warning(String.format("Error al recuperar las ligas: %s", ex.getMessage()));						
 		}		
 		
 		return ligas;
@@ -648,9 +659,9 @@ public class GestorBD {
 			//Se cierra el ResultSet
 			rs.close();
 			}
-			logger.info(String.format("Se ha recuperado el comic %s", liga));			
+			logger.info(String.format("Se ha recuperado la liga %s", liga));			
 		} catch (Exception ex) {
-			logger.warning(String.format("Error recuperar el comic con nombre %s: %s", nombre, ex.getMessage()));						
+			logger.warning(String.format("Error recuperar la liga con nombre %s: %s", nombre, ex.getMessage()));						
 		}		
 		
 		return liga;
@@ -692,13 +703,67 @@ public class GestorBD {
 			//Se cierra el ResultSet
 			rs.close();
 			
-			logger.info(String.format("Se han recuperado %d personajes.", partidos.size()));			
+			logger.info(String.format("Se han recuperado %d partidos.", partidos.size()));			
 		} catch (Exception ex) {
-			logger.warning(String.format("Error recuperar los personajes: %s", ex.getMessage()));						
+			logger.warning(String.format("Error recuperar los partidos: %s", ex.getMessage()));						
 		}		
 		
 		return partidos;
 	}
+	public List<Jugador> cargarJugadores (){
+		List<Jugador> jugadores = new ArrayList<Jugador>();
+		String sql = "SELECT * FROM Jugador";
+		try (Connection con = DriverManager.getConnection(connectionString);
+			PreparedStatement pStmt = con.prepareStatement(sql)){
+			
+			ResultSet rs = pStmt.executeQuery();
+			Jugador jugador;
+			
+			while(rs.next()) {
+				jugador = new Jugador(rs.getString("nom_jugador"), 
+									  rs.getInt("num_camiseta"),
+									  rs.getString("posicion"),
+									  rs.getString("nacionalidad"),
+									  rs.getInt("edad"),
+									  rs.getString("equipo"),
+									  rs.getString("pierna_habil"),
+									  rs.getInt("altura"), 
+									  rs.getInt("goles"),
+									  rs.getInt("partidos_jugados"),
+									  rs.getInt("asistencias"),
+									  rs.getInt("regates"), 
+									  rs.getInt("porteria_acero"),
+									  rs.getInt("paradas"),
+									  rs.getInt("goles_encajados"),
+									  rs.getDouble("valor_mercado"));
+				System.out.println(jugador);
+				jugadores.add(jugador);
+			}
+			rs.close();
+			logger.info(String.format("Se han recuperado %d jugadores", jugadores.size()));
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			logger.warning(String.format("Error al recuperar los jugadores: %s", e.getMessage()));
+		}
+		
+		return jugadores;
+	}
+	public void emparejarJugadoresYEquipos (List<Jugador> jugadores, List<Equipo> equipos) {
+		
+		for (Jugador j : jugadores) {
+			for (Equipo e : equipos) {
+				if (j.getNombreEquipo().equals(e.getNombre())) {
+					j.setEquipo(e);
+					if (!e.getJugadores().containsKey(j.getPosicion())) {
+						e.getJugadores().put(j.getPosicion(), new ArrayList<Jugador>());
+					}
+					e.getJugadores().get(j.getPosicion()).add(j);
+				}
+			}
+		}
+		
+	};
 	
 	public List<Equipo> loadCSVEquipos() {
 		List<Equipo> equipos = new ArrayList<>();
@@ -932,7 +997,7 @@ public class GestorBD {
 			} catch (Exception e) {
 				System.err.println("Error al seleccionar la pregunta de la base de datos: " +e.getMessage());
 			}
-			
+			logger.info("La pregunta: "+pregAleatoria.getPregunta() + "a sido añadida correctamente en el quiz.");
 			return pregAleatoria;
 		}
 		public List<Opcion> cargarOpcionesDePregunta (Pregunta pregunta){
@@ -956,6 +1021,7 @@ public class GestorBD {
 			} catch (Exception e) {
 				System.err.println("Error al cargar opciones de la pregunta: " + e.getMessage());
 			}
+			logger.info("Se han cargado correctamente " + opciones.size() + " opciones.");
 			return opciones;
 		}
 		public void insertarUsuario (Usuario usuario) {

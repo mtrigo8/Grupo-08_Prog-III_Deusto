@@ -9,20 +9,21 @@ public class Jugador {
 	private int numeroCamiseta;
 	private TipoPosicion posicion;
 	private Equipo equipo;
+	private String stringNombreEquipo;
 	private String nacionalidad;
 	private int edad;
 	private int cod_jugador;
 	private String nombreEquipo;
 	private PiernaHabil piernaHabil;
 	private int altura;
-	 private int goles;
-	 private int partidosJugados;
-	    private int asistencias;
-	    private int regates;
-	    private int porteriasaCero;
-	    private int paradas;
-	    private int golesEncajados;
-	    private double valorMercado;
+	private int goles;
+	private int partidosJugados;
+	private int asistencias;
+    private int regates;
+    private int porteriasaCero;
+	private int paradas;
+    private int golesEncajados;
+    private double valorMercado;
 
 public enum PiernaHabil{
 	IZQUIERDA,
@@ -60,7 +61,30 @@ public Jugador(String nombre, int numeroCamiseta, TipoPosicion posicion, String 
 	
 	}
 
+public Jugador(String nom_jugador, int num_camiseta, String posicion,
+        String nacionalidad, int edad, String equipo, String pierna_habil,
+        int altura, int goles, int partidos_jugados, int asistencias,
+        int regates, int porterias_acero, int paradas, int goles_encajados,
+        double valor_mercado) {
 
+	
+	this.nombre = nom_jugador;
+	this.numeroCamiseta = num_camiseta;
+	this.posicion =TipoPosicion.valueOf(posicion);
+	this.nacionalidad = nacionalidad;
+	this.edad = edad;
+	this.stringNombreEquipo = equipo;
+	this.piernaHabil = PiernaHabil.valueOf(pierna_habil);
+	this.altura = altura;
+	this.goles = goles;
+	this.partidosJugados = partidos_jugados;
+	this.asistencias = asistencias;
+	this.regates = regates;
+	this.porteriasaCero = porterias_acero;
+	this.paradas = paradas;
+	this.golesEncajados = goles_encajados;
+	this.valorMercado = valor_mercado;
+}
 
 public int getCod_jugador() {
 	return cod_jugador;
