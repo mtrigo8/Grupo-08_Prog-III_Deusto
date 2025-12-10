@@ -54,17 +54,11 @@ public class JFrameListaEquipos extends JFramePadre {
 	private JTable tablaEquipos;
 	private DefaultTableModel modeloDatosEquipos;
 	// private JButton botonEquipo; // Eliminado
-	private Random random= new Random();
 
-	// Definición de Colores y Fuentes de Estilo Web Moderno
-	private static final Color COLOR_PRIMARIO = new Color(0, 123, 255); // Azul Bootstrap / Moderno
-	private static final Color COLOR_FONDO_PRINCIPAL = new Color(248, 249, 250); // Gris muy claro (Web Background)
-	private static final Color COLOR_CABECERA = new Color(52, 58, 64); // Gris oscuro para headers
 	private static final Color COLOR_BORDE_TABLA = new Color(222, 226, 230); // Gris claro para bordes
 	private static final Color COLOR_HOVER_FILA = new Color(220, 235, 255); // Azul claro al pasar el ratón
 	private static final Color COLOR_TEXTO_ENLACE = new Color(0, 86, 179); // Azul para el texto interactivo
 	private static final Font FONT_TITULO = new Font("Arial", Font.BOLD, 28);
-	private static final Font FONT_SUBTITULO = new Font("Arial", Font.PLAIN, 14);
 	private static final Font FONT_NOMBRE_EQUIPO = new Font("Arial", Font.BOLD, 15);
     
     
@@ -420,8 +414,8 @@ public class JFrameListaEquipos extends JFramePadre {
 			
 			if (equipoSeleccionado != null) {
 				dispose();
-				// JFrameEquipo jfe = new JFrameEquipo(equipoSeleccionado, JFrameListaEquipos.this);
-				// jfe.setVisible(true);
+				JFrameEquipo jfe = new JFrameEquipo(equipoSeleccionado, JFrameListaEquipos.this);
+				jfe.setVisible(true);
 				System.out.println("Abriendo ventana de equipo para: " + equipoSeleccionado.getNombre());
 			} else {
 				System.err.println("Error: No se encontró el objeto Equipo para el nombre: " + nombreEquipo);

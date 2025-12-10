@@ -225,7 +225,6 @@ public class JFrameEquipo extends JFramePadre{
 				result.setOpaque(true);
 				result.setHorizontalAlignment(SwingConstants.CENTER);
 				//Alternar color por columnas
-				Color colorFondo;
 				if (row % 2 == 0) {
 					result.setBackground(colorFondoTabla);
 					result.setForeground(colorTextoTabla);
