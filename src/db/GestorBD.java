@@ -51,7 +51,8 @@ public class GestorBD {
 	private final String CSV_EQUIPOS = "resources/data/equipos.csv";
 	private final String CSV_LIGAS = "resources/data/ligas.csv";
 	private String PREGUNTAS_CSV = "resources/data/preguntas.csv";
-	private String OPCIONES_CSV = "resources/data/opciones.csv"; 
+	private String OPCIONES_CSV = "resources/data/opciones.csv";
+	private String USUARIOS_CSV = "resources/data/usuarios.csv"; 
 	
 	
 	private Properties properties;
@@ -111,6 +112,7 @@ public class GestorBD {
 			List<Liga> ligas = this.loadCVSLigas();	
 			List<Jugador> jugadores = this.loadCVSJugadores();
 			List<Partido> partidos = this.loadCVSPartidos();
+			List<Usuario>usuarios = this.loadCSVUsuarios();
 			//lambda expression: enlaza los personajes con los comics porque al leer los
 			//comics sólo se recuperan los nombres de los personajes y faltan el resto de
 			//datos.
@@ -142,6 +144,10 @@ public class GestorBD {
 			this.insertarPartidos(partidos.toArray(new Partido[partidos.size()]));
 			//Insertar Jugadores
 			this.insertarJugadores(jugadores.toArray(new Jugador[jugadores.size()]));
+			//Insertar Usuarios
+			for(Usuario usuario: usuarios) {
+				this.insertarUsuario(usuario);
+			}
 		}
 	}
 
@@ -1078,6 +1084,41 @@ public class GestorBD {
 		    }
 		    return clasificacion;
 		}
+		
+		public void storeCSVUsuario(Usuario usuario) {
+			if (usuario != null) {
+				try (PrintWriter out = new PrintWriter(new File(USUARIOS_CSV))) {
+					out.println("NOMBRE;PUNTUACION");
+					out.println(usuario.getNombre() + ";" + usuario.getPuntuacion());			
+					logger.info("Se han guardado los usuarios en un CSV.");
+				} catch (Exception ex) {
+					logger.warning(String.format("Error guardando usuarios en el CSV: %s", ex.getMessage()));
+				}
+			}
+		}
+		public List<Usuario> loadCSVUsuarios() {
+			List<Usuario> usuarios = new ArrayList<>();
+			
+			try (BufferedReader in = new BufferedReader(new FileReader(USUARIOS_CSV))) {
+				String linea = null;
+				//Omitir la cabecera
+				in.readLine();		
+				
+				while ((linea = in.readLine()) != null) {
+					String[] campos = linea.split(";");
+					Usuario usuario = new Usuario(campos[0], Integer.parseInt(campos[1]));
+					usuarios.add(usuario);
+				}			
+				
+			} catch (Exception ex) {
+				logger.warning(String.format("Error leyendo usuarios del CSV: %s", ex.getMessage()));
+			}
+			
+			return usuarios;
+		}
+		
+		
+		
 		
 		private String getIdsExcluidos (Set<Pregunta> preguntasMostradas) {
 			//Si las preguntas mostradas son null o esta vacio el set no hay preguntas 

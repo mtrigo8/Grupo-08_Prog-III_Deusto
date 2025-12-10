@@ -426,6 +426,7 @@ public class JFrameQuiz extends JFramePadre{
             
             // 2. Llamar al método del GestorBD
             JFrameQuiz.this.GBD.insertarUsuario(usuario);
+            JFrameQuiz.this.GBD.storeCSVUsuario(usuario);
             JOptionPane.showMessageDialog(JFrameQuiz.this, "Puntuación guardada con éxito.");
             
         } catch (Exception e) {
