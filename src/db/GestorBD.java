@@ -29,6 +29,7 @@ import java.util.logging.Logger;
 
 import domain.Equipo;
 import domain.Jugador;
+import domain.Jugador.PiernaHabil;
 import domain.Jugador.TipoPosicion;
 import domain.Liga;
 import domain.Opcion;
@@ -114,8 +115,10 @@ public class GestorBD {
 			//comics sólo se recuperan los nombres de los personajes y faltan el resto de
 			//datos.
 			updateEquipos(equipos, ligas);
+			//emparejarJugadoresYEquipos(jugadores, equipos);
 			updateJugadores(jugadores, equipos);
 			updatePartidos(partidos, equipos);
+			
 			//Se insertan los equipos en la BBDD
 			this.insertarEquipos(equipos.toArray(new Equipo[equipos.size()]));
 			
@@ -137,6 +140,8 @@ public class GestorBD {
 			this.insertarOpciones(opciones.toArray(new Opcion[opciones.size()]));
 			//Insertar partidos
 			this.insertarPartidos(partidos.toArray(new Partido[partidos.size()]));
+			//Insertar Jugadores
+			this.insertarJugadores(jugadores.toArray(new Jugador[jugadores.size()]));
 		}
 	}
 
@@ -398,7 +403,9 @@ public class GestorBD {
 	 */
 	public void insertarJugadores(Jugador... jugadores) {
 		//Se define la plantilla de la sentencia SQL
-		String sql = "INSERT INTO Jugador (cod_jugador, nom_jugador, num_camiseta, posicion, nacionalidad, edad, equipo) VALUES (?, ?, ?, ?, ?, ?, ?);";
+		String sql = "INSERT INTO Jugador (cod_jugador, nom_jugador, num_camiseta, posicion, nacionalidad, edad, nombre_equipo, "
+				+ "pierna_habil, altura, goles, partidos_jugados, asistencias, regates, porterias_acero, "
+				+ "paradas, goles_encajados, valor_mercado) VALUES (?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?);";
 		
 		//Se abre la conexión y se crea el PreparedStatement con la sentencia SQL
 		try (Connection con = DriverManager.getConnection(connectionString);
@@ -413,7 +420,17 @@ public class GestorBD {
 				pStmt.setString(4, j.getPosicion().toString());
 				pStmt.setString(5, j.getNacionalidad());
 				pStmt.setInt(6, j.getEdad());
-				pStmt.setString(7, j.getEquipo().toString());
+				pStmt.setString(7, j.getNombreEquipo());
+				pStmt.setString(8, j.getPiernaHabil().toString());
+				pStmt.setInt(9, j.getAltura());
+				pStmt.setInt(10, j.getGoles());
+				pStmt.setInt(11, j.getPartidosJugados());
+				pStmt.setInt(12,j.getAsistencias());
+				pStmt.setInt(13, j.getRegates());
+				pStmt.setInt(14, j.getPorteriasaCero());
+				pStmt.setInt(15, j.getParadas());
+				pStmt.setInt(16, j.getGolesEncajados());
+				pStmt.setDouble(17, j.getValorMercado());
 				
 				if (pStmt.executeUpdate() != 1) {					
 					logger.warning(String.format("No se ha insertado el jugador: %s", j));
@@ -424,7 +441,7 @@ public class GestorBD {
 			
 			logger.info(String.format("%d equipos insertados en la BBDD", jugadores.length));
 		} catch (Exception ex) {
-			logger.warning(String.format("Error al insertar ligas: %s", ex.getMessage()));
+			logger.warning(String.format("Error al insertar jugadores: %s", ex.getMessage()));
 		}			
 	}
 	
@@ -725,14 +742,14 @@ public class GestorBD {
 									  rs.getString("posicion"),
 									  rs.getString("nacionalidad"),
 									  rs.getInt("edad"),
-									  rs.getString("equipo"),
+									  rs.getString("nombre_equipo"),
 									  rs.getString("pierna_habil"),
 									  rs.getInt("altura"), 
 									  rs.getInt("goles"),
 									  rs.getInt("partidos_jugados"),
 									  rs.getInt("asistencias"),
 									  rs.getInt("regates"), 
-									  rs.getInt("porteria_acero"),
+									  rs.getInt("porterias_acero"),
 									  rs.getInt("paradas"),
 									  rs.getInt("goles_encajados"),
 									  rs.getDouble("valor_mercado"));
@@ -817,7 +834,10 @@ public class GestorBD {
 			
 			while ((linea = in.readLine()) != null) {
 				String[] campos = linea.split(";");
-				Jugador j = new Jugador(campos[0], Integer.parseInt(campos[1]), TipoPosicion.valueOf(campos[2]), campos[3], Integer.parseInt(campos[4]), campos[5]);
+				Jugador j = new Jugador(campos[0], Integer.parseInt(campos[1]), campos[2], campos[3], Integer.parseInt(campos[4]), campos[5], 
+										campos[6], Integer.parseInt(campos[7]), Integer.parseInt(campos[8]), Integer.parseInt(campos[9]),
+										Integer.parseInt(campos[10]), Integer.parseInt(campos[11]), Integer.parseInt(campos[12]),
+										Integer.parseInt(campos[13]), Integer.parseInt(campos[14]), Double.parseDouble(campos[15]));
 				jugadores.add(j);
 			}			
 			

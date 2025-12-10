@@ -36,8 +36,8 @@ public class Main {
 		equipos = gbd.getEquipos();
 
 		List<Jugador> jugadores = gbd.cargarJugadores();
-		
-		gbd.emparejarJugadoresYEquipos(jugadores, equipos);
+		gbd.updateJugadores(jugadores, equipos);
+		//gbd.emparejarJugadoresYEquipos(jugadores, equipos);
 		gbd.updateEquipos(equipos, ligas);
 		List<Partido> partidos = new ArrayList<Partido>();
 		partidos = gbd.getPartidos();
@@ -57,19 +57,6 @@ public class Main {
 							partido.actualizarGoles();
 						}
 					}	
-				}
-				for (Liga liga : ligas) {
-					for (Equipo equipo : liga.getEquipos()) {
-						int dorsal = 1;
-						for (int i = 0; i < 4; i++) {
-							for (TipoPosicion posicion : TipoPosicion.values()) {
-								Jugador j = new Jugador("Nombre Apellido", dorsal, posicion, equipo, "Nacionalidad", 20);
-								dorsal++;
-								equipo.anyadirJugador(j);
-							}
-						}
-					}
-					
 				}
 		
 		// GUI

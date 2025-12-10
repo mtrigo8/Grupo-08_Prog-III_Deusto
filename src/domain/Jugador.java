@@ -28,6 +28,7 @@ public class Jugador {
 public enum PiernaHabil{
 	IZQUIERDA,
 	DERECHA,
+	AMBIDIESTRO
 }
 public enum TipoPosicion {
 	PORTERO, 
@@ -73,7 +74,7 @@ public Jugador(String nom_jugador, int num_camiseta, String posicion,
 	this.posicion =TipoPosicion.valueOf(posicion);
 	this.nacionalidad = nacionalidad;
 	this.edad = edad;
-	this.stringNombreEquipo = equipo;
+	this.nombreEquipo = equipo;
 	this.piernaHabil = PiernaHabil.valueOf(pierna_habil);
 	this.altura = altura;
 	this.goles = goles;
@@ -84,6 +85,8 @@ public Jugador(String nom_jugador, int num_camiseta, String posicion,
 	this.paradas = paradas;
 	this.golesEncajados = goles_encajados;
 	this.valorMercado = valor_mercado;
+	this.cod_jugador = contador;
+	contador ++;
 }
 
 public int getCod_jugador() {
