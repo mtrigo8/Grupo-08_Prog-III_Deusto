@@ -254,25 +254,41 @@ public class JFrameQuiz extends JFramePadre{
 		//Reiniciar el Set de preguntas usadas
 		preguntasUsadas = new HashSet<Pregunta>();
 		//Crear la estructura base del Quiz (Paneles contenedores)
-		panelTiempoYPuntos = new JPanel(new GridLayout(1, 2, 15, 15));
+		panelTiempoYPuntos = new JPanel(new GridLayout(1, 3, 10, 10));
 		panelPreguntaYRespuesta = new JPanel(new GridLayout(2, 1, 10, 30));
 		
 		//Añadir el panel del tiempo
 		tiempo = new JPanel();
 		lblTiempo = new JLabel();
+		lblTiempo.setFont(new Font("SansSerif", Font.BOLD, 14));
+	    tiempo.setBackground(Color.WHITE);
 		tiempo.add(lblTiempo);
 		panelTiempoYPuntos.add(tiempo);
 		//Añadir panel de puntos
 		panelPuntuacion = new JPanel(new FlowLayout());
-		panelPuntuacion.add(new JLabel  ("PUNTUACION: "));
-		
+		JLabel lblTituloPuntos = new JLabel("PUNTOS: ");
+	    lblTituloPuntos.setFont(new Font("SansSerif", Font.BOLD, 14));
+	    panelPuntuacion.add(lblTituloPuntos);
 		lblPuntuacion = new JLabel("0");
+		lblPuntuacion.setFont(new Font("SansSerif", Font.BOLD, 16));
+	    lblPuntuacion.setForeground(new Color(34, 139, 34));
 		panelPuntuacion.add(lblPuntuacion);
 		
 		panelTiempoYPuntos.add(panelPuntuacion);
-		
+		JPanel panelBotonSalir = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+	    panelBotonSalir.setBackground(Color.WHITE);
+	    JButton btnSalirQuiz = new BotonCircular("Salir", new Color(255, 100, 100), new Color(200, 50, 50));
+	    btnSalirQuiz.setForeground(Color.WHITE);
+	    btnSalirQuiz.setPreferredSize(new Dimension(80, 40));
+	    btnSalirQuiz.setFont(new Font("SansSerif", Font.BOLD, 12));
+	    btnSalirQuiz.addActionListener(e -> {
+	        salirDelQuiz();
+	    });
+	    
+		panelBotonSalir.add(btnSalirQuiz);
+	    panelTiempoYPuntos.add(panelBotonSalir);
+	    panelTiempoYPuntos.setBackground(Color.WHITE);
 		panelQuiz.add(panelTiempoYPuntos, BorderLayout.NORTH);
-		
 		//Crear el panel de la pregunta
 		panelPregunta = new JPanel();
 		panelPregunta.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -285,13 +301,38 @@ public class JFrameQuiz extends JFramePadre{
 		
 		
 		
-		panelPreguntaYRespuesta.add(panelRespuestas, pregunta);
-		
-		panelQuiz.add(panelPreguntaYRespuesta);
+		panelPreguntaYRespuesta.add(panelRespuestas);
+		panelQuiz.add(panelPreguntaYRespuesta, BorderLayout.CENTER);
 		
 		this.añadirPregunta();
+		panelQuiz.revalidate();
+	    panelQuiz.repaint();
 	}
-	
+	private void salirDelQuiz() {
+	    int confirmar = JOptionPane.showConfirmDialog(
+	        this, 
+	        "¿Seguro que quieres abandonar el Quiz actual?", 
+	        "Salir del Quiz", 
+	        JOptionPane.YES_NO_OPTION,
+	        JOptionPane.WARNING_MESSAGE
+	    );
+
+	    if (confirmar == JOptionPane.YES_OPTION) {
+	        // Parar el hilo del tiempo
+	        if (contadorQuiz != null && contadorQuiz.isAlive()) {
+	            contadorQuiz.interrupt();
+	        }
+
+	        if (delayTimer != null && delayTimer.isRunning()) {
+	            delayTimer.stop();
+	        }
+
+	        componentesPanelInicio();
+
+	        panelQuiz.revalidate();
+	        panelQuiz.repaint();
+	    }
+	}
 	private void añadirPregunta () {
 		// Cargar la pregunta de la BBDD
 		this.pregunta = GBD.cargarPreguntaAleatoria(preguntasUsadas);
