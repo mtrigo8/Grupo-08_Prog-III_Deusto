@@ -9,6 +9,8 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.RenderingHints;
@@ -37,6 +39,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -46,6 +49,7 @@ import db.GestorBD;
 import domain.Liga;
 import domain.Opcion;
 import domain.Pregunta;
+import domain.Pregunta.Dificultad;
 import domain.Usuario;
 
 
@@ -83,6 +87,11 @@ public class JFrameQuiz extends JFramePadre{
 	private GestorBD GBD;
 	private Clip clip;
 	private boolean respondido=false;
+	//Thead tiempo por pregunta
+	private int TIEMPO_MAX_RESPUESTA = 10; //10 segundos
+	private JProgressBar barraTiempo;
+	
+	
 	public JFrameQuiz (ArrayList<Liga> ligas, JFramePadre frameP) {
 		super();
 		super.framePrevio = frameP;
@@ -119,7 +128,10 @@ public class JFrameQuiz extends JFramePadre{
         int x = (1000 - panelWidth) / 2;
         int y = (600 - panelHeight) / 2;
         panelQuiz.setBounds(x, y, panelWidth, panelHeight);
-        
+     //Crear la barra de progreso
+        barraTiempo = new JProgressBar(0, 100);
+        barraTiempo.setValue(0);
+        barraTiempo.setStringPainted(true);
         componentesPanelInicio();
         musica("resources/audios/The_Shire.wav");
         
@@ -274,7 +286,7 @@ public class JFrameQuiz extends JFramePadre{
 		panelQuiz.add(panelTiempoYPuntos, BorderLayout.NORTH);
 		
 		//Crear el panel de la pregunta
-		panelPregunta = new JPanel();
+		panelPregunta = new JPanel(new GridBagLayout());
 		panelPregunta.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		panelPreguntaYRespuesta.add(panelPregunta);
 		panelPregunta.setBackground(Color.WHITE);
@@ -299,7 +311,11 @@ public class JFrameQuiz extends JFramePadre{
 			//Añadir la pregunta a las preguntas usadas
 			this.preguntasUsadas.add(pregunta);
 			//Se añade el la pregunta al panel
-			panelPregunta.add(new JLabel(pregunta.getPregunta()));
+			JLabel lblPregunta = new JLabel(pregunta.getPregunta());
+			
+			panelPregunta.add(lblPregunta);
+			
+			
 			//Llama a la funcion para cargar las opciones
 			this.añadirRespuestas();
 		} catch (Exception e) {
@@ -320,7 +336,7 @@ public class JFrameQuiz extends JFramePadre{
 	    	
 	        Opcion opcion = opciones.get(i);
 	        //Crea un lbl con el contenido de cada opcion
-	        JLabel lblOpcion = new JLabel(opcion.getTexto_opcion());
+	        JLabel lblOpcion = new JLabel(opcion.getTexto_opcion(), SwingConstants.CENTER);
 	        labelOpciones.add(lblOpcion);
 	        //Conseguir la opcion correcta de la pregunta
 	        if (opcion.getEs_correcta() == 1) {
@@ -366,7 +382,8 @@ public class JFrameQuiz extends JFramePadre{
 	    respondido =true;
 	    if (opcionSeleccionada.getEs_correcta() == 1) {
 	        pintarOpcionCorrecta(opcionSeleccionada);
-	        puntuacion += 1;
+	        puntuacion += calcularPuntuacion(pregunta.getDificultad());
+	        System.out.println(pregunta.getDificultad());
 	        lblPuntuacion.setText("" + puntuacion);
 	        
 	    } else {
@@ -561,6 +578,11 @@ public class JFrameQuiz extends JFramePadre{
     }
 	
 }
+	private int calcularPuntuacion(Dificultad d) {
+		puntuacion = d.getPuntuacionMaxima();
+		return puntuacion;
+	}
+	Thread contador;
 	
 }
 	

@@ -759,7 +759,6 @@ public class GestorBD {
 									  rs.getInt("paradas"),
 									  rs.getInt("goles_encajados"),
 									  rs.getDouble("valor_mercado"));
-				System.out.println(jugador);
 				jugadores.add(jugador);
 			}
 			rs.close();

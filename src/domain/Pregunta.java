@@ -5,9 +5,19 @@ import java.util.Objects;
 public class Pregunta {
 	
 	public enum Dificultad {
-        FACIL,
-        MEDIA,
-        DIFICIL
+		FACIL(150),
+	    MEDIA(200),
+	    DIFICIL(300);
+	    
+	    private final int puntuacionMaxima;
+	    	
+	    Dificultad(int puntuacionMaxima) {
+	        this.puntuacionMaxima = puntuacionMaxima;
+	    }
+	
+	    public int getPuntuacionMaxima() {
+	        return puntuacionMaxima;
+	    }
     }
 	private int codigo;
 	private String pregunta;
