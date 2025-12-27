@@ -272,7 +272,7 @@ public class JFrameCalendario extends JFramePadre {
 		
 	}
 			
-	public void cargarCalendario () {
+	private void cargarCalendario () {
 		mDatTab.setRowCount(0);
 		for (int j : this.liga.getCalendario().keySet()) {
 			ArrayList<Partido> jornada = liga.getCalendario().get(j);
@@ -283,7 +283,7 @@ public class JFrameCalendario extends JFramePadre {
 		}
 		
 	}
-	public void cargarCalendarioFiltro(int jornadaSeleccionada) {
+	private void cargarCalendarioFiltro(int jornadaSeleccionada) {
 		mDatTab.setRowCount(0);
 		if (jornadaSeleccionada == 0) {
 			cargarCalendario();
@@ -294,7 +294,7 @@ public class JFrameCalendario extends JFramePadre {
 						String.valueOf(p.getGolesLocal())+" - "+ String.valueOf(p.getGolesVisitante())}));
 		}
 		}
-	public void cargarEscudos () {
+	private void cargarEscudos () {
 		mapaEscudos = new HashMap<String, ImageIcon>();
 		for (Equipo e : liga.getEquipos()) {
 			ImageIcon escudo = new ImageIcon("resources/images/equipos/"+liga.getNombre()+"/"+e.getNombrePNGEquipo()+".png");

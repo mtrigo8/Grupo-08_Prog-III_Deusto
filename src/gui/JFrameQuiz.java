@@ -83,6 +83,7 @@ public class JFrameQuiz extends JFramePadre{
 	private List<Opcion> opciones;
 	private List<JLabel> labelOpciones;
 	private Opcion opcionCorrecta;
+	private int tiempoRespuesta;
 	//Gestor de base de datos
 	private GestorBD GBD;
 	private Clip clip;
@@ -90,6 +91,8 @@ public class JFrameQuiz extends JFramePadre{
 	//Thead tiempo por pregunta
 	private int TIEMPO_MAX_RESPUESTA = 10; //10 segundos
 	private JProgressBar barraTiempo;
+	private Contador contador;
+	private Long tiempoInicio;
 	
 	
 	public JFrameQuiz (ArrayList<Liga> ligas, JFramePadre frameP) {
@@ -286,7 +289,7 @@ public class JFrameQuiz extends JFramePadre{
 		panelQuiz.add(panelTiempoYPuntos, BorderLayout.NORTH);
 		
 		//Crear el panel de la pregunta
-		panelPregunta = new JPanel(new GridBagLayout());
+		panelPregunta = new JPanel(new BorderLayout());
 		panelPregunta.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		panelPreguntaYRespuesta.add(panelPregunta);
 		panelPregunta.setBackground(Color.WHITE);
@@ -312,9 +315,13 @@ public class JFrameQuiz extends JFramePadre{
 			this.preguntasUsadas.add(pregunta);
 			//Se añade el la pregunta al panel
 			JLabel lblPregunta = new JLabel(pregunta.getPregunta());
-			
-			panelPregunta.add(lblPregunta);
-			
+			lblPregunta.setHorizontalAlignment(SwingConstants.CENTER);
+			lblPregunta.setVerticalAlignment(SwingConstants.CENTER);
+			panelPregunta.add(lblPregunta, BorderLayout.CENTER);
+			panelPregunta.add(barraTiempo, BorderLayout.SOUTH);
+			//Crear el thread
+			contador = new Contador();
+			contador.start();
 			
 			//Llama a la funcion para cargar las opciones
 			this.añadirRespuestas();
@@ -376,11 +383,16 @@ public class JFrameQuiz extends JFramePadre{
 	
 	//Verifica si la pregunta seleccionada es correcta
 	private void verificarRespuesta(Opcion opcionSeleccionada) {
+		if (contador != null && contador.isAlive()) {
+			contador.interrupt();
+		}
 	    if (respondido==true) {
 	    	return;
 	    }
 	    respondido =true;
-	    if (opcionSeleccionada.getEs_correcta() == 1) {
+	    if (opcionSeleccionada == null) {
+	    	pintarOpcionCorrecta(opcionCorrecta);
+	    } else if(opcionSeleccionada.getEs_correcta() == 1) {
 	        pintarOpcionCorrecta(opcionSeleccionada);
 	        puntuacion += calcularPuntuacion(pregunta.getDificultad());
 	        System.out.println(pregunta.getDificultad());
@@ -578,11 +590,46 @@ public class JFrameQuiz extends JFramePadre{
     }
 	
 }
-	private int calcularPuntuacion(Dificultad d) {
-		puntuacion = d.getPuntuacionMaxima();
-		return puntuacion;
+	// Funcion que calcula la puntuacion optenida en cada pregunta
+	 private int calcularPuntuacion(Dificultad d) {
+		    float puntuacionPregunta;
+		    puntuacionPregunta = d.getPuntuacionMaxima() * (1 - ((float)tiempoRespuesta / TIEMPO_MAX_RESPUESTA));
+		   
+		    return (int) puntuacionPregunta;
+		}
+	private class Contador extends Thread{
+		@Override
+		public void run() {
+			tiempoInicio = System.currentTimeMillis();
+			int totalMilisegundos = TIEMPO_MAX_RESPUESTA *1000;
+			int intervalo = 50;
+			int iteraciones = totalMilisegundos/intervalo;
+			
+			int progreso;
+			barraTiempo.setValue(0);
+			for (int i=1; i<= iteraciones; i++) {
+				
+				progreso = (int) ((i * 100.0) / iteraciones);	
+				 
+				long tiempoTranscurrido = System.currentTimeMillis() - tiempoInicio;
+	            tiempoRespuesta = (int)(tiempoTranscurrido / 1000);
+	          
+	            final int segundosRestantes = TIEMPO_MAX_RESPUESTA - tiempoRespuesta;
+				final int porcentaje = progreso;
+				SwingUtilities.invokeLater(() ->{ barraTiempo.setValue(porcentaje);
+												barraTiempo.setString(segundosRestantes + "s");});
+				
+				try {
+					
+	                Thread.sleep(intervalo);
+	            } catch (InterruptedException e) {  
+	            	long tiempoFinal = System.currentTimeMillis() - tiempoInicio;
+	                tiempoRespuesta = (int)(tiempoFinal / 1000);
+	                return;}  
+	            
+			}
+			SwingUtilities.invokeLater(() -> {verificarRespuesta(null);});
+        }
 	}
-	Thread contador;
-	
 }
 	

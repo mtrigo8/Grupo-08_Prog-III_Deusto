@@ -51,6 +51,7 @@ public class JFrameInicio extends JFramePadre {
         btnEntrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+            	/*
             	contador = new Contador();
             	panelPrincipal.add(progressBar);
             	progressBar.setBounds(0, 543, getWidth(), 20);
@@ -58,6 +59,10 @@ public class JFrameInicio extends JFramePadre {
             	progressBar.setForeground(progressBar.getBackground().darker());
             	progressBar.setStringPainted(true); 
             	contador.start();
+            	*/
+            	JFrameSeleccionarLigas jfs = new JFrameSeleccionarLigas(ligas , JFrameInicio.this);
+                jfs.setVisible(true);
+                setVisible(false);
             }
         });
         

@@ -16,6 +16,7 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import java.util.Vector;
@@ -53,6 +54,7 @@ public class JFrameListaEquipos extends JFramePadre {
 	private JTextField filtradoNombre;
 	private JTable tablaEquipos;
 	private DefaultTableModel modeloDatosEquipos;
+	private HashMap<String, ImageIcon> mapaEscudos;
 	// private JButton botonEquipo; // Eliminado
 
 	private static final Color COLOR_BORDE_TABLA = new Color(222, 226, 230); // Gris claro para bordes
@@ -70,7 +72,9 @@ public class JFrameListaEquipos extends JFramePadre {
 		JPanel panel = super.panel;
 		panel.setLayout(new BorderLayout());
 		panel.setBackground(new Color(248, 249, 250)); // Fondo principal
-		
+		//Cargar los escudos una unica vez
+		cargarEscudos();
+		System.out.println(mapaEscudos);
 		// 1. TÍTULO SUPERIOR (NORTH - Header Principal)
 		JPanel titlePanel = new JPanel(new BorderLayout());
 		titlePanel.setBackground(new Color(152, 217, 194)); // Fondo oscuro para contraste
@@ -275,22 +279,17 @@ public class JFrameListaEquipos extends JFramePadre {
 		    
 		    if (column == 0) { // ESCUDO
 		        JLabel result = new JLabel();
-		        String nombrePNG = (String) value;	
-		        String nombreLiga  = liga.getNombre().toLowerCase();
-		        String ruta = "resources/images/equipos/"+nombreLiga+"/"+nombrePNG+".png";
+		    
+		        ImageIcon escudo = mapaEscudos.get(value.toString());
 		        
 		        result.setOpaque(true);
 		        
-		        int alturaObjetivo = table.getRowHeight(row) - 8; 
-		        ImageIcon imagenOriginal = null;
 		        try {
-		            imagenOriginal = new ImageIcon(ruta);
+		            result.setIcon(escudo);
 		        } catch (Exception e) {
-		            System.err.println("No se ha encontrado el archivo: "+ruta);
+		            System.err.println("No se ha encontrado el escudo del equipo: "+result.getText());
 		        }
-		        ImageIcon imagenModificada = escalarIcono(imagenOriginal, alturaObjetivo);
 		        
-		        result.setIcon(imagenModificada);		
 		        result.setText(null);	
 		        result.setHorizontalAlignment(JLabel.CENTER);
 		        return result;
@@ -463,6 +462,15 @@ public class JFrameListaEquipos extends JFramePadre {
 			if (eq.getNombre().toLowerCase().contains(filtro.toLowerCase())) {
 				this.modeloDatosEquipos.addRow(new Object[] {eq.getNombrePNGEquipo(), eq.getNombre(), eq.getTitulos()});
 			}
+		}
+	}
+	//Funcion que carga los escudos en un HashMap para mejorar el rendimiento
+	private void cargarEscudos () {
+		mapaEscudos = new HashMap<String, ImageIcon>();
+		for (Equipo e : liga.getEquipos()) {
+			ImageIcon escudo = new ImageIcon("resources/images/equipos/"+liga.getNombre()+"/"+e.getNombrePNGEquipo()+".png");
+			ImageIcon escudoAjustado = new ImageIcon(escudo.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
+			mapaEscudos.put(e.getNombrePNGEquipo(), escudoAjustado);
 		}
 	}
 }
