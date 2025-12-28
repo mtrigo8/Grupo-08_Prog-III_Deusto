@@ -30,6 +30,8 @@ import java.util.Vector;
 import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -42,6 +44,8 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
@@ -135,6 +139,11 @@ public class JFrameQuiz extends JFramePadre{
         barraTiempo = new JProgressBar(0, 100);
         barraTiempo.setValue(0);
         barraTiempo.setStringPainted(true);
+		barraTiempo.setPreferredSize(new Dimension(panelWidth, 15));
+		barraTiempo.setForeground(new Color(0, 200, 83));
+		barraTiempo.setBackground(new Color(230, 230, 230));
+		barraTiempo.setBorderPainted(false);
+		barraTiempo.setFont(new Font("SansSerif", Font.BOLD, 10));
         componentesPanelInicio();
         musica("resources/audios/The_Shire.wav");
         
@@ -265,16 +274,23 @@ public class JFrameQuiz extends JFramePadre{
 	// Pantalla del juego
 	private void quizIniciado() {
 		panelQuiz.removeAll();
+		panelQuiz.setBackground(Color.white);
 		puntuacion = 0;
 		//Reiniciar el Set de preguntas usadas
 		preguntasUsadas = new HashSet<Pregunta>();
 		//Crear la estructura base del Quiz (Paneles contenedores)
-		panelTiempoYPuntos = new JPanel(new GridLayout(1, 2, 15, 15));
+		panelTiempoYPuntos = new JPanel(new GridLayout(1, 3, 15, 15));
+		panelTiempoYPuntos.setOpaque(false);
 		panelPreguntaYRespuesta = new JPanel(new GridLayout(2, 1, 10, 30));
+		panelPreguntaYRespuesta.setOpaque(false);
 		
 		//Añadir el panel del tiempo
 		tiempo = new JPanel();
-		lblTiempo = new JLabel();
+		tiempo.setOpaque(false);
+		tiempo.setBackground(Color.WHITE);
+		lblTiempo = new JLabel("00:00");
+		lblTiempo.setFont(new Font("SansSerif", Font.BOLD, 16));
+		lblTiempo.setForeground(new Color(50, 50, 50));
 		tiempo.add(lblTiempo);
 		panelTiempoYPuntos.add(tiempo);
 		//Añadir panel de puntos
@@ -282,6 +298,8 @@ public class JFrameQuiz extends JFramePadre{
 		panelPuntuacion.add(new JLabel  ("PUNTUACION: "));
 		
 		lblPuntuacion = new JLabel("0");
+		lblPuntuacion.setFont(new Font("SansSerif", Font.BOLD, 18));
+		lblPuntuacion.setForeground(new Color(0, 150, 255));
 		panelPuntuacion.add(lblPuntuacion);
 		
 		panelTiempoYPuntos.add(panelPuntuacion);
@@ -297,9 +315,22 @@ public class JFrameQuiz extends JFramePadre{
 		panelRespuestas = new JPanel(new GridLayout(2, 2, 15, 15));
 		panelRespuestas.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		panelRespuestas.setBackground(Color.WHITE);
+		JPanel panelBotonSalir = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		BotonCircular btnSalirQuiz= new BotonCircular("Salir", new Color(255, 100, 100),Color.RED.darker());
+		btnSalirQuiz.setForeground(Color.white);
+		btnSalirQuiz.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		
+		btnSalirQuiz.addActionListener(e -> {
+		    if (contadorQuiz != null) contadorQuiz.interrupt();
+		    if (contador != null) contador.interrupt();
+		    if (delayTimer != null) delayTimer.stop();
+		    componentesPanelInicio();
+		    revalidate();
+		    repaint();
+		});
 		
-		
+		panelBotonSalir.add(btnSalirQuiz);
+		panelTiempoYPuntos.add(panelBotonSalir);
 		panelPreguntaYRespuesta.add(panelRespuestas, pregunta);
 		
 		panelQuiz.add(panelPreguntaYRespuesta);
@@ -311,26 +342,46 @@ public class JFrameQuiz extends JFramePadre{
 		// Cargar la pregunta de la BBDD
 		this.pregunta = GBD.cargarPreguntaAleatoria(preguntasUsadas);
 		try {
-			//Añadir la pregunta a las preguntas usadas
-			this.preguntasUsadas.add(pregunta);
-			//Se añade el la pregunta al panel
-			JLabel lblPregunta = new JLabel(pregunta.getPregunta());
-			lblPregunta.setHorizontalAlignment(SwingConstants.CENTER);
-			lblPregunta.setVerticalAlignment(SwingConstants.CENTER);
-			panelPregunta.add(lblPregunta, BorderLayout.CENTER);
-			panelPregunta.add(barraTiempo, BorderLayout.SOUTH);
-			//Crear el thread
-			contador = new Contador();
-			contador.start();
 			
-			//Llama a la funcion para cargar las opciones
-			this.añadirRespuestas();
+		this.preguntasUsadas.add(pregunta);
+
+		JTextArea textoPregunta = new JTextArea(pregunta.getPregunta());
+		textoPregunta.setLineWrap(true);
+		textoPregunta.setWrapStyleWord(true);
+		textoPregunta.setEditable(false);
+		textoPregunta.setOpaque(false);
+		textoPregunta.setForeground(Color.WHITE);
+		textoPregunta.setFont(new Font("SansSerif", Font.BOLD, 22));
+	
+		JTextPane panePregunta = new JTextPane();
+		SimpleAttributeSet center = new SimpleAttributeSet();
+		StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
+		StyleConstants.setForeground(center, Color.WHITE);
+		StyleConstants.setFontSize(center, 22);
+		StyleConstants.setBold(center, true);
+		StyleConstants.setFontFamily(center, "SansSerif");
+		
+		panePregunta.setParagraphAttributes(center, true);
+		panePregunta.setText(pregunta.getPregunta());
+		panePregunta.setEditable(false);
+		panePregunta.setOpaque(false);
+		
+		panelPregunta.removeAll(); // Limpiar anterior
+		panelPregunta.add(panePregunta, BorderLayout.CENTER);
+		panelPregunta.add(barraTiempo, BorderLayout.SOUTH);
+		
+		contador = new Contador();
+		contador.start();
+
+		this.añadirRespuestas();
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.err.println("No se ha podido cargar la pregunta de la base de datos: " + e.getMessage());
 		}
+
+}
 		
-	}
+	
 	
 	private void añadirRespuestas() {
 		this.respondido=false;
@@ -352,9 +403,13 @@ public class JFrameQuiz extends JFramePadre{
 	        
 	        
 	        // Hacer que parezca clicable
+	        lblOpcion.setOpaque(true); 
+	        lblOpcion.setBackground(Color.WHITE); 
 	        lblOpcion.setCursor(new Cursor(Cursor.HAND_CURSOR));
-	        lblOpcion.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-	        
+	        lblOpcion.setBorder(BorderFactory.createCompoundBorder(
+	                BorderFactory.createLineBorder(Color.black, 2),
+	                BorderFactory.createEmptyBorder(10, 10, 10, 10) 
+	            ));
 	        lblOpcion.addMouseListener(new MouseAdapter() {
 	        	//Si se clicka verifica la opcion si es correcta
 	        	@Override
@@ -436,16 +491,11 @@ public class JFrameQuiz extends JFramePadre{
 	private void pintarOpcionIncorrecta (Opcion opcionSeleccionada, Opcion opcionCorrecta) {
 		for (JLabel label : this.labelOpciones) {
 			if (label.getText().equals(opcionSeleccionada.getTexto_opcion())) {
-				label.setBackground(new Color(255, 182, 193));
-				label.setBorder(BorderFactory.createCompoundBorder(
-	                    BorderFactory.createLineBorder(new Color(220, 20, 60), 3),
-	                    BorderFactory.createEmptyBorder(15, 15, 15, 15)));
+				label.setBackground(new Color(180, 0, 0)); 
+				label.setBorder(BorderFactory.createLineBorder(Color.RED, 3));
 			}else if(label.getText().equals(opcionCorrecta.getTexto_opcion())){
-				label.setBackground((new Color(144, 238, 144)));
-				label.setBorder(BorderFactory.createCompoundBorder(
-	                    BorderFactory.createLineBorder(new Color(34, 139, 34), 3),
-	                    BorderFactory.createEmptyBorder(15, 15, 15, 15)));
-				
+				label.setBackground(new Color(0, 150, 0));
+				label.setBorder(BorderFactory.createLineBorder(Color.GREEN, 3));
 			}
 		}
 	}
@@ -606,6 +656,7 @@ public class JFrameQuiz extends JFramePadre{
 			int iteraciones = totalMilisegundos/intervalo;
 			
 			int progreso;
+			SwingUtilities.invokeLater(() -> barraTiempo.setForeground(new Color(0, 200, 83)));
 			barraTiempo.setValue(0);
 			for (int i=1; i<= iteraciones; i++) {
 				
@@ -618,6 +669,11 @@ public class JFrameQuiz extends JFramePadre{
 				final int porcentaje = progreso;
 				SwingUtilities.invokeLater(() ->{ barraTiempo.setValue(porcentaje);
 												barraTiempo.setString(segundosRestantes + "s");});
+				if (segundosRestantes <= 3) {
+					barraTiempo.setForeground(new Color(255, 60, 60));
+				} else if (segundosRestantes <= 5) {
+					barraTiempo.setForeground(new Color(255, 165, 0));
+				}
 				
 				try {
 					
