@@ -15,18 +15,22 @@ import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 
 import domain.Equipo;
@@ -177,9 +181,18 @@ public class JFrameJugador extends JFramePadre {
 		    panelStats.add(crearCirculoStat("Por. 0", String.valueOf(jugador.getPorteriasaCero())));
 		}
 		panel.add(panelStats);
-
-		this.setContentPane(panel);
-		usoBotonAtras(super.framePrevio);
+		String accionNombre = "accionVolverAtras";
+		KeyStroke ctrl = KeyStroke.getKeyStroke(KeyEvent.VK_BACK_SPACE,KeyEvent.CTRL_DOWN_MASK);
+		
+        panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(ctrl, accionNombre);
+        panel.getActionMap().put(accionNombre, new AbstractAction() {
+        	@Override
+            public void actionPerformed(ActionEvent e) { 
+            	botonAtras.doClick(); 
+        }
+        });
+	    this.setContentPane(panel);
+	    usoBotonAtras(super.framePrevio);
 	}
 	private void añadirFilaDato(JPanel panel, String titulo, String valor,Font fTitle, Font fValue) {
 		JLabel lblTitulo = new JLabel(titulo);

@@ -1,14 +1,20 @@
 package gui;
 
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -20,7 +26,9 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -179,7 +187,29 @@ public class JFrameEquipo extends JFramePadre{
 		panelPrincipal.add(scrollJugadores,BorderLayout.CENTER);
 		//Añadir boton atras nuevo
 		usoBotonAtras(ventanaAnterior);
-		add(mainPanel);		
+		
+		add(mainPanel);
+		String rutaalineacion = "resources/images/logos/alineacion.png";
+		BotonCircular btnAlineacion = new BotonCircular(new ImageIcon(rutaalineacion));
+		btnAlineacion.setPreferredSize(new Dimension(40, 40));
+		btnAlineacion.addActionListener(e -> {
+		    JFrameAlineacion jfa = new JFrameAlineacion(ventanaAnterior, equipo);
+		    setVisible(false);
+		    jfa.setVisible(true);
+		});
+
+		JPanel panelIzquierda = new JPanel(new BorderLayout());
+		panelIzquierda.setOpaque(false);
+
+		panelIzquierda.add(panelInformacion, BorderLayout.NORTH); 
+		
+		JPanel panelBoton = new JPanel(); 
+		panelBoton.setOpaque(false);
+		panelBoton.add(btnAlineacion);
+		panelIzquierda.add(panelBoton, BorderLayout.CENTER); 
+
+		panelPrincipal.add(panelIzquierda, BorderLayout.WEST);
+        
 		this.setContentPane(mainPanel);
 	}
 	@Override
@@ -348,5 +378,43 @@ public class JFrameEquipo extends JFramePadre{
 		 }		 
 		 return resultado;
 	 }
+	 private class BotonCircular extends JButton {
+	    	
+			private static final long serialVersionUID = 1L;
+	    	private Icon icono;
+	    	public BotonCircular (Icon ruta) {
+	    		super ("");
+	    		this.icono=ruta;
+	    		setContentAreaFilled(false);
+	    		setFocusPainted(false);
+	    		setBorderPainted(false);
+	    		setOpaque(false);
+	    		setCursor (new Cursor(Cursor.HAND_CURSOR));
+	    		
+	    	}
+	    	
+	    	@Override
+	    	  protected void paintComponent(Graphics g) {
+	            Graphics2D g2 = (Graphics2D) g.create();
+	            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+	            Color color1 = new Color(0, 242, 254); 
+	            Color color2 = new Color(79, 172, 254);
+	            
+	            GradientPaint gp = new GradientPaint(0, 0, color2, getWidth(), getHeight(), color1);
+	            g2.setPaint(gp);
+	            g2.fillOval(0, 0, getWidth(), getHeight());
+
+	            if (icono instanceof ImageIcon) {
+	                Image img = ((ImageIcon) icono).getImage();
+	                int padding = 8;
+	                g2.drawImage(img, padding, padding, getWidth() - padding * 2, getHeight() - padding * 2, this);
+	            }
+	            g2.setColor(new Color(255, 255, 255, 100));
+	            g2.setStroke(new BasicStroke(1.5f));
+	            g2.drawOval(1, 1, getWidth() - 3, getHeight() - 3);
+
+	            g2.dispose();
+	 }
+	    }
 }
 		
