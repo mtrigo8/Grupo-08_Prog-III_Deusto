@@ -51,6 +51,10 @@ public class Partido implements Comparable<Partido> {
 	public void actualizarGoles() {
 		equipoLocal.setGoles(equipoLocal.getGoles()+golesLocal-golesVisitante);
 		equipoVisitante.setGoles(equipoVisitante.getGoles()-golesLocal+golesVisitante);
+		equipoLocal.setGolesFavor(equipoLocal.getGolesFavor() + golesLocal);
+		equipoLocal.setGolesContra(equipoLocal.getGolesContra() + golesVisitante );
+		equipoVisitante.setGolesFavor(equipoVisitante.getGolesFavor() + golesVisitante);
+		equipoVisitante.setGolesContra(equipoVisitante.getGolesContra() + golesLocal);
 		equipoLocal.actualizarPartidos();
 		equipoVisitante.actualizarPartidos();
 	}

@@ -20,7 +20,20 @@ public class Equipo implements Comparable<Equipo> {
 	
 	private int puntos;
 	private int goles;
-
+	private int golesFavor;
+	private int golesContra;
+	public int getGolesFavor() {
+		return golesFavor;
+	}
+	public void setGolesFavor(int golesFavor) {
+		this.golesFavor = golesFavor;
+	}
+	public int getGolesContra() {
+		return golesContra;
+	}
+	public void setGolesContra(int golesContra) {
+		this.golesContra = golesContra;
+	}
 	public Equipo(String nombre, String ciudad, Liga liga, int anyoFundacion, int titulos,
 			String estadio, String nombrePNGEquipo) {
 		super();

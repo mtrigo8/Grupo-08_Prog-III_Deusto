@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
@@ -11,15 +12,18 @@ import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.Vector;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
@@ -35,7 +39,7 @@ public class JFrameClasificacion extends JFramePadre {
 	private Liga liga;
 	private static final long serialVersionUID = 1L;
 	private int pos = 1;
-	
+	private HashMap<String, ImageIcon> mapaEscudos;
 	public JFrameClasificacion(Liga liga, JFramePadre ventanaAnterior) {
 		super();
 		this.liga = liga;
@@ -55,8 +59,9 @@ public class JFrameClasificacion extends JFramePadre {
 		norte.add(nomLiga);
 		norte.setBounds(350, 40, 300, 60);
 		crearLeyenda();
+		cargarEscudos();
 		
-		Vector<String> columnNames = new Vector<String>(Arrays.asList("Pos", "Equipo", "Pts", "PJ", "DG"));
+		Vector<String> columnNames = new Vector<String>(Arrays.asList("Pos", "Equipo", "Pts", "PJ", "DG", "GF", "GC"));
 		DefaultTableModel mDatTab = new DefaultTableModel(new Vector<Vector<Object>>(), columnNames);
 		
 		
@@ -88,14 +93,18 @@ public class JFrameClasificacion extends JFramePadre {
 			String puntos = Integer.toString(equipo.getPuntos());
 			String partidos = Integer.toString(equipo.getPartidosJugados());
 			String goles = Integer.toString(equipo.getGoles());
-			mDatTab.addRow(new Object[] {posicion, equipo.getNombre(), puntos, partidos, goles});
+			String golesFavor = Integer.toString(equipo.getGolesFavor());
+			String golesContra = Integer.toString(equipo.getGolesContra());
+			mDatTab.addRow(new Object[] {posicion, equipo.getNombre(), puntos, partidos, goles, golesFavor, golesContra});
 			pos++;
 			}
 		
 		
 		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(270, 150, 460, 300);
+		scrollPane.setBounds(155, 150, 700, 300);
 		scrollPane.setOpaque(false);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		panel.add(scrollPane);
 		panel.add(norte);
 		this.add(panel);
@@ -113,38 +122,91 @@ public class JFrameClasificacion extends JFramePadre {
 				// TODO Auto-generated method stub
 				JLabel result = new JLabel(value.toString());
 				result.setOpaque(true);
+				if (row % 2 == 0) {
+				result.setBackground(new Color(236, 240, 241));
+				}else {
+					result.setBackground(Color.WHITE);
+				}
+				
 				if (column != 1) { 
 				    result.setHorizontalAlignment(JLabel.CENTER);
 				}
 				if (row == 0 && column == 0) {
-					result.setBackground(new Color(255,251,0));
+					result.setBackground(getForeground());
+					result.setBackground(new Color(255, 215, 0, 180));
+					ImageIcon icono = new ImageIcon("resources/images/logos/campeon.png");
+					ImageIcon iconoAjustado = new ImageIcon(icono.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+					result.setIcon(iconoAjustado);
+					result.setText("");
 				}else if (row>0 && row<=3 && column == 0) {
 					result.setBackground(new Color(27, 125, 242));
+					ImageIcon icono = new ImageIcon("resources/images/logos/champions.png");
+					ImageIcon iconoAjustado = new ImageIcon(icono.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+					result.setIcon(iconoAjustado);
+					result.setText("");
 				}else if (row>3 && row <= 5 && column == 0) {
 					result.setBackground(new Color(252,136,0));
+					ImageIcon icono = new ImageIcon("resources/images/logos/europa.png");
+					ImageIcon iconoAjustado = new ImageIcon(icono.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+					result.setIcon(iconoAjustado);
+					result.setText("");
 				}else if (row>= 17 && column == 0) {
 					result.setBackground(new Color(255,0,0));
+					ImageIcon icono = new ImageIcon("resources/images/logos/descenso.png");
+					ImageIcon iconoAjustado = new ImageIcon(icono.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+					result.setIcon(iconoAjustado);
+					result.setText("");
 					
 				}else if (column == 0) {
 					result.setBackground(new Color(115,111,111));
-				}else {
-					result.setBackground(Color.WHITE);
-				} if (row == 16 && column == 0 && liga.getNombre().equals("Bundesliga")) {
+				}else if (column == 1) {
+					ImageIcon escudo = mapaEscudos.get(result.getText());
+					result.setIcon(escudo);
+					result.setText("");
+					result.setHorizontalAlignment(0);;
+				}else if (column == 2) {
+					result.setFont(new Font("Arial", Font.BOLD, 14));
+					result.setForeground(new Color(41, 128, 185));		
+				}if (row == 16 && column == 0 && liga.getNombre().equals("Bundesliga")) {
 					result.setBackground(new Color(255,0,0));
+					ImageIcon icono = new ImageIcon("resources/images/logos/descenso.png");
+					ImageIcon iconoAjustado = new ImageIcon(icono.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+					result.setIcon(iconoAjustado);
+					result.setText("");
+					
 				}
 				
 				
 				return result;
 			}
 		};
+		DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer() {
+			@Override
+			public Component getTableCellRendererComponent(JTable table, Object value,
+					boolean isSelected, boolean hasFocus, int row, int column) {
+				JLabel label = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+				label.setHorizontalAlignment(JLabel.CENTER);
+				label.setBackground(new Color(52, 73, 94));
+				label.setForeground(Color.WHITE);
+				label.setFont(new Font("Arial", Font.BOLD, 14));
+				label.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new Color(41, 128, 185)));
+				return label;
+			}
+		};
+		
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.getTableHeader().setOpaque(false);
-		table.getColumnModel().getColumn(0).setPreferredWidth(60);   // Pos
+		table.getColumnModel().getColumn(0).setPreferredWidth(80);   // Pos
 		table.getColumnModel().getColumn(1).setPreferredWidth(200);   // Nom
-		table.getColumnModel().getColumn(2).setPreferredWidth(60);   // Pts
-		table.getColumnModel().getColumn(3).setPreferredWidth(60);   // PJ
-		table.getColumnModel().getColumn(4).setPreferredWidth(60);// DG
+		table.getColumnModel().getColumn(2).setPreferredWidth(80);   // Pts
+		table.getColumnModel().getColumn(3).setPreferredWidth(80);   // PJ
+		table.getColumnModel().getColumn(4).setPreferredWidth(80);// DG
+		table.getColumnModel().getColumn(5).setPreferredWidth(80);
+		table.getColumnModel().getColumn(6).setPreferredWidth(80);
 		table.setDefaultRenderer(Object.class, cellrenderer);
+		for (int i = 0; i < table.getColumnCount(); i++) {
+			table.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
+		}
 		
 		}
 		
@@ -169,6 +231,14 @@ public class JFrameClasificacion extends JFramePadre {
 		colors.setBounds(50, 455, 25, 100);
 		panel.add(texts);
 		texts.setBounds(75, 455, 150, 100);
+	}
+	private void cargarEscudos () {
+		mapaEscudos = new HashMap<String, ImageIcon>();
+		for (Equipo e : liga.getEquipos()) {
+			ImageIcon escudo = new ImageIcon("resources/images/equipos/"+liga.getNombre()+"/"+e.getNombrePNGEquipo()+".png");
+			ImageIcon escudoAjustado = new ImageIcon(escudo.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+			mapaEscudos.put(e.getNombre(), escudoAjustado);
+		}
 	}
 	
 	
