@@ -81,7 +81,7 @@ public class JFrameListaEquipos extends JFramePadre {
 		JLabel titleLabel = new JLabel("Lista de Equipos - " + liga.getNombre());
 		titleLabel.setFont(FONT_TITULO);
 		titleLabel.setForeground(Color.BLACK);
-		titleLabel.setHorizontalAlignment(JLabel.LEFT);
+		titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		titlePanel.add(titleLabel, BorderLayout.CENTER);
 		
 		JPanel topPanel = new JPanel(new BorderLayout());
@@ -89,7 +89,7 @@ public class JFrameListaEquipos extends JFramePadre {
         topPanel.setBorder(new LineBorder(COLOR_BORDE_TABLA, 1));
 		
 		JPanel panelFiltro = new JPanel(new GridBagLayout());
-		panelFiltro.setBackground(Color.WHITE);
+		panelFiltro.setBackground(new Color(152, 217, 194));
 		//IAG
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.insets.right = 20; 
@@ -235,7 +235,7 @@ public class JFrameListaEquipos extends JFramePadre {
 	}
 	
 	private void inicializarTabla() {
-		Vector<String> cabezeraEquipos = new Vector<String>(Arrays.asList("ESCUDO", "NOMBRE", "TÍTULOS"));
+		Vector<String> cabezeraEquipos = new Vector<String>(Arrays.asList("ESCUDO", "NOMBRE", "TÍTULOS", "AÑO FUND."));
 		modeloDatosEquipos = new DefaultTableModel(new Vector<Vector<Object>>(), cabezeraEquipos);
 		
 		this.tablaEquipos = new JTable(this.modeloDatosEquipos) {
@@ -249,7 +249,10 @@ public class JFrameListaEquipos extends JFramePadre {
                     c.setBackground(COLOR_HOVER_FILA); 
                     c.setForeground(Color.BLACK);
                 } else if (row % 2 == 0) {
-                    c.setBackground(Color.WHITE); 
+                    c.setBackground(new Color(171, 237, 198)); 
+                    c.setForeground(Color.BLACK);
+                } else if (row % 2 == 1) {
+                    c.setBackground(new Color(171, 237, 198)); 
                     c.setForeground(Color.BLACK);
                 } else {
                     c.setBackground(new Color(248, 249, 250)); 
@@ -312,6 +315,11 @@ public class JFrameListaEquipos extends JFramePadre {
 		        result1.setOpaque(true);
 		        result1.setFont(new Font("Arial", Font.BOLD, 16));
 		        return result1;
+		    } else if (column == 3) {//Año fundacion
+		    	JLabel result = new JLabel(value.toString(), JLabel.CENTER);
+		        result.setOpaque(true);
+		        result.setFont(new Font("Arial", Font.BOLD, 16));
+		        return result;
 		    }
 		    
 		    return new JLabel(value != null ? value.toString() : "");
@@ -323,7 +331,7 @@ public class JFrameListaEquipos extends JFramePadre {
 		this.tablaEquipos.setDefaultRenderer(Object.class, cellRenderer);
         
         // Estilo de las líneas de la tabla
-        this.tablaEquipos.setIntercellSpacing(new Dimension(0, 1)); 
+        this.tablaEquipos.setIntercellSpacing(new Dimension(0, 0)); 
         this.tablaEquipos.setBorder(new LineBorder(COLOR_BORDE_TABLA));
 		
 		// Configuración de anchos de columna
@@ -333,9 +341,12 @@ public class JFrameListaEquipos extends JFramePadre {
 		TableColumn columnaTitulos = tablaEquipos.getColumnModel().getColumn(2);
 		columnaTitulos.setPreferredWidth(90); 
 		
+		TableColumn columnaAnyo = tablaEquipos.getColumnModel().getColumn(3);
+		columnaAnyo.setPreferredWidth(90); 
+		
 		// El ancho de la columna del Nombre será dinámico
 		TableColumn columnaNombre = tablaEquipos.getColumnModel().getColumn(1);
-		columnaNombre.setPreferredWidth(this.getWidth() - 193); // Ajustado para un ancho razonable
+		columnaNombre.setPreferredWidth(this.getWidth() - 283); // Ajustado para un ancho razonable
 
 		// Se establece la altura de la columna
 		this.tablaEquipos.setRowHeight(50); 
@@ -458,7 +469,7 @@ public class JFrameListaEquipos extends JFramePadre {
 		modeloDatosEquipos.setRowCount(0);
 		for (Equipo eq: equiposOrdenados) {
 			if (eq.getNombre().toLowerCase().contains(filtro.toLowerCase())) {
-				this.modeloDatosEquipos.addRow(new Object[] {eq.getNombrePNGEquipo(), eq.getNombre(), eq.getTitulos()});
+				this.modeloDatosEquipos.addRow(new Object[] {eq.getNombrePNGEquipo(), eq.getNombre(), eq.getTitulos(), eq.getAnyoFundacion()});
 			}
 		}
 	}

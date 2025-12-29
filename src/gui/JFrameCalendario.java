@@ -61,7 +61,7 @@ public class JFrameCalendario extends JFramePadre {
 		super.framePrevio = ventanaAnterior;
 		this.liga = liga;
 		 // DEBUG
-	    System.out.println("=== DEBUG CALENDARIO ===");
+	    /*System.out.println("=== DEBUG CALENDARIO ===");
 	    System.out.println("Liga: " + liga.getNombre());
 	    System.out.println("Equipos: " + liga.getEquipos().size());
 	    System.out.println("Calendario es null? " + (liga.getCalendario() == null));
@@ -72,6 +72,7 @@ public class JFrameCalendario extends JFramePadre {
 	        }
 	    }
 	    System.out.println("========================");
+	    */
 		JPanel panel = super.panel;
 		panel.setLayout(new BorderLayout());
 		//Cargar los escudos tan solo una vez
@@ -98,6 +99,7 @@ public class JFrameCalendario extends JFramePadre {
 		JPanel panelNorteCentro = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		panelNorteCentro.add(new JLabel("Seleccionar Jornada"));
 		panelNorteCentro.add(seleccionarJornada);
+		panelNorteCentro.setBackground(new Color(152, 217, 194)); //Cambio de color parte superior
 		//panelNorteCentro.setBackground(new Color(241, 154, 62));
 		panelNorteCentro.setOpaque(true);
 		panelNorte.add(panelNorteCentro);
@@ -112,8 +114,7 @@ public class JFrameCalendario extends JFramePadre {
 		this.scrollPane = new JScrollPane(tablaCalendario);
 		this.scrollPane.setVerticalScrollBar(new JScrollBar());
 		this.scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(25, 30));
-
-		
+		scrollPane.getViewport().setBackground(new Color(152, 217, 194));
 		
 		panel.add(panelNorte, BorderLayout.NORTH);
 		panel.add(scrollPane, BorderLayout.CENTER);
@@ -147,7 +148,7 @@ public class JFrameCalendario extends JFramePadre {
 				if (row % 2 == 0) {
 					result.setBackground(new Color(171, 237, 198));
 				} else if (row % 2 == 1) {
-					result.setBackground(new Color(152, 217, 194));
+					result.setBackground(Color.white);
 				}
 				//Cambiar color de fondo segun la posicion del raton
 				if(filaCalendario != -1 && columnaCalendario != -1 && 

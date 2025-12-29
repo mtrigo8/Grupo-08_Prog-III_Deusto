@@ -3,11 +3,13 @@ package gui;
 
 	import java.awt.BasicStroke;
 	import java.awt.Color;
-	import java.awt.Cursor;
+import java.awt.Component;
+import java.awt.Cursor;
 	import java.awt.Font;
 	import java.awt.Graphics;
 	import java.awt.Graphics2D;
-	import java.awt.RenderingHints;
+import java.awt.Image;
+import java.awt.RenderingHints;
 	import java.awt.event.MouseAdapter;
 	import java.awt.event.MouseEvent;
 	import java.util.ArrayList;
@@ -16,7 +18,9 @@ package gui;
 	import java.util.List;
 	import java.util.Map;
 
-	import javax.swing.JLabel;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 	import javax.swing.JOptionPane;
 	import javax.swing.JPanel;
 	import javax.swing.SwingConstants;
@@ -70,6 +74,20 @@ package gui;
 	        rellenarAlineacionAuto();
 
 	        this.setContentPane(panelPrincipal);
+	        
+	        //Boton de Reroll
+	        ImageIcon rr = new ImageIcon("resources/images/logos/reroll.png");
+	        Image rr2 = rr.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+	        ImageIcon rr3 = new ImageIcon(rr2);
+	        JLabel botonReRoll = new JLabel(rr3);
+	        botonReRoll.addMouseListener(new MouseAdapter() {
+	            @Override
+	            public void mouseClicked(MouseEvent e) {
+	                rellenarAlineacionAuto();
+	            }
+	        });
+	        botonReRoll.setBounds(20, 100, 50, 50);
+	        panelPrincipal.add(botonReRoll);
 	    }
 
 	    private void inicializarPosiciones() {
