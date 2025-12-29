@@ -49,7 +49,6 @@ public class JFrameEquipo extends JFramePadre{
 	private ArrayList<Liga> ligas;
 	private Liga liga;
 	private Equipo equipo;
-	private JFramePadre ventanaAnterior;
 	private DefaultTableModel modeloDatosJugador;
 	private JTable tablaJugadores;
 	private HashMap<Jugador.TipoPosicion,ArrayList<Jugador>> listaJugadores;
@@ -193,7 +192,7 @@ public class JFrameEquipo extends JFramePadre{
 		BotonCircular btnAlineacion = new BotonCircular(new ImageIcon(rutaalineacion));
 		btnAlineacion.setPreferredSize(new Dimension(40, 40));
 		btnAlineacion.addActionListener(e -> {
-		    JFrameAlineacion jfa = new JFrameAlineacion(ventanaAnterior, equipo);
+		    JFrameAlineacion jfa = new JFrameAlineacion(JFrameEquipo.this, equipo);
 		    setVisible(false);
 		    jfa.setVisible(true);
 		});
@@ -254,6 +253,8 @@ public class JFrameEquipo extends JFramePadre{
 				JLabel result = new JLabel(value.toString());
 				result.setOpaque(true);
 				result.setHorizontalAlignment(SwingConstants.CENTER);
+				
+				
 				//Alternar color por columnas
 				if (row % 2 == 0) {
 					result.setBackground(colorFondoTabla);
@@ -266,6 +267,12 @@ public class JFrameEquipo extends JFramePadre{
 				if (isSelected) {
 					result.setBackground(colorSeleccion);
 	                result.setForeground(colorTextoSeleccion);
+				}
+				//Modifica el color de la fila si esta el cursor por encima
+				if (filaJugador != -1 && row == filaJugador) {
+					result.setBackground(colorSeleccion);
+					result.setForeground(colorTextoSeleccion);
+					result.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 				}
 				return result;
 				
@@ -291,6 +298,39 @@ public class JFrameEquipo extends JFramePadre{
 				}
 			}
 		});
+		
+		MouseMotionListener miMouseMotionListener = new MouseMotionListener() {
+			
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				// TODO Auto-generated method stub
+				Point puntoRaton = new Point(e.getX(), e.getY());
+				filaJugador = tablaJugadores.rowAtPoint(puntoRaton);
+				// Cambiar el cursor de la tabla
+		        if (filaJugador != -1) {
+		            tablaJugadores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		        } else {
+		            tablaJugadores.setCursor(Cursor.getDefaultCursor());
+		        }
+				tablaJugadores.repaint();
+				
+			}
+			
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+		MouseAdapter miMouseAdapter = new MouseAdapter() {
+			@Override
+			public void mouseExited (MouseEvent e) {
+				filaJugador = -1;
+				tablaJugadores.repaint();
+			}
+		};
+		tablaJugadores.addMouseMotionListener(miMouseMotionListener);
+		tablaJugadores.addMouseListener(miMouseAdapter);
 		
 	}
 	

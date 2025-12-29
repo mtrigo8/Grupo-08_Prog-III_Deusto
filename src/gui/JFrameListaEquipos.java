@@ -74,7 +74,6 @@ public class JFrameListaEquipos extends JFramePadre {
 		panel.setBackground(new Color(248, 249, 250)); // Fondo principal
 		//Cargar los escudos una unica vez
 		cargarEscudos();
-		System.out.println(mapaEscudos);
 		// 1. TÍTULO SUPERIOR (NORTH - Header Principal)
 		JPanel titlePanel = new JPanel(new BorderLayout());
 		titlePanel.setBackground(new Color(152, 217, 194)); // Fondo oscuro para contraste
@@ -415,7 +414,6 @@ public class JFrameListaEquipos extends JFramePadre {
 				dispose();
 				JFrameEquipo jfe = new JFrameEquipo(equipoSeleccionado, JFrameListaEquipos.this);
 				jfe.setVisible(true);
-				System.out.println("Abriendo ventana de equipo para: " + equipoSeleccionado.getNombre());
 			} else {
 				System.err.println("Error: No se encontró el objeto Equipo para el nombre: " + nombreEquipo);
 			}

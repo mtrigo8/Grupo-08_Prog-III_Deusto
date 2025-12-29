@@ -57,6 +57,10 @@ public class JFrameJugador extends JFramePadre {
 		super.framePrevio = ventanaAnterior;
 		this.liga=jugador.getEquipo().getLiga();
 		this.todasLasLigas = ligas;
+		
+		//Implementar el boton atras
+		usoBotonAtras(framePrevio);
+		
 		JPanel panel = new JPanel () {
 			@Override
 			protected void paintComponent (Graphics g) {
@@ -72,7 +76,9 @@ public class JFrameJugador extends JFramePadre {
 		};
 		panel.setLayout(null);
 		setImagenDeFondo(null);
-
+		//Modificar y añadir boton atras
+		panel.add(botonAtras);
+		
 		JLabel labelDorsal= new JLabel ("#"+jugador.getNumeroCamiseta());
 		labelDorsal.setFont(new Font("SansSerif", Font.BOLD, 80));
 		labelDorsal.setForeground(new Color(245, 240, 225));

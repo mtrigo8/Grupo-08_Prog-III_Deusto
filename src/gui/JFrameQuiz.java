@@ -342,38 +342,38 @@ public class JFrameQuiz extends JFramePadre{
 		// Cargar la pregunta de la BBDD
 		this.pregunta = GBD.cargarPreguntaAleatoria(preguntasUsadas);
 		try {
-			
-		this.preguntasUsadas.add(pregunta);
-
-		JTextArea textoPregunta = new JTextArea(pregunta.getPregunta());
-		textoPregunta.setLineWrap(true);
-		textoPregunta.setWrapStyleWord(true);
-		textoPregunta.setEditable(false);
-		textoPregunta.setOpaque(false);
-		textoPregunta.setForeground(Color.WHITE);
-		textoPregunta.setFont(new Font("SansSerif", Font.BOLD, 22));
+				
+			this.preguntasUsadas.add(pregunta);
 	
-		JTextPane panePregunta = new JTextPane();
-		SimpleAttributeSet center = new SimpleAttributeSet();
-		StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
-		StyleConstants.setForeground(center, Color.WHITE);
-		StyleConstants.setFontSize(center, 22);
-		StyleConstants.setBold(center, true);
-		StyleConstants.setFontFamily(center, "SansSerif");
+			JTextArea textoPregunta = new JTextArea(pregunta.getPregunta());
+			textoPregunta.setLineWrap(true);
+			textoPregunta.setWrapStyleWord(true);
+			textoPregunta.setEditable(false);
+			textoPregunta.setOpaque(false);
+			textoPregunta.setForeground(Color.BLACK);
+			textoPregunta.setFont(new Font("SansSerif", Font.BOLD, 22));
 		
-		panePregunta.setParagraphAttributes(center, true);
-		panePregunta.setText(pregunta.getPregunta());
-		panePregunta.setEditable(false);
-		panePregunta.setOpaque(false);
-		
-		panelPregunta.removeAll(); // Limpiar anterior
-		panelPregunta.add(panePregunta, BorderLayout.CENTER);
-		panelPregunta.add(barraTiempo, BorderLayout.SOUTH);
-		
-		contador = new Contador();
-		contador.start();
-
-		this.añadirRespuestas();
+			JTextPane panePregunta = new JTextPane();
+			SimpleAttributeSet center = new SimpleAttributeSet();
+			StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
+			StyleConstants.setForeground(center, Color.BLACK);
+			StyleConstants.setFontSize(center, 22);
+			StyleConstants.setBold(center, true);
+			StyleConstants.setFontFamily(center, "SansSerif");
+			
+			panePregunta.setParagraphAttributes(center, true);
+			panePregunta.setText(pregunta.getPregunta());
+			panePregunta.setEditable(false);
+			panePregunta.setOpaque(false);
+			
+			panelPregunta.removeAll(); // Limpiar anterior
+			panelPregunta.add(panePregunta, BorderLayout.CENTER);
+			panelPregunta.add(barraTiempo, BorderLayout.SOUTH);
+			
+			contador = new Contador();
+			contador.start();
+	
+			this.añadirRespuestas();
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.err.println("No se ha podido cargar la pregunta de la base de datos: " + e.getMessage());
