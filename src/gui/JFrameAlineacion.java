@@ -52,7 +52,7 @@ import javax.swing.JLabel;
 	        JPanel panelPrincipal = super.panel;
 	        panelPrincipal.setLayout(null);
 	        setImagenDeFondo(null); 
-	        panelPrincipal.setBackground(new Color(40, 40, 40));
+	        panelPrincipal.setBackground(new Color(152, 217, 194));
 
 	        JLabel lblTitulo = new JLabel("ALINEACIÓN 4-3-3: " + equipo.getNombre().toUpperCase());
 	        lblTitulo.setFont(new Font("SansSerif", Font.BOLD, 22));
@@ -87,6 +87,7 @@ import javax.swing.JLabel;
 	            }
 	        });
 	        botonReRoll.setBounds(20, 100, 50, 50);
+	        botonReRoll.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	        panelPrincipal.add(botonReRoll);
 	    }
 

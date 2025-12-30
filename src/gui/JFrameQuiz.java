@@ -124,7 +124,7 @@ public class JFrameQuiz extends JFramePadre{
 		
 		//Crear un panel para el quiz
 		panelQuiz = new JPanel(new BorderLayout());
-		panelQuiz.setBackground(Color.WHITE);
+		panelQuiz.setBackground(new Color(152, 217, 194));
         panelQuiz.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
         panelQuiz.setOpaque(true);
 		
@@ -173,7 +173,7 @@ public class JFrameQuiz extends JFramePadre{
 			if (row % 2 == 0) {
 					result.setBackground(Color.WHITE);
 				} else {
-					result.setBackground(new Color(245, 255, 245));
+					result.setBackground(new Color(230, 248, 242));
 				}		
 			if (column == 0 && row!=1) {
 
@@ -244,7 +244,7 @@ public class JFrameQuiz extends JFramePadre{
 		}
 		tabla.setRowHeight(40);
 		tabla.getTableHeader().setFont(new Font("SansSerif", Font.BOLD, 14));
-		tabla.getTableHeader().setBackground(new Color(185, 255, 183));
+		tabla.getTableHeader().setBackground(new Color(190, 230, 220));
 		JButton btnInicio=new BotonCircular("Iniciar Quiz",Color.gray,Color.DARK_GRAY);
 		btnInicio.setForeground(Color.WHITE);
 		btnInicio.setPreferredSize(new Dimension(230, 70));
@@ -310,7 +310,7 @@ public class JFrameQuiz extends JFramePadre{
 		panelPregunta = new JPanel(new BorderLayout());
 		panelPregunta.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		panelPreguntaYRespuesta.add(panelPregunta);
-		panelPregunta.setBackground(Color.WHITE);
+		panelPregunta.setBackground(new Color(235, 250, 245));
 		//Crear panel de las respuestas
 		panelRespuestas = new JPanel(new GridLayout(2, 2, 15, 15));
 		panelRespuestas.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -334,7 +334,7 @@ public class JFrameQuiz extends JFramePadre{
 		panelPreguntaYRespuesta.add(panelRespuestas, pregunta);
 		
 		panelQuiz.add(panelPreguntaYRespuesta);
-		
+	
 		this.añadirPregunta();
 	}
 	
@@ -395,7 +395,19 @@ public class JFrameQuiz extends JFramePadre{
 	        Opcion opcion = opciones.get(i);
 	        //Crea un lbl con el contenido de cada opcion
 	        JLabel lblOpcion = new JLabel(opcion.getTexto_opcion(), SwingConstants.CENTER);
+
+	        if(i == 0) {
+	        	lblOpcion.setBackground(Color.PINK);
+	        }else if(i == 1) {
+	        	lblOpcion.setBackground(new Color(39, 214, 245));
+	        }else if(i == 2) {
+	        	lblOpcion.setBackground(Color.YELLOW);
+	        }else if (i == 3) {
+	        	lblOpcion.setBackground(Color.ORANGE);
+	        }
+	       
 	        labelOpciones.add(lblOpcion);
+	       
 	        //Conseguir la opcion correcta de la pregunta
 	        if (opcion.getEs_correcta() == 1) {
 	        	opcionCorrecta = opcion;
@@ -403,14 +415,14 @@ public class JFrameQuiz extends JFramePadre{
 	        
 	        
 	        // Hacer que parezca clicable
-	        lblOpcion.setOpaque(true); 
-	        lblOpcion.setBackground(Color.WHITE); 
+	        lblOpcion.setOpaque(true);
 	        lblOpcion.setCursor(new Cursor(Cursor.HAND_CURSOR));
 	        lblOpcion.setBorder(BorderFactory.createCompoundBorder(
 	                BorderFactory.createLineBorder(Color.black, 2),
 	                BorderFactory.createEmptyBorder(10, 10, 10, 10) 
 	            ));
 	        lblOpcion.addMouseListener(new MouseAdapter() {
+	        	Color colorOriginal = lblOpcion.getBackground();
 	        	//Si se clicka verifica la opcion si es correcta
 	        	@Override
 	            public void mouseClicked(MouseEvent e) {
@@ -419,14 +431,15 @@ public class JFrameQuiz extends JFramePadre{
 	            //Modifica color del label si el raton esta encima
 	            @Override
 	            public void mouseEntered(MouseEvent e) {
-	                lblOpcion.setBackground(Color.LIGHT_GRAY);
+	            	
+	                lblOpcion.setBackground(colorOriginal.darker());
 	                lblOpcion.setOpaque(true);
 	            }
 	            
 	            //Modifica el color del label 
 	            @Override
 	            public void mouseExited(MouseEvent e) {
-	                lblOpcion.setBackground(Color.WHITE);
+	                lblOpcion.setBackground(colorOriginal);
 	                
 	            }
 	            
@@ -468,7 +481,9 @@ public class JFrameQuiz extends JFramePadre{
 	        panelPregunta.removeAll();
 	        panelRespuestas.removeAll();
 	        // Cargar nueva pregunta
+	        if(!tiempoCumplido) {
 	        añadirPregunta();
+	        }
 	        panelQuiz.revalidate();
 	        panelQuiz.repaint();
 	    });
@@ -547,6 +562,7 @@ public class JFrameQuiz extends JFramePadre{
                 
                 tiempoCumplido = true;
                 if(tiempoCumplido && !this.isInterrupted()) {
+                	contador.interrupt();
                 	SwingUtilities.invokeLater(() -> {
 	                JLabel texto = new JLabel("Su puntuacion ha sido de " + puntuacion + " " + "Introduzca su usuario", JLabel.CENTER);
 	                String usuario = JOptionPane.showInputDialog(
@@ -650,6 +666,7 @@ public class JFrameQuiz extends JFramePadre{
 	private class Contador extends Thread{
 		@Override
 		public void run() {
+			while(!isInterrupted()) {
 			tiempoInicio = System.currentTimeMillis();
 			int totalMilisegundos = TIEMPO_MAX_RESPUESTA *1000;
 			int intervalo = 50;
@@ -685,7 +702,9 @@ public class JFrameQuiz extends JFramePadre{
 	            
 			}
 			SwingUtilities.invokeLater(() -> {verificarRespuesta(null);});
-        }
+		}
+     }
+		
 	}
 }
 	
