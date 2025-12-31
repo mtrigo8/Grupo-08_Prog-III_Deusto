@@ -45,8 +45,8 @@ public class JFrameCalendario extends JFramePadre {
 	
 	private Liga liga;
 	private static final long serialVersionUID = 1L;
-	private DefaultTableModel  mDatTab;
-	private JTable tablaCalendario;
+	protected DefaultTableModel  mDatTab;
+	protected JTable tablaCalendario;
 	private JScrollPane scrollPane;
 	private int filaCalendario = -1;
 	private int columnaCalendario = -1;
@@ -273,7 +273,7 @@ public class JFrameCalendario extends JFramePadre {
 		
 	}
 			
-	private void cargarCalendario () {
+	public void cargarCalendario () {
 		mDatTab.setRowCount(0);
 		for (int j : this.liga.getCalendario().keySet()) {
 			ArrayList<Partido> jornada = liga.getCalendario().get(j);

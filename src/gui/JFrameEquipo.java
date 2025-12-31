@@ -188,6 +188,8 @@ public class JFrameEquipo extends JFramePadre{
 		usoBotonAtras(ventanaAnterior);
 		
 		add(mainPanel);
+		//Crear el boton de alineacion
+		
 		String rutaalineacion = "resources/images/logos/alineacion.png";
 		BotonCircular btnAlineacion = new BotonCircular(new ImageIcon(rutaalineacion));
 		btnAlineacion.setPreferredSize(new Dimension(40, 40));
@@ -196,7 +198,16 @@ public class JFrameEquipo extends JFramePadre{
 		    setVisible(false);
 		    jfa.setVisible(true);
 		});
-
+		//Crear el boton de calendario
+		String rutaCalendario = "resources/images/logos/calendario.png";
+		BotonCircular btnCalendario = new BotonCircular(new ImageIcon(rutaCalendario));
+		btnCalendario.setPreferredSize(new Dimension(40, 40));
+		btnCalendario.addActionListener(e -> {
+			JFrameCalendarioEquipo jfce = new JFrameCalendarioEquipo(this.liga, this.equipo, JFrameEquipo.this);
+			setVisible(false);
+			jfce.setVisible(true);
+		});
+		
 		JPanel panelIzquierda = new JPanel(new BorderLayout());
 		panelIzquierda.setOpaque(false);
 
@@ -205,6 +216,7 @@ public class JFrameEquipo extends JFramePadre{
 		JPanel panelBoton = new JPanel(); 
 		panelBoton.setOpaque(false);
 		panelBoton.add(btnAlineacion);
+		panelBoton.add(btnCalendario);
 		panelIzquierda.add(panelBoton, BorderLayout.CENTER); 
 
 		panelPrincipal.add(panelIzquierda, BorderLayout.WEST);
