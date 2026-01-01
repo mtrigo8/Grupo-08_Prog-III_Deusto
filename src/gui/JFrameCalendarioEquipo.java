@@ -34,7 +34,24 @@ public class JFrameCalendarioEquipo extends JFrameCalendario{
 	public void cargarCalendario() {
 		cargarCalendarioEquipo();
 	}
-	
+	@Override
+	public void cargarCalendarioFiltro (int jornadaSeleccionada) {
+		mDatTab.setRowCount(0);
+		if (jornadaSeleccionada == 0) {
+			cargarCalendario();
+		}else {
+		ArrayList<Partido> jornada = liga.getCalendario().get(jornadaSeleccionada);
+			for (Partido p: jornada) {
+				if (p.getEquipoLocal().equals(this.equipoSeleccionado) || p.getEquipoVisitante().equals(equipoSeleccionado)) {
+					mDatTab.addRow(new Object[] {
+							String.valueOf(p.getJornada()), p.getFecha().toString(), p.getEquipoLocal().getNombre(), p.getEquipoVisitante().getNombre(), 
+							String.valueOf(p.getGolesLocal())+" - "+ String.valueOf(p.getGolesVisitante())
+					});
+				}
+			}
+		}
+
+	}
 	private void cargarCalendarioEquipo() {
 		mDatTab = (DefaultTableModel) tablaCalendario.getModel();
 		mDatTab.setRowCount(0);

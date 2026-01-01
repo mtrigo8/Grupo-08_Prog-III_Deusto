@@ -284,7 +284,7 @@ public class JFrameCalendario extends JFramePadre {
 		}
 		
 	}
-	private void cargarCalendarioFiltro(int jornadaSeleccionada) {
+	public void cargarCalendarioFiltro(int jornadaSeleccionada) {
 		mDatTab.setRowCount(0);
 		if (jornadaSeleccionada == 0) {
 			cargarCalendario();
