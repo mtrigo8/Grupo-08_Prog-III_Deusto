@@ -60,7 +60,6 @@ public class JFrameJugador extends JFramePadre {
 		
 		//Implementar el boton atras
 		usoBotonAtras(framePrevio);
-		
 		JPanel panel = new JPanel () {
 			@Override
 			protected void paintComponent (Graphics g) {
@@ -82,12 +81,12 @@ public class JFrameJugador extends JFramePadre {
 		JLabel labelDorsal= new JLabel ("#"+jugador.getNumeroCamiseta());
 		labelDorsal.setFont(new Font("SansSerif", Font.BOLD, 80));
 		labelDorsal.setForeground(new Color(245, 240, 225));
-        labelDorsal.setBounds(40, 30, 180, 90);
+        labelDorsal.setBounds(100, 30, 180, 90);
         panel.add(labelDorsal);
 		JLabel labelNombre = new JLabel(jugador.getNombre());
         labelNombre.setFont(new Font("SansSerif",Font.BOLD,42));
         labelNombre.setForeground(Color.white); 
-        labelNombre.setBounds(190, 55, 400, 55); 
+        labelNombre.setBounds(250, 55, 350, 55); 
         panel.add(labelNombre);
         JPanel panelDatos = new JPanel(new GridLayout(5, 2, 10, 15));
         panelDatos.setOpaque(false);
