@@ -46,11 +46,11 @@ import domain.Equipo;
 import domain.Jugador;
 import domain.Liga;
 import domain.Jugador.TipoPosicion;
-
+import javax.swing.table.TableRowSorter;
 
 public class JFrameEquipo extends JFramePadre{
 	private ArrayList<Liga> ligas;
-	private Liga liga;
+	private Liga liga; 	
 	private Equipo equipo;
 	private DefaultTableModel modeloDatosJugador;
 	private JTable tablaJugadores;
@@ -313,6 +313,39 @@ public class JFrameEquipo extends JFramePadre{
 		
 		this.tablaJugadores.setDefaultRenderer(Object.class, miCellRenderer);
 		
+		TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(this.modeloDatosJugador);
+		this.tablaJugadores.setRowSorter(sorter);
+		
+		//Tratar los numeros de los jugadores como int y no como String
+		sorter.setComparator(4, (o1, o2) ->{
+			try {
+		        Integer num1 = Integer.parseInt(o1.toString());
+		        Integer num2 = Integer.parseInt(o2.toString());
+		        return num1.compareTo(num2);
+		    } catch (NumberFormatException e) {
+		        return o1.toString().compareTo(o2.toString());
+		    }
+		});
+		//Ordenar la edad como un int no String
+		sorter.setComparator(3, (o1, o2) ->{
+			try {
+		        Integer edad1 = Integer.parseInt(o1.toString());
+		        Integer edad2 = Integer.parseInt(o2.toString());
+		        return edad1.compareTo(edad2);
+		    } catch (NumberFormatException e) {
+		        return o1.toString().compareTo(o2.toString());
+		    }
+		});
+		//Ordenar posicion por el Enum
+		sorter.setComparator(0, (o1, o2) ->{
+			try {
+		        TipoPosicion pos1 = TipoPosicion.valueOf(o1.toString());
+		        TipoPosicion pos2 = TipoPosicion.valueOf(o2.toString());
+		        return Integer.compare(pos1.ordinal(), pos2.ordinal());
+		    } catch (IllegalArgumentException e) {
+		        return o1.toString().compareTo(o2.toString());
+		    }
+		});;
 		tablaJugadores.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked (MouseEvent e) {
@@ -420,32 +453,35 @@ public class JFrameEquipo extends JFramePadre{
 	}
 
 	//Devolver jugador seleccionado
-	 public Jugador conseguirJugador (int row) {
-		 Jugador resultado = null;
-		 
-		 if (row < 0) {
-			 System.err.println("No hay fila seleccionada");
-			 return resultado;
-		 }
-		 
-		 String posicionString = (String) tablaJugadores.getValueAt(row, 0);
-		 TipoPosicion posicion = TipoPosicion.valueOf(posicionString);
-		 String nomJugadorBuscar = (String) tablaJugadores.getValueAt(row, 1);
-		 
-		 ArrayList<Jugador> posiblesJugadores = this.listaJugadores.get(posicion);
-		 if (posiblesJugadores == null) {
-			 System.err.println("No hay jugadores en esta posicion");
-			 return resultado;
-		 }
-		 
-		 for (Jugador j : posiblesJugadores) {
-			 if(j.getNombre().equals(nomJugadorBuscar)) {
-				 resultado = j;
-				 break;
-			 }
-		 }		 
-		 return resultado;
-	 }
+	public Jugador conseguirJugador (int row) {
+	    Jugador resultado = null;
+	    
+	    if (row < 0) {
+	        System.err.println("No hay fila seleccionada");
+	        return resultado;
+	    }
+	    
+	    // Convertir el índice de la vista al índice del modelo
+	    int modelRow = tablaJugadores.convertRowIndexToModel(row);
+	    
+	    String posicionString = (String) modeloDatosJugador.getValueAt(modelRow, 0);
+	    TipoPosicion posicion = TipoPosicion.valueOf(posicionString);
+	    String nomJugadorBuscar = (String) modeloDatosJugador.getValueAt(modelRow, 1);
+	    
+	    ArrayList<Jugador> posiblesJugadores = this.listaJugadores.get(posicion);
+	    if (posiblesJugadores == null) {
+	        System.err.println("No hay jugadores en esta posicion");
+	        return resultado;
+	    }
+	    
+	    for (Jugador j : posiblesJugadores) {
+	        if(j.getNombre().equals(nomJugadorBuscar)) {
+	            resultado = j;
+	            break;
+	        }
+	    }		 
+	    return resultado;
+	}
 	 
 	 // Panel animado para el escudo
 	 //IAG la animacion del escudo
