@@ -713,7 +713,6 @@ public class JFrameQuiz extends JFramePadre{
 	 private class FondoDegradado extends JPanel{
 
 			private static final long serialVersionUID = 1L;
-		//una clase de hilos para hacer que se muevan las "particulas"
 
 	    	 @Override
 	         protected void paintComponent(Graphics g) {
@@ -731,10 +730,7 @@ public class JFrameQuiz extends JFramePadre{
 	             // -------------------------------------
 
 	             Composite composicionOriginal = g2.getComposite();
-
 	             g2.setColor(Color.WHITE);
-	             
-	             
 	             g2.setComposite(composicionOriginal);
 	         }
 	    }

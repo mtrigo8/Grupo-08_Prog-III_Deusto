@@ -4,11 +4,16 @@ import java.awt.BorderLayout;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Composite;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.RenderingHints;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -44,7 +49,15 @@ public class JFrameClasificacion extends JFramePadre {
 		super();
 		this.liga = liga;
 		super.framePrevio = ventanaAnterior;
-		
+		FondoDegradado fondo= new FondoDegradado();
+		fondo.setLayout(null);
+		this.setContentPane(fondo);
+		JPanel panelTarjeta = new JPanel();
+        panelTarjeta.setLayout(null);
+        panelTarjeta.setBackground(new Color(255, 255, 255, 220));
+        panelTarjeta.setBounds(50, 70, 900, 460); // Centrado en la ventana
+        panelTarjeta.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255), 2));
+        fondo.add(panelTarjeta);
 		ArrayList<Equipo> clasificacion = this.liga.getEquipos();
 		Collections.sort(clasificacion);
 		JPanel norte = new JPanel(new GridLayout(2,1));
@@ -57,8 +70,9 @@ public class JFrameClasificacion extends JFramePadre {
 		norte.setOpaque(false);
 		norte.add(titulo);
 		norte.add(nomLiga);
-		norte.setBounds(350, 40, 300, 60);
-		crearLeyenda();
+		norte.setBounds(300, 10, 300, 60);
+		panelTarjeta.add(norte);
+
 		cargarEscudos();
 		
 		Vector<String> columnNames = new Vector<String>(Arrays.asList("Pos", "Equipo", "Pts", "PJ", "DG", "GF", "GC"));
@@ -66,9 +80,11 @@ public class JFrameClasificacion extends JFramePadre {
 		
 		
 		JTable table = new JTable(mDatTab);
-		table.setRowHeight(30);
+		table.setRowHeight(40);
 		table.setDefaultEditor(Object.class, null);
+		table.setIntercellSpacing(new Dimension(0, 0));
 		table.getTableHeader().setReorderingAllowed(false);
+		
 		//Modificar cursor en  la tabla
 		table.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.setLayout(null);
@@ -101,17 +117,19 @@ public class JFrameClasificacion extends JFramePadre {
 		
 		
 		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(155, 150, 700, 300);
-		scrollPane.setOpaque(false);
-		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		panel.add(scrollPane);
-		panel.add(norte);
-		this.add(panel);
-		this.setSize(1000,600);
-		this.setVisible(true);
-		table.setVisible(true);
-		usoBotonAtras(super.framePrevio);
+		scrollPane.setBounds(100, 80, 700, 320); 
+        scrollPane.setOpaque(false);
+        scrollPane.getViewport().setBackground(Color.WHITE);
+        scrollPane.setBorder(BorderFactory.createEmptyBorder());
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        
+        panelTarjeta.add(scrollPane);
+
+        crearLeyenda(panelTarjeta);
+        
+        usoBotonAtras(super.framePrevio);
+        fondo.add(botonAtras);
 		
 		TableCellRenderer cellrenderer = new TableCellRenderer() {
 			
@@ -188,7 +206,7 @@ public class JFrameClasificacion extends JFramePadre {
 				label.setHorizontalAlignment(JLabel.CENTER);
 				label.setBackground(new Color(52, 73, 94));
 				label.setForeground(Color.WHITE);
-				label.setFont(new Font("Arial", Font.BOLD, 14));
+				label.setFont(new Font("SansSerif", Font.BOLD, 14));
 				label.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new Color(41, 128, 185)));
 				return label;
 			}
@@ -211,12 +229,14 @@ public class JFrameClasificacion extends JFramePadre {
 		}
 		
 	
-	private void crearLeyenda() {
+	private void crearLeyenda(JPanel panelDestino) {
 		Color[] colores = {new Color(255,251,0), new Color(27, 125, 242), new Color(252,136,0), new Color(255,0,0)};
 		String[] textos = {"CAMPEON", "CHAMPIONS LEAGUE", "EUROPA LEAGUE", "DESCENSO"};
 		String[] logos = {"resources/images/logos/campeon.png", "resources/images/logos/champions.png", "resources/images/logos/europa.png", "resources/images/logos/descenso.png"};
 		JPanel colors = new JPanel(new GridLayout(4, 1));
 		JPanel texts = new JPanel(new GridLayout(4, 1));
+		int startX = 50; 
+        int startY = 420;
 		for (int i = 0; i < 4; i++) {
 			ImageIcon icono = new ImageIcon(logos[i]);
 			ImageIcon iconoAjustado = new ImageIcon(icono.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
@@ -226,11 +246,15 @@ public class JFrameClasificacion extends JFramePadre {
 			JLabel texto = new JLabel(textos[i]);
 			colors.add(color);
 			texts.add(texto);
+			color.setBounds(startX, startY, 30, 30);
+            texto.setBounds(startX + 35, startY, 150, 30);
+            
+            panelDestino.add(color);
+            panelDestino.add(texto);
+            
+            startX += 200;
 		}
-		panel.add(colors);
-		colors.setBounds(50, 455, 25, 100);
-		panel.add(texts);
-		texts.setBounds(75, 455, 150, 100);
+
 	}
 	private void cargarEscudos () {
 		mapaEscudos = new HashMap<String, ImageIcon>();
@@ -240,7 +264,30 @@ public class JFrameClasificacion extends JFramePadre {
 			mapaEscudos.put(e.getNombre(), escudoAjustado);
 		}
 	}
-	
+	 private class FondoDegradado extends JPanel{
+
+			private static final long serialVersionUID = 1L;
+
+	    	 @Override
+	         protected void paintComponent(Graphics g) {
+	             super.paintComponent(g);
+	             Graphics2D g2 = (Graphics2D) g;
+	             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+	             g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+	             GradientPaint gradiente = new GradientPaint(
+	                 0, 0, new Color(185, 255, 183),
+	                 0, getHeight(), new Color(100, 220, 150) 
+	             );
+	             g2.setPaint(gradiente);
+	             g2.fillRect(0, 0, getWidth(), getHeight());
+
+	             // -------------------------------------
+
+	             Composite composicionOriginal = g2.getComposite();
+	             g2.setColor(Color.WHITE);
+	             g2.setComposite(composicionOriginal);
+	         }
+	    }
 	
 
 }
