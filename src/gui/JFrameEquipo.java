@@ -83,63 +83,18 @@ public class JFrameEquipo extends JFramePadre{
 		
 	    setImagenDeFondo(null);
         String nombreLiga = liga.getNombre();
-        if (nombreLiga.equals("Premier")) {
-        colorFondo = new Color(55, 0, 60); 
-        colorPanelInfo = new Color(45, 0, 50); 
-        colorTextoInfo = new Color(200, 150, 255);
-        colorTextoValores = Color.WHITE;
-        colorCabeceraTabla = new Color(30, 0, 35); 
-        colorTextoCabecera = Color.WHITE;
-        colorFondoTabla = colorFondo;
-        colorFondoTablaAlterno = new Color(65, 10, 70); 
-        colorTextoTabla = Color.WHITE;
-        colorSeleccion = new Color(150, 100, 200); 
-        colorTextoSeleccion = Color.WHITE;
-        colorAcento = new Color(200, 150, 255);
-
-    } else if (nombreLiga.equals("Bundesliga")) {
-    	colorFondo = new Color(208, 1, 27); 
-        colorPanelInfo = new Color(180, 1, 20); 
-        colorTextoInfo = new Color(255, 220, 100);
-        colorTextoValores = Color.WHITE;
-        colorCabeceraTabla = new Color(100, 0, 10); 
-        colorTextoCabecera = Color.WHITE;
-        colorFondoTabla = colorFondo;
-        colorFondoTablaAlterno = new Color(218, 10, 37); 
-        colorTextoTabla = Color.WHITE;
-        colorSeleccion = new Color(255, 200, 50); 
+        colorFondo = new Color(185, 255, 183); 
+        colorPanelInfo = new Color(185, 230, 183); 
+        colorTextoInfo = new Color(33, 33, 33);
+        colorTextoValores = Color.DARK_GRAY;
+        colorCabeceraTabla = new Color(100, 220, 150); 
+        colorTextoCabecera = Color.BLACK;
+        colorFondoTabla = Color.WHITE;
+        colorFondoTablaAlterno = new Color(240, 255, 240); 
+        colorTextoTabla = Color.BLACK;
+        colorSeleccion = new Color(135, 205, 133); 
         colorTextoSeleccion = Color.BLACK;
-        colorAcento = new Color(255, 220, 100);
-        
-    } else if (nombreLiga.equals("LaLiga")) {
-        colorFondo = new Color(10, 20, 45); 
-        colorPanelInfo = new Color(20, 35, 75); 
-        colorTextoInfo = new Color(255, 75, 55); 
-        colorTextoValores = Color.WHITE;
-        colorCabeceraTabla = new Color(15, 25, 55); 
-        colorTextoCabecera = Color.CYAN;
-        colorFondoTabla = new Color(15, 25, 50);
-        colorFondoTablaAlterno = new Color(25, 40, 70);
-        colorTextoTabla = new Color(220, 230, 255);
-        colorSeleccion = new Color(255, 75, 55); 
-        colorTextoSeleccion = Color.WHITE;
-        colorAcento = new Color(0, 240, 255);
-        
-    } else {
-    	
-    	colorFondo = new Color(30, 30, 30);
-        colorPanelInfo = new Color(40, 40, 40);
-        colorTextoInfo = new Color(100, 200, 255);
-        colorTextoValores = Color.WHITE;
-        colorCabeceraTabla = new Color(20, 20, 20);
-        colorTextoCabecera = Color.WHITE;
-        colorFondoTabla = colorFondo;
-        colorFondoTablaAlterno = new Color(50, 50, 50);
-        colorTextoTabla = Color.WHITE;
-        colorSeleccion = new Color(70, 150, 255);
-        colorTextoSeleccion = Color.WHITE;
-        colorAcento = new Color(100, 200, 255);
-    }
+        colorAcento = new Color(100, 220, 150);
         
     mainPanel.setBackground(colorFondo);
 		//Cargar el icono
