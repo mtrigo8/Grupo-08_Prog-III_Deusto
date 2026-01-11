@@ -1,12 +1,15 @@
 package gui;
 
+import java.awt.AlphaComposite;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Composite;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
@@ -113,6 +116,7 @@ public class JFrameQuiz extends JFramePadre{
 		//Inicializar el Gestor BD
 		GBD = new GestorBD();
 		JPanel panel = super.panel;
+		panel= new FondoDegradado();
 		setImagenDeFondo(null);
 		panel.setOpaque(true);
 		panel.setLayout(null); // Desactivar el layout manager
@@ -120,7 +124,7 @@ public class JFrameQuiz extends JFramePadre{
 		botonAtras.setBounds(10, 10, 60, 50);
 	
 		this.setContentPane(panel);
-		
+		;
 		
 		//Crear un panel para el quiz
 		panelQuiz = new JPanel(new BorderLayout());
@@ -706,5 +710,34 @@ public class JFrameQuiz extends JFramePadre{
      }
 		
 	}
+	 private class FondoDegradado extends JPanel{
+
+			private static final long serialVersionUID = 1L;
+		//una clase de hilos para hacer que se muevan las "particulas"
+
+	    	 @Override
+	         protected void paintComponent(Graphics g) {
+	             super.paintComponent(g);
+	             Graphics2D g2 = (Graphics2D) g;
+	             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+	             g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+	             GradientPaint gradiente = new GradientPaint(
+	                 0, 0, new Color(185, 255, 183),
+	                 0, getHeight(), new Color(100, 220, 150) 
+	             );
+	             g2.setPaint(gradiente);
+	             g2.fillRect(0, 0, getWidth(), getHeight());
+
+	             // -------------------------------------
+
+	             Composite composicionOriginal = g2.getComposite();
+
+	             g2.setColor(Color.WHITE);
+	             
+	             
+	             g2.setComposite(composicionOriginal);
+	         }
+	    }
+	
 }
 	
