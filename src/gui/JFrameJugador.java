@@ -144,7 +144,7 @@ public class JFrameJugador extends JFramePadre {
 		lblStatsTitulo.setForeground(COLOR_TITULO);
 		lblStatsTitulo.setBounds(60, 430, 250, 20);
 		panel.add(lblStatsTitulo);
-		ImageIcon imagenjug= new ImageIcon( "resources/images/logos/villalibre.png");
+		ImageIcon imagenjug= new ImageIcon( "resources/images/logos/jugador.png");
         Image imagenescaladajug=imagenjug.getImage().getScaledInstance(200, 250, Image.SCALE_SMOOTH);
         JLabel lblfotojug =new JLabel(new ImageIcon(imagenescaladajug));
         lblfotojug.setBounds(655, 160, 230, 230);

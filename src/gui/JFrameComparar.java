@@ -321,7 +321,7 @@ public class JFrameComparar extends JFramePadre{
         private void asignarJugador(Jugador j) {
             this.jugadorActual = j;
             
-            String rutaFoto = "resources/images/logos/villalibre.png";
+            String rutaFoto = "resources/images/logos/jugador.png";
             ImageIcon iconoOriginal = new ImageIcon(rutaFoto);
             Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(140, 140, Image.SCALE_SMOOTH);
             lblFoto.setIcon(new ImageIcon(imagenEscalada));
