@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
+import java.util.Random;
+
 import javax.swing.*;
 
 import domain.Liga;
@@ -12,7 +14,7 @@ public class JFrameInicio extends JFramePadre {
 	private ArrayList<Liga> ligas;
 
     private static final long serialVersionUID = 1L;
-    private static final long MAX_VALUE = 3000000;
+    private int TIEMPO_ESPERA;
     private FondoAnimado panelPrincipal;
     private JLabel titulo;
     private JButton btnEntrar;
@@ -51,7 +53,9 @@ public class JFrameInicio extends JFramePadre {
         btnEntrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	/*
+
+                Random random = new Random();
+            	TIEMPO_ESPERA = 10 * random.nextInt(1, 10);
             	contador = new Contador();
             	panelPrincipal.add(progressBar);
             	progressBar.setBounds(0, 543, getWidth(), 20);
@@ -59,10 +63,7 @@ public class JFrameInicio extends JFramePadre {
             	progressBar.setForeground(progressBar.getBackground().darker());
             	progressBar.setStringPainted(true); 
             	contador.start();
-            	*/
-            	JFrameSeleccionarLigas jfs = new JFrameSeleccionarLigas(ligas , JFrameInicio.this);
-                jfs.setVisible(true);
-                setVisible(false);
+            	
             }
         });
         
@@ -157,13 +158,19 @@ public class JFrameInicio extends JFramePadre {
     	public void run() {
     		int progreso;
     		
-    		for (int i=0; i <= MAX_VALUE; i++) {
+    		for (int i=0; i <= TIEMPO_ESPERA; i++) {
     			
     			
     			// Valor de progreso
-    			progreso = (int) ((i * 100) / MAX_VALUE);
+    			progreso = (int) ((i * 100) / TIEMPO_ESPERA);
     			
     			updateProgressBar(progreso);
+    			try {
+					sleep(100);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
     		}
     		SwingUtilities.invokeLater(()->{
     			panelPrincipal.remove(progressBar);
