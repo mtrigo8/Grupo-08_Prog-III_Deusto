@@ -383,13 +383,13 @@ public class JFrameEquipo extends JFramePadre{
 		for (int i=0; i<informacion.length;i++) {
 			JLabel labelinfo=new JLabel(informacion[i]);
 			labelinfo.setForeground(colorTextoInfo);
-			labelinfo.setFont(new Font("Arial",Font.BOLD, 13));
+			labelinfo.setFont(new Font("SansSerif",Font.BOLD, 13));
 			labelinfo.setHorizontalAlignment(JLabel.RIGHT);
 			panel.add(labelinfo);
 			
 			JLabel labelvalor= new JLabel (valores[i]);
 			labelvalor.setForeground(colorTextoValores);
-			labelvalor.setFont(new Font("Arial",Font.PLAIN,14));
+			labelvalor.setFont(new Font("SansSerif",Font.PLAIN,14));
 			labelvalor.setHorizontalAlignment(JLabel.LEFT);
 			panel.add(labelvalor);
 		}

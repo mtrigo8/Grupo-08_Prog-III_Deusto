@@ -154,6 +154,7 @@ public class JFrameJugador extends JFramePadre {
         BotonCircular btnComparar= new BotonCircular(ftequilibrio);
         btnComparar.setSize(new Dimension (60,60));
         btnComparar.setBounds(430, 475, 60, 60);
+        btnComparar.setToolTipText("Comparar jugador");
         btnComparar.addActionListener(new ActionListener() {
 			
 			@Override
